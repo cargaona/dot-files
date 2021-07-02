@@ -1,0 +1,72 @@
+interval=4
+separator_block_width=10
+
+[cpu_throttled]
+command=vcgencmd get_throttled
+interval=10
+
+[cpu_temp]
+command=vcgencmd measure_temp
+interval=10
+
+[cpu_clock]
+command=vcgencmd measure_clock arm
+interval=10
+
+[cpu_usage]
+command=cat /proc/loadavg | awk '{ print $1 }'
+interval=2
+
+[memory-used]
+command=free -h --si | awk 'FNR==2{ print $0 }' | awk '{ print $3 }'
+interval=2
+
+[memory-free]
+command=free -h --si | awk 'FNR==2{ print $0 }' | awk '{ print $7 }'
+interval=2
+
+[rdisk]
+command=df -h / | awk 'FNR==2{print $4}'
+interval=60
+
+[click]
+full_text=click me
+command=echo $(curl ifconfig.io)
+#interval=once
+color=#91E78B
+
+[volume-pulseaudio]
+interval=1
+command=~/.config/i3blocks/blocks/volume/volume
+signal=1
+
+[day]
+command=date '+%a'
+interval=60
+separator=false
+
+[date]
+command=date +'%d-%m-%y'
+interval=1
+
+[time]
+command=date +'%H:%M:%S'
+interval=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
