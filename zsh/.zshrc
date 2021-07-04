@@ -144,6 +144,9 @@ alias cdr='cd $(git rev-parse --show-toplevel)'
 alias copy='xclip -sel clip'
 alias .z="source ~/.zshrc"
 alias bat="batcat"
+alias bt=bluetoothctl
+alias btoff="bluetoothctl power off"
+alias bton="bluetoothctl power on"
 
 export HISTCONTROL=ignoreboth:erasedups
 export XDG_CONFIG_DIRS=$HOME/.config 
