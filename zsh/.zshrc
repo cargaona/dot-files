@@ -156,6 +156,6 @@ export PATH=$HOME/.local/bin:$PATH
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-
+export PATH=$PATH:/usr/local/tinygo/bin
 #. /usr/share/autojump/autojump.sh
 
