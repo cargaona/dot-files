@@ -104,7 +104,6 @@ fi
 #   export EDITOR='nvim'
 # fi
 
-export EDITOR='nvim'
  
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -113,11 +112,12 @@ export EDITOR='nvim'
 #
 #        autoload -U compinit && compinit -u
 
-
-#autoload -U compinit && compinit
-#source $HOME/projects/personal/code/kube-ps1/kube-ps1.sh
-#export KUBE_PS1_SYMBOL_ENABLE=false 
-#PROMPT='$(kube_ps1)'$PROMPT
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    autoload -U compinit && compinit
+    source $HOME/projects/personal/code/kube-ps1/kube-ps1.sh
+    export KUBE_PS1_SYMBOL_ENABLE=false 
+    PROMPT='$(kube_ps1)'$PROMPT
+fi 
 #
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -131,13 +131,6 @@ alias gcm="git commit -m "
 alias netk="sudo systemctl restart NetworkManager"
 alias python=python3
 alias venv=virtualenv
-
-alias kctx=kubectx
-alias k=kubectl
-alias kon=kubeon
-alias kof=kubeoff 
-alias kns=kubens
-
 alias tl="tmux list-sessions"
 alias ta="tmux attach-session -t"
 alias cdr='cd $(git rev-parse --show-toplevel)'
@@ -148,6 +141,13 @@ alias bt=bluetoothctl
 alias btoff="bluetoothctl power off"
 alias bton="bluetoothctl power on"
 
+alias kctx=kubectx
+alias k=kubectl
+alias kon=kubeon
+alias kof=kubeoff 
+alias kns=kubens
+
+export EDITOR=nvim
 export HISTCONTROL=ignoreboth:erasedups
 export XDG_CONFIG_DIRS=$HOME/.config 
 export RTV_BROWSER=chromium
@@ -158,4 +158,3 @@ export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 export PATH=$PATH:/usr/local/tinygo/bin
 #. /usr/share/autojump/autojump.sh
-
