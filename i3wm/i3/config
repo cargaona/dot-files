@@ -185,9 +185,9 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     # for desktop
-    # status_command i3blocks
+    status_command i3blocks
     # for raspberry 
-    status_command i3blocks -c ~/.config/i3blocks/config.raspi
+    #status_command i3blocks -c ~/.config/i3blocks/config.raspi
     separator_symbol /
     strip_workspace_numbers yes
     colors {

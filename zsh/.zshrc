@@ -3,6 +3,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export CODE_PATH=$HOME/projects/personal/code/
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -114,7 +115,7 @@ fi
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     autoload -U compinit && compinit
-    source $HOME/projects/personal/code/kube-ps1/kube-ps1.sh
+    source $CODE_PATH/kube-ps1/kube-ps1.sh
     export KUBE_PS1_SYMBOL_ENABLE=false 
     PROMPT='$(kube_ps1)'$PROMPT
 fi 
