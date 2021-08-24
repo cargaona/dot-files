@@ -147,6 +147,7 @@ alias k=kubectl
 alias kon=kubeon
 alias kof=kubeoff 
 alias kns=kubens
+alias tf=terraform 
 
 export EDITOR=nvim
 export HISTCONTROL=ignoreboth:erasedups
