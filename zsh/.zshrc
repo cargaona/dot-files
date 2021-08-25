@@ -127,6 +127,7 @@ fi
 alias grip="history | grep"
 alias vim=nvim
 alias g=git 
+alias gdl="git diff $(git rev-parse HEAD)"
 alias gir=git ## You know this feeling. 
 alias gcm="git commit -m "
 alias netk="sudo systemctl restart NetworkManager"
