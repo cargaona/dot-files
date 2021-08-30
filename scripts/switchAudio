@@ -1,0 +1,14 @@
+choices="speakers\nheadphones"
+
+chosen=$(echo "$choices" | dmenu -i -p "Select audio output: " -sb "#7E33FF" )
+
+case "$chosen" in
+        "headphones") bluetoothctl connect 00:16:94:2C:AA:96 && \
+            notify-send -t 2000  Audio  'HD 440BT Connected' && \
+	    exit 0  ;;
+        "speakers") bluetoothctl disconnect 00:16:94:2C:AA:96 && \
+            pactl set-default-sink alsa_output.pci-0000_0f_00.6.analog-stereo && \
+            notify-send -t 2000  Audio  'Speakers Connected' && pacmd set-default-sink 2 && \
+	    exit 0 ;;
+esac
+
