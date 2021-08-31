@@ -114,7 +114,7 @@ fi
 #        autoload -U compinit && compinit -u
 
 #if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-if [[ hostname != "raspi" ]]; then
+if [[ $(hostname) != "raspi" ]]; then
     autoload -U compinit && compinit
     source $CODE_PATH/kube-ps1/kube-ps1.sh
     export KUBE_PS1_SYMBOL_ENABLE=false 

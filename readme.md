@@ -1,7 +1,7 @@
 Clone the repository and create symbolic links.
 
 ```bash
-export CODE_PATH=/home/char/projects/personal/code/
+export CODE_PATH=/home/char/projects/personal/code
 ln -s $CODE_PATH/dot-files/zsh/.zshrc ~/.zshrc
 ln -s $CODE_PATH/dot-files/tmux/.tmux.conf ~/.tmux.conf
 ln -s $CODE_PATH/dot-files/nvim/init.vim ~/.config/nvim/init.vim
