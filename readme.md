@@ -9,4 +9,5 @@ ln -s $CODE_PATH/dot-files/i3wm/i3/config ~/.config/i3/config
 ln -s $CODE_PATH/dot-files/i3wm/i3blocks/config ~/.config/i3blocks/config
 ln -s $CODE_PATH/dot-files/scripts/switchAudio /usr/local/bin/
 ln -s $CODE_PATH/dot-files/scripts/switchMonitorLayout /usr/local/bin/
+ln -s $CODE_PATH/dot-files/scripts/calendar /usr/local/bin/
 ```

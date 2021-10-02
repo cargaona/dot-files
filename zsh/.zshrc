@@ -125,6 +125,7 @@ fi
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+alias cd..="cd .."
 alias grip="history | grep"
 alias vim=nvim
 alias g=git 
@@ -150,6 +151,7 @@ alias kon=kubeon
 alias kof=kubeoff 
 alias kns=kubens
 alias tf=terraform 
+alias dk=docker
 
 export EDITOR=nvim
 export HISTCONTROL=ignoreboth:erasedups

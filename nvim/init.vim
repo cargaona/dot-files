@@ -130,6 +130,9 @@ filetype plugin indent on
 "" Basic Setup
 "*****************************************************************************"
 set updatetime=10
+set virtualedit=all
+set sel=exclusive
+
 "" Encoding
 set encoding=utf-8
 set fileencoding=utf-8
@@ -316,6 +319,7 @@ augroup END
 augroup vimrc-wrapping
   autocmd!
   autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
+  autocmd BufRead,BufNewFile *.md call s:setupWrapping()
 augroup END
 
 "" make/cmake
