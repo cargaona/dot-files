@@ -1,6 +1,11 @@
 interval=4
 separator_block_width=10
 
+[spotify]
+command=~/.config/i3blocks/blocks/spotify/spotify
+interval=5
+align=left
+
 [cpu_usage]
 command= cat /proc/loadavg | awk '{ print $1 }'
 interval=2
