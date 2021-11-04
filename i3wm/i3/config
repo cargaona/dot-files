@@ -25,7 +25,6 @@ font xft:JetBrains Mono 11
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-## exec at i@sR@sR@sR@sR@sR@sR@sR
 exec --no-star# exec at i3 startupexec --no-startup-id copyq
 exec "xrandr --output HDMI-A-0 --mode 2560x1080 --left-of DisplayPort-2"
 exec "xrandr --output DisplayPort-2 --mode 1920x1080 --right-of HDMI-A-0 --rotate left"
@@ -45,9 +44,12 @@ bindsym $mod1+space exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 ## system volume
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 2 +5%"
-bindsym XF86AudioLowerVolume  exec "pactl set-sink-volume 2 -5%"
-bindsym XF86AudioMute exec "pactl set-sink-mute 2 toggle"
+# 2 for desktop 3 for laptop
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 3 +5%"
+bindsym XF86AudioLowerVolume  exec "pactl set-sink-volume 3 -5%"
+bindsym XF86AudioMute exec "pactl set-sink-mute 3 toggle"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 5" 
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
 
 ## screenshots
 bindsym --release $mod+Shift+Print exec "gnome-screenshot -a" 
