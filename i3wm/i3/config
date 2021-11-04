@@ -52,8 +52,8 @@ bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
 
 ## screenshots
-bindsym --release $mod+Shift+Print exec "gnome-screenshot -a" 
-bindsym --release $mod+Print exec "gnome-screenshot"
+bindsym --release $mod+Shift+Print exec "flameshot gui --path ~/Pictures" 
+bindsym --release $mod+Print exec "flameshot screen -n 0 -c --path ~/Pictures"
 
 #block i3lock
 bindsym $mod+q exec "i3lock -e -f --color 000000 && sleep 100 && xset dpms force off"
