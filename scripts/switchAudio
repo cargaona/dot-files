@@ -1,9 +1,10 @@
 choices="speakers\nheadphones"
 
-chosen=$(echo "$choices" | dmenu -i -p "Select audio output: " -sb "#7E33FF" )
+chosen=$(echo -e "$choices" | dmenu -i -p "Select audio output: " -sb "#7E33FF" )
 
 case "$chosen" in
         "headphones") bluetoothctl connect 00:16:94:2C:AA:96 && \
+            pactl set-default-sink bluez_sink.00_16_94_2C_AA_96.a2dp_sink && \ 
             notify-send -t 2000  Audio  'HD 440BT Connected' && \
 	    exit 0  ;;
         "speakers") bluetoothctl disconnect 00:16:94:2C:AA:96 && \

@@ -1,6 +1,6 @@
 choices="vertical-on\nvertical-off\nshare-screen-1"
 
-chosen=$(echo "$choices" | dmenu -i -p "Select Layout: " -sb "#7E33FF" )
+chosen=$(echo -e "$choices" | dmenu -i -p "Select Layout: " -sb "#7E33FF" )
 
 case "$chosen" in
         "vertical-on")   xrandr --output DisplayPort-2 --mode 1920x1080 --right-of HDMI-A-0 --rotate left;;

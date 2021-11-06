@@ -114,7 +114,7 @@ fi
 #        autoload -U compinit && compinit -u
 
 #if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-if [[ $(hostname) != "raspi" && $(hostname) != "char-x13" ]]; then
+if [[ $(hostname) != "raspi" ]]; then
     autoload -U compinit && compinit
     source $CODE_PATH/kube-ps1/kube-ps1.sh
     export KUBE_PS1_SYMBOL_ENABLE=false 
@@ -126,6 +126,7 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias cd..="cd .."
+alias google-chrome=google-chrome-stable
 alias grip="history | grep"
 alias vim=nvim
 alias g=git 
@@ -159,8 +160,8 @@ export XDG_CONFIG_DIRS=$HOME/.config
 export RTV_BROWSER=chromium
 
 export PATH=$HOME/.local/bin:$PATH
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+#export GOROOT=/usr/bin/go
+#export GOPATH=$HOME/go
+#export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 export PATH=$PATH:/usr/local/tinygo/bin
 #. /usr/share/autojump/autojump.sh
