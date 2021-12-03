@@ -9,8 +9,10 @@ font xft:JetBrains Mono 11
 floating_modifier $mod
 
 exec_always $HOME/.config/polybar/launch.sh --forest  --no-startup-id
+exec_always feh --bg-scale $HOME/.wallpaper
 exec_always --no-startup-id "xss-lock -- i3lock -e -f --color 000000"
 exec_always --no-startup-id copyq
+exec_always --no-startup-id bluetoothctl power on
 exec_always "xrandr --output HDMI-A-0 --mode 2560x1080 --left-of DisplayPort-2"
 exec_always "xrandr --output DisplayPort-2 --mode 1920x1080 --right-of HDMI-A-0 --rotate left"
 exec_always "xsetroot -fg '#000000'"
@@ -22,7 +24,7 @@ bindsym $mod+Return exec konsole
 bindsym $mod+Shift+q kill
 
 # start dmenu 
-bindsym $mod1+space exec dmenu_run
+bindsym $mod1+space exec dmenu_run 
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 ## System Volume
