@@ -119,16 +119,16 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # Assign workspaces to monitors *Desktop. two monitors.
-workspace 1 output HDMI-A-0
-workspace 2 output HDMI-A-0
-workspace 3 output HDMI-A-0
-workspace 4 output HDMI-A-0
-workspace 5 output HDMI-A-0
-workspace 6 output DisplayPort-2
-workspace 7 output DisplayPort-2
-workspace 8 output DisplayPort-2
-workspace 9 output DisplayPort-2
-workspace 0 output DisplayPort-2 
+workspace 1 output HDMI
+workspace 2 output HDMI
+workspace 3 output HDMI
+workspace 4 output HDMI
+workspace 5 output HDMI
+workspace 6 output eDP1
+workspace 7 output eDP1
+workspace 8 output eDP1
+workspace 9 output eDP1
+workspace 0 output eDP1 
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

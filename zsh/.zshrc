@@ -119,6 +119,7 @@ if [[ $(hostname) != "raspi" ]]; then
     source $CODE_PATH/kube-ps1/kube-ps1.sh
     export KUBE_PS1_SYMBOL_ENABLE=false 
     PROMPT='$(kube_ps1)'$PROMPT
+    kubeoff
 fi 
 #
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -157,11 +158,11 @@ alias dk=docker
 export EDITOR=nvim
 export HISTCONTROL=ignoreboth:erasedups
 export XDG_CONFIG_DIRS=$HOME/.config 
-export RTV_BROWSER=chromium
+export RTV_BROWSER=firefox
 
 export PATH=$HOME/.local/bin:$PATH
 #export GOROOT=/usr/bin/go
-#export GOPATH=$HOME/go
-#export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
 export PATH=$PATH:/usr/local/tinygo/bin
 #. /usr/share/autojump/autojump.sh
