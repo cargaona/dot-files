@@ -108,7 +108,6 @@ Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
 " python
 "" Python Bundle
-Plug 'davidhalter/jedi-vim'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 
@@ -520,10 +519,13 @@ function! s:build_go_files()
   endif
 endfunction
 
+let g:go_debug=['shell-commands', 'debugger-commands']   
 "let g:go_code_completion_enabled = 1
 let g:go_auto_type_info = 1 
 let g:go_list_type = "quickfix"
-"let g:go_gopls_enabled = 0 
+"let g:go_gopls_enabled = 1
+let g:go_def_mode = 'gopls'
+let g:go_info_mode = 'gopls'
 
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
@@ -545,7 +547,8 @@ let g:go_highlight_array_whitespace_error = 1
 let g:go_highlight_trailing_whitespace_error = 0
 let g:go_highlight_extra_types = 1
 
-let g:go_debug_log_output = 0 "Otherwise you will get a lot of 'err' from delve that will lag vim/nvim"
+let g:go_debug_log_output = 'debugger' 
+"Otherwise you will get a lot of 'err' from delve that will lag vim/nvim"
 let g:go_debug_mappings = {
             \ '(go-debug-continue)':   {'key': 'c'},
             \ '(go-debug-print)':      {'key': 'p'},
