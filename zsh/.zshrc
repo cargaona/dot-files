@@ -169,7 +169,7 @@ export PATH=$PATH:/usr/local/tinygo/bin
 #. /usr/share/autojump/autojump.sh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '$CODE_PATH/google-cloud-sdk/path.zsh.inc' ]; then . '$CODE_PATH/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/char/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/char/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '$CODE_PATH/google-cloud-sdk/completion.zsh.inc' ]; then . '$CODE_PATH/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/home/char/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/char/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
