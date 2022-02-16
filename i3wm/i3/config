@@ -3,7 +3,7 @@
 set $mod Mod4
 set $mod1 Mod1
 
-font xft:JetBrains Mono 11
+font xft:JetBrains Mono 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -13,8 +13,8 @@ exec_always feh --bg-scale $HOME/.wallpaper
 exec_always --no-startup-id "xss-lock -- i3lock -e -f --color 000000"
 exec_always --no-startup-id copyq
 exec_always --no-startup-id bluetoothctl power on
-exec_always "xrandr --output HDMI-A-0 --mode 2560x1080 --left-of DisplayPort-2"
-exec_always "xrandr --output DisplayPort-2 --mode 1920x1080 --right-of HDMI-A-0 --rotate left"
+exec_always "xrandr --output HDMI1 --mode 2560x1080 --above eDP1"
+exec_always "xrandr --output eDP1 --mode 1366x768 --beloew HDMI1"
 exec_always "xsetroot -fg '#000000'"
 
 # start a terminal

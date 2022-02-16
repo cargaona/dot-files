@@ -11,3 +11,10 @@ ln -s $CODE_PATH/dot-files/scripts/switchAudio /usr/local/bin/
 ln -s $CODE_PATH/dot-files/scripts/switchMonitorLayout /usr/local/bin/
 ln -s $CODE_PATH/dot-files/scripts/calendar /usr/local/bin/
 ```
+
+Symbolic links to use pass from the dmenu. 
+
+```
+ln -s /usr/bin/passmenu-otp /usr/bin/potp
+ln -s /usr/bin/passmenu /usr/bin/pw
+```
