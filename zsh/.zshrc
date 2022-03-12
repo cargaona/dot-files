@@ -114,7 +114,7 @@ fi
 #        autoload -U compinit && compinit -u
 
 #if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-if [[ $(hostname) != "raspi" ]]; then
+if [[ $(hostname) != "raspi" && "$OSTYPE" != "darwin20.0" ]]; then
     autoload -U compinit && compinit
     source $CODE_PATH/kube-ps1/kube-ps1.sh
     export KUBE_PS1_SYMBOL_ENABLE=false 
@@ -167,13 +167,18 @@ export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 export PATH=$PATH:/usr/local/tinygo/bin
 #. /usr/share/autojump/autojump.sh
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
-gpg-connect-agent updatestartuptty /bye > /dev/null
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/char/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/char/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/char/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/char/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
+
+if [[ "$OSTYPE" == "darwin20.0" ]]; then
+    PATH=$PATH:/usr/local/MacGPG2/bin/
+    export GPG_TTY="$(tty)"
+    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+    gpgconf --laun gpg-agent
+fi
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/char/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/char/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
