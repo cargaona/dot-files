@@ -8,7 +8,7 @@ export CODE_PATH=$HOME/projects/personal/code
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="minimal"
+ZSH_THEME="minimal-char"
 MNML_PROMPT=(mnml_ssh mnml_pyenv mnml_status mnml_keymap 'mnml_cwd 2 0' mnml_git) 
 MNML_RPROMPT=()
 
@@ -164,21 +164,21 @@ export RTV_BROWSER=firefox
 export PATH=$HOME/.local/bin:$PATH
 #export GOROOT=/usr/bin/go
 export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$PATH
-export PATH=$PATH:/usr/local/tinygo/bin
+export PATH=$PATH:$CODE_PATH/google-cloud-sdk/bin
+#export PATH=$GOPATH/bin:$PATH
+#export PATH=$PATH:/usr/local/tinygo/bin
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+gpg-connect-agent updatestartuptty /bye > /dev/null
 #. /usr/share/autojump/autojump.sh
+
+#if [[ "$OSTYPE" == "darwin20.0" ]]; then
+#    PATH=$PATH:/usr/local/MacGPG2/bin/
+#    export GPG_TTY="$(tty)"
+#    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+#    gpgconf --launch gpg-agent
+#fi
+
+
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/char/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/char/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-
-if [[ "$OSTYPE" == "darwin20.0" ]]; then
-    PATH=$PATH:/usr/local/MacGPG2/bin/
-    export GPG_TTY="$(tty)"
-    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-    gpgconf --laun gpg-agent
-fi
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/char/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/char/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
+if [ -f '/home/char/projects/personal/code/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/char/projects/personal/code/google-cloud-sdk/completion.zsh.inc'; fi

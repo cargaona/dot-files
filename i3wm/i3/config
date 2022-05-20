@@ -43,7 +43,7 @@ bindsym --release $mod+Print exec "flameshot screen -n 0 -c --path ~/Pictures"
 
 #block i3lock
 bindsym $mod+q exec "i3lock -e -f --color 000000"
-bindsym $mod+m focus output DisplayPort-2 
+bindsym $mod+m focus output eDP1
 #bindsym $mod+= focus output right 
 
 # change focus
