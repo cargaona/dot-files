@@ -8,11 +8,12 @@ font xft:JetBrains Mono 10.5
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-exec_always cbatticon
 exec_always $HOME/.config/polybar/launch.sh --forest  --no-startup-id
-exec_always --no-startup-id "xss-lock -- i3lock -e -f --color 000000"
+# block screen after 5 minutes
+exec_always xset s 300 20
+exec_always "xss-lock -- i3lock -e -f -i $HOME/.wallpapers/HD7KSHs.png"
 exec_always --no-startup-id copyq
-exec_always feh --bg-scale $HOME/.wallpaper
+exec_always feh --randomize --bg-scale $HOME/.wallpapers/*
 exec_always "xrandr --output eDP1 --mode 1366x768 --below HDMI1"
 #exec_always --no-startup-id bluetoothctl power on
 #exec_always "xrandr --output HDMI1 --mode 2560x1080 --above eDP1"
@@ -42,7 +43,7 @@ bindsym --release $mod+Shift+Print exec "flameshot gui --path ~/Pictures"
 bindsym --release $mod+Print exec "flameshot screen -n 0 -c --path ~/Pictures"
 
 #block i3lock
-bindsym $mod+q exec "i3lock -e -f --color 000000"
+bindsym $mod+q exec "i3lock -e -f -i $HOME/.wallpapers/HD7KSHs.png"
 bindsym $mod+m focus output eDP1
 #bindsym $mod+= focus output right 
 
