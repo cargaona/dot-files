@@ -49,6 +49,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "" Plug install packages
 "*****************************************************************************
 Plug 'vim-vdebug/vdebug'
+Plug 'hashivim/vim-terraform'
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'easymotion/vim-easymotion'

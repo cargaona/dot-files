@@ -8,13 +8,15 @@ font xft:JetBrains Mono 10.5
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-exec_always $HOME/.config/polybar/launch.sh --forest  --no-startup-id
+exec_always $HOME/.config/polybar/launch.sh --forest --no-startup-id  
 # block screen after 5 minutes
 exec_always xset s 300 20
 exec_always "xss-lock -- i3lock -e -f -i $HOME/.wallpapers/HD7KSHs.png"
 exec_always --no-startup-id copyq
+exec_always --no-startup-id nm-applet
+exec_always --no-startup-id blueman-applet
 exec_always feh --randomize --bg-scale $HOME/.wallpapers/*
-exec_always "xrandr --output eDP1 --mode 1366x768 --below HDMI1"
+#exec_always "xrandr --output eDP1 --mode 1366x768 --below HDMI1"
 #exec_always --no-startup-id bluetoothctl power on
 #exec_always "xrandr --output HDMI1 --mode 2560x1080 --above eDP1"
 #exec_always "xsetroot -fg '#000000'"
@@ -39,7 +41,7 @@ bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
 
 ## screenshots
-bindsym --release $mod+Shift+Print exec "flameshot gui --path ~/Pictures" 
+bindsym --release $mod+Shift+Print exec "flameshot gui" 
 bindsym --release $mod+Print exec "flameshot screen -n 0 -c --path ~/Pictures"
 
 #block i3lock
@@ -201,12 +203,12 @@ set $txtacolor #F9FAF9
 set $txtucolor #bdbbbb
 set $indcolor #4deb56
  
-# class                   border  backgr. text    indic.   child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# class                   border  backgr.   text    indic.   child_border
+client.focused          #4c7899 #1a285577   #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a     #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222     #888888 #292d2e   #222222
+client.urgent           #2f343a #900000     #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c     #ffffff #000000   #0c0c0c
 client.background       #ffffff
 #
 
