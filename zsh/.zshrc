@@ -84,7 +84,7 @@ if ! kill -0 $SSH_AGENT_PID 2>/dev/null; then
         eval `cat ~/.ssh.agent` >/dev/null
 fi
 
-bindkey -M menuselect '^[[Z' reverse-menu-complete
+#bindkey -M menuselect '^[[Z' reverse-menu-complete
 
 if [[ "${terminfo[kcuu1]}" != "" ]]; then
     autoload -U up-line-or-beginning-search
@@ -147,6 +147,7 @@ alias bt=bluetoothctl
 alias btoff="bluetoothctl power off"
 alias bton="bluetoothctl power on"
 
+alias ac="aws sts get-caller-identity"
 alias kctx=kubectx
 alias k=kubectl
 alias kon=kubeon
