@@ -10,6 +10,8 @@ ln -s $CODE_PATH/dot-files/polybar/* ~/.config/polybar/
 ln -s $CODE_PATH/dot-files/scripts/switchAudio /usr/local/bin/
 ln -s $CODE_PATH/dot-files/scripts/switchMonitorLayout /usr/local/bin/
 ln -s $CODE_PATH/dot-files/scripts/calendar /usr/local/bin/
+ln -s $CODE_PATH/dot-files/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -s $CODE_PATH/dot-files/zsh-theme/minimal-char.zsh-theme ~/.oh-my-zsh/themes/minimal-char.zsh-theme
 ```
 
 Symbolic links to use pass from the dmenu. 
