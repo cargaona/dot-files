@@ -167,19 +167,21 @@ export PATH=$HOME/.local/bin:$PATH
 export GOPATH=$HOME/go
 export PATH=$PATH:$CODE_PATH/google-cloud-sdk/bin
 #export PATH=$GOPATH/bin:$PATH
-#export PATH=$PATH:/usr/local/tinygo/bin
+
+
+## GPG Setup 
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
-gpg-connect-agent updatestartuptty /bye > /dev/null
 #. /usr/share/autojump/autojump.sh
 
-#if [[ "$OSTYPE" == "darwin20.0" ]]; then
-#    PATH=$PATH:/usr/local/MacGPG2/bin/
-#    export GPG_TTY="$(tty)"
-#    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-#    gpgconf --launch gpg-agent
-#fi
+if [[ "$OSTYPE" == "darwin20.0" ]]; then
+    PATH=$PATH:/usr/local/MacGPG2/bin/
+    export GPG_TTY="$(tty)"
+    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+    gpgconf --launch gpg-agent
+fi
 
+gpg-connect-agent updatestartuptty /bye > /dev/null
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/char/projects/personal/code/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/char/projects/personal/code/google-cloud-sdk/completion.zsh.inc'; fi
