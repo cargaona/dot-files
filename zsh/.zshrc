@@ -116,10 +116,10 @@ fi
 #if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 if [[ $(hostname) != "raspi" && "$OSTYPE" != "darwin20.0" ]]; then
     autoload -U compinit && compinit
-    source $CODE_PATH/kube-ps1/kube-ps1.sh
-    export KUBE_PS1_SYMBOL_ENABLE=false 
-    PROMPT='$(kube_ps1)'$PROMPT
-    kubeoff
+#    source $CODE_PATH/kube-ps1/kube-ps1.sh
+#    export KUBE_PS1_SYMBOL_ENABLE=false 
+#    PROMPT='$(kube_ps1)'$PROMPT
+#    kubeoff
 fi 
 #
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -174,7 +174,8 @@ export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
 #. /usr/share/autojump/autojump.sh
 
-if [[ "$OSTYPE" == "darwin20.0" ]]; then
+if [[ "$OSTYPE" == "darwin20.0" || "$OSTYPE" == "darwin21.0" ]]; then
+    PATH=$PATH:/opt/homebrew/bin/
     PATH=$PATH:/usr/local/MacGPG2/bin/
     export GPG_TTY="$(tty)"
     export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
