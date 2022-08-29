@@ -116,10 +116,10 @@ fi
 #if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 if [[ $(hostname) != "raspi" && "$OSTYPE" != "darwin20.0" ]]; then
     autoload -U compinit && compinit
-#    source $CODE_PATH/kube-ps1/kube-ps1.sh
-#    export KUBE_PS1_SYMBOL_ENABLE=false 
-#    PROMPT='$(kube_ps1)'$PROMPT
-#    kubeoff
+    source $CODE_PATH/kube-ps1/kube-ps1.sh
+    export KUBE_PS1_SYMBOL_ENABLE=false 
+    PROMPT='$(kube_ps1)'$PROMPT
+    kubeoff
 fi 
 #
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
