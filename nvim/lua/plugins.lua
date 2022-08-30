@@ -20,7 +20,7 @@ local use = packer.use
 return require("packer").startup(function()
 	use("wbthomason/packer.nvim")
     use('easymotion/vim-easymotion')
-	use("marko-cerovac/material.nvim")
+    use('kaicataldo/material.vim')
 	use("rktjmp/lush.nvim")
 	use("metalelf0/jellybeans-nvim")
 	use("nvim-treesitter/nvim-treesitter")
@@ -28,7 +28,7 @@ return require("packer").startup(function()
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
-	use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })	use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
+	use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
 	use("akinsho/nvim-bufferline.lua")
 	use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
 	use("tpope/vim-markdown")

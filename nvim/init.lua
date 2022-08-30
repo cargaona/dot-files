@@ -10,16 +10,17 @@ require("nvim-tree-config")
 require("md-fenced-config")
 require("treesitter-config")
 require("quick-scope-config")
+
 require("bufferline-config")
 require("schlepp-config")
-require("colorscheme-config")
+--require("colorscheme-config")
 
 -- Leader key
 vim.g.mapleader = ","
 
 -- Color Scheme
 vim.cmd 'colorscheme material'
-vim.g.material_style = "darker"
+vim.g.material_theme_style = "darker"
 
 ---- Vim Imports
 vim.cmd("so ~/.config/nvim/settings.vim")

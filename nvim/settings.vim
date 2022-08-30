@@ -38,7 +38,7 @@ set nospell
 set nowrap
 set number
 set bs=2
-
+set termguicolors
 " Treat end of lines like normal IDE
 "-------------------------------------
 set virtualedit=onemore
