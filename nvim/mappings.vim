@@ -61,32 +61,23 @@ vmap <C-d> <Plug>SchleppDup
 
 " Telescope (nvim-telescope/telescope.nvim)
 nnoremap <leader>o <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<cr>
-" nnoremap <leader>g <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>h <cmd>Telescope help_tags<cr>
+"Find in files with Ctrl+f
+nnoremap <silent> <C-f> :Telescope live_grep<CR>
 
 " Delete the word in front of the cursor
 imap <C-D> X<Esc>lbce
 
 " Undo with Crtl+z / Redo with Crtl+Shif+z
-map <C-r> :redo
+map <C-r> :redo<CR>
 map <C-z> u
 
-"Find with Ctrl+f
-":map <C-f> /
 nnoremap <silent> <leader><space> :noh<cr>
 
 "Switch buffers with Crtl+Atl+arrows
 nnoremap <A-Tab> gt
 nnoremap <A-S-Tab> gT
-"noremap <C-j> <C-w>h
-"noremap <C-i> <C-w>k
-"noremap <C-l> <C-w>l
-"noremap <C-k> <C-w>j
-
-"Switch tabs with Crtl+Shift+arrows
-"nmap <A-Tab> gt
-"nmap <C-j> gT
 
 "" Close buffer
 noremap <C-q> :bw<CR>
@@ -94,13 +85,16 @@ noremap <C-q> :bw<CR>
 "" Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
+
+"" Navigate 
 nnoremap <silent> <C-Right> <C-w>l
-nnoremap <silent> <C-l> <C-w>l
 nnoremap <silent> <C-Left> <C-w>h 
-nnoremap <silent> <C-j> <C-w>h 
 nnoremap <silent> <C-Down> <C-w>j
 nnoremap <silent> <C-Up> <C-w>k
-
+noremap <C-j> <C-w>h
+noremap <C-i> <C-w>k
+noremap <C-l> <C-w>l
+noremap <C-k> <C-w>j
 " Lets you move to the end of the line (virtualedit=onemore needed)
 nnoremap <End> <End><Right>
 noremap $ $<Right>

@@ -1,3 +1,4 @@
+
 -- Plugins
 require("plugins") -- Plugins installed with packer
 require("packer")
@@ -20,7 +21,7 @@ vim.g.mapleader = ","
 -- Color Scheme
 vim.cmd 'colorscheme material'
 vim.g.material_theme_style = "darker"
-
+--
 ---- Vim Imports
 vim.cmd("so ~/.config/nvim/settings.vim")
 vim.cmd("so ~/.config/nvim/mappings.vim")

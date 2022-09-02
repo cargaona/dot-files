@@ -23,7 +23,7 @@ local is_visible = require"bufferline".setup {
             }
         },
         buffer_close_icon = " ",
-        indicator_icon = '▎',
+        -- indicator_icon = '▎',
         numbers = "none",
         modified_icon = " ",
         close_icon = " ",
@@ -39,7 +39,7 @@ local is_visible = require"bufferline".setup {
         sort_by = "directory",
         separator_style = {'---', '---'}
     },
-    custom_highlights = {}
+    -- custom_highlights = {}
 }
 
 -- MAPPINGS
