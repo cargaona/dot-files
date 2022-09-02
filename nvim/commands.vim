@@ -16,10 +16,8 @@ nmap imp :Imp<CR>
 nmap gi :Info<CR>
 nmap gd :Def<CR>
 nmap fmt :Fmt<CR>
+nmap co :CodeAction<CR>
 
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-set grepprg=rg\ --vimgrep
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 "  ------------ Language specific
 
 " Tfsc check

@@ -78,15 +78,15 @@ nnoremap <silent> <leader><space> :noh<cr>
 
 "Switch buffers with Crtl+Atl+arrows
 nnoremap <A-Tab> gt
-nnoremap <C-A-Tab> gT
+nnoremap <A-S-Tab> gT
 "noremap <C-j> <C-w>h
 "noremap <C-i> <C-w>k
 "noremap <C-l> <C-w>l
 "noremap <C-k> <C-w>j
 
 "Switch tabs with Crtl+Shift+arrows
-nmap <C-l> gt
-nmap <C-j> gT
+"nmap <A-Tab> gt
+"nmap <C-j> gT
 
 "" Close buffer
 noremap <C-q> :bw<CR>
@@ -94,10 +94,12 @@ noremap <C-q> :bw<CR>
 "" Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
-nnoremap <silent> <C-A-Right> <C-w>l
-nnoremap <silent> <C-A-Left> <C-w>h 
-nnoremap <silent> <C-A-Down> <C-w>j
-nnoremap <silent> <C-A-Up> <C-w>k
+nnoremap <silent> <C-Right> <C-w>l
+nnoremap <silent> <C-l> <C-w>l
+nnoremap <silent> <C-Left> <C-w>h 
+nnoremap <silent> <C-j> <C-w>h 
+nnoremap <silent> <C-Down> <C-w>j
+nnoremap <silent> <C-Up> <C-w>k
 
 " Lets you move to the end of the line (virtualedit=onemore needed)
 nnoremap <End> <End><Right>

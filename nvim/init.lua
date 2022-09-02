@@ -5,14 +5,13 @@ require("lsp") -- lspconfig
 require("finder") -- telescope
 require("snippets") -- vsnip
 require("completion") -- nvim-cmp
-require("statusline") -- lualine
 require("nvim-tree-config")
 require("md-fenced-config")
 require("treesitter-config")
 require("quick-scope-config")
-
 require("bufferline-config")
 require("schlepp-config")
+require("statusline") -- lualine
 --require("colorscheme-config")
 
 -- Leader key

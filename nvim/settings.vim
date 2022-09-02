@@ -1,7 +1,7 @@
 " Common settings
 "-------------------------------------
 filetype plugin indent on
-set guicursor=n-v-ve-i-c-ci:ver25
+"set guicursor=n-v-ve-i-c-ci:ver25
 set expandtab ts=2 sw=2 ai
 set undodir=~/.vim/undodir
 set inccommand=nosplit
