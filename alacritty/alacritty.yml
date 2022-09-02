@@ -3,6 +3,7 @@ tabspaces: 4
 font:
   normal:
     #    family: JetBrains Mono Medium
+
     family: JetBrainsMono Nerd Font Mono
       #style: regular
       #size: 11.5

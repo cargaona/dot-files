@@ -39,6 +39,9 @@ set nowrap
 set number
 set bs=2
 set termguicolors
+if exists("*fugitive#statusline")
+  set statusline+=%{fugitive#statusline()}
+endif
 " Treat end of lines like normal IDE
 "-------------------------------------
 set virtualedit=onemore

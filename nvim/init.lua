@@ -1,9 +1,7 @@
-
 -- Plugins
 require("plugins") -- Plugins installed with packer
 require("packer")
 require("lsp") -- lspconfig
-require("finder") -- telescope
 require("snippets") -- vsnip
 require("completion") -- nvim-cmp
 require("nvim-tree-config")
@@ -13,6 +11,8 @@ require("quick-scope-config")
 require("bufferline-config")
 require("schlepp-config")
 require("statusline") -- lualine
+require("test-config")
+require("finder") -- telescope
 --require("colorscheme-config")
 
 -- Leader key

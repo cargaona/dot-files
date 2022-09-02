@@ -35,19 +35,13 @@ map <A-k> <C-E><C-E>
 map <A-i> <C-Y><C-Y>
 
 " Move through words wit Crtl
-nnoremap <-Right> e<Right>
-nnoremap <C-Left> b
-
-" Open livedown with brave (npm install -g livedown)
-nnoremap <silent> <Leader>m :call jobstart(printf('livedown start %s --port 4242 --open --browser "brave --profile-directory="Contre" --app=http://localhost:4242"',@%),{'detach':1})<CR>
-
-" Material Colorscheme
-nmap <silent> <leader>n :lua require('material.functions').toggle_style()<CR>
+nnoremap <C-Right> e<Right>
+nnoremap <C-Left> b<Left>
 
 "NerdCommenter (scrooloose/nerdcommenter)
 "-------------------------------------
-nmap <C-]> <Plug>NERDCommenterToggle <Down>
-vmap <C-]> <Plug>NERDCommenterToggle<CR>gv
+""nmap <C-]> <Plug>NERDCommenterToggle <Down>
+""vmap <C-]> <Plug>NERDCommenterToggle<CR>gv
 
 "Schleep indention
 "-------------------------------------
@@ -72,6 +66,8 @@ imap <C-D> X<Esc>lbce
 " Undo with Crtl+z / Redo with Crtl+Shif+z
 map <C-r> :redo<CR>
 map <C-z> u
+map <C-]> :bnext<CR>
+map <C-[> :bp<CR>
 
 nnoremap <silent> <leader><space> :noh<cr>
 
@@ -95,6 +91,7 @@ noremap <C-j> <C-w>h
 noremap <C-i> <C-w>k
 noremap <C-l> <C-w>l
 noremap <C-k> <C-w>j
+
 " Lets you move to the end of the line (virtualedit=onemore needed)
 nnoremap <End> <End><Right>
 noremap $ $<Right>
