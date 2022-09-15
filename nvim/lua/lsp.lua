@@ -147,6 +147,8 @@ lspconfig.pyright.setup({ capabilities = capabilities, handlers = handlers })
 -- Golang
 lspconfig.gopls.setup({ capabilities = capabilities })
 
+-- C 
+lspconfig.ccls.setup({ capabilities = capabilities })
 -- Terraform
 
 lspconfig.tflint.setup({
