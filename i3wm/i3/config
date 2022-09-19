@@ -3,7 +3,8 @@
 set $mod Mod4
 set $mod1 Mod1
 
-font xft:JetBrains Mono 10.5
+font xft:mononoki Nerd Font Mono 11
+#font xft:JetBrains Mono 10.5
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

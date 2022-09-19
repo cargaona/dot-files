@@ -2,12 +2,10 @@
 tabspaces: 4
 font:
   normal:
-    #    family: JetBrains Mono Medium
-
-    family: JetBrainsMono Nerd Font Mono
-      #style: regular
+    family: mononoki Nerd Font Mono
+    style: regular
       #size: 11.5
-  size: 14
+  size: 12
   draw_bold_text_with_bright_colors: true
 
 window:
@@ -30,4 +28,4 @@ cursor:
 
 colors:
   primary:
-    background: "#2c2c2c"
+    background: "#000000"

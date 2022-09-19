@@ -1,6 +1,6 @@
 -- Plugins
-require("plugins") -- Plugins installed with packer
 require("packer")
+require("plugins") -- Plugins installed with packer
 require("lsp") -- lspconfig
 require("snippets") -- vsnip
 require("completion") -- nvim-cmp
@@ -13,14 +13,14 @@ require("schlepp-config")
 require("statusline") -- lualine
 require("test-config")
 require("finder") -- telescope
---require("colorscheme-config")
+-- require("colorscheme-config")
 
 -- Leader key
 vim.g.mapleader = ","
 
 -- Color Scheme
 vim.cmd 'colorscheme material'
-vim.g.material_theme_style = "darker"
+vim.g.material_theme_style = "ocean"
 --
 ---- Vim Imports
 vim.cmd("so ~/.config/nvim/settings.vim")

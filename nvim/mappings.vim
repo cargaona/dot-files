@@ -35,8 +35,8 @@ map <A-k> <C-E><C-E>
 map <A-i> <C-Y><C-Y>
 
 " Move through words wit Crtl
-nnoremap <C-Right> e<Right>
-nnoremap <C-Left> b<Left>
+nnoremap <C-Right> e
+nnoremap <C-Left> b
 
 "NerdCommenter (scrooloose/nerdcommenter)
 "-------------------------------------
@@ -79,12 +79,12 @@ nnoremap <A-S-Tab> gT
 noremap <C-q> :bw<CR>
 
 "" Split
-noremap <Leader>h :<C-u>split<CR>
+"" noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
 
 "" Navigate 
-nnoremap <silent> <C-Right> <C-w>l
-nnoremap <silent> <C-Left> <C-w>h 
+""nnoremap <silent> <C-Right> <C-w>l
+""nnoremap <silent> <C-Left> <C-w>h 
 nnoremap <silent> <C-Down> <C-w>j
 nnoremap <silent> <C-Up> <C-w>k
 noremap <C-j> <C-w>h

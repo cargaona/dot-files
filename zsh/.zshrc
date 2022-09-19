@@ -84,7 +84,7 @@ if ! kill -0 $SSH_AGENT_PID 2>/dev/null; then
         eval `cat ~/.ssh.agent` >/dev/null
 fi
 
-#bindkey -M menuselect '^[[Z' reverse-menu-complete
+# bindkey -M menuselect '^[[Z' reverse-menu-complete
 
 if [[ "${terminfo[kcuu1]}" != "" ]]; then
     autoload -U up-line-or-beginning-search
@@ -96,7 +96,8 @@ fi
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+#export LANG=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
