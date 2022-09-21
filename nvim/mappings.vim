@@ -66,14 +66,15 @@ imap <C-D> X<Esc>lbce
 " Undo with Crtl+z / Redo with Crtl+Shif+z
 map <C-r> :redo<CR>
 map <C-z> u
-map <C-]> :bnext<CR>
-map <C-[> :bp<CR>
+
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-'> :bp<CR> 
 
 nnoremap <silent> <leader><space> :noh<cr>
 
 "Switch buffers with Crtl+Atl+arrows
-nnoremap <A-Tab> gt
-nnoremap <A-S-Tab> gT
+nnoremap <A-Tab> :bn
+nnoremap <A-S-Tab> :bp
 
 "" Close buffer
 noremap <C-q> :bw<CR>
@@ -83,14 +84,14 @@ noremap <C-q> :bw<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
 
 "" Navigate 
-""nnoremap <silent> <C-Right> <C-w>l
-""nnoremap <silent> <C-Left> <C-w>h 
+nnoremap <silent> <C-Right> <C-w>l
+nnoremap <silent> <C-Left> <C-w>h 
 nnoremap <silent> <C-Down> <C-w>j
 nnoremap <silent> <C-Up> <C-w>k
-noremap <C-j> <C-w>h
-noremap <C-i> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-k> <C-w>j
+""noremap <C-j> <C-w>h
+""noremap <C-i> <C-w>k
+""noremap <C-l> <C-w>l
+""noremap <C-k> <C-w>j
 
 " Lets you move to the end of the line (virtualedit=onemore needed)
 nnoremap <End> <End><Right>

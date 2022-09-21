@@ -132,6 +132,7 @@ alias google-chrome=google-chrome-stable
 alias grip="history | grep"
 alias vim=nvim
 alias g=git 
+alias ga='git add .'
 alias gdl='git diff $(git rev-parse HEAD)'
 alias gir=git ## You know this feeling. 
 alias gcm="git commit -m "
