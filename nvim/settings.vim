@@ -39,6 +39,7 @@ set nowrap
 set number
 set bs=2
 set termguicolors
+set nohlsearch
 if exists("*fugitive#statusline")
   set statusline+=%{fugitive#statusline()}
 endif

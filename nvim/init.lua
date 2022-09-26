@@ -12,7 +12,7 @@ require("bufferline-config")
 require("schlepp-config")
 require("statusline") -- lualine
 require("test-config")
-require("finder") -- telescope
+-- require("finder") -- telescope
 -- require("colorscheme-config")
 
 -- Leader key
