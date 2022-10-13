@@ -23,26 +23,25 @@ exec_always feh --randomize --bg-scale $HOME/.wallpapers/*
 
 # start a terminal
 bindsym $mod+Return exec alacritty
- 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu 
-bindsym $mod1+space exec dmenu_run 
+bindsym $mod+space exec dmenu_run 
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 ## System Volume
 # 2 for desktop 3 for laptop
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 3 +5%"
-bindsym XF86AudioLowerVolume  exec "pactl set-sink-volume 3 -5%"
-bindsym XF86AudioMute exec "pactl set-sink-mute 3 toggle"
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+bindsym XF86AudioLowerVolume  exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 ## Display Bright
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 5" 
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
 
 ## screenshots
-bindsym --release $mod+Shift+Print exec "flameshot gui" 
-bindsym --release $mod+Print exec "flameshot screen -n 0 -c --path ~/Pictures"
+bindsym --release shift+Print exec "flameshot gui" 
+bindsym --release Print exec "flameshot screen -n 0 -c --path ~/Pictures"
 
 #block i3lock
 bindsym $mod+q exec "i3lock -e -f -i $HOME/.wallpapers/HD7KSHs.png"
@@ -90,7 +89,7 @@ bindsym $mod+e layout toggle tabbed splith stacking
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod1+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -143,18 +142,11 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 popup_during_fullscreen smart
 
-# resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym ntilde resize grow width 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -168,28 +160,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-# !! Using polybar now.
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#    # for desktop
-#    status_command i3status
-#    # for raspberry 
-#    #status_command i3blocks -c ~/.config/i3blocks/config.raspi
-#    separator_symbol /
-#    strip_workspace_numbers yes
-#    colors {
-#       background #222222
-#       statusline #eeeeee
-#       separator #666666
-#       #                  border  backgr. text
-#       focused_workspace  #4c7899 #285577 #ffffff
-#       active_workspace   #333333 #5f676a #ffffff
-#       inactive_workspace #333333 #222222 #888888
-#       urgent_workspace   #2f343a #900000 #ffffff
-#    }
-#}
 
 # Theme colors
 # set variable for main accent color
