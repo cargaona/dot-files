@@ -6,7 +6,8 @@ export CODE_PATH=/home/char/projects/personal/code
 ## MacBook and Linux
 ln -s $CODE_PATH/dot-files/zsh/.zshrc ~/.zshrc
 ln -s $CODE_PATH/dot-files/tmux/.tmux.conf ~/.tmux.conf
-ln -s $CODE_PATH/dot-files/nvim/init.vim ~/.config/nvim/init.vim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+ln -s $CODE_PATH/dot-files/nvim/* ~/.config/nvim/
 ln -s $CODE_PATH/dot-files/zsh-theme/minimal-char.zsh-theme ~/.oh-my-zsh/themes/minimal-char.zsh-theme
 
 ## Only for linux
@@ -17,5 +18,12 @@ ln -s $CODE_PATH/dot-files/zsh-theme/minimal-char.zsh-theme ~/.oh-my-zsh/themes/
 ## Symbolic links to use pass from the dmenu. 
 ln -s /usr/bin/passmenu-otp /usr/bin/potp
 ln -s /usr/bin/passmenu /usr/bin/pw
+
+## Use gpg with yubi:
+gpg --import charlie-gpg-public.asc
+gpg --edit-key <ID>
+> trust 
+
+https://github.com/drduh/YubiKey-Guide
 ```
 
