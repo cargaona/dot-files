@@ -3,7 +3,7 @@
 set $mod Mod4
 set $mod1 Mod1
 
-font xft:mononoki Nerd Font Mono 14
+font xft:Recursive Mono Linear Static 14
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

@@ -2,10 +2,13 @@
 tabspaces: 4
 font:
   normal:
-    family: mononoki Nerd Font Mono
-      #  style: regular
+    family: Jetbrains Mono
+    style: Medium
       #size: 11.5
-  size: 14
+    size: 14
+    offset:
+      x: 0
+      y: -3
   draw_bold_text_with_bright_colors: true
 
 window:
@@ -19,6 +22,11 @@ scrolling:
   multiplier: 3
   auto_scroll: false
 
+colors:
+  # Default colors
+  primary:
+    background: '0x000000'
+
 cursor:
   style:
     shape: Block
@@ -27,12 +35,11 @@ cursor:
   unfocused_hollow: true
   thickness: 0.15
 
-colors:
-  primary:
-    background: "#000000"
-
 key_bindings:
   - { key: J,        mods: Alt,     chars: "\x1bj"                       }
   - { key: K,        mods: Alt,     chars: "\x1bk"                       }
   - { key: H,        mods: Alt,     chars: "\x1bh"                       }
   - { key: L,        mods: Alt,     chars: "\x1bl"                       }
+
+import: 
+  - ~/.alacritty-colorscheme/themes/breeze.yaml
