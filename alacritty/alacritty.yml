@@ -8,7 +8,6 @@ font:
   normal:
     family: Jetbrains Mono
     style: Medium
-      #size: 11.5
     size: 14
     offset:
       x: 0
@@ -18,7 +17,7 @@ font:
 window:
   padding:
     x: 4
-    y: 0
+    y: 3
   title: Alacritty
   class:
     instance: Alacritty
