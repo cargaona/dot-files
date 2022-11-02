@@ -6,12 +6,11 @@ require("snippets") -- vsnip
 require("completion") -- nvim-cmp
 require("nvim-tree-config")
 require("md-fenced-config")
-require("treesitter-config")
+-- require("treesitter-config")
 require("quick-scope-config")
 require("bufferline-config")
 require("schlepp-config")
 require("statusline") -- lualine
-require("test-config")
 -- require("finder") -- telescope
 -- require("colorscheme-config")
 
@@ -20,9 +19,10 @@ vim.g.mapleader = ","
 
 -- Color Scheme
 vim.cmd 'colorscheme material'
-vim.g.material_theme_style = "ocean"
+vim.g.material_theme_style = "dark"
 --
 ---- Vim Imports
+vim.cmd("so ~/.config/nvim/lua/vim-go.vim")
 vim.cmd("so ~/.config/nvim/settings.vim")
 vim.cmd("so ~/.config/nvim/mappings.vim")
 vim.cmd("so ~/.config/nvim/commands.vim")

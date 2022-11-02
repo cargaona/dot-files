@@ -18,16 +18,7 @@ local packer = require("packer")
 local use = packer.use
 
 return require("packer").startup(function()
-  use({
-    "nvim-neotest/neotest",
-    requires = {
-      "nvim-neotest/neotest-plenary",
-      "nvim-lua/plenary.nvim",
-      "nvim-neotest/neotest-go",
-      "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim"
-    }
-  })
+  use {'fatih/vim-go'}
   use('airblade/vim-gitgutter')
   use("tpope/vim-fugitive")
   use("wbthomason/packer.nvim")
@@ -35,8 +26,6 @@ return require("packer").startup(function()
   use('easymotion/vim-easymotion')
   use('kaicataldo/material.vim')
   use("rktjmp/lush.nvim")
-  use("metalelf0/jellybeans-nvim")
-  use("nvim-treesitter/nvim-treesitter")
   use({
     "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -54,10 +43,10 @@ return require("packer").startup(function()
   use("nvim-lua/lsp_extensions.nvim")
   use("hrsh7th/cmp-cmdline")
   use("hrsh7th/cmp-vsnip")
+  use("hrsh7th/cmp-nvim-lsp")
   use("hrsh7th/vim-vsnip-integ")
   use("hrsh7th/vim-vsnip")
   use("rafamadriz/friendly-snippets")
-  use("hrsh7th/cmp-nvim-lsp")
   use("nvim-lua/lsp-status.nvim")
   use("onsails/lspkind-nvim")
   use("ekickx/clipboard-image.nvim")

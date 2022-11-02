@@ -11,7 +11,9 @@ autocmd VimEnter * :silent exec "!kill -s SIGWINCH $PPID"
 autocmd BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs :lua require'lsp_extensions'.inlay_hints{ prefix = ' » ', highlight = "NonText", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
 
 "Set Go
-autocmd BufWritePost *.go lua vim.lsp.buf.formatting()
+autocmd BufWritePost *.go lua vim.lsp.buf.format()
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+
 "Set Markdown
 "-------------------------------------
 autocmd FileType markdown setlocal spell
