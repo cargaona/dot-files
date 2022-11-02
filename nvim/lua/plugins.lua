@@ -23,7 +23,7 @@ return require("packer").startup(function()
   -- LSP and Language specific
   use("hashivim/vim-terraform")
   use("nvim-lua/lsp-status.nvim")
-  use("nvim-lua/lsp_extensions.nvim")
+  use("nvim-lua/lsp_extensions.nvim") -- deprecated: only used for rust. 
   use("onsails/lspkind-nvim")
   use("tpope/vim-markdown")
   use('fatih/vim-go')
