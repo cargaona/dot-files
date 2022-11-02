@@ -18,44 +18,42 @@ local packer = require("packer")
 local use = packer.use
 
 return require("packer").startup(function()
-  use {'fatih/vim-go'}
-  use('airblade/vim-gitgutter')
-  use("tpope/vim-fugitive")
+  -- Plugin Manager
   use("wbthomason/packer.nvim")
-  use("vim-test/vim-test")
-  use('easymotion/vim-easymotion')
-  use('kaicataldo/material.vim')
-  use("rktjmp/lush.nvim")
-  use({
-    "nvim-lualine/lualine.nvim",
-    requires = { "kyazdani42/nvim-web-devicons", opt = true },
-  })
-  use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
-  use("akinsho/nvim-bufferline.lua")
-  use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
-  use("tpope/vim-markdown")
+  -- LSP and Language specific
   use("hashivim/vim-terraform")
-  use("neovim/nvim-lspconfig")
-  use("hrsh7th/nvim-cmp")
-  use("hrsh7th/cmp-buffer")
-  use("knsh14/vim-github-link")
-  use("hrsh7th/cmp-path")
-  use("nvim-lua/lsp_extensions.nvim")
-  use("hrsh7th/cmp-cmdline")
-  use("hrsh7th/cmp-vsnip")
-  use("hrsh7th/cmp-nvim-lsp")
-  use("hrsh7th/vim-vsnip-integ")
-  use("hrsh7th/vim-vsnip")
-  use("rafamadriz/friendly-snippets")
   use("nvim-lua/lsp-status.nvim")
+  use("nvim-lua/lsp_extensions.nvim")
   use("onsails/lspkind-nvim")
-  use("ekickx/clipboard-image.nvim")
-  use("unblevable/quick-scope")
+  use("tpope/vim-markdown")
+  use('fatih/vim-go')
+  -- Completion
+  use("hrsh7th/cmp-buffer")
+  use("hrsh7th/cmp-cmdline")
+  use("hrsh7th/cmp-nvim-lsp")
+  use("hrsh7th/cmp-path")
+  use("hrsh7th/cmp-vsnip")
+  use("hrsh7th/nvim-cmp")
+  use("hrsh7th/vim-vsnip")
+  use("hrsh7th/vim-vsnip-integ")
+  use("rafamadriz/friendly-snippets")
+  -- Git
+  use("knsh14/vim-github-link")
+  use("tpope/vim-fugitive")
+  use('airblade/vim-gitgutter')
+  use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
+  -- Theme and appearance
+  use("akinsho/nvim-bufferline.lua")
+  use('kaicataldo/material.vim')
+  use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
+  -- Navigation
+  use("neovim/nvim-lspconfig")
   use("zirrostig/vim-schlepp")
-  use("scrooloose/nerdcommenter")
-  use({
-    "nvim-telescope/telescope.nvim",
-    requires = { { "nvim-lua/plenary.nvim" } },
-  })
+  use('easymotion/vim-easymotion')
+  use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+  use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })
+  -- Misc
+  use("ekickx/clipboard-image.nvim")
+  use("scrooloose/nerdcommenter")
 end)

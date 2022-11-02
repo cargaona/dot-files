@@ -2,17 +2,12 @@
 require("packer")
 require("plugins") -- Plugins installed with packer
 require("lsp") -- lspconfig
-require("snippets") -- vsnip
 require("completion") -- nvim-cmp
 require("nvim-tree-config")
 require("md-fenced-config")
--- require("treesitter-config")
-require("quick-scope-config")
 require("bufferline-config")
 require("schlepp-config")
 require("statusline") -- lualine
--- require("finder") -- telescope
--- require("colorscheme-config")
 
 -- Leader key
 vim.g.mapleader = ","
