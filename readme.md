@@ -9,6 +9,7 @@ ln -s $CODE_PATH/dot-files/tmux/.tmux.conf ~/.tmux.conf
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ln -s $CODE_PATH/dot-files/nvim/* ~/.config/nvim/
 ln -s $CODE_PATH/dot-files/zsh-theme/minimal-char.zsh-theme ~/.oh-my-zsh/themes/minimal-char.zsh-theme
+ln -s $CODE_PATH/dot-files/switch-yubi-gpg.sh /usr/local/bin/
 
 ## Only for linux
 ln -s $CODE_PATH/dot-files/i3wm/i3/config ~/.config/i3/config
