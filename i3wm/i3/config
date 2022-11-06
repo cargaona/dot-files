@@ -15,7 +15,7 @@ exec_always "xss-lock -- i3lock -e -f -i $HOME/.wallpapers/HD7KSHs.png"
 exec_always --no-startup-id copyq
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id blueman-applet
-exec_always feh --randomize --bg-scale $HOME/.wallpapers/*
+exec_always feh --randomize --bg-scale $HOME/.wallpapers/wRlb2pN.jpeg
 #exec_always "xrandr --output eDP1 --mode 1366x768 --below HDMI1"
 #exec_always --no-startup-id bluetoothctl power on
 #exec_always "xrandr --output HDMI1 --mode 2560x1080 --above eDP1"

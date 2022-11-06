@@ -3,7 +3,7 @@ Description=Automatically switch yubikey when it's plugged
 
 [Service]
 Type=simple
-ExecStart=stdbuf -oL libinput debug-events | grep -E --line-buffered -e DEVICE_ADDED | grep --line-buffered  "Yubico YubiKey OTP+FIDO+CCID" | while read line; do switch-yubi-gpg; done
+ExecStart=sh -c "stdbuf -oL libinput debug-events | grep -E --line-buffered -e DEVICE_ADDED | grep --line-buffered  "Yubico YubiKey OTP+FIDO+CCID" | while read line; do switch-yubi-gpg; done"
 Restart=always
 RestartSec=30
 SyslogIdentifier=yubikey-gpg-switcher
