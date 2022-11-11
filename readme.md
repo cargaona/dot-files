@@ -13,6 +13,7 @@ ln -s $CODE_PATH/dot-files/switch-yubi-gpg.sh /usr/local/bin/
 
 ## Only for linux
 ln -s $CODE_PATH/dot-files/i3wm/i3/config ~/.config/i3/config
+ln -s $CODE_PATH/dot-files/dunst/frappe.conf $HOME/.config/dunst/dunstrc
 ln -s $CODE_PATH/dot-files/polybar/* ~/.config/polybar/
 ln -s $CODE_PATH/dot-files/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -s $CODE_PATH/dot-files/zsh-theme/minimal-char.zsh-theme ~/.oh-my-zsh/themes/minimal-char.zsh-theme
