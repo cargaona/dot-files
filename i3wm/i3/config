@@ -28,6 +28,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu 
 bindsym $mod+space exec dmenu_run 
+bindsym $mod1+space exec dmenu_run 
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 ## System Volume
@@ -89,7 +90,7 @@ bindsym $mod+e layout toggle tabbed splith stacking
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod1+space focus mode_toggle
+# bindsym $mod1+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
