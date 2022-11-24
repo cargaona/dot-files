@@ -215,6 +215,11 @@ _G.packer_plugins = {
     path = "/home/char/.local/share/nvim/site/pack/packer/start/vim-go",
     url = "https://github.com/fatih/vim-go"
   },
+  ["vim-jsx-pretty"] = {
+    loaded = true,
+    path = "/home/char/.local/share/nvim/site/pack/packer/start/vim-jsx-pretty",
+    url = "https://github.com/maxmellon/vim-jsx-pretty"
+  },
   ["vim-markdown"] = {
     loaded = true,
     path = "/home/char/.local/share/nvim/site/pack/packer/start/vim-markdown",
