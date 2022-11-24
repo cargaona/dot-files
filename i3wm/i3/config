@@ -29,6 +29,7 @@ bindsym $mod+Shift+q kill
 # start dmenu 
 bindsym $mod+space exec dmenu_run 
 bindsym $mod1+space exec dmenu_run 
+bindsym $mod+Shift+t exec dmenu-translate 
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 ## System Volume
