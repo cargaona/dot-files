@@ -111,6 +111,7 @@ noremap <Leader>gr :Gremove<CR>
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 nmap <leader>f <Plug>(easymotion-overwin-f2)
 
+inoremap jk <ESC>
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
 cnoreabbrev Qall! qall!

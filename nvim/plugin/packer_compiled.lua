@@ -134,10 +134,10 @@ _G.packer_plugins = {
     path = "/home/char/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
-  ["material.vim"] = {
+  ["material.nvim"] = {
     loaded = true,
-    path = "/home/char/.local/share/nvim/site/pack/packer/start/material.vim",
-    url = "https://github.com/kaicataldo/material.vim"
+    path = "/home/char/.local/share/nvim/site/pack/packer/start/material.nvim",
+    url = "https://github.com/marko-cerovak/material.nvim"
   },
   nerdcommenter = {
     loaded = true,

@@ -13,7 +13,6 @@ end
 
 
 -- General attachment callback funtion
-
 local on_attach = function(client)
 end
 
@@ -158,7 +157,7 @@ lspconfig.tflint.setup({
 lspconfig.terraformls.setup({
   capabilities = capabilities,
   on_attach = function(client)
-    client.resolved_capabilities.document_formatting = true
+    client.server_capabilities.document_formatting = true
   end,
   cmd = { "terraform-lsp", "serve" },
   filetypes = { "tf", "terraform" },

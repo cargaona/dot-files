@@ -1,5 +1,5 @@
 "  ------------ Lsp
-command! -nargs=0 Def lua vim.lsp.buf.definition()
+command! -nargs=0 Def silent! lua vim.lsp.buf.definition()
 command! -nargs=0 Fmt lua vim.lsp.buf.format()
 command! -nargs=0 Imp lua vim.lsp.buf.implementation()
 command! -nargs=0 Ref lua vim.lsp.buf.references()

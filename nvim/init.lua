@@ -13,9 +13,10 @@ require("statusline") -- lualine
 vim.g.mapleader = ","
 
 -- Color Scheme
+--
 vim.cmd 'colorscheme material'
 vim.g.material_theme_style = "dark"
---
+
 ---- Vim Imports
 vim.cmd("so ~/.config/nvim/lua/vim-go.vim")
 vim.cmd("so ~/.config/nvim/settings.vim")

@@ -33,7 +33,6 @@ bindsym $mod+Shift+t exec dmenu-translate
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 ## System Volume
-# 2 for desktop 3 for laptop
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
 bindsym XF86AudioLowerVolume  exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
 bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
