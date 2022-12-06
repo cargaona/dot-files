@@ -159,7 +159,7 @@ lspconfig.terraformls.setup({
   on_attach = function(client)
     client.server_capabilities.document_formatting = true
   end,
-  cmd = { "terraform-lsp", "serve" },
+  cmd = { "terraform-ls", "serve" },
   filetypes = { "tf", "terraform" },
 })
 

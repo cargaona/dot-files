@@ -11,7 +11,7 @@ nmap <S-Up> V<Up>
 vmap <S-Up> <Up>
 nnoremap <C-S-Right> <Esc>v
 nnoremap <C-S-Left> <Esc>v
-nnoremap <Leader>nt :NvimTreeToggle<CR>
+nnoremap <Leader>tr :NvimTreeToggle<CR>
 
 "" Copy/Paste/Cut
 if has('unnamedplus')
@@ -35,7 +35,7 @@ map <A-k> <C-E><C-E>
 map <A-i> <C-Y><C-Y>
 
 " Move through words wit Crtl
-nnoremap <C-Right> e
+nnoremap <C-Right> e <Right>
 nnoremap <C-Left> b
 
 "NerdCommenter (scrooloose/nerdcommenter)
@@ -54,11 +54,10 @@ vmap <C-d> <Plug>SchleppDup
 ""nnoremap <leader>f :NvimTreeToggle<Enter>
 
 " Telescope (nvim-telescope/telescope.nvim)
-nnoremap <leader>o <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<cr>
+nnoremap <silent> <leader>f <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>h <cmd>Telescope help_tags<cr>
-"Find in files with Ctrl+f
-nnoremap <silent> <C-f> :Telescope live_grep<CR>
+nnoremap <silent> <leader>g :Telescope live_grep<CR>
 
 " Delete the word in front of the cursor
 imap <C-D> X<Esc>lbce
@@ -84,14 +83,14 @@ noremap <C-q> :bw<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
 
 "" Navigate 
-nnoremap <silent> <C-Right> <C-w>l
-nnoremap <silent> <C-Left> <C-w>h 
-nnoremap <silent> <C-Down> <C-w>j
-nnoremap <silent> <C-Up> <C-w>k
-""noremap <C-j> <C-w>h
-""noremap <C-i> <C-w>k
-""noremap <C-l> <C-w>l
-""noremap <C-k> <C-w>j
+""nnoremap <silent> <C-Right> <C-w>l
+""nnoremap <silent> <C-Left> <C-w>h 
+""nnoremap <silent> <C-Down> <C-w>j
+""nnoremap <silent> <C-Up> <C-w>k
+nnoremap <silent> <C-h> <C-w>h
+nnoremap <silent> <C-k> <C-w>k
+nnoremap <silent> <C-l> <C-w>l
+nnoremap <silent> <C-j> <C-w>j
 
 " Lets you move to the end of the line (virtualedit=onemore needed)
 nnoremap <End> <End><Right>
@@ -109,9 +108,12 @@ noremap <Leader>gr :Gremove<CR>
 
 "" easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
-nmap <leader>f <Plug>(easymotion-overwin-f2)
+nmap <leader>em <Plug>(easymotion-overwin-f2)
 
 inoremap jk <ESC>
+nnoremap jq :q!<CR>
+nnoremap jwq :wq!<CR>
+nnoremap jw :w!<CR>
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
 cnoreabbrev Qall! qall!

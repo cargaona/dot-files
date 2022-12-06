@@ -10,7 +10,7 @@ require("schlepp-config")
 require("statusline") -- lualine
 
 -- Leader key
-vim.g.mapleader = ","
+vim.g.mapleader = "j"
 
 -- Color Scheme
 --

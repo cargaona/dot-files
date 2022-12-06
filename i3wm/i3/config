@@ -16,13 +16,10 @@ exec_always --no-startup-id copyq
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id blueman-applet
 exec_always feh --randomize --bg-scale $HOME/.wallpapers/wRlb2pN.jpeg
-#exec_always "xrandr --output eDP1 --mode 1366x768 --below HDMI1"
-#exec_always --no-startup-id bluetoothctl power on
-#exec_always "xrandr --output HDMI1 --mode 2560x1080 --above eDP1"
-#exec_always "xsetroot -fg '#000000'"
 
 # start a terminal
 bindsym $mod+Return exec alacritty
+bindsym $mod+BackSpace exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -96,7 +93,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+d focus child
 bindsym $mod+Tab workspace next
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -143,6 +140,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 popup_during_fullscreen smart
 
+bindsym $mod+r mode "resize"
 mode "resize" {
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
@@ -160,20 +158,17 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
-
 # Theme colors
 # set variable for main accent color
 #set $acolor #eb564d
 set $acolor #d64161
- 
+
 # set other colors
 set $bgicolor #00979E
 set $bgucolor #6a6868
 set $txtacolor #F9FAF9
 set $txtucolor #bdbbbb
 set $indcolor #4deb56
- 
 # class                   border  backgr.   text    indic.   child_border
 client.focused          #4c7899 #1a285577   #ffffff #2e9ef4   #285577
 client.focused_inactive #333333 #5f676a     #ffffff #484e50   #5f676a
@@ -181,5 +176,3 @@ client.unfocused        #333333 #222222     #888888 #292d2e   #222222
 client.urgent           #2f343a #900000     #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c     #ffffff #000000   #0c0c0c
 client.background       #ffffff
-#
-

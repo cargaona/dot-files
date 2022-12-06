@@ -6,11 +6,9 @@ export ZSH="$HOME/.oh-my-zsh"
 export CODE_PATH=$HOME/projects/personal/code
 
 ZSH_THEME="minimal-char"
-MNML_PROMPT=(mnml_ssh mnml_pyenv mnml_status mnml_keymap 'mnml_cwd 2 0' mnml_git) 
+MNML_PROMPT=(mnml_ssh mnml_pyenv kube_ps1 mnml_status mnml_keymap 'mnml_cwd 2 0' mnml_git) 
 MNML_RPROMPT=()
-export KUBE_PS1_SYMBOL_ENABLE=false 
-PROMPT='$(kube_ps1)'$PROMPT
-kubeoff
+export KUBE_PS1_SYMBOL_ENABLE=false
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="false"
@@ -115,5 +113,6 @@ fi
 
 gpg-connect-agent updatestartuptty /bye > /dev/null
 
+kubeoff
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/char/projects/personal/code/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/char/projects/personal/code/google-cloud-sdk/completion.zsh.inc'; fi
