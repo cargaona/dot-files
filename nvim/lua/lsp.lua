@@ -141,7 +141,7 @@ lspconfig.rust_analyzer.setup({
 })
 
 -- Python
-lspconfig.pyright.setup({ capabilities = capabilities, handlers = handlers })
+lspconfig.anakin_language_server.setup({ capabilities = capabilities, handlers = handlers })
 
 -- Golang
 lspconfig.gopls.setup({ capabilities = capabilities, cmd = { 'gopls','--remote=auto' } })
