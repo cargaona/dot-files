@@ -93,7 +93,7 @@ export RTV_BROWSER=firefox
 
 export PATH=$HOME/.local/bin:$PATH
 #export GOROOT=/usr/bin/go
-export GOPATH=$HOME/go
+export GOPATH=$CODE_PATH/go
 export PATH=$PATH:$CODE_PATH/google-cloud-sdk/bin
 #export PATH=$GOPATH/bin:$PATH
 

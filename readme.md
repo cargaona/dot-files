@@ -16,6 +16,8 @@ ln -s $CODE_PATH/dot-files/i3wm/i3/config ~/.config/i3/config
 ln -s $CODE_PATH/dot-files/dunst/frappe.conf $HOME/.config/dunst/dunstrc
 ln -s $CODE_PATH/dot-files/polybar/* ~/.config/polybar/
 ln -s $CODE_PATH/dot-files/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -sf $CODE_PATH/dot-files/autorandr ~/.config/
+
 ## Symbolic links to use pass from the dmenu. 
 ln -s /usr/bin/passmenu-otp /usr/bin/potp
 ln -s /usr/bin/passmenu /usr/bin/pw
