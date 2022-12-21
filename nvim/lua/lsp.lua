@@ -11,7 +11,6 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-
 -- General attachment callback funtion
 local on_attach = function(client)
 end

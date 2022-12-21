@@ -22,8 +22,9 @@ return require("packer").startup(function()
   use("wbthomason/packer.nvim")
   -- LSP and Language specific
   use("hashivim/vim-terraform")
+  use("neovim/nvim-lspconfig")
   use("nvim-lua/lsp-status.nvim")
-  use("nvim-lua/lsp_extensions.nvim") -- deprecated: only used for rust.
+  --use("nvim-lua/lsp_extensions.nvim") -- deprecated: only used for rust.
   use("onsails/lspkind-nvim")
   use("tpope/vim-markdown")
   use('fatih/vim-go')
@@ -48,7 +49,6 @@ return require("packer").startup(function()
   use('kaicataldo/material.vim')
   use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
   -- Navigation
-  use("neovim/nvim-lspconfig")
   use("zirrostig/vim-schlepp")
   use('easymotion/vim-easymotion')
   use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })

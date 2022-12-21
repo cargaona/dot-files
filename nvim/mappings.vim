@@ -57,7 +57,7 @@ vmap <C-d> <Plug>SchleppDup
 nnoremap <silent> <leader>f <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>h <cmd>Telescope help_tags<cr>
-nnoremap <silent> <leader>g :Telescope live_grep<CR>
+nnoremap <silent> <leader>g :Telescope live_grep<cr>
 
 " Delete the word in front of the cursor
 imap <C-D> X<Esc>lbce
@@ -71,7 +71,6 @@ nnoremap <C-'> :bp<CR>
 
 nnoremap <silent> <leader><space> :noh<cr>
 
-"Switch buffers with Crtl+Atl+arrows
 nnoremap <A-Tab> :bn
 nnoremap <A-S-Tab> :bp
 

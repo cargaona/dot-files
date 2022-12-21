@@ -1,0 +1,15 @@
+#!/bin/bash
+
+device=$1 #Change this to reflect your device's ID
+
+output=$(xinput list-props $device | awk '/Device Enabled/{print $4}')
+
+if [ $output == 1 ]
+  then
+    xinput set-prop $device "Device Enabled" 0
+elif [ $output == 0 ]
+  then
+    xinput set-prop $device "Device Enabled" 1
+else
+  echo "Something's up."
+fi
