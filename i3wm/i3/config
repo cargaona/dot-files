@@ -3,7 +3,7 @@
 set $mod Mod4
 set $mod1 Mod1
 
-font xft:Recursive Mono Linear Static 14
+font xft:JetBrains Mono 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -12,9 +12,6 @@ exec_always $HOME/.config/polybar/launch.sh --forest --no-startup-id
 # block screen after 5 minutes
 exec_always xset s 300 20
 exec_always "xss-lock -- i3lock -e -f -i $HOME/.wallpapers/HD7KSHs.png"
-exec_always --no-startup-id copyq
-exec_always --no-startup-id nm-applet
-exec_always --no-startup-id blueman-applet
 exec_always feh --randomize --bg-scale $HOME/.wallpapers/wRlb2pN.jpeg
 
 # start a terminal
@@ -24,15 +21,22 @@ bindsym $mod+BackSpace exec alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu 
-bindsym $mod+space exec dmenu_run 
-bindsym $mod1+space exec dmenu_run 
+bindsym $mod1+space exec rofi -show combi 
+bindsym $mod+space exec rofi -show combi
+bindsym $mod+c exec clipmenu 
 bindsym $mod+Shift+t exec dmenu-translate 
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+Shift+p exec passmenu-otp "$@"
+
+#bindsym $mod+x exec rofi -modi TODO:$CODE_PATH/dot-files/scripts/rofi-todo.sh -show TODO
+bindsym $mod+x exec todofi.sh
+bindsym $mod+b exec dmenu-bluetooth
+bindsym $mod+s exec rofi -show ssh
 
 ## System Volume
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
-bindsym XF86AudioLowerVolume  exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
-bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+# volume keys are now grabbed by pasystray. 
+#bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+#bindsym XF86AudioLowerVolume  exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+#bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 ## Display Bright
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 5" 
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
@@ -132,7 +136,7 @@ workspace 9 output eDP1
 workspace 0 output eDP1 
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+# bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -170,8 +174,8 @@ set $txtacolor #F9FAF9
 set $txtucolor #bdbbbb
 set $indcolor #4deb56
 # class                   border  backgr.   text    indic.   child_border
-client.focused          #4c7899 #1a285577   #ffffff #2e9ef4   #285577
-client.focused_inactive #333333 #5f676a     #ffffff #484e50   #5f676a
+client.focused          #88c0d0 #2e3440     #d8dee9 #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a     #d8dee9 #484e50   #5f676a
 client.unfocused        #333333 #222222     #888888 #292d2e   #222222
 client.urgent           #2f343a #900000     #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c     #ffffff #000000   #0c0c0c

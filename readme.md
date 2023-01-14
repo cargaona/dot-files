@@ -17,6 +17,9 @@ ln -s $CODE_PATH/dot-files/dunst/frappe.conf $HOME/.config/dunst/dunstrc
 ln -s $CODE_PATH/dot-files/polybar/* ~/.config/polybar/
 ln -s $CODE_PATH/dot-files/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -sf $CODE_PATH/dot-files/autorandr ~/.config/
+ln -sf $CODE_PATH/dot-files/rofi/nord.rasi $HOME/.local/share/rofi/themes/
+sudo ln -sf $CODE_PATH/dot-files/scripts/disable-keyboard /usr/local/bin
+sudo ln -sf $CODE_PATH/dot-files/scripts/todofi.sh /usr/local/bin
 
 ## Symbolic links to use pass from the dmenu. 
 ln -s /usr/bin/passmenu-otp /usr/bin/potp
