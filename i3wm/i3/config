@@ -20,12 +20,12 @@ bindsym $mod+BackSpace exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu 
+# start dmenu / rofi 
 bindsym $mod1+space exec rofi -show combi 
 bindsym $mod+space exec rofi -show combi
 bindsym $mod+c exec clipmenu 
 bindsym $mod+Shift+t exec dmenu-translate 
-bindsym $mod+Shift+p exec passmenu-otp "$@"
+bindsym $mod+Shift+p exec passmenu "$@"
 
 #bindsym $mod+x exec rofi -modi TODO:$CODE_PATH/dot-files/scripts/rofi-todo.sh -show TODO
 bindsym $mod+x exec todofi.sh
