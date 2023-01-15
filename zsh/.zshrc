@@ -1,6 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 export CODE_PATH=$HOME/projects/personal/code
@@ -44,11 +41,7 @@ fi
 #export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
-else
-  export EDITOR='nvim'
-fi
+export EDITOR='nvim'
 
 alias cd..="cd .."
 alias google-chrome=google-chrome-stable
@@ -92,16 +85,18 @@ export XDG_CONFIG_DIRS=$HOME/.config
 export RTV_BROWSER=firefox
 
 export PATH=$HOME/.local/bin:$PATH
-#export GOROOT=/usr/bin/go
-export GOPATH=$CODE_PATH/go
-export PATH=$PATH:$CODE_PATH/google-cloud-sdk/bin
-#export PATH=$GOPATH/bin:$PATH
+export PATH=$CODE_PATH/dot-files/scripts/:$PATH
 
+## delete duplicated paths 
+PATH=$(echo $(sed 's/:/\n/g' <<< $PATH | sort | uniq) | sed -e 's/\s/':'/g')
+
+#export GOROOT=/usr/bin/go
+#export GOPATH=$CODE_PATH/go
+#export PATH=$GOPATH/bin:$PATH
 
 ## GPG Setup 
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
-#. /usr/share/autojump/autojump.sh
 
 if [[ "$OSTYPE" == "darwin20.0" || "$OSTYPE" == "darwin21.0" ]]; then
     PATH=$PATH:/opt/homebrew/bin/
@@ -112,7 +107,4 @@ if [[ "$OSTYPE" == "darwin20.0" || "$OSTYPE" == "darwin21.0" ]]; then
 fi
 
 gpg-connect-agent updatestartuptty /bye > /dev/null
-
 kubeoff
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/char/projects/personal/code/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/char/projects/personal/code/google-cloud-sdk/completion.zsh.inc'; fi

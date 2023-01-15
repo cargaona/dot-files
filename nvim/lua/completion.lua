@@ -36,9 +36,9 @@ cmp.setup({
       select = true,
     }),
     ["<Up>"] = move_prev,
-    ["<S-Tab>"] = move_prev,
+    -- ["<S-Tab>"] = move_prev,
     ["<Down>"] = move_next,
-    ["<Tab>"] = move_next,
+    -- ["<Tab>"] = move_next,
   },
 
   -- Windows

@@ -14,20 +14,20 @@ KIND=""
 # and by following the constraints LINES_MIN and LINES_MAX
 LINES_MODE="auto"
 LINES_MIN=1
-LINES_MAX=15
+LINES_MAX=20
 
-COLOR_TITLE="#00CC00"
-COLOR_SHORTCUT="#0000CC"
-COLOR_INFO="#FF0000"
+COLOR_TITLE="#00F200"
+COLOR_SHORTCUT="#FFFFFF"
+COLOR_INFO="#FFFFFF"
 COLOR_EXAMPLE="#0000CC"
 COLOR_ITEM="#0000FF"
 
 # Don't forget to quote regex char
 MARKUP_PRIORITY='<b>\1<\/b> \2'
-MARKUP_PROJECT='<span fgcolor="darkblue"><b>\1<\/b><\/span>'
-MARKUP_CONTEXT='<span fgcolor="darkgreen"><b>\1<\/b><\/span>'
+MARKUP_PROJECT='<span fgcolor="lightblue"><b>\1<\/b><\/span>'
+MARKUP_CONTEXT='<span fgcolor="green"><b>\1<\/b><\/span>'
 MARKUP_TAG='<span fgcolor="gray"><b>\1<\/b><\/span>'
-MARKUP_DUE='<span fgcolor="red"><b>\1<\/b><\/span>'
+MARKUP_DUE='<span fgcolor="white"><b>\1<\/b><\/span>'
 
 SHORTCUT_NEW="Alt+a"
 SHORTCUT_DONE="Alt+d"
@@ -38,7 +38,7 @@ SHORTCUT_FILTERS="Alt+p"
 SHORTCUT_CLEAR="Alt+c"
 SHORTCUT_HELP="Alt+h"
 
-EDITOR='gedit'
+EDITOR='vim'
 
 ROFI_BIN="$(command -v rofi)"
 TODO_BIN=$(command -v todo-txt || command -v todo.sh)
@@ -56,7 +56,7 @@ if [[ -z "$TODO_BIN" ]]; then
 fi
 
 runrofi () {
-    $ROFI_BIN -width 80% -matching glob -tokenize -i -no-levenshtein-sort "$@"
+    $ROFI_BIN -width 100% -no-sidebar-mode True -matching glob -tokenize -i -no-levenshtein-sort "$@"
 }
 
 runtodo_verbose() {

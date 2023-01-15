@@ -13,6 +13,7 @@ exec_always $HOME/.config/polybar/launch.sh --forest --no-startup-id
 exec_always xset s 300 20
 exec_always "xss-lock -- i3lock -e -f -i $HOME/.wallpapers/HD7KSHs.png"
 exec_always feh --randomize --bg-scale $HOME/.wallpapers/wRlb2pN.jpeg
+exec_always --no-startup-id copyq  
 
 # start a terminal
 bindsym $mod+Return exec alacritty
@@ -21,14 +22,16 @@ bindsym $mod+BackSpace exec alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu / rofi 
-bindsym $mod1+space exec rofi -show combi 
-bindsym $mod+space exec rofi -show combi
-bindsym $mod+c exec clipmenu 
+bindsym $mod1+space exec rofi -show run
+bindsym $mod+space exec rofi -show run 
+bindsym $mod+c exec copyq-rofi 
 bindsym $mod+Shift+t exec dmenu-translate 
 bindsym $mod+Shift+p exec passmenu "$@"
+bindsym $mod+w exec rofi -show combi 
 
 #bindsym $mod+x exec rofi -modi TODO:$CODE_PATH/dot-files/scripts/rofi-todo.sh -show TODO
 bindsym $mod+x exec todofi.sh
+bindsym $mod+d exec bookmark
 bindsym $mod+b exec dmenu-bluetooth
 bindsym $mod+s exec rofi -show ssh
 
@@ -97,7 +100,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-bindsym $mod+d focus child
+#bindsym $mod+d focus child
 bindsym $mod+Tab workspace next
 # switch to workspace
 bindsym $mod+1 workspace 1

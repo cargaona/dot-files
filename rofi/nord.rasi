@@ -42,8 +42,9 @@ window {
     border-color:       @accent-color;
 
     location:   center;
-    width:      480px;
-    border:     1px;
+    width:      650px;
+    border:     2px;
+    padding:    8px 12px;
 }
 
 inputbar {

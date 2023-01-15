@@ -7,6 +7,7 @@ command! -nargs=0 Info lua vim.lsp.buf.hover()
 command! -nargs=0 Diagnose lua vim.diagnostic.open_float()
 command! -nargs=0 CodeAction lua vim.lsp.buf.code_action()
 command! -nargs=0 Rename lua vim.lsp.buf.rename()
+command! -nargs=0 Err lua vim.diagnostic.setqflist()
 
 command! -nargs=0 LspLog lua vim.cmd('sp'..vim.lsp.get_log_path())
 

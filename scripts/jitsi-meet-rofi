@@ -1,0 +1,6 @@
+#!/bin/bash
+meet=$(rofi -lines 1 -dmenu -mesg "Launching Jitsi. Insert a name for the meet." -width 80% -matching glob -tokenize -i -no-levenshtein-sort "$@")
+if [ -z $meet ]; then 
+  exit 1 
+fi
+chromium --app="https://meet.jit.si/$meet"
