@@ -47,6 +47,7 @@ alias cd..="cd .."
 alias google-chrome=google-chrome-stable
 alias grip="history | grep"
 alias vim=nvim
+alias vf='vim $(fzf)'
 
 alias g=git 
 alias ga='git add .'
@@ -87,12 +88,12 @@ export RTV_BROWSER=firefox
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$CODE_PATH/dot-files/scripts/:$PATH
 
+#export GOROOT=/usr/bin/go
+export GOPATH=$CODE_PATH/go
+export PATH=$GOPATH/bin:$PATH
 ## delete duplicated paths 
 PATH=$(echo $(sed 's/:/\n/g' <<< $PATH | sort | uniq) | sed -e 's/\s/':'/g')
 
-#export GOROOT=/usr/bin/go
-#export GOPATH=$CODE_PATH/go
-#export PATH=$GOPATH/bin:$PATH
 
 ## GPG Setup 
 export GPG_TTY="$(tty)"
@@ -107,4 +108,5 @@ if [[ "$OSTYPE" == "darwin20.0" || "$OSTYPE" == "darwin21.0" ]]; then
 fi
 
 gpg-connect-agent updatestartuptty /bye > /dev/null
+
 kubeoff

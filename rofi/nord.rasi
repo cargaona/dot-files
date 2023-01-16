@@ -53,6 +53,12 @@ inputbar {
     children:   [ prompt, entry ];
 }
 
+textbox {
+    padding:    8px 12px;
+    spacing:    12px;
+}
+
+
 prompt, entry, element-text, element-icon {
     vertical-align: 0.5;
 }
@@ -70,7 +76,7 @@ listview {
 
 element {
     padding:    8px;
-    spacing:    8px;
+    spacing:    12px;
 }
 
 element normal urgent {

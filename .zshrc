@@ -1,1 +1,0 @@
-/Users/cgaona/projects/personal/dot-files/zsh/.zshrc
