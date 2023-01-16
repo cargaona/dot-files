@@ -1,23 +1,19 @@
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
-
-set $mod Mod4
-set $mod1 Mod1
-
-font xft:JetBrains Mono 12
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
+## TODO: move this block to systemd or xinit.
+##########################################################################
 exec_always $HOME/.config/polybar/launch.sh --forest --no-startup-id  
 # block screen after 5 minutes
 exec_always xset s 300 20
 exec_always "xss-lock -- i3lock -e -f -i $HOME/.wallpapers/HD7KSHs.png"
 exec_always feh --randomize --bg-scale $HOME/.wallpapers/wRlb2pN.jpeg
 exec_always --no-startup-id copyq  
+##########################################################################
 
+## TODO: move this block to sxhkd or similar. 
+##########################################################################
 # start a terminal
 bindsym $mod+Return exec alacritty
 bindsym $mod+BackSpace exec alacritty
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -28,30 +24,38 @@ bindsym $mod+c exec copyq-rofi
 bindsym $mod+Shift+t exec dmenu-translate 
 bindsym $mod+Shift+p exec passmenu "$@"
 bindsym $mod+w exec rofi -show combi 
-
-#bindsym $mod+x exec rofi -modi TODO:$CODE_PATH/dot-files/scripts/rofi-todo.sh -show TODO
 bindsym $mod+x exec todofi.sh
 bindsym $mod+d exec bookmark
 bindsym $mod+b exec dmenu-bluetooth
 bindsym $mod+s exec rofi -show ssh
-
+## screenshots
+bindsym --release shift+Print exec "flameshot gui" 
+bindsym --release Print exec "flameshot screen -n 0 -c --path ~/Pictures"
+## block i3lock
+bindsym $mod+q exec "i3lock -e -f -i $HOME/.wallpapers/HD7KSHs.png"
+## Display Bright
+bindsym XF86MonBrightnessUp exec 'xbacklight -inc 5 && notify-send -h int:value:$(xbacklight) "Brightness"'
+bindsym XF86MonBrightnessDown exec 'xbacklight -dec 5 && notify-send -h int:value:$(xbacklight) "Brightness"'
 ## System Volume
 # volume keys are now grabbed by pasystray. 
 #bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
 #bindsym XF86AudioLowerVolume  exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
 #bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-## Display Bright
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 5" 
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
+##########################################################################
 
-## screenshots
-bindsym --release shift+Print exec "flameshot gui" 
-bindsym --release Print exec "flameshot screen -n 0 -c --path ~/Pictures"
+## Starting from here everything is i3 related > 
 
-#block i3lock
-bindsym $mod+q exec "i3lock -e -f -i $HOME/.wallpapers/HD7KSHs.png"
-bindsym $mod+m focus output eDP1
+#bindsym $mod+m focus output eDP1
 #bindsym $mod+= focus output right 
+
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+set $mod Mod4
+set $mod1 Mod1
+
+font xft:JetBrains Mono 12
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
 
 # change focus
 bindsym $mod+h focus left

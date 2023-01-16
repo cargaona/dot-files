@@ -1,7 +1,9 @@
 @theme "/home/char/.local/share/rofi/themes/nord.rasi"
 
+/*
 configuration {
     kb-element-next: "";
     kb-row-select: "Tab";
 }
+*/
 
