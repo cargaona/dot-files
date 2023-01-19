@@ -34,8 +34,10 @@ bindsym --release Print exec "flameshot screen -n 0 -c --path ~/Pictures"
 ## block i3lock
 bindsym $mod+q exec "i3lock -e -f -i $HOME/.wallpapers/HD7KSHs.png"
 ## Display Bright
-bindsym XF86MonBrightnessUp exec 'xbacklight -inc 5 && notify-send -h int:value:$(xbacklight) "Brightness"'
-bindsym XF86MonBrightnessDown exec 'xbacklight -dec 5 && notify-send -h int:value:$(xbacklight) "Brightness"'
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 5; notify-send -h int:value:$(xbacklight) 'Brightness'"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 5 && notify-send -h int:value:$(xbacklight) 'Brightness'"
+#bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
+#bindsym XF86MonBrightnessDown exec 'xbacklight -inc -5"
 ## System Volume
 # volume keys are now grabbed by pasystray. 
 #bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
