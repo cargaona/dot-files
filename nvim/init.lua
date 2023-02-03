@@ -8,6 +8,7 @@ require("md-fenced-config")
 require("bufferline-config")
 require("schlepp-config")
 require("statusline") -- lualine
+require("treesitter")
 
 -- Leader key
 vim.g.mapleader = "j"

@@ -46,6 +46,7 @@ return require("packer").startup(function()
   use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
   -- Theme and appearance
   use("akinsho/nvim-bufferline.lua")
+  use('nvim-treesitter/nvim-treesitter')
   use('kaicataldo/material.vim')
   use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
   -- Navigation

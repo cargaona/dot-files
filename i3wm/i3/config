@@ -4,7 +4,7 @@ exec_always $HOME/.config/polybar/launch.sh --forest --no-startup-id
 # block screen after 5 minutes
 exec_always xset s 300 20
 exec_always "xss-lock -- i3lock -e -f -i $HOME/.wallpapers/HD7KSHs.png"
-exec_always feh --randomize --bg-scale $HOME/.wallpapers/wRlb2pN.jpeg
+exec_always feh --randomize --bg-scale $HOME/.wallpapers/peritomoreno.jpg
 exec_always --no-startup-id copyq  
 ##########################################################################
 

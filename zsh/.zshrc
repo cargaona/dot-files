@@ -55,6 +55,7 @@ alias gdl='git diff $(git rev-parse HEAD)'
 alias gdc='git diff --cached'
 alias gir=git ## You know this feeling. 
 alias gcm="git commit -m "
+alias gcma="git commit --amend"
 
 
 alias netk="sudo systemctl restart NetworkManager"
