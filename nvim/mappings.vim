@@ -48,17 +48,28 @@ vmap <C-d> <Plug>SchleppDup
 vmap <C-Up> <Plug>SchleppIndentUp
 vmap <C-Down> <Plug>SchleppIndentDown
 
-" NvimTree (kyazdani42/nvim-tree.lua)
-"-------------------------------------
-""nnoremap <leader>f :NvimTreeToggle<Enter>
+"" Git
+noremap <Leader>ga :Gwrite<CR>
+noremap <Leader>gbl :Git blame<CR>
+noremap <Leader>gca :Git commit --amend<CR>
+noremap <Leader>gcm :Git commit<CR>
+noremap <Leader>gd :Gvdiff<CR>
+noremap <Leader>gf :Git fetch<CR>
+noremap <Leader>gl :Git pull<CR>
+noremap <Leader>gp :Git push<CR>
+noremap <Leader>gr :Gremove<CR>
+noremap <Leader>gs :Git<CR>
+noremap <Leader>log :Git log<CR>
+" C-a creates a new branch 
+nnoremap <silent> <leader>co <cmd>Telescope git_branches<cr> 
 
 " Telescope (nvim-telescope/telescope.nvim)
-nnoremap <leader>b <cmd>Telescope buffers<cr>
-nnoremap <leader>h <cmd>Telescope help_tags<cr>
-nnoremap <silent> <leader>co <cmd>Telescope git_branches<cr> " C-a creates a new branch 
-nnoremap <silent> <leader>f <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>
-nnoremap <silent> <leader>g <cmd>Telescope live_grep<cr>
+nnoremap <silent> <leader>b <cmd>Telescope buffers<cr>
 nnoremap <silent> <leader>t <cmd>Telescope<cr>
+nnoremap <silent> <leader>h <cmd>Telescope help_tags<cr>
+nnoremap <silent> <leader>g <cmd>Telescope live_grep<cr>
+nnoremap <silent> <leader>f <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>
+
 " Delete the word in front of the cursor imap <C-D> X<Esc>lbce
 " Undo with Crtl+z / Redo with Crtl+Shif+z
 map <C-r> :redo<CR>
@@ -93,18 +104,6 @@ nnoremap <silent> <C-j> <C-w>j
 nnoremap <End> <End><Right>
 noremap $ $<Right>
 
-"" Git
-noremap <Leader>gs :Git<CR>
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gr :Gremove<CR>
-noremap <Leader>ll :Git pull<CR>
-noremap <Leader>log :Git log<CR>
-noremap <Leader>gb :Git blame<CR>
-noremap <Leader>gf :Git fetch<CR>
-noremap <Leader>gc :Git commit<CR>
-noremap <Leader>gca :Git commit --amend<CR>
 
 "" easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
