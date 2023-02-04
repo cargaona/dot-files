@@ -45,11 +45,11 @@ return require("packer").startup(function()
   use('airblade/vim-gitgutter')
   use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
   -- Theme and appearance
-  use("akinsho/nvim-bufferline.lua")
   use('nvim-treesitter/nvim-treesitter')
   use('kaicataldo/material.vim')
   use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
   -- Navigation
+  use("akinsho/nvim-bufferline.lua")
   use("zirrostig/vim-schlepp")
   use('easymotion/vim-easymotion')
   use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })

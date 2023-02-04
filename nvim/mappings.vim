@@ -57,7 +57,9 @@ vmap <C-d> <Plug>SchleppDup
 nnoremap <silent> <leader>f <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>h <cmd>Telescope help_tags<cr>
-nnoremap <silent> <leader>g :Telescope live_grep<cr>
+nnoremap <silent> <leader>g <cmd>Telescope live_grep<cr>
+nnoremap <silent> <leader>te <cmd>Telescope<cr>
+nnoremap <silent> <leader>tb <cmd>Telescope git_branches<cr>
 
 " Delete the word in front of the cursor
 imap <C-D> X<Esc>lbce
@@ -97,13 +99,15 @@ noremap $ $<Right>
 
 "" Git
 noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gb :Gblame<CR>
+noremap <Leader>gb :Git blame<CR>
+noremap <Leader>gc :Git commit<CR>
 noremap <Leader>gd :Gvdiff<CR>
+noremap <Leader>gf :Git fetch<CR>
+noremap <Leader>gll :Git pull<CR>
+noremap <Leader>glog :Glog<CR>
 noremap <Leader>gr :Gremove<CR>
+noremap <Leader>gs :Git<CR>
+noremap <Leader>gsh :Gpush<CR>
 
 "" easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings

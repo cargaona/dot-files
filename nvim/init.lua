@@ -14,9 +14,8 @@ require("treesitter")
 vim.g.mapleader = "j"
 
 -- Color Scheme
---
 vim.cmd 'colorscheme material'
-vim.g.material_theme_style = "dark"
+vim.g.material_theme_style = "dark" -- uncomment this one to use legacy material
 
 ---- Vim Imports
 vim.cmd("so ~/.config/nvim/lua/vim-go.vim")
