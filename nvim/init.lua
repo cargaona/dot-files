@@ -9,7 +9,7 @@ require("bufferline-config")
 require("schlepp-config")
 require("statusline") -- lualine
 require("treesitter")
-require("telescope")
+--require("telescope-config")
 
 -- Leader key
 vim.g.mapleader = "j"
