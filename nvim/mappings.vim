@@ -11,7 +11,7 @@ nmap <S-Up> V<Up>
 vmap <S-Up> <Up>
 nnoremap <C-S-Right> <Esc>v
 nnoremap <C-S-Left> <Esc>v
-nnoremap <Leader>tr :NvimTreeToggle<CR>
+nnoremap <C-t> :NvimTreeToggle<CR>
 
 "" Copy/Paste/Cut
 if has('unnamedplus')
@@ -53,16 +53,13 @@ vmap <C-Down> <Plug>SchleppIndentDown
 ""nnoremap <leader>f :NvimTreeToggle<Enter>
 
 " Telescope (nvim-telescope/telescope.nvim)
-nnoremap <silent> <leader>f <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>h <cmd>Telescope help_tags<cr>
+nnoremap <silent> <leader>co <cmd>Telescope git_branches<cr> " C-a creates a new branch 
+nnoremap <silent> <leader>f <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>
 nnoremap <silent> <leader>g <cmd>Telescope live_grep<cr>
-nnoremap <silent> <leader>te <cmd>Telescope<cr>
-nnoremap <silent> <leader>co <cmd>Telescope git_branches<cr>
-
-" Delete the word in front of the cursor
-imap <C-D> X<Esc>lbce
-
+nnoremap <silent> <leader>t <cmd>Telescope<cr>
+" Delete the word in front of the cursor imap <C-D> X<Esc>lbce
 " Undo with Crtl+z / Redo with Crtl+Shif+z
 map <C-r> :redo<CR>
 map <C-z> u
