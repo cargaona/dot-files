@@ -15,7 +15,6 @@ nnoremap <Leader>tr :NvimTreeToggle<CR>
 
 "" Copy/Paste/Cut
 if has('unnamedplus')
-  set clipboard=unnamed,unnamedplus
 endif
 
 if has('macunix')
@@ -45,9 +44,9 @@ nnoremap <C-Left> b
 
 "Schleep indention
 "-------------------------------------
-vmap <C-Down> <Plug>SchleppIndentDown
-vmap <C-Up> <Plug>SchleppIndentUp
 vmap <C-d> <Plug>SchleppDup
+vmap <C-Up> <Plug>SchleppIndentUp
+vmap <C-Down> <Plug>SchleppIndentDown
 
 " NvimTree (kyazdani42/nvim-tree.lua)
 "-------------------------------------
@@ -59,7 +58,7 @@ nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>h <cmd>Telescope help_tags<cr>
 nnoremap <silent> <leader>g <cmd>Telescope live_grep<cr>
 nnoremap <silent> <leader>te <cmd>Telescope<cr>
-nnoremap <silent> <leader>tb <cmd>Telescope git_branches<cr>
+nnoremap <silent> <leader>co <cmd>Telescope git_branches<cr>
 
 " Delete the word in front of the cursor
 imap <C-D> X<Esc>lbce
@@ -98,16 +97,17 @@ nnoremap <End> <End><Right>
 noremap $ $<Right>
 
 "" Git
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gb :Git blame<CR>
-noremap <Leader>gc :Git commit<CR>
-noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gf :Git fetch<CR>
-noremap <Leader>gll :Git pull<CR>
-noremap <Leader>glog :Glog<CR>
-noremap <Leader>gr :Gremove<CR>
 noremap <Leader>gs :Git<CR>
+noremap <Leader>ga :Gwrite<CR>
+noremap <Leader>gd :Gvdiff<CR>
 noremap <Leader>gsh :Gpush<CR>
+noremap <Leader>gr :Gremove<CR>
+noremap <Leader>ll :Git pull<CR>
+noremap <Leader>log :Git log<CR>
+noremap <Leader>gb :Git blame<CR>
+noremap <Leader>gf :Git fetch<CR>
+noremap <Leader>gc :Git commit<CR>
+noremap <Leader>gca :Git commit --amend<CR>
 
 "" easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
@@ -127,4 +127,3 @@ cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
-
