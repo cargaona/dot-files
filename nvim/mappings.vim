@@ -40,8 +40,8 @@ nnoremap <C-Left> b
 
 "NerdCommenter (scrooloose/nerdcommenter)
 "-------------------------------------
-""nmap <C-]> <Plug>NERDCommenterToggle <Down>
-""vmap <C-]> <Plug>NERDCommenterToggle<CR>gv
+nmap <C-]> <Plug>NERDCommenterToggle <Down>
+vmap <C-]> <Plug>NERDCommenterToggle<CR>gv
 
 "Schleep indention
 "-------------------------------------
