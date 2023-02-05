@@ -15,9 +15,9 @@ vim.g.mapleader = "j"
 
 -- Color Scheme
 vim.cmd 'colorscheme material'
-vim.g.material_theme_style = "dark" -- uncomment this one to use legacy material
+vim.g.material_theme_style = "dark"
 
----- Vim Imports
+-- Vim Imports
 vim.cmd("so ~/.config/nvim/lua/vim-go.vim")
 vim.cmd("so ~/.config/nvim/settings.vim")
 vim.cmd("so ~/.config/nvim/mappings.vim")
