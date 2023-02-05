@@ -15,6 +15,7 @@ nnoremap <C-t> :NvimTreeToggle<CR>
 
 "" Copy/Paste/Cut
 if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
 endif
 
 if has('macunix')
