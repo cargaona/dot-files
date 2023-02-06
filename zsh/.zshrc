@@ -92,8 +92,6 @@ export PATH=$CODE_PATH/dot-files/scripts/:$PATH
 #export GOROOT=/usr/bin/go
 export GOPATH=$CODE_PATH/go
 export PATH=$GOPATH/bin:$PATH
-## delete duplicated paths 
-PATH=$(echo $(sed 's/:/\n/g' <<< $PATH | sort | uniq) | sed -e 's/\s/':'/g')
 
 
 ## GPG Setup 
@@ -106,6 +104,9 @@ if [[ "$OSTYPE" == "darwin20.0" || "$OSTYPE" == "darwin21.0" ]]; then
     export GPG_TTY="$(tty)"
     export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
     gpgconf --launch gpg-agent
+else
+  ## delete duplicated paths 
+  PATH=$(echo $(sed 's/:/\n/g' <<< $PATH | sort | uniq) | sed -e 's/\s/':'/g')
 fi
 
 gpg-connect-agent updatestartuptty /bye > /dev/null
