@@ -1,5 +1,4 @@
-imap <S-Right> <Esc>V<Right>
-imap <S-Left> <Esc>V<Left>
+imap <S-Right> <Esc>V<Right> imap <S-Left> <Esc>V<Left>
 imap <S-Down> <Esc>V<Down>
 nmap <S-Right> v<Right>
 vmap <S-Right> <Right>
@@ -24,12 +23,6 @@ if has('macunix')
   vmap <C-c> :w !pbcopy<CR><CR>
 endif
 
-" Move lines with Ctrl+arrow
-" inoremap <C-Down> <Esc>:m+<CR>
-" noremap <C-Up> <Esc>:m-2<CR>
-" nnoremap <C-Down> :m+<CR>
-" nnoremap <C-Up> :m-2<CR>
-
 " Scroll Alt + Shift + Arrows
 map <A-k> <C-E><C-E>
 map <A-i> <C-Y><C-Y>
@@ -39,12 +32,10 @@ nnoremap <C-Right> e <Right>
 nnoremap <C-Left> b
 
 "NerdCommenter (scrooloose/nerdcommenter)
-"-------------------------------------
 nmap <C-]> <Plug>NERDCommenterToggle <Down>
 vmap <C-]> <Plug>NERDCommenterToggle<CR>gv
 
-"Schleep indention
-"-------------------------------------
+"" Move line(s) with C-up/down or duplicate them with C-d
 vmap <C-d> <Plug>SchleppDup
 vmap <C-Up> <Plug>SchleppIndentUp
 vmap <C-Down> <Plug>SchleppIndentDown
@@ -104,7 +95,6 @@ nnoremap <silent> <C-j> <C-w>j
 " Lets you move to the end of the line (virtualedit=onemore needed)
 nnoremap <End> <End><Right>
 noremap $ $<Right>
-
 
 "" easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings

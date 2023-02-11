@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 dir="$HOME/.config/polybar"
 themes=(`ls --hide="launch.sh" $dir`)
 
@@ -18,9 +17,7 @@ launch_bar() {
 		bash "$dir"/pwidgets/launch.sh --main
     fi 
     if type "xrandr"; then
-      for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-        MONITOR=$m polybar -q main -c "$dir/$style/config.ini" --reload &
-      done
+      for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do MONITOR=$m polybar -q main -c "$dir/$style/config.ini" --reload & done
 	else
 		polybar -q main -c "$dir/$style/config.ini" &	
 	fi

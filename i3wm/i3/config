@@ -2,8 +2,6 @@
 ##########################################################################
 exec_always $HOME/.config/polybar/launch.sh --forest --no-startup-id  
 # block screen after 5 minutes
-exec_always xset s 300 20
-exec_always "xss-lock -- i3lock -e -f -i $HOME/.wallpapers/HD7KSHs.png"
 exec_always feh --randomize --bg-scale $HOME/.wallpapers/peritomoreno.jpg
 exec_always --no-startup-id copyq  
 ##########################################################################
@@ -18,12 +16,12 @@ bindsym $mod+BackSpace exec alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu / rofi 
-bindsym $mod1+space exec rofi -show run
-bindsym $mod+space exec rofi -show run 
+bindsym $mod1+space exec rofi -show run -show-icons
+bindsym $mod+space exec rofi -show run -show-icons
 bindsym $mod+c exec copyq-rofi 
 bindsym $mod+Shift+t exec dmenu-translate 
 bindsym $mod+Shift+p exec passmenu "$@"
-bindsym $mod+w exec rofi -show combi 
+bindsym $mod+w exec rofi -show window -modi window -show-icons
 bindsym $mod+x exec todofi.sh
 bindsym $mod+d exec bookmark
 bindsym $mod+b exec dmenu-bluetooth
@@ -32,7 +30,7 @@ bindsym $mod+s exec rofi -show ssh
 bindsym --release shift+Print exec "flameshot gui" 
 bindsym --release Print exec "flameshot screen -n 0 -c --path ~/Pictures"
 ## block i3lock
-bindsym $mod+q exec "i3lock -e -f -i $HOME/.wallpapers/HD7KSHs.png"
+bindsym $mod+q exec "betterlockscreen -l dim" 
 ## Display Bright
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 5; notify-send -h int:value:$(xbacklight) 'Brightness'"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 5 && notify-send -h int:value:$(xbacklight) 'Brightness'"
