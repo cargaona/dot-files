@@ -112,3 +112,8 @@ fi
 gpg-connect-agent updatestartuptty /bye > /dev/null
 
 kubeoff
+
+# pnpm
+export PNPM_HOME="/home/char/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

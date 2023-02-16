@@ -20,6 +20,7 @@ local use = packer.use
 return require("packer").startup(function()
   -- Plugin Manager
   use("wbthomason/packer.nvim")
+  use("freitass/todo.txt-vim")
   -- LSP and Language specific
   use("hashivim/vim-terraform")
   use("neovim/nvim-lspconfig")
