@@ -6,8 +6,8 @@ env:
 tabspaces: 4
 font:
   normal:
-    family: Jetbrains Mono
-    style: Medium
+    family: JetbrainsMono Nerd Font Mono
+    style: Regular
     size: 14
     offset:
       x: 0

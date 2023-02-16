@@ -8,8 +8,9 @@ command! -nargs=0 Diagnose lua vim.diagnostic.open_float()
 command! -nargs=0 CodeAction lua vim.lsp.buf.code_action()
 command! -nargs=0 Rename lua vim.lsp.buf.rename()
 command! -nargs=0 Err lua vim.diagnostic.setqflist()
-
 command! -nargs=0 LspLog lua vim.cmd('sp'..vim.lsp.get_log_path())
+command! -nargs=0 ReloadNvim so $CODE_PATH/dot-files/nvim/init.lua 
+nnoremap <silent> <leader>r :ReloadNvim<cr> 
 
 nmap ren :Rename<CR>
 nmap ca :Ref<CR> 
@@ -18,6 +19,7 @@ nmap gi :Info<CR>
 nmap gd :Def<CR>
 nmap fmt :Fmt<CR>
 nmap co :CodeAction<CR>
+nnoremap <silent> <leader>er :Err<cr> 
 
 "  ------------ Language specific
 "

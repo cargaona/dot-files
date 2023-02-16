@@ -100,8 +100,7 @@ local shell = {
 lspconfig.jsonls.setup({ capabilities = capabilities })
 
 -- Lua
--- https://github.com/sumneko/lua-language-server
-require 'lspconfig'.sumneko_lua.setup {
+require 'lspconfig'.lua_ls.setup {
   settings = {
     Lua = {
       diagnostics = {
