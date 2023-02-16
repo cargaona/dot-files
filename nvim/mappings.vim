@@ -24,10 +24,6 @@ if has('macunix')
   vmap <C-c> :w !pbcopy<CR><CR>
 endif
 
-" Scroll Alt + Shift + Arrows
-map <A-k> <C-E><C-E>
-map <A-i> <C-Y><C-Y>
-
 " Move through words wit Crtl
 nnoremap <C-Right> e <Right>
 nnoremap <C-Left> b
@@ -68,19 +64,18 @@ nnoremap <silent> <leader>f <cmd>Telescope find_files find_command=rg,--ignore,-
 map <C-r> :redo<CR>
 map <C-z> u
 
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-'> :bp<CR> 
-
 nnoremap <silent> <leader><space> :noh<cr>
 
-nnoremap <A-Tab> :bn
-nnoremap <A-S-Tab> :bp
+nnoremap <A-Tab> :bn <CR>
+"" nnoremap <C-n> :bnext<CR>
+"" TODO: make :bp mapping work
+nnoremap <A-S-Tab> :bprevious <CR>
 
 "" Close buffer
 noremap <C-q> :bw<CR>
 
 "" Split
-"" noremap <Leader>h :<C-u>split<CR>
+noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
 
 "" Navigate 

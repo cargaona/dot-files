@@ -10,7 +10,6 @@ command! -nargs=0 Rename lua vim.lsp.buf.rename()
 command! -nargs=0 Err lua vim.diagnostic.setqflist()
 command! -nargs=0 LspLog lua vim.cmd('sp'..vim.lsp.get_log_path())
 command! -nargs=0 ReloadNvim so $CODE_PATH/dot-files/nvim/init.lua 
-nnoremap <silent> <leader>r :ReloadNvim<cr> 
 
 nmap ren :Rename<CR>
 nmap ca :Ref<CR> 
@@ -20,6 +19,7 @@ nmap gd :Def<CR>
 nmap fmt :Fmt<CR>
 nmap co :CodeAction<CR>
 nnoremap <silent> <leader>er :Err<cr> 
+nnoremap <silent> <leader>r :ReloadNvim<cr> 
 
 "  ------------ Language specific
 "
@@ -32,7 +32,6 @@ augroup completion_preview_close
 augroup END
 
 augroup go
-
   au!
   au Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
   au Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
@@ -42,7 +41,6 @@ augroup go
   au FileType go nnoremap <leader>b :GoDebugBreakpoint<CR>
   au FileType go nnoremap <leader>stop :GoDebugStop<CR>
   au FileType go nnoremap <leader>deb :GoDebugStart<CR>
-
   au FileType go nmap gt :GoDefType<CR>
   au FileType go nmap ff :GoFillStruct<CR>
   au FileType go nmap err :GoIfErr<CR>
@@ -57,14 +55,6 @@ augroup go
 
 augroup END
 
-" Tfsc check
-command! -nargs=0 Tfsec vsplit term:// tfsec %:p:h
-
-" Rust comments hints
-"autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs lua require'lsp_extensions'.inlay_hints{ prefix = '>', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
-
-"  ------------ Misc
-
 "" Order lines by lenght
 command! -range SortLen <line1>,<line2> !awk '{ print length(), $0 | "sort -n | cut -d\\  -f2-" }'
 
@@ -74,13 +64,3 @@ function LetMeSee()
     highlight NonText guibg=NONE
     highlight Normal guibg=NONE
 endfunction
-
-" Share codae
-" Only Linux. For Mac, see: https://gist.github.com/shmup/db671132f0f9882187b28a677fa8df72 
-command! -range=% SP <line1>,<line2>w !curl -F 'sprunge=<-' http://sprunge.us | tr -d '\n' | xclip -i -selection clipboard
-command! -range=% CL <line1>,<line2>w !curl -F 'clbin=<-' https://clbin.com | tr -d '\n' | xclip -i -selection clipboard
-command! -range=% VP <line1>,<line2>w !curl -F 'text=<-' http://vpaste.net | tr -d '\n' | xclip -i -selection clipboard
-"command! -range=% PB <line1>,<line2>w !curl -F 'c=@-' https://ptpb.pw/?u=1 | tr -d '\n' | xclip -i -selection clipboard
-command! -range=% IX <line1>,<line2>w !curl -F 'f:1=<-' http://ix.io | tr -d '\n' | xclip -i -selection clipboard
-command! -range=% EN <line1>,<line2>w !curl -F 'file=@-;' https://envs.sh | tr -d '\n' | xclip -i -selection clipboard
-command! -range=% TB <line1>,<line2>w !nc termbin.com 9999 | tr -d '\n' | xclip -i -selection clipboard
