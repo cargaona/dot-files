@@ -42,14 +42,14 @@ let g:go_highlight_extra_types = 1
 
 let g:go_debug_log_output = 'debugger' 
 "Otherwise you will get a lot of 'err' from delve that will lag vim/nvim"
-let g:go_debug_mappings = {
-            \ '(go-debug-continue)':   {'key': 'c'},
-            \ '(go-debug-print)':      {'key': 'p'},
-            \ '(go-debug-breakpoint)': {'key': 'b'},
-            \ '(go-debug-next)':       {'key': 'n'},
-            \ '(go-debug-step)':       {'key': 's'},
-            \ '(go-debug-stop)':       {'key': 'e'},
-            \}
+"let g:go_debug_mappings = {
+            "\ '(go-debug-continue)':   {'key': 'c'},
+            "\ '(go-debug-print)':      {'key': 'p'},
+            "\ '(go-debug-breakpoint)': {'key': 'b'},
+            "\ '(go-debug-next)':       {'key': 'n'},
+            "\ '(go-debug-step)':       {'key': 's'},
+            "\ '(go-debug-stop)':       {'key': 'e'},
+            "\}
 
 
 

@@ -12,8 +12,8 @@ for type, icon in pairs(signs) do
 end
 
 -- General attachment callback funtion
-local on_attach = function(client)
-end
+--local on_attach = function(client)
+--end
 
 -- Diagnosticis Signs
 local border = {

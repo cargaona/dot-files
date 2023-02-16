@@ -1,15 +1,16 @@
 -- Plugins
 require("packer")
-require("plugins") -- Plugins installed with packer
-require("lsp") -- lspconfig
-require("completion") -- nvim-cmp
---require("lucas-completion")
-require("nvim-tree-config")
-require("md-fenced-config")
-require("bufferline-config")
-require("schlepp-config")
-require("statusline") -- lualine
+require("plugins")
+require("lsp")
+require("finder")
+require("completion")
+require("git-config")
+require("statusline")
 require("treesitter")
+require("schlepp-config")
+require("md-fenced-config")
+require("nvim-tree-config")
+require("bufferline-config")
 
 -- Leader key
 vim.g.mapleader = "j"
