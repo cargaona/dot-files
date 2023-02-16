@@ -11,6 +11,7 @@ vmap <S-Up> <Up>
 nnoremap <C-S-Right> <Esc>v
 nnoremap <C-S-Left> <Esc>v
 nnoremap <C-t> :NvimTreeToggle<CR>
+nnoremap <silent> <leader>ee :e $CODE_PATH/dot-files/nvim/<cr> 
 
 "" Copy/Paste/Cut
 if has('unnamedplus')

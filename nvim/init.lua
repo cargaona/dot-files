@@ -3,6 +3,7 @@ require("packer")
 require("plugins") -- Plugins installed with packer
 require("lsp") -- lspconfig
 require("completion") -- nvim-cmp
+--require("lucas-completion")
 require("nvim-tree-config")
 require("md-fenced-config")
 require("bufferline-config")
