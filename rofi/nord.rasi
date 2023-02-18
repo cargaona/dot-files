@@ -35,7 +35,7 @@
     margin:     0px;
     padding:    0px;
     spacing:    0px;
-    border-radius: 12px;
+    //border-radius: 12px;
 }
 
 window {

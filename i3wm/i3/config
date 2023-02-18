@@ -3,6 +3,7 @@
 exec_always $HOME/.config/polybar/launch.sh --forest --no-startup-id  
 # block screen after 5 minutes
 exec_always feh --randomize --bg-scale $HOME/.wallpapers/peritomoreno.jpg
+## todo move copyq to systemd
 exec_always --no-startup-id copyq  
 ##########################################################################
 
@@ -10,7 +11,7 @@ exec_always --no-startup-id copyq
 ##########################################################################
 # start a terminal
 bindsym $mod+Return exec alacritty
-bindsym $mod+BackSpace exec alacritty
+bindsym $mod+BackSpace exec alacritty -e tmux new-session
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -34,20 +35,9 @@ bindsym $mod+q exec "betterlockscreen -l dim"
 ## Display Bright
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 5; notify-send -h int:value:$(xbacklight) 'Brightness'"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 5 && notify-send -h int:value:$(xbacklight) 'Brightness'"
-#bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
-#bindsym XF86MonBrightnessDown exec 'xbacklight -inc -5"
-## System Volume
-# volume keys are now grabbed by pasystray. 
-#bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
-#bindsym XF86AudioLowerVolume  exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
-#bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 ##########################################################################
 
 ## Starting from here everything is i3 related > 
-
-#bindsym $mod+m focus output eDP1
-#bindsym $mod+= focus output right 
-
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 set $mod Mod4
 set $mod1 Mod1
@@ -81,31 +71,24 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-# bindsym $mod+h split h
-
-# split in vertical orientation
-bindsym $mod+v split v
+#bindsym $mod+Shift+minus move scratchpad
+#bindsym $mod+o scratchpad show
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-
-bindsym $mod+e layout toggle tabbed splith stacking 
+bindsym $mod+e layout toggle tabbed stacking split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
-# bindsym $mod1+space focus mode_toggle
-
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
 bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -149,6 +132,10 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+gaps inner 6
+gaps outer 8
+smart_gaps inverse_outer
+smart_borders no_gaps
 popup_during_fullscreen smart
 
 bindsym $mod+r mode "resize"
