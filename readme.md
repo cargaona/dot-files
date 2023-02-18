@@ -28,5 +28,4 @@ https://github.com/drduh/YubiKey-Guide
 ```
 
 ## Fonts
-unzip ./fonts/JetBrainsMono-2.242.zip
-mv ./fonts/fonts/ttf/* ~/.local/share/fonts/
+cp ./fonts/ttf/* ~/.local/share/fonts/

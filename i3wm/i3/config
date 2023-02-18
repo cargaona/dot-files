@@ -2,7 +2,7 @@
 ##########################################################################
 exec_always $HOME/.config/polybar/launch.sh --forest --no-startup-id  
 # block screen after 5 minutes
-exec_always feh --randomize --bg-scale $HOME/.wallpapers/peritomoreno.jpg
+exec_always feh --randomize --bg-scale $HOME/.wallpapers/*
 ## todo move copyq to systemd
 exec_always --no-startup-id copyq  
 ##########################################################################
