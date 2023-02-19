@@ -51,6 +51,7 @@ noremap <Leader>gs :Git<CR>
 noremap <Leader>log :Git log<CR>
 " C-a creates a new branch 
 nnoremap <silent> <leader>co <cmd>Telescope git_branches<cr> 
+nnoremap <silent> <leader>sh <cmd>Telescope git_commits<cr> 
 
 " Telescope (nvim-telescope/telescope.nvim)
 nnoremap <silent> <leader>b <cmd>Telescope buffers<cr>
