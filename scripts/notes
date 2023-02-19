@@ -1,2 +1,0 @@
-#!/bin/bash 
-tmvim $(ls -d -1 /home/char/projects/personal/notes/{*,.*}| rofi -dmenu)
