@@ -1,12 +1,9 @@
 ## TODO: move this block to systemd or xinit.
 ##########################################################################
 exec_always $HOME/.config/polybar/launch.sh --forest --no-startup-id  
-# block screen after 5 minutes
 exec_always feh --randomize --bg-scale $HOME/.wallpapers/*
-## todo move copyq to systemd
 exec_always --no-startup-id copyq  
 ##########################################################################
-
 ## TODO: move this block to sxhkd or similar. 
 ##########################################################################
 # start a terminal
@@ -44,8 +41,8 @@ set $mod1 Mod1
 
 font xft:JetBrains Mono 12
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+# Change wallpapers
+bindsym $mod+Shift+w exec feh --randomize --bg-scale $HOME/.wallpapers/*
 
 # change focus
 bindsym $mod+h focus left
@@ -79,6 +76,14 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+e layout toggle tabbed stacking split
+
+set $center move position center
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# PAPER MODE
+bindsym $mod+Ctrl+space floating toggle; resize set 90ppt 90ppt; $center
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -133,42 +138,33 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 gaps inner 6
-gaps outer 8
-smart_gaps inverse_outer
+gaps outer 6
+title_align center
 smart_borders no_gaps
+default_border pixel 3
+hide_edge_borders smart
 popup_during_fullscreen smart
+#for_window [all] title_window_icon on
+#for_window [all] title_window_icon padding 3px
 
 bindsym $mod+r mode "resize"
 mode "resize" {
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+# same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+# back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
-# Theme colors
-# set variable for main accent color
-#set $acolor #eb564d
-set $acolor #d64161
-
-# set other colors
-set $bgicolor #00979E
-set $bgucolor #6a6868
-set $txtacolor #F9FAF9
-set $txtucolor #bdbbbb
-set $indcolor #4deb56
 # class                   border  backgr.   text    indic.   child_border
-client.focused          #88c0d0 #2e3440     #d8dee9 #2e9ef4   #285577
+client.focused          #88c0d0 #2e3440     #d8dee9 #2e9ef4   #5285ab
 client.focused_inactive #333333 #5f676a     #d8dee9 #484e50   #5f676a
 client.unfocused        #333333 #222222     #888888 #292d2e   #222222
 client.urgent           #2f343a #900000     #ffffff #900000   #900000

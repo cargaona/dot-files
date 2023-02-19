@@ -40,4 +40,4 @@ pasystray -g &
 nm-applet &
 blueman-applet &
 TERMINAL=alacritty XDG_SESSION_TYPE=x11 GDK_BACKEND=x11 exec i3 -c /home/char/.config/i3/config
-##DESKTOP_SESSION=plasma exec startplasma-x11
+#DESKTOP_SESSION=plasma exec startplasma-x11
