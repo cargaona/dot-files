@@ -3,7 +3,6 @@ plugins=(git
         vi-mode
         autojump)
 
-
 # TODO: is this still needed?
 function _ssh_agent () {
   ## Starts the ssh-agent and set the envvar for tmux
@@ -14,7 +13,6 @@ function _ssh_agent () {
     eval `cat ~/.ssh.agent` >/dev/null
   fi
 }
-
 # bindkey -M menuselect '^[[Z' reverse-menu-complete
 
 # TODO: is this still needed?
@@ -38,7 +36,6 @@ function _set_alias () {
   alias gir=git ## You know this feeling. 
   alias gcm="git commit -m "
   alias gcma="git commit --amend"
-
 
   alias netk="sudo systemctl restart NetworkManager"
   alias python=python3
@@ -101,7 +98,7 @@ function _linux_gpg () {
 }
 
 function _start_raspi () {
-  if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]] && [[ $(hostname) = "raspi" ]]; then
+  if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]] ; then
     startx
   fi
 } 
@@ -128,8 +125,8 @@ function _remove_duplicates_from_path {
 
 # start
 _set_path
-_set_alias
 _theme
+_set_alias
 _env_vars
 _ssh_agent
 
@@ -145,9 +142,6 @@ fi
 
 if _is_raspi ; then
   _start_raspi
+  export LANG=en_US.UTF-8
+  export LC_ALL=en_US.UTF-8
 fi
-
-
-# You may need to manually set your language environment - they are loaded by alacritty
-#export LANG=en_US.UTF-8
-#export LC_ALL=en_US.UTF-8
