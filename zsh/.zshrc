@@ -42,6 +42,7 @@ function _set_alias () {
   alias venv=virtualenv
   alias tl="tmux list-sessions"
   alias ta="tmux attach-session -t"
+  alias t="ta || tmux"
   alias cdr='cd $(git rev-parse --show-toplevel)'
   alias copy='xclip -sel clip'
   alias .z="source ~/.zshrc"
