@@ -70,7 +70,7 @@ function _theme () {
 }
 
 function _env_vars () {
-  export CODE_PATH=$HOME/projects/personal/code
+  export CODE_PATH="$HOME/projects/personal/code" 
   export KUBE_PS1_SYMBOL_ENABLE=false
   # Uncomment the following line to enable command auto-correction.
   ENABLE_CORRECTION="false"
@@ -124,10 +124,10 @@ function _remove_duplicates_from_path {
 } 
 
 # start
-_set_path
 _theme
 _set_alias
 _env_vars
+_set_path
 _ssh_agent
 
 if _is_mac ; then

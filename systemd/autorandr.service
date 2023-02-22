@@ -1,6 +1,6 @@
 [Unit]
 Description=autorandr execution hook
-After=sleep.target
+After=session-1.scope
 StartLimitIntervalSec=5
 StartLimitBurst=1
 
