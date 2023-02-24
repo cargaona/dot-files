@@ -9,10 +9,10 @@ exec_always --no-startup-id copyq
 # start a terminal
 bindsym $mod+Return exec alacritty
 bindsym $mod+BackSpace exec alacritty -e tmux new-session
-
+# Change wallpapers
+bindsym $mod+Shift+w exec feh --randomize --bg-scale $HOME/.wallpapers/*
 # kill focused window
 bindsym $mod+Shift+q kill
-
 # start dmenu / rofi 
 bindsym $mod1+space exec rofi -show run -show-icons
 bindsym $mod+space exec rofi -show run -show-icons
@@ -41,20 +41,17 @@ set $mod1 Mod1
 
 font xft:JetBrains Mono 12
 
-# Change wallpapers
-bindsym $mod+Shift+w exec feh --randomize --bg-scale $HOME/.wallpapers/*
-
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-#bindsym $mod+Left focus left
-#bindsym $mod+Down focus down
-#bindsym $mod+Up focus up
-#bindsym $mod+Right focus right
+# alternatively, you can use the cursor keys, useful in laptop:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -62,7 +59,7 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
+# alternatively, you can use the cursor keys. 
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -76,6 +73,8 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+e layout toggle tabbed stacking split
+bindsym $mod+t split toggle
+bindsym $mod+v split horizontal
 
 set $center move position center
 
@@ -89,13 +88,13 @@ bindsym $mod+Ctrl+space floating toggle; resize set 90ppt 90ppt; $center
 bindsym $mod+Shift+space floating toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+a focus mode_toggle
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
-bindsym $mod+Up workspace next
-bindsym $mod+Down workspace prev
+#bindsym $mod+Up workspace next
+#bindsym $mod+Down workspace prev
 
 # switch to workspace
 bindsym $mod+1 workspace 1

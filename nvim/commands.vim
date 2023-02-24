@@ -38,7 +38,7 @@ augroup go
   au Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
   au Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
-  au FileType go nnoremap <leader>b :GoDebugBreakpoint<CR>
+  "au FileType go nnoremap <leader>b :GoDebugBreakpoint<CR>
   au FileType go nnoremap <leader>stop :GoDebugStop<CR>
   au FileType go nnoremap <leader>deb :GoDebugStart<CR>
   au FileType go nmap gt :GoDefType<CR>
@@ -52,7 +52,6 @@ augroup go
   au FileType go nmap cov :GoCoverageToggle<CR>
   au FileType go nmap tt :GoTestFunc<CR>
   au FileType go nmap df :GoDebugTestFunc<CR>
-
 augroup END
 
 "" Order lines by lenght
