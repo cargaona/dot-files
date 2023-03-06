@@ -37,8 +37,8 @@ end
 
 -- LSP settings (for overriding per client)
 local handlers = {
-  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+      ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+      ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
 }
 vim.diagnostic.config({
   virtual_text = {
@@ -116,7 +116,7 @@ lspconfig.rust_analyzer.setup({
   capabilities = capabilities,
   filetypes = { "rs", "rust" },
   settings = {
-    ["rust-analyzer"] = {
+        ["rust-analyzer"] = {
       checkOnSave = {
         command = "clippy",
       },
@@ -142,10 +142,17 @@ lspconfig.rust_analyzer.setup({
 lspconfig.anakin_language_server.setup({ capabilities = capabilities, handlers = handlers })
 
 -- Golang
-lspconfig.gopls.setup({ capabilities = capabilities, cmd = { 'gopls','--remote=auto' } })
+lspconfig.gopls.setup({ capabilities = capabilities, cmd = { 'gopls', '--remote=auto' } })
 
--- C 
-lspconfig.ccls.setup({ capabilities = capabilities })
+-- C
+lspconfig.ccls.setup({
+  capabilities = capabilities,
+  --cmd = { 'ccls' },
+  --filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
+  --offset_encoding = 'utf-32',
+  ---- ccls does not support sending a null root directory
+  --single_file_support = false,
+})
 -- Terraform
 
 lspconfig.tflint.setup({

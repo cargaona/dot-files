@@ -24,7 +24,6 @@ fi
 
 function _set_alias () {
   alias cd..="cd .."
-  alias google-chrome=google-chrome-stable
   alias grip="history | grep"
   alias vim=nvim
   alias vf='vim $(fzf)'
@@ -35,7 +34,8 @@ function _set_alias () {
   alias gdc='git diff --cached'
   alias gir=git ## You know this feeling. 
   alias gcm="git commit -m "
-  alias gcma="git commit --amend"
+  alias gca="git commit --amend"
+  alias gcd="gcm $(date --rfc-3339=date)"
 
   alias netk="sudo systemctl restart NetworkManager"
   alias python=python3
@@ -59,7 +59,7 @@ function _set_alias () {
   alias kns=kubens
   alias kneat=kubectl-neat
   alias tf=terraform 
-  alias dk=docker
+  alias syu="sudo pacman -Syu"
 }
 
 function _theme () {

@@ -3,4 +3,7 @@ meet=$(rofi -lines 1 -dmenu -mesg "Launching Jitsi. Insert a name for the meet."
 if [ -z $meet ]; then 
   exit 1 
 fi
-chromium --app="https://meet.jit.si/$meet"
+url=https://meet.jit.si/$meet
+chromium --app=$url 
+echo $url | xclip -sel clip
+
