@@ -20,9 +20,9 @@ vim.cmd 'colorscheme material'
 vim.g.material_theme_style = "dark"
 
 -- Vim Imports
+vim.cmd("so ~/.config/nvim/mappings.vim")
 vim.cmd("so ~/.config/nvim/lua/vim-go.vim")
 vim.cmd("so ~/.config/nvim/settings.vim")
-vim.cmd("so ~/.config/nvim/mappings.vim")
 vim.cmd("so ~/.config/nvim/commands.vim")
 vim.cmd("so ~/.config/nvim/autocomands.vim")
 vim.cmd("so ~/.config/nvim/misc.vim")

@@ -28,7 +28,7 @@ bindsym $mod+s exec rofi -show ssh
 bindsym --release shift+Print exec "flameshot gui" 
 bindsym --release Print exec "flameshot screen -n 0 -c --path ~/Pictures"
 ## block i3lock
-bindsym $mod+q exec "betterlockscreen -l dim --display 0" 
+bindsym $mod+q exec "betterlockscreen -l dim --span --display 1" 
 ## Display Bright
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 5; notify-send -h int:value:$(xbacklight) 'Brightness'"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 5 && notify-send -h int:value:$(xbacklight) 'Brightness'"
