@@ -113,7 +113,7 @@ function _mac_gpg () {
 }
 
 function _is_mac () {
-  [[ "$OSTYPE" == "darwin20.0" || "$OSTYPE" == "darwin21.0" ]]
+  [[ "$OSTYPE" == "darwin22.0" || "$OSTYPE" == "darwin21.0" ]]
 }
 
 function _is_raspi () {
@@ -130,6 +130,7 @@ _set_alias
 _env_vars
 _set_path
 _ssh_agent
+kubeoff
 
 if _is_mac ; then
   echo "Hi :wave: I'm a mac computer. I'm inferior"
@@ -138,7 +139,6 @@ else
   echo "Hi :wave: I'm a linux computer. I'm superior"
   _linux_gpg
   _remove_duplicates_from_path
-  kubeoff
 fi
 
 if _is_raspi ; then
