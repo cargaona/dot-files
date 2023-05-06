@@ -170,7 +170,7 @@ lspconfig.terraformls.setup({
 })
 
 -- SQL  -- go install github.com/lighttiger2505/sqls@latest
-lspconfig.sqls.setup({
+lspconfig.sqlls.setup({
   --cmd = { "/path/to/sqls", "-config", vim.loop.os_homedir()..".config/sqls/config.yml" },
   capabilities = capabilities,
 })
