@@ -2,6 +2,7 @@
 require("packer")
 require("plugins")
 require("lsp")
+require("finder")
 require("completion")
 require("git-config")
 require("statusline")
@@ -10,7 +11,6 @@ require("schlepp-config")
 require("md-fenced-config")
 require("nvim-tree-config")
 require("bufferline-config")
---require("finder")
 
 -- Leader key
 vim.g.mapleader = "j"
