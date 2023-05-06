@@ -9,7 +9,7 @@ ln -sf $CODE_PATH/dot-files/tmux/.tmux.conf ~/.tmux.conf
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ln -sf $CODE_PATH/dot-files/nvim/* ~/.config/nvim/
 ln -sf $CODE_PATH/dot-files/zsh/minimal-char.zsh-theme ~/.oh-my-zsh/themes/minimal-char.zsh-theme
-ln -sf $CODE_PATH/dot-files/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -sf $CODE_PATH/dot-files/alacritty/* ~/.config/alacritty/
 
 ## Only for linux
 ln -sf $CODE_PATH/dot-files/i3wm/i3/config ~/.config/i3/config
