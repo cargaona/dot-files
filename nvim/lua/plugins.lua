@@ -54,7 +54,7 @@ return require("packer").startup(function()
   use("zirrostig/vim-schlepp")
   use('easymotion/vim-easymotion')
   use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
-  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+  --use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })
   -- Misc
   use("ekickx/clipboard-image.nvim")
