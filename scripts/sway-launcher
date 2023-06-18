@@ -1,10 +1,24 @@
 #!/bin/bash
 
-export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_DESKTOP=sway
+# More functional tray on waybar
+export XDG_CURRENT_DESKTOP=sway
 
-pasystray -g &
-nm-applet &
-blueman-applet &
-dunst & 
+# Ensure we can find objects we've built by hand and not into debs
+export LD_LIBRARY_PATH=/usr/local/lib/x86_64-linux-gnu/
+
+export WLR_DRM_NO_MODIFIERS=1
+
+# Fixes issues on jetbrains ides
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+
+# Force firefox into wayland and enable hw video decoding (ff 75+)
+export MOZ_ENABLE_WAYLAND=1
+export MOZ_WAYLAND_USE_VAAPI=1
+export MOZ_DISABLE_RDD_SANDBOX=1 
+
+# QT apps theme
+export QT_QPA_PLATFORMTHEME=qt5ct
+
 exec sway -c /etc/sway/config > /tmp/swaylog 2>&1

@@ -2,11 +2,13 @@ set $mod Mod4
 set $mod1 Mod1
 
 input * repeat_delay 180
-input * repeat_rate 50
+input * repeat_rate 30
+
 ## TODO: move this block to systemd or xinit.
 ##########################################################################
 # exec_always $HOME/.config/polybar/launch.sh --forest --no-startup-id  
-exec_always feh --randomize --bg-scale $HOME/.wallpapers/*
+#exec_always feh --randomize --bg-scale $HOME/.wallpapers/*
+output algo background $HOME/.wallpapers/mountain.jpg fill
 exec_always --no-startup-id copyq  
 ##########################################################################
 ## TODO: move this block to sxhkd or similar. 
@@ -33,7 +35,7 @@ bindsym $mod+s exec rofi -show ssh
 bindsym --release shift+Print exec "flameshot gui" 
 bindsym --release Print exec "flameshot screen -n 0 -c --path ~/Pictures"
 ## block i3lock
-bindsym $mod+q exec "betterlockscreen -l dim --span --display 1" 
+bindsym $mod+q exec "swaylock" 
 ## Display Bright
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -139,7 +141,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c sway reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -178,3 +180,5 @@ client.unfocused        #333333 #222222     #888888 #292d2e   #222222
 client.urgent           #2f343a #900000     #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c     #ffffff #000000   #0c0c0c
 client.background       #ffffff
+
+include /etc/sway/config.d/*
