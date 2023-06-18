@@ -33,8 +33,8 @@ window#waybar {
 	border-radius: 5px;
 }
 
-#custom-date, #clock, #battery, #pulseaudio, #network {
-	background-color: #4c566a;
+#custom-updates, custom-date, #clock, #battery, #pulseaudio, #network {
+	/*background-color: #4c566a;*/
 	padding: 0px 10px;
 	margin: 5px 0px;
 }
@@ -54,15 +54,19 @@ window#waybar {
 	padding: 0px 10px;
 }
 
-#clock {
-    color: #b48ead;
-    border-radius: 0px 5px 5px 0px;
-    margin-right: 10px;
-}
+/*#clock {*/
+    /*color: #b48ead;*/
+    /*border-radius: 0px 5px 5px 0px;*/
+    /*margin-right: 10px;*/
+/*}*/
 
-#battery {
-    color: #a3be8c;
-}
+/*#battery {*/
+    /*color: #a3be8c;*/
+/*}*/
+
+/*#custom-updates {*/
+    /*color: #a3be8c;*/
+/*}*/
 
 @keyframes blink {
     to {
@@ -85,12 +89,12 @@ window#waybar {
     animation-direction: alternate;
 }
 
-#network {
-	color: #d08770;
-}
+/*#network {*/
+	/*color: #d08770;*/
+/*}*/
 
-#pulseaudio {
-	color: #ebcb8b;
-	border-radius: 5px 0px 0px 5px;
-}
+/*#pulseaudio {*/
+	/*color: #ebcb8b;*/
+	/*border-radius: 5px 0px 0px 5px;*/
+/*}*/
 

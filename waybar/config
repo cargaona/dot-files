@@ -8,10 +8,10 @@
     "custom/playerctl"
   ],
   "modules-right": [
+    "custom/updates", 
     "pulseaudio",
     "network",
     "battery",
-    "custom/date",
     "clock",
     "tray"
   ],
@@ -20,18 +20,14 @@
     "all-outputs": true,
     "format": "{icon}"
   },
-  "custom/date": {
-    "format": "󰸗 {}",
-    "interval": 3600,
-    "exec": "$HOME/bin/waybar-date.sh"
+  "custom/updates": {
+    "format": " {}",
+    "exec": "$CODE_PATH/dot-files/polybar/forest/scripts/updates.sh"
   },
   "custom/playerctl": {
     "format": "󰸗 {}",
     "exec": "$CODE_PATH/dot-files/scripts/playerctl.py",
     "interval": 1
-  },
-  "custom/power": {
-    "format": "󰐥"
   },
   "tray": {
     "spacing": 7
