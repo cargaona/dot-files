@@ -3,6 +3,7 @@
 export XDG_SESSION_TYPE=wayland
 # More functional tray on waybar
 export XDG_CURRENT_DESKTOP=sway
+export XDG_CONFIG_HOME=/home/char/.config
 
 # Ensure we can find objects we've built by hand and not into debs
 export LD_LIBRARY_PATH=/usr/local/lib/x86_64-linux-gnu/
