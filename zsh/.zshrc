@@ -147,7 +147,7 @@ else
   echo "Hi :wave: I'm a linux computer. I'm superior"
   _linux_gpg
   _remove_duplicates_from_path
-  _set_keyboard_input_repetition
+  #_set_keyboard_input_repetition
 fi
 
 if _is_raspi ; then
