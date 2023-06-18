@@ -1,14 +1,24 @@
 set $mod Mod4
 set $mod1 Mod1
 
+xwayland disable 
+
+input * {
+  xkb_layout "us"
+  xkb_variant "altgr-intl"
+}
 input * repeat_delay 180
 input * repeat_rate 30
+
+input type:touchpad {
+    tap enabled
+}
 
 ## TODO: move this block to systemd or xinit.
 ##########################################################################
 # exec_always $HOME/.config/polybar/launch.sh --forest --no-startup-id  
 #exec_always feh --randomize --bg-scale $HOME/.wallpapers/*
-output algo background $HOME/.wallpapers/mountain.jpg fill
+output * background $HOME/.wallpapers/mountain.jpg fill
 exec_always --no-startup-id copyq  
 ##########################################################################
 ## TODO: move this block to sxhkd or similar. 
@@ -21,16 +31,16 @@ bindsym $mod+Shift+w exec feh --randomize --bg-scale $HOME/.wallpapers/*
 # kill focused window
 bindsym $mod+Shift+q kill
 # start dmenu / rofi 
-bindsym $mod1+space exec rofi -show run -show-icons
-bindsym $mod+space exec rofi -show run -show-icons
+bindsym $mod1+space exec wofi --show run -show-icons
+bindsym $mod+space exec wofi --show run -show-icons
 bindsym $mod+c exec copyq-rofi 
 bindsym $mod+Shift+t exec dmenu-translate 
 bindsym $mod+Shift+p exec passmenu "$@"
-bindsym $mod+w exec rofi -show window -modi window -show-icons
+bindsym $mod+w exec wofi --show window -modi window -show-icons
 bindsym $mod+x exec todofi.sh
 bindsym $mod+d exec bookmark
 bindsym $mod+b exec dmenu-bluetooth
-bindsym $mod+s exec rofi -show ssh
+bindsym $mod+s exec wofi --show ssh
 ## screenshots
 bindsym --release shift+Print exec "flameshot gui" 
 bindsym --release Print exec "flameshot screen -n 0 -c --path ~/Pictures"

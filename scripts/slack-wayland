@@ -1,0 +1,2 @@
+#!/bin/sh
+ slack --enable-features=UseZonePlatform --ozone-platform=wayland
