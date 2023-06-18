@@ -26,7 +26,6 @@ copyq disable
 if [[ $typeit -eq 0 ]]; then
 	pass $pass_cmd -c "$password" 2>/dev/null
 else
-	pass $pass_cmd "$password" | { IFS= read -r pass; printf %s "$pass"; } |
-		xdotool type --clearmodifiers --file -
+	pass $pass_cmd "$password" | { IFS= read -r pass; printf %s "$pass"; } | xdotool type --clearmodifiers --file - || 
 fi
 copyq enable 

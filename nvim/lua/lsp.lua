@@ -153,8 +153,11 @@ lspconfig.ccls.setup({
   ---- ccls does not support sending a null root directory
   --single_file_support = false,
 })
--- Terraform
 
+--- vlang 
+lspconfig.vls.setup{}
+
+-- Terraform
 lspconfig.tflint.setup({
   flags = { debounce_text_changes = 150 },
 })

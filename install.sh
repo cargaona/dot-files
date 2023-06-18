@@ -16,6 +16,7 @@ ln -sf $CODE_PATH/dot-files/alacritty/alacritty.yml ~/.config/alacritty/alacritt
 
 ## Only for linux
 ln -sf $CODE_PATH/dot-files/i3wm/i3/config ~/.config/i3/config
+ln -sf $CODE_PATH/dot-files/sway/config /etc/sway/config
 ln -sf $CODE_PATH/dot-files/dunst/random.conf $HOME/.config/dunst/dunstrc
 ln -sf $CODE_PATH/dot-files/polybar/ ~/.config/polybar/
 ln -sf $CODE_PATH/dot-files/autorandr ~/.config/

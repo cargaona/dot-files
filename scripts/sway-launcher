@@ -1,0 +1,10 @@
+#!/bin/bash
+
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=sway
+
+pasystray -g &
+nm-applet &
+blueman-applet &
+dunst & 
+exec sway -c /etc/sway/config > /tmp/swaylog 2>&1
