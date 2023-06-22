@@ -2,19 +2,35 @@
   "position": "top",
   "height": 32,
   "modules-left": [
-    "sway/workspaces"
+    "sway/workspaces",
+    "memory",
+    "disk",
+    "cpu"
   ],
   "modules-center": [
     "custom/playerctl"
   ],
   "modules-right": [
-    "custom/updates", 
+    "custom/updates",
     "pulseaudio",
     "network",
     "battery",
     "clock",
     "tray"
   ],
+  "memory": {
+    "interval": 5,
+    "format": " {used}GiB"
+  },
+  "cpu": {
+    "interval": 5,
+    "format": " {usage}%"
+  },
+  "disk": {
+    "interval": 5,
+    "format": " {free}",
+    "path": "/"
+  },
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
@@ -25,9 +41,10 @@
     "exec": "$CODE_PATH/dot-files/polybar/forest/scripts/updates.sh"
   },
   "custom/playerctl": {
-    "format": "󰸗 {}",
-    "exec": "$CODE_PATH/dot-files/scripts/playerctl.py",
-    "interval": 1
+    "format": "{}",
+    "escape": true, 
+    "interval": "once", 
+    "exec": "$CODE_PATH/dot-files/scripts/playerctl.sh"
   },
   "tray": {
     "spacing": 7

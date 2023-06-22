@@ -1,8 +1,0 @@
- %{T1}The Great Curve (200%{T-}| %{A:playerctl -p firefox.instance4981 previous :}%{A} %{A:playerctl -p firefox.instance4981 pause :}%{A} %{A:playerctl -p firefox.instance4981 next :}%{A}
- %{T1}he Great Curve (2005%{T-}| %{A:playerctl -p firefox.instance4981 previous :}%{A} %{A:playerctl -p firefox.instance4981 pause :}%{A} %{A:playerctl -p firefox.instance4981 next :}%{A}
- %{T1}e Great Curve (2005 %{T-}| %{A:playerctl -p firefox.instance4981 previous :}%{A} %{A:playerctl -p firefox.instance4981 pause :}%{A} %{A:playerctl -p firefox.instance4981 next :}%{A}
- %{T1} Great Curve (2005 R%{T-}| %{A:playerctl -p firefox.instance4981 previous :}%{A} %{A:playerctl -p firefox.instance4981 pause :}%{A} %{A:playerctl -p firefox.instance4981 next :}%{A}
- %{T1}Great Curve (2005 Re%{T-}| %{A:playerctl -p firefox.instance4981 previous :}%{A} %{A:playerctl -p firefox.instance4981 pause :}%{A} %{A:playerctl -p firefox.instance4981 next :}%{A}
- %{T1}reat Curve (2005 Rem%{T-}| %{A:playerctl -p firefox.instance4981 previous :}%{A} %{A:playerctl -p firefox.instance4981 pause :}%{A} %{A:playerctl -p firefox.instance4981 next :}%{A}
- %{T1}eat Curve (2005 Rema%{T-}| %{A:playerctl -p firefox.instance4981 previous :}%{A} %{A:playerctl -p firefox.instance4981 pause :}%{A} %{A:playerctl -p firefox.instance4981 next :}%{A}
- %{T1}at Curve (2005 Remas%{T-}| %{A:playerctl -p firefox.instance4981 previous :}%{A} %{A:playerctl -p firefox.instance4981 pause :}%{A} %{A:playerctl -p firefox.instance4981 next :}%{A}

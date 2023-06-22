@@ -37,8 +37,8 @@ end
 
 -- LSP settings (for overriding per client)
 local handlers = {
-      ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-      ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
 }
 vim.diagnostic.config({
   virtual_text = {
@@ -116,7 +116,7 @@ lspconfig.rust_analyzer.setup({
   capabilities = capabilities,
   filetypes = { "rs", "rust" },
   settings = {
-        ["rust-analyzer"] = {
+    ["rust-analyzer"] = {
       checkOnSave = {
         command = "clippy",
       },
@@ -154,8 +154,8 @@ lspconfig.ccls.setup({
   --single_file_support = false,
 })
 
---- vlang 
-lspconfig.vls.setup{}
+--- vlang
+lspconfig.vls.setup {}
 
 -- Terraform
 lspconfig.tflint.setup({
@@ -197,30 +197,26 @@ local languages = {
   zsh = { shell },
 }
 
--- lspconfig.efm.setup({
---   -- root_dir = lspconfig.util.root_pattern(".git", "/home/canus/Scripts", vim.loop.os_homedir()),
---   filetypes = vim.tbl_keys(languages),
---   cmd = {
---     vim.loop.os_homedir() .. "/usr/local/bin/efm-langserver",
---     "-logfile",
---     vim.loop.os_homedir() .. "/.cache/nvim/lsp.log",
---     "-loglevel",
---     "5",
---   },
---   init_options = { documentFormatting = true, codeAction = true },
---   settings = {
---     languages = languages,
---     log_level = 1,
---     log_file = vim.loop.os_homedir() .. ".cache/nvim/lsp.log",
---   },
--- })
---
+lspconfig.efm.setup({
+  root_dir = lspconfig.util.root_pattern(".git", "/home/char/", vim.loop.os_homedir()),
+  filetypes = vim.tbl_keys(languages),
+  cmd = {
+    "/usr/bin/efm-langserver",
+  },
+  init_options = { documentFormatting = true, codeAction = true },
+  settings = {
+    languages = languages,
+    log_level = 1,
+    log_file = vim.loop.os_homedir() .. ".cache/nvim/lsp.log",
+  },
+})
+
 require("mason").setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
+  ui = {
+    icons = {
+      package_installed = "✓",
+      package_pending = "➜",
+      package_uninstalled = "✗"
     }
+  }
 })

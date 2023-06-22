@@ -5,10 +5,10 @@ env:
   LANG: "en_US.UTF-8"
 tabspaces: 4
 font:
+  size: 13
   normal:
     family: JetbrainsMono Nerd Font Mono
     style: Regular
-    size: 14
     offset:
       x: 0
       y: -3

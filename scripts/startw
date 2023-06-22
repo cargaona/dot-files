@@ -22,4 +22,6 @@ export MOZ_DISABLE_RDD_SANDBOX=1
 # QT apps theme
 export QT_QPA_PLATFORMTHEME=qt5ct
 
+systemctl start dunst.service
+
 exec sway -c /etc/sway/config > /tmp/swaylog 2>&1

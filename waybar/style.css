@@ -1,13 +1,13 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: monospace;
-    font-size: 14px;
+    font-family: JetBrains Mono;
+    font-size: 16px;
     min-height: 0;
 }
 
 window#waybar {
-    background: #3b4252;
+    background: #001930;
     color: white;
 }
 
@@ -33,7 +33,7 @@ window#waybar {
 	border-radius: 5px;
 }
 
-#custom-updates, custom-date, #clock, #battery, #pulseaudio, #network {
+#custom-updates, custom-date, #clock, #battery, #pulseaudio, #network ,#memory, #cpu, #disk {
 	/*background-color: #4c566a;*/
 	padding: 0px 10px;
 	margin: 5px 0px;
@@ -53,20 +53,6 @@ window#waybar {
 	margin-left: 0px;
 	padding: 0px 10px;
 }
-
-/*#clock {*/
-    /*color: #b48ead;*/
-    /*border-radius: 0px 5px 5px 0px;*/
-    /*margin-right: 10px;*/
-/*}*/
-
-/*#battery {*/
-    /*color: #a3be8c;*/
-/*}*/
-
-/*#custom-updates {*/
-    /*color: #a3be8c;*/
-/*}*/
 
 @keyframes blink {
     to {
@@ -88,13 +74,3 @@ window#waybar {
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
-
-/*#network {*/
-	/*color: #d08770;*/
-/*}*/
-
-/*#pulseaudio {*/
-	/*color: #ebcb8b;*/
-	/*border-radius: 5px 0px 0px 5px;*/
-/*}*/
-

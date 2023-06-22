@@ -1,0 +1,141 @@
+set $mod Mod4
+set $mod1 Mod1
+# start a terminal
+bindsym $mod+Return exec alacritty
+bindsym $mod+BackSpace exec alacritty -e tmux new-session
+# Change wallpapers
+bindsym $mod+Shift+w exec feh --randomize --bg-scale $HOME/.wallpapers/*
+# kill focused window
+bindsym $mod+Shift+q kill
+# start dmenu / rofi 
+bindsym $mod1+space exec wofi --show run --show-icons
+bindsym $mod+space exec wofi --show run --show-icons
+bindsym $mod+c exec copyq-rofi 
+bindsym $mod+Shift+t exec dmenu-translate 
+bindsym $mod+Shift+p exec passmenu "$@"
+bindsym $mod+w exec wofi --show window --modi window --show-icons
+bindsym $mod+x exec todofi.sh
+bindsym $mod+d exec bookmark
+bindsym $mod+b exec dmenu-bluetooth
+bindsym $mod+s exec wofi --show ssh
+## screenshots
+bindsym --release shift+Print exec "flameshot gui" 
+bindsym --release Print exec "flameshot screen -n 0 -c --path ~/Pictures"
+## block i3lock
+bindsym $mod+q exec "swaylock --image .wallpapers/andre-benz-JnB8Gio4GZo-unsplash.jpg --indicator-caps-lock --indicator-x-position 100 --indicator-y-position 1100"
+## Display Bright
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%- |  sed -En 's/.*\(([0-9]+)%\).*/\1/p' > /tmp/brightness
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+ | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > /tmp/brightness
+bindsym XF86Search exec $menu
+
+## Control media with keyboard keys and headphones
+bindsym XF86AudioNext exec "playerctl next"
+bindsym XF86AudioPlay exec "playerctl play"
+bindsym XF86AudioPause exec "playerctl pause"
+bindsym XF86AudioPrev exec "playerctl previous"
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > /tmp/volume
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > /tmp/volume
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys, useful in laptop:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys. 
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+#bindsym $mod+Shift+minus move scratchpad
+#bindsym $mod+o scratchpad show
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+e layout toggle tabbed stacking split
+bindsym $mod+t split toggle
+bindsym $mod+v split horizontal
+
+set $center move position center
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# PAPER MODE
+bindsym $mod+Ctrl+space floating toggle; resize set 90ppt 90ppt; $center
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# focus the parent container
+bindsym $mod+a focus mode_toggle
+
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+#bindsym $mod+Up workspace next
+#bindsym $mod+Down workspace prev
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c sway reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+bindsym $mod+r mode "resize"
+mode "resize" {
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+# same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+# back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
