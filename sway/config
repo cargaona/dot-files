@@ -1,12 +1,12 @@
 xwayland disable 
 
-output * background $HOME/.wallpapers/mountain.jpg fill
+output * background $HOME/.wallpapers/chaltenroute.jpg fill
 
 font JetbrainsMono Nerd Font Mono 12
 
 exec swayidle -w \
-	timeout 1800 "swaylock --image .wallpapers/andre-benz-JnB8Gio4GZo-unsplash.jpg --indicator-caps-lock --indicator-x-position 100 --indicator-y-position 1100" \
-	timeout 1805 'swaymsg "output * power off"' \
+	timeout 240 "swaylock --image .wallpapers/andre-benz-JnB8Gio4GZo-unsplash.jpg --indicator-caps-lock --indicator-x-position 100 --indicator-y-position 1100" \
+	timeout 280 'swaymsg "output * power off"' \
 	resume 'swaymsg "output * power on"'
 
 gaps inner 6
