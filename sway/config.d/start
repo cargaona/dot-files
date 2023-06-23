@@ -1,0 +1,9 @@
+exec_always bash -c "pkill waybar; waybar"
+
+exec blueman-applet
+exec nm-applet
+exec pasystray -g 
+exec_always --no-startup-id copyq  
+
+exec "mkfifo /tmp/volume && tail -f /tmp/volume | wob -c $CODE_PATH/dot-files/wob/wob.ini
+exec "mkfifo /tmp/brightness && tail -f /tmp/brightness | wob -c $CODE_PATH/dot-files/wob/wob.ini

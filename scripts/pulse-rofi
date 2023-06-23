@@ -1,4 +1,11 @@
 #!/bin/bash
+#
+if [[ $XDG_CURRENT_DESKTOP == "sway" ]]; then
+  rofi_command='wofi --dmenu -p "select audio output" -i -l 100'
+else
+  rofi_command='rofi -dmenu -p "select audio output" -i -l 100'
+fi 
+#
 # determine currently configured sink
 current=$(pactl list short sinks | grep "`pactl get-default-sink`" | cut -f1)
 
@@ -7,7 +14,7 @@ current=$(pactl list short sinks | grep "`pactl get-default-sink`" | cut -f1)
 chosen=$(pactl list sinks | grep -E '^Sink|device.description' | \
 		paste -d " " - - | sed 's/Sink \#//' | sed 's/device.description = //' | \
 		sed 's/"//g' | sed "s/$current/👉 $current/" | sed 's/^\([0-9]\+\)/ \1/' |\
-		rofi -dmenu -p "select audio output" -i -l 100)
+		${rofi_command})
 
 # nothing selected
 [ "$chosen" != "" ] || exit

@@ -70,6 +70,14 @@ function _theme () {
   source $ZSH/oh-my-zsh.sh
 }
 
+function _set_keyboard_input_repetition() {
+  xset r rate 250 30
+}
+
+function _set_keyboard_layout(){
+  setxkbmap -layout us -variant altgr-intl &
+}
+
 function _env_vars () {
   export CODE_PATH="$HOME/projects/personal/code" 
   export KUBE_PS1_SYMBOL_ENABLE=false
@@ -139,6 +147,7 @@ else
   echo "Hi :wave: I'm a linux computer. I'm superior"
   _linux_gpg
   _remove_duplicates_from_path
+  #_set_keyboard_input_repetition
 fi
 
 if _is_raspi ; then

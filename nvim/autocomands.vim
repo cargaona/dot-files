@@ -1,6 +1,5 @@
 " This is for vim buffer to not ocupy the total amount of the window
 autocmd VimEnter * :silent exec "!kill -s SIGWINCH $PPID"
-
 " Set Rust 
 "-------------------------------------
 autocmd BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs :lua require'lsp_extensions'.inlay_hints{ prefix = ' » ', highlight = "NonText", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
@@ -8,6 +7,11 @@ autocmd BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs :lua require'lsp_extensi
 "Set Go
 autocmd BufWritePost *.go lua vim.lsp.buf.format()
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+
+" v 
+aug vlang
+  au BufNewFile,BufRead *.v set filetype=vlang
+aug end 
 
 "js
 aug javascript

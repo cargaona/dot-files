@@ -1,0 +1,10 @@
+input * {
+  xkb_layout "us"
+  xkb_variant "altgr-intl"
+  repeat_delay 180
+  repeat_rate 30
+}
+
+input type:touchpad {
+    tap enabled
+}

@@ -1,0 +1,30 @@
+xwayland disable 
+
+output * background $HOME/.wallpapers/mountain.jpg fill
+
+font JetbrainsMono Nerd Font Mono 12
+
+exec swayidle -w \
+	timeout 1800 "swaylock --image .wallpapers/andre-benz-JnB8Gio4GZo-unsplash.jpg --indicator-caps-lock --indicator-x-position 100 --indicator-y-position 1100" \
+	timeout 1805 'swaymsg "output * power off"' \
+	resume 'swaymsg "output * power on"'
+
+gaps inner 6
+gaps outer 6
+title_align center
+smart_borders no_gaps
+default_border pixel 3
+hide_edge_borders smart
+popup_during_fullscreen smart
+#for_window [all] title_window_icon on
+#for_window [all] title_window_icon padding 3px
+
+# class                   border  backgr.   text    indic.   child_border
+client.focused          #88c0d0 #2e3440     #d8dee9 #2e9ef4   #5285ab
+client.focused_inactive #333333 #5f676a     #d8dee9 #484e50   #5f676a
+client.unfocused        #333333 #222222     #888888 #292d2e   #222222
+client.urgent           #2f343a #900000     #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c     #ffffff #000000   #0c0c0c
+client.background       #ffffff
+
+include /etc/sway/config.d/*

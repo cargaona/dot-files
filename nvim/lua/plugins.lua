@@ -22,6 +22,7 @@ return require("packer").startup(function()
   use("wbthomason/packer.nvim")
   use("freitass/todo.txt-vim")
   -- LSP and Language specific
+  use("williamboman/mason.nvim")
   use("hashivim/vim-terraform")
   use("neovim/nvim-lspconfig")
   use("nvim-lua/lsp-status.nvim")

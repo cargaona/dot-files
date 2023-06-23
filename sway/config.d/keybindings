@@ -1,11 +1,5 @@
-## TODO: move this block to systemd or xinit.
-##########################################################################
-exec_always $HOME/.config/polybar/launch.sh --forest --no-startup-id  
-exec_always feh --randomize --bg-scale $HOME/.wallpapers/*
-exec_always --no-startup-id copyq  
-##########################################################################
-## TODO: move this block to sxhkd or similar. 
-##########################################################################
+set $mod Mod4
+set $mod1 Mod1
 # start a terminal
 bindsym $mod+Return exec alacritty
 bindsym $mod+BackSpace exec alacritty -e tmux new-session
@@ -14,38 +8,35 @@ bindsym $mod+Shift+w exec feh --randomize --bg-scale $HOME/.wallpapers/*
 # kill focused window
 bindsym $mod+Shift+q kill
 # start dmenu / rofi 
-bindsym $mod1+space exec rofi -show run -show-icons
-bindsym $mod+space exec rofi -show run -show-icons
+bindsym $mod1+space exec wofi --show run --show-icons
+bindsym $mod+space exec wofi --show run --show-icons
 bindsym $mod+c exec copyq-rofi 
 bindsym $mod+Shift+t exec dmenu-translate 
 bindsym $mod+Shift+p exec passmenu "$@"
-bindsym $mod+w exec rofi -show window -modi window -show-icons
+bindsym $mod+w exec wofi --show window --modi window --show-icons
 bindsym $mod+x exec todofi.sh
 bindsym $mod+d exec bookmark
 bindsym $mod+b exec dmenu-bluetooth
-bindsym $mod+s exec rofi -show ssh
+bindsym $mod+s exec wofi --show ssh
 ## screenshots
 bindsym --release shift+Print exec "flameshot gui" 
 bindsym --release Print exec "flameshot screen -n 0 -c --path ~/Pictures"
 ## block i3lock
-bindsym $mod+q exec "betterlockscreen -l dim --span --display 1" 
+bindsym $mod+q exec "swaylock --image .wallpapers/andre-benz-JnB8Gio4GZo-unsplash.jpg --indicator-caps-lock --indicator-x-position 100 --indicator-y-position 1100"
 ## Display Bright
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 5; notify-send -h int:value:$(xbacklight) 'Brightness'"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 5 && notify-send -h int:value:$(xbacklight) 'Brightness'"
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%- |  sed -En 's/.*\(([0-9]+)%\).*/\1/p' > /tmp/brightness
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+ | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > /tmp/brightness
+bindsym XF86Search exec $menu
 
 ## Control media with keyboard keys and headphones
-bindsym XF86AudioPause exec "playerctl pause"
-bindsym XF86AudioPlay exec "playerctl play"
 bindsym XF86AudioNext exec "playerctl next"
+bindsym XF86AudioPlay exec "playerctl play"
+bindsym XF86AudioPause exec "playerctl pause"
 bindsym XF86AudioPrev exec "playerctl previous"
-##########################################################################
-
-## Starting from here everything is i3 related > 
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
-set $mod Mod4
-set $mod1 Mod1
-
-font xft:JetBrains Mono 12
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > /tmp/volume
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > /tmp/volume
 
 # change focus
 bindsym $mod+h focus left
@@ -127,21 +118,11 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
-# bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c sway reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-gaps inner 6
-gaps outer 6
-title_align center
-smart_borders no_gaps
-default_border pixel 3
-hide_edge_borders smart
-popup_during_fullscreen smart
-#for_window [all] title_window_icon on
-#for_window [all] title_window_icon padding 3px
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym $mod+r mode "resize"
 mode "resize" {
@@ -158,11 +139,3 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
-# class                   border  backgr.   text    indic.   child_border
-client.focused          #88c0d0 #2e3440     #d8dee9 #2e9ef4   #5285ab
-client.focused_inactive #333333 #5f676a     #d8dee9 #484e50   #5f676a
-client.unfocused        #333333 #222222     #888888 #292d2e   #222222
-client.urgent           #2f343a #900000     #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c     #ffffff #000000   #0c0c0c
-client.background       #ffffff

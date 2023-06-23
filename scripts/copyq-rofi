@@ -2,6 +2,7 @@
 
 # https://github.com/albertlauncher/python/blob/master/CopyQ.py
 
+import os
 import json
 import subprocess as sp
 
@@ -32,10 +33,19 @@ if __name__ == '__main__':
 
     title = 'rofi-copyq'
     rofi = f'rofi -dmenu -i -p {title} -format i'.split()
+    wofi = f'wofi --dmenu -i -p {title}'.split()
     rofi_input = '\n'.join(x for x in items)
 
-    p = sp.run(rofi, input=rofi_input, encoding='utf-8', stdout=sp.PIPE, stderr=sp.PIPE)
+    if os.getenv("XDG_CURRENT_DESKTOP") == "sway":
+        p = sp.run(wofi, input=rofi_input, encoding='utf-8', stdout=sp.PIPE, stderr=sp.PIPE)
+        if p.returncode == 0:
+            text = p.stdout.strip()
+            sp.run(f'copyq copy {text};'.split(),
+                   encoding='utf-8', stdout=sp.PIPE, stderr=sp.PIPE)
+    else:
+        p = sp.run(rofi, input=rofi_input, encoding='utf-8', stdout=sp.PIPE, stderr=sp.PIPE)
     if p.returncode == 0:
         num = p.stdout.strip()
+        print(num)
         sp.run(f'copyq select({num});'.split(),
                encoding='utf-8', stdout=sp.PIPE, stderr=sp.PIPE)
