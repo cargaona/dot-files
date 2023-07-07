@@ -210,13 +210,3 @@ lspconfig.efm.setup({
     log_file = vim.loop.os_homedir() .. ".cache/nvim/lsp.log",
   },
 })
-
-require("mason").setup({
-  ui = {
-    icons = {
-      package_installed = "✓",
-      package_pending = "➜",
-      package_uninstalled = "✗"
-    }
-  }
-})
