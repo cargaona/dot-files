@@ -3,21 +3,14 @@
 shopt -s nullglob globstar
 
 function writePassword {
-if [[ $XDG_CURRENT_DESKTOP == "sway" ]]; then
-  echo "type $1" | dotool 
-else
-  echo "$1" |  xdotool type --clearmodifiers --file -
-fi
+  if [[ $XDG_CURRENT_DESKTOP == "sway" ]]; then
+    echo "type $1" | dotool 
+  else
+    echo "$1" |  xdotool type --clearmodifiers --file -
+  fi
 }
 
-if [[ $XDG_CURRENT_DESKTOP == "sway" ]]; then
-  rofi_command="wofi --dmenu"
-  type_command="echo 'type @1' | dotool" 
-else
-  rofi_command="rofi -dmenu" 
-  type_command="xdotool type --clearmodifiers --file -"
-fi 
-
+rofi_command="rofi -dmenu" 
 
 typeit=0
 if [[ $1 == "--type" ]]; then
@@ -38,14 +31,16 @@ pass_cmd=show
 if pass show "$password" | grep -q '^otpauth://'; then
     pass_cmd=otp
 fi
+if pass show $password | grep -q 'aws_access_key_id'; then
+    pass_cmd='aws console'
+fi
 
 copyq disable
 if [[ $typeit -eq 0 ]]; then
-	pass $pass_cmd -c "$password" 2>/dev/null
+	pass $pass_cmd "$password" -c 2>/dev/null
 else
   pswd=$(pass $pass_cmd "$password" | { IFS= read -r pass; printf %s "$pass"; })
   writePassword ${pswd}
 fi
-
 copyq enable 
 

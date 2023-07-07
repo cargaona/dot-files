@@ -24,9 +24,21 @@ fi
 
 function _set_alias () {
   alias cd..="cd .."
+  alias .z="source ~/.zshrc"
   alias grip="history | grep"
+  alias copy='copyq copy -'
+  #alias copy='xclip -sel clip'
+  #alias bat="batcat"
+
+  alias syu="sudo pacman -Syu"
+  alias netk="sudo systemctl restart NetworkManager"
+
   alias vim=nvim
   alias vf='vim $(fzf)'
+
+  alias tl="tmux list-sessions"
+  alias ta="tmux attach-session -t"
+  alias t="ta || tmux"
 
   alias g=git 
   alias ga='git add .'
@@ -36,30 +48,25 @@ function _set_alias () {
   alias gcm="git commit -m "
   alias gca="git commit --amend"
   alias gcd="gcm $(date --rfc-3339=date)"
-
-  alias netk="sudo systemctl restart NetworkManager"
-  alias python=python3
-  alias venv=virtualenv
-  alias tl="tmux list-sessions"
-  alias ta="tmux attach-session -t"
-  alias t="ta || tmux"
   alias cdr='cd $(git rev-parse --show-toplevel)'
-  alias copy='xclip -sel clip'
-  alias .z="source ~/.zshrc"
-  #alias bat="batcat"
+
   alias bt=bluetoothctl
   alias btoff="bluetoothctl power off"
   alias bton="bluetoothctl power on"
 
+  alias python=python3
+  alias venv=virtualenv
+
   alias ac="aws sts get-caller-identity"
-  alias kctx=kubectx
-  alias k=kubectl
-  alias kon=kubeon
-  alias koff=kubeoff 
-  alias kns=kubens
-  alias kneat=kubectl-neat
+
   alias tf=terraform 
-  alias syu="sudo pacman -Syu"
+
+  alias k=kubectl
+  alias kctx=kubectx
+  alias kneat=kubectl-neat
+  alias kns=kubens
+  alias koff=kubeoff 
+  alias kon=kubeon
 }
 
 function _theme () {
@@ -68,6 +75,11 @@ function _theme () {
   MNML_RPROMPT=()
   export ZSH="$HOME/.oh-my-zsh"
   source $ZSH/oh-my-zsh.sh
+}
+
+function _set_cloudflare() {
+  sudo sed -i 's/nameserver 192.168.1.135/nameserver 1.1.1.1/g' /etc/resolv.conf
+  cat /etc/resolv.conf
 }
 
 function _set_keyboard_input_repetition() {

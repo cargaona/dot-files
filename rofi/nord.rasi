@@ -8,7 +8,7 @@
 * {
     font: "JetBrains Mono 12";
 
-    nord0:     #332e3440;
+    nord0:     #2e3440;
     white:     #ffffff;
     nord1:     #3b4252;
     nord2:     #434c5e;

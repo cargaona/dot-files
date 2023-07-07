@@ -1,8 +1,9 @@
 {
   "position": "top",
-  "height": 32,
+  "height": 34,
   "modules-left": [
     "sway/workspaces",
+    "custom/updates",
     "memory",
     "disk",
     "cpu"
@@ -11,7 +12,7 @@
     "custom/playerctl"
   ],
   "modules-right": [
-    "custom/updates",
+    "custom/audio",
     "pulseaudio",
     "network",
     "battery",
@@ -37,14 +38,23 @@
     "format": "{icon}"
   },
   "custom/updates": {
-    "format": " {}",
+    "format": "<span color='#F8D987'> </span>{}",
     "exec": "$CODE_PATH/dot-files/polybar/forest/scripts/updates.sh"
   },
-  "custom/playerctl": {
-    "format": "{}",
-    "escape": true, 
-    "interval": "once", 
-    "exec": "$CODE_PATH/dot-files/scripts/playerctl.sh"
+  "custom/playerctl": {  
+    "max-length": 45,
+    "exec": "echo $(playerctl metadata title) - $(playerctl metadata artist)",  
+    "format": "<span color='#0AE7A0'> \udb81\udf5a </span> {}",  
+    "on-click": "playerctl play-pause",  
+    "interval": 5,
+    "on-scroll-right": "playerctl next",  
+    "on-scroll-down": "playerctl previous"  
+  },
+  "custom/audio": {
+    "format": "<span color='#F8D987'>\udb86\udc6c</span> {} ",
+    "interval": 1,
+    "on-click" : "pulse-rofi",
+    "exec" : "pamixer --get-default-sink | tail -n 1 | awk -F'\".+\" ' '{print $2}' | tr -d '\"'"
   },
   "tray": {
     "spacing": 7
@@ -61,7 +71,7 @@
     },
     "format": "{icon} {capacity}%",
     "format-charging": "󰂄 {capacity}%",
-    "format-plugged": "󰂄{capacity}%",
+    "format-plugged": "󰂄 {capacity}%",
     "format-alt": "{time} {icon}",
     "format-full": "󱈑 {capacity}%",
     "format-icons": [
@@ -71,19 +81,19 @@
     ]
   },
   "network": {
-    "format-wifi": "  {essid}",
+    "format-wifi": "󰤢 {essid}",
     "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "󰤮 Disconnected",
     "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
   "pulseaudio": {
-    "format": "{icon}  {volume}%",
+    "format": "{icon} {volume}%",
     "format-muted": "󰖁 Muted",
     "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
+      "headphone": "\udb80\udecb",
+      "hands-free": "\udb80\udecb",
+      "headset": "\udb80\udecb",
       "phone": "",
       "portable": "",
       "car": "",
