@@ -14,6 +14,16 @@ nnoremap <C-t> :NvimTreeToggle<CR>
 nnoremap <silent> <leader>ee :e $CODE_PATH/dot-files/nvim/<cr> 
 nnoremap <silent> <leader>wd vim.lsp.diagnostic.show_line_diagnostics()<cr> 
 
+nmap ren :Rename<CR>
+nmap ca :Ref<CR> 
+nmap imp :Imp<CR>
+nmap gi :Info<CR>
+nmap gd :Def<CR>
+nmap fmt :Fmt<CR>
+nmap co :CodeAction<CR>
+nnoremap <silent> <leader>er :Err<cr> 
+nnoremap <silent> <leader>r :ReloadNvim<cr> 
+
 "" Copy/Paste/Cut
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
@@ -58,7 +68,7 @@ nnoremap <silent> <leader>sh <cmd>Telescope git_commits<cr>
 nnoremap <silent> <leader>b <cmd>Telescope buffers<cr>
 nnoremap <silent> <leader>t <cmd>Telescope<cr>
 nnoremap <silent> <leader>h <cmd>Telescope help_tags<cr>
-nnoremap <silent> <leader>g <cmd>Telescope live_grep<cr>
+nnoremap <silent> <leader>gg <cmd>Telescope live_grep<cr>
 nnoremap <silent> <leader>f <cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>
 
 " Delete the word in front of the cursor imap <C-D> X<Esc>lbce

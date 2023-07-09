@@ -12,15 +12,6 @@ command! -nargs=0 LspLog lua vim.cmd('sp'..vim.lsp.get_log_path())
 command! -nargs=0 Err lua vim.diagnostic.setqflist()
 command! -nargs=0 ReloadNvim so $CODE_PATH/dot-files/nvim/init.lua 
 
-nmap ren :Rename<CR>
-nmap ca :Ref<CR> 
-nmap imp :Imp<CR>
-nmap gi :Info<CR>
-nmap gd :Def<CR>
-nmap fmt :Fmt<CR>
-nmap co :CodeAction<CR>
-nnoremap <silent> <leader>er :Err<cr> 
-nnoremap <silent> <leader>r :ReloadNvim<cr> 
 
 " Disables C-t and some other default mappings for go definition that are
 " already handled by global vim configuration. 

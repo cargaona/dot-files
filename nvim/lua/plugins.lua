@@ -20,7 +20,6 @@ local use = packer.use
 return require("packer").startup(function()
   -- Plugin Manager
   use("wbthomason/packer.nvim")
-  use("freitass/todo.txt-vim")
   -- LSP and Language specific
   use("williamboman/mason.nvim")
   use("hashivim/vim-terraform")
@@ -44,20 +43,20 @@ return require("packer").startup(function()
   -- Git
   use("knsh14/vim-github-link")
   use("tpope/vim-fugitive")
-  use('airblade/vim-gitgutter')
   use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
+  --use('airblade/vim-gitgutter') -- what is this being used for?
   -- Theme and appearance
   use('nvim-treesitter/nvim-treesitter')
   use('kaicataldo/material.vim')
   use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
   -- Navigation
   use("akinsho/nvim-bufferline.lua")
-  use("zirrostig/vim-schlepp")
-  use('easymotion/vim-easymotion')
+  use("zirrostig/vim-schlepp") -- i dont use this much 
+  use('easymotion/vim-easymotion') -- same
   use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
   --use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })
   -- Misc
-  use("ekickx/clipboard-image.nvim")
+  --use("ekickx/clipboard-image.nvim")
   use("scrooloose/nerdcommenter")
 end)
