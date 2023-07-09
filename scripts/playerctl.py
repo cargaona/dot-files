@@ -197,7 +197,10 @@ def print_text():
         print("", flush = True)
         return
     scroll()
-    print(display_prefix + " " + make_visual_len(display_text, message_display_len))
+    print(display_prefix + " " +
+        "%%{T%d}" % (font_index) +
+        make_visual_len(display_text, message_display_len) +
+        "%{T-}" + display_suffix, flush=True)
 
 def main():
     global current_player, players
