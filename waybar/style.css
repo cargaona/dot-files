@@ -7,8 +7,9 @@
 }
 
 window#waybar {
-    background: #001930;
-    color: white;
+  /*background: #001930;*/
+  background: rgba(0, 0, 0, 0.1);
+  color: white;
 }
 
 #workspaces {

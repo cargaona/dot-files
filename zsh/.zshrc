@@ -22,11 +22,32 @@ if [[ "${terminfo[kcuu1]}" != "" ]]; then
     bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
 fi
 
+_change_folder() {
+    # if no argument is provided, search from ~ else use argument
+    [[ -z $1 ]] && DIR=~ || DIR=$1
+    # choose file using rg and fzf
+    CHOSEN=$(fd --strip-cwd-prefix --full-path $DIR -H -t d | fzf --preview="exa -s type --icons {}" --bind="ctrl-space:toggle-preview" --preview-window=,30:hidden)
+
+    # quit if no path is selected else cd into the path
+    if [[ -z $CHOSEN ]]; then
+        echo $CHOSEN
+        return 1
+    else
+        cd "$CHOSEN"
+    fi
+
+    # show ls output if dir has less than 61 files
+    [[ $(ls | wc -l) -le 60 ]] && (pwd; ls)
+    return 0
+}
+
 function _set_alias () {
   alias cd..="cd .."
   alias .z="source ~/.zshrc"
   alias grip="history | grep"
   alias copy='copyq copy -'
+  alias cpcmd="history | cut -c 8- | uniq | fzf | xclip -i -r -sel clipboard"
+  alias cf='_change_folder'
   #alias copy='xclip -sel clip'
   #alias bat="batcat"
 

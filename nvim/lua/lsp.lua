@@ -145,13 +145,17 @@ lspconfig.anakin_language_server.setup({ capabilities = capabilities, handlers =
 lspconfig.gopls.setup({ capabilities = capabilities, cmd = { 'gopls', '--remote=auto' } })
 
 -- C
-lspconfig.ccls.setup({
-  capabilities = capabilities,
-  --cmd = { 'ccls' },
-  --filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
-  --offset_encoding = 'utf-32',
-  ---- ccls does not support sending a null root directory
-  --single_file_support = false,
+--lspconfig.ccls.setup({
+  --capabilities = capabilities,
+  ----cmd = { 'ccls' },
+  ----filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
+  ----offset_encoding = 'utf-32',
+  ------ ccls does not support sending a null root directory
+  ----single_file_support = false,
+--})
+
+lspconfig.clangd.setup({
+  --capabilities = capabilities,
 })
 
 --- vlang
