@@ -46,7 +46,7 @@ function _set_alias () {
   alias .z="source ~/.zshrc"
   alias grip="history | grep"
   alias copy='copyq copy -'
-  alias cpcmd="history | cut -c 8- | uniq | fzf | wl-copy"
+  alias hiz="history | cut -c 8- | uniq | fzf | wl-copy"
   alias cf='_change_folder'
   #alias copy='xclip -sel clip'
   #alias bat="batcat"
