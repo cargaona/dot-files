@@ -15,9 +15,10 @@ window#waybar {
 #workspaces {
 	background-color: #4c566a;
 	margin: 5px;
-	margin-left: 10px;
+	margin-left: 2px;
 	border-radius: 5px;
 }
+
 #workspaces button {
     padding: 0 10px;
     color: #eceff4;
@@ -38,6 +39,13 @@ window#waybar {
 	/*background-color: #4c566a;*/
 	padding: 0px 10px;
 	margin: 5px 0px;
+}
+
+#tray {
+    margin: 5px; 
+    border-radius: 7px;
+    padding: 0px 10px; 
+    background-color: #4c566a;
 }
 
 #custom-date {

@@ -29,7 +29,7 @@ return require("packer").startup(function()
   use("onsails/lspkind-nvim")
   use("tpope/vim-markdown")
   use('fatih/vim-go')
-  use('maxmellon/vim-jsx-pretty')
+  --use('maxmellon/vim-jsx-pretty')
   -- Completion
   use("hrsh7th/cmp-path")
   use("hrsh7th/nvim-cmp")

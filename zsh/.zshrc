@@ -46,7 +46,7 @@ function _set_alias () {
   alias .z="source ~/.zshrc"
   alias grip="history | grep"
   alias copy='copyq copy -'
-  alias cpcmd="history | cut -c 8- | uniq | fzf | xclip -i -r -sel clipboard"
+  alias cpcmd="history | cut -c 8- | uniq | fzf | wl-copy"
   alias cf='_change_folder'
   #alias copy='xclip -sel clip'
   #alias bat="batcat"
@@ -129,6 +129,7 @@ function _set_path () {
   export PATH=$HOME/.local/bin:$PATH
   export PATH=$CODE_PATH/dot-files/scripts/:$PATH
   #export GOROOT=/usr/bin/go
+  export PATH=/home/char/.local/share/gem/ruby/3.0.0/bin:$PATH 
   export GOPATH=$CODE_PATH/go
   export PATH=$GOPATH/bin:$PATH
 }

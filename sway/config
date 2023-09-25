@@ -1,13 +1,19 @@
-#xwayland disable 
+xwayland disable 
 
 output * background $HOME/.wallpapers/elliott-engelmann-DjlKxYFJlTc-unsplash.jpg fill
 
+set $mod Mod4
+set $mod1 Mod1
+
 font JetbrainsMono Nerd Font Mono 12
 
+## block i3lock
+bindsym $mod+q exec "swaylock -f --image .wallpapers/andre-benz-JnB8Gio4GZo-unsplash.jpg --indicator-caps-lock --indicator-x-position 100 --indicator-y-position 1100"
+
 exec swayidle -w \
-	timeout 240 "swaylock --image .wallpapers/andre-benz-JnB8Gio4GZo-unsplash.jpg --indicator-caps-lock --indicator-x-position 100 --indicator-y-position 1100" \
-	timeout 280 'swaymsg "output * power off"' \
-	resume 'swaymsg "output * power on"'
+	timeout 240 "swaylock -f --image .wallpapers/andre-benz-JnB8Gio4GZo-unsplash.jpg --indicator-caps-lock --indicator-x-position 100 --indicator-y-position 1100" \
+	#timeout 280 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    before-sleep "swaylock -f --image .wallpapers/andre-benz-JnB8Gio4GZo-unsplash.jpg --indicator-caps-lock --indicator-x-position 100 --indicator-y-position 1100"
 
 gaps inner 1
 gaps outer 1
