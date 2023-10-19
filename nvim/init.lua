@@ -1,4 +1,4 @@
--- Plugins
+ --Plugins
 require("packer")
 require("plugins")
 require("lsp")
