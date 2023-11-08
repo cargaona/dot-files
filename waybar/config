@@ -60,9 +60,8 @@
     "spacing": 7
   },
   "clock": {
-    "format": "󰅐 {:%H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}"
+    "format": "󰅐 {:%H:%M - %d-%m-%Y}",
+    "on-click": "firefox --name=calendar --new-instance -P google calendar.google.com"
   },
   "battery": {
     "states": {

@@ -7,13 +7,15 @@ set $mod1 Mod1
 
 font JetbrainsMono Nerd Font Mono 12
 
-## block i3lock
+# block i3lock
 bindsym $mod+q exec "swaylock -f --image .wallpapers/andre-benz-JnB8Gio4GZo-unsplash.jpg --indicator-caps-lock --indicator-x-position 100 --indicator-y-position 1100"
 
 exec swayidle -w \
-	timeout 240 "swaylock -f --image .wallpapers/andre-benz-JnB8Gio4GZo-unsplash.jpg --indicator-caps-lock --indicator-x-position 100 --indicator-y-position 1100" \
-	#timeout 280 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    timeout 240 "swaylock -f --image .wallpapers/andre-benz-JnB8Gio4GZo-unsplash.jpg --indicator-caps-lock --indicator-x-position 100 --indicator-y-position 1100" \
+    #timeout 280 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
     before-sleep "swaylock -f --image .wallpapers/andre-benz-JnB8Gio4GZo-unsplash.jpg --indicator-caps-lock --indicator-x-position 100 --indicator-y-position 1100"
+
+exec alacritty
 
 gaps inner 1
 gaps outer 1
@@ -33,4 +35,4 @@ client.urgent           #2f343a #900000aa   #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0caa   #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
-include /etc/sway/config.d/*
+include /etc/sway/config.d/40-start.conf
