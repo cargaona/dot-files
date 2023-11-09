@@ -1,15 +1,15 @@
--- Plugins
+ --Plugins
 require("packer")
 require("plugins")
 require("lsp")
 require("completion")
 require("git-config")
+require("bufferline-config")
 require("statusline")
 require("treesitter")
 require("schlepp-config")
 require("md-fenced-config") -- needed?
 require("nvim-tree-config")
-require("bufferline-config")
 require("telescope-cfg")
 
 -- Leader key

@@ -48,10 +48,11 @@ return require("packer").startup(function()
   -- Theme and appearance
   use('nvim-treesitter/nvim-treesitter')
   use('kaicataldo/material.vim')
-  use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
+  use('itchyny/lightline.vim')
+  --use('ryanoasis/vim-devicons')
   -- Navigation
   use("akinsho/nvim-bufferline.lua")
-  use("zirrostig/vim-schlepp") -- i dont use this much 
+  use("zirrostig/vim-schlepp")     -- i dont use this much
   use('easymotion/vim-easymotion') -- same
   use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
   --use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
