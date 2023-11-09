@@ -60,7 +60,7 @@
     "spacing": 7
   },
   "clock": {
-    "format": "󰅐 {:%H:%M - %d-%m-%Y}",
+    "format": "󰅐 {:%d-%m-%Y - %H:%M}",
     "on-click": "firefox --name=calendar --new-instance -P google calendar.google.com"
   },
   "battery": {
