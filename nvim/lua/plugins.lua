@@ -22,7 +22,7 @@ return require("packer").startup(function()
   use("wbthomason/packer.nvim")
   -- LSP and Language specific
   use("williamboman/mason.nvim")
-  use("hashivim/vim-terraform")
+  --use("hashivim/vim-terraform")
   use("neovim/nvim-lspconfig")
   use("nvim-lua/lsp-status.nvim")
   --use("nvim-lua/lsp_extensions.nvim") -- deprecated: only used for rust.
