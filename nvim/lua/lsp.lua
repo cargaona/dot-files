@@ -11,10 +11,6 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
--- General attachment callback funtion
---local on_attach = function(client)
---end
-
 -- Diagnosticis Signs
 local border = {
   { "╭", "FloatBorder" },
@@ -26,7 +22,6 @@ local border = {
   { "╰", "FloatBorder" },
   { "│", "FloatBorder" },
 }
-
 
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
@@ -75,13 +70,6 @@ local yamllint = {
   lintStdin = true,
 }
 
--- Lua linter -- cargo install stylua
---local luafmt = {
---formatCommand = "stylua -s --stdin-filepath ${INPUT} -",
---formatStdin = true,
---}
-
--- Shell Formatter / Checker
 local shell = {
   formatCommand = "shfmt ${-i:tabWidth}",
   lintCommand = "shellcheck -f gcc -x -",
@@ -93,14 +81,9 @@ local shell = {
   },
 }
 
--- Languages Configuration
------------------------------
-
--- Json
 lspconfig.jsonls.setup({ capabilities = capabilities })
 
--- Lua
-require 'lspconfig'.lua_ls.setup {
+lspconfig.lua_ls.setup {
   settings = {
     Lua = {
       diagnostics = {
@@ -110,7 +93,6 @@ require 'lspconfig'.lua_ls.setup {
   }
 }
 
--- Rust
 lspconfig.rust_analyzer.setup({
   on_attach = on_attach,
   capabilities = capabilities,
@@ -141,22 +123,23 @@ lspconfig.rust_analyzer.setup({
 -- Python
 lspconfig.anakin_language_server.setup({ capabilities = capabilities, handlers = handlers })
 
--- Golang
 lspconfig.gopls.setup({ capabilities = capabilities, cmd = { 'gopls', '--remote=auto' } })
 
 -- C
 --lspconfig.ccls.setup({
-  --capabilities = capabilities,
-  ----cmd = { 'ccls' },
-  ----filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
-  ----offset_encoding = 'utf-32',
-  ------ ccls does not support sending a null root directory
-  ----single_file_support = false,
+--capabilities = capabilities,
+----cmd = { 'ccls' },
+----filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
+----offset_encoding = 'utf-32',
+------ ccls does not support sending a null root directory
+----single_file_support = false,
 --})
 
 lspconfig.clangd.setup({
   --capabilities = capabilities,
 })
+
+lspconfig.ruby_ls.setup {}
 
 --- vlang
 lspconfig.vls.setup {}
@@ -189,10 +172,25 @@ lspconfig.sqlls.setup({
 })
 
 -- Typescript
-lspconfig.tsserver.setup({ capabilities = capabilities })
+lspconfig.tsserver.setup({
+  capabilities = capabilities,
+  --filetypes = "html",
+}
+)
 
--- EFM Lang server
-
+lspconfig.html.setup({
+  cmd = { 'vscode-html-language-server', '--stdio' },
+  filetypes = { 'html' },
+  --root_dir = util.root_pattern('package.json', '.git'),
+  single_file_support = true,
+  settings = {},
+  init_options = {
+    provideFormatter = true,
+    embeddedLanguages = { css = true, javascript = true },
+    configurationSection = { 'html', 'css', 'javascript' },
+  },
+}
+)
 -- Languages setup
 local languages = {
   typescript = { prettier, eslint },
@@ -207,16 +205,3 @@ local languages = {
   zsh = { shell },
 }
 
-lspconfig.efm.setup({
-  root_dir = lspconfig.util.root_pattern(".git", "/home/char/", vim.loop.os_homedir()),
-  filetypes = vim.tbl_keys(languages),
-  cmd = {
-    "/usr/bin/efm-langserver",
-  },
-  init_options = { documentFormatting = true, codeAction = true },
-  settings = {
-    languages = languages,
-    log_level = 1,
-    log_file = vim.loop.os_homedir() .. ".cache/nvim/lsp.log",
-  },
-})
