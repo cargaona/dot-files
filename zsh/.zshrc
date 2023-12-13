@@ -1,4 +1,5 @@
 plugins=(git
+        kubetail
         kube-ps1
         vi-mode
         autojump)

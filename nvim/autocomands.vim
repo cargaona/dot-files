@@ -45,8 +45,8 @@ aug end
 
 "Set Terraform nfiletype 
 "-------------------------------------
-aug terraform_ft_detection
-    au!
-    au BufNewFile,BufRead *.tf set filetype=terraform
-    au BufWritePre *.tf lua vim.lsp.buf.format()
-aug end
+"aug terraform_ft_detection
+    "au!
+    "au BufNewFile,BufRead *.tf set filetype=terraform
+    "au BufWritePre *.tf lua vim.lsp.buf.format()
+"aug end

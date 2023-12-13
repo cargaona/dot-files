@@ -22,7 +22,7 @@ return require("packer").startup(function()
   use("wbthomason/packer.nvim")
   -- LSP and Language specific
   use("williamboman/mason.nvim")
-  use("hashivim/vim-terraform")
+  --use("hashivim/vim-terraform")
   use("neovim/nvim-lspconfig")
   use("nvim-lua/lsp-status.nvim")
   --use("nvim-lua/lsp_extensions.nvim") -- deprecated: only used for rust.
@@ -56,7 +56,11 @@ return require("packer").startup(function()
   use('easymotion/vim-easymotion') -- same
   use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
   --use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-  use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } })
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.4',
+    -- or                            , branch = '0.1.x',
+    requires = { { 'nvim-lua/plenary.nvim' } }
+  }
   -- Misc
   --use("ekickx/clipboard-image.nvim")
   use("scrooloose/nerdcommenter")

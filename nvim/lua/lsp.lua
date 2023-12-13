@@ -149,14 +149,20 @@ lspconfig.tflint.setup({
   flags = { debounce_text_changes = 150 },
 })
 
+vim.cmd([[silent! autocmd! filetypedetect BufRead,BufNewFile *.tf]])
+vim.cmd([[autocmd BufRead,BufNewFile *.hcl set filetype=hcl]])
+vim.cmd([[autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl]])
+vim.cmd([[autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform]])
+vim.cmd([[autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json]])
+
 lspconfig.terraformls.setup({
-  capabilities = capabilities,
-  on_attach = function(client)
-    client.server_capabilities.document_formatting = true
-  end,
-  cmd = { "terraform-ls", "serve" },
-  --cmd = { "terraform-lsp"},
-  filetypes = { "tf", "terraform" },
+  --capabilities = capabilities,
+  --on_attach = function(client)
+    --client.server_capabilities.document_formatting = true
+  --end,
+  --cmd = { "terraform-ls", "serve" },
+  ----cmd = { "terraform-lsp"},
+  --filetypes = { "tf", "terraform" },
 })
 
 -- SQL  -- go install github.com/lighttiger2505/sqls@latest

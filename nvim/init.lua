@@ -7,10 +7,11 @@ require("git-config")
 require("bufferline-config")
 require("statusline")
 require("treesitter")
+require("gomock")
 require("schlepp-config")
 require("md-fenced-config") -- needed?
 require("nvim-tree-config")
-require("telescope-cfg")
+--require("telescope-cfg")
 
 -- Leader key
 vim.g.mapleader = "j"

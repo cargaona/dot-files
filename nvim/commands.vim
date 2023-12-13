@@ -23,8 +23,13 @@ let g:go_def_mapping_enabled = 0
 augroup completion_preview_close
   autocmd!
   if v:version > 703 || v:version == 703 && has('patch598')
-    autocmd CompleteDone * if !&previewwindow && &completeopt =~ 'preview' | silent! pclose | endif
+    autocmd CompleteDone * if !&previewwindow && &completeopt =~ 'preview' | silent ! pclose | endif
   endif
+augroup END
+
+augroup quickfix
+    autocmd!
+    autocmd FileType qf setlocal wrap
 augroup END
 
 augroup go
