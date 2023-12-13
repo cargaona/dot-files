@@ -65,7 +65,6 @@ local run = function(opts)
 
   if ifname == "" or ifname == nil then
     -- source mode default
-    utils.notify("tuki: %s", ifname)
     table.insert(mockgen_cmd, "-source")
     table.insert(mockgen_cmd, fpath .. sname)
   else
@@ -115,6 +114,8 @@ local run = function(opts)
   }
   local runner = require("go.runner")
   runner.run(mockgen_cmd, mock_opts)
+  vim.print(mockgen_cmd)
+  vim.print(mock_opts)
   return mockgen_cmd
 end
 
