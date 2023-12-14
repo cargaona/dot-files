@@ -4,6 +4,27 @@ local log = utils.log
 local vfn = vim.fn
 local mockgen = "mockgen" -- GoMock f *Foo io.Writer
 
+-- this is being used by GoMockGen, and was imported from go.nvim. 
+-- TODO clean this code and use only what is needed
+_GO_NVIM_CFG = {
+  disable_defaults = false, -- either true when true disable all default settings
+  log_path = vfn.expand('$HOME') .. '/tmp/gonvim.log',
+  --null_ls_document_formatting_disable = false, -- true: disable null-ls formatting
+  on_jobstart = function(cmd)
+    _ = cmd
+  end, -- callback for stdout
+  on_stdout = function(err, data)
+    _, _ = err, data
+  end, -- callback when job started
+  on_stderr = function(err, data)
+    _, _ = err, data
+  end, -- callback for stderr
+  on_exit = function(code, signal, output)
+    _, _, _ = code, signal, output
+  end, -- callback for jobexit, output : string
+  --iferr_vertical_shift = 4, -- defines where the cursor will end up vertically from the begining of if err statement after GoIfErr command
+}
+
 -- use ts to get name
 local function get_interface_name()
   local name = require("go.ts.go").get_interface_node_at_pos()

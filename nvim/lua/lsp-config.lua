@@ -123,6 +123,7 @@ lspconfig.rust_analyzer.setup({
 -- Python
 lspconfig.anakin_language_server.setup({ capabilities = capabilities, handlers = handlers })
 
+-- Go 
 lspconfig.gopls.setup({ capabilities = capabilities, cmd = { 'gopls', '--remote=auto' } })
 
 -- C

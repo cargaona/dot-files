@@ -1,17 +1,17 @@
  --Plugins
 require("packer")
 require("plugins")
-require("lsp")
-require("completion")
+require("go-config")
 require("git-config")
-require("bufferline-config")
-require("statusline")
-require("treesitter")
-require("gomock")
+require("lsp-config")
 require("schlepp-config")
-require("md-fenced-config") -- needed?
+require("lightline-config")
+require("md-fenced-config")
 require("nvim-tree-config")
---require("telescope-cfg")
+require("telescope-config")
+require("bufferline-config")
+require("completion-config")
+require("treesitter-config")
 
 -- Leader key
 vim.g.mapleader = "j"
@@ -22,7 +22,6 @@ vim.g.material_theme_style = "dark"
 
 -- Vim Imports
 vim.cmd("so ~/.config/nvim/mappings.vim")
-vim.cmd("so ~/.config/nvim/lua/vim-go.vim")
 vim.cmd("so ~/.config/nvim/settings.vim")
 vim.cmd("so ~/.config/nvim/commands.vim")
 vim.cmd("so ~/.config/nvim/autocomands.vim")
