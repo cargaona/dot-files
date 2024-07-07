@@ -140,7 +140,7 @@ lspconfig.clangd.setup({
   --capabilities = capabilities,
 })
 
-lspconfig.ruby_ls.setup {}
+lspconfig.ruby_lsp.setup {}
 
 --- vlang
 lspconfig.vls.setup {}
