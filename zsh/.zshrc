@@ -1,5 +1,4 @@
 plugins=(git
-        kubetail
         kube-ps1
         vi-mode
         autojump)
@@ -46,8 +45,7 @@ function _set_alias () {
   alias cd..="cd .."
   alias .z="source ~/.zshrc"
   alias grip="history | grep"
-  alias copy='copyq copy -'
-  alias hiz="history | cut -c 8- | uniq | fzf | wl-copy"
+  alias hiz="history | cut -c 8- | uniq | fzf | copy"
   alias cf='_change_folder'
   #alias copy='xclip -sel clip'
   #alias bat="batcat"
@@ -69,7 +67,7 @@ function _set_alias () {
   alias gir=git ## You know this feeling. 
   alias gcm="git commit -m "
   alias gca="git commit --amend"
-  alias gcd="gcm $(date --rfc-3339=date)"
+  #alias gcd="gcm $(date --rfc-3339=date)"
   alias cdr='cd $(git rev-parse --show-toplevel)'
 
   alias bt=bluetoothctl
@@ -93,6 +91,7 @@ function _set_alias () {
 
 function _theme () {
   ZSH_THEME="minimal-char"
+  DISABLE_UNTRACKED_FILES_DIRTY="true"
   MNML_PROMPT=(mnml_ssh mnml_pyenv kube_ps1 mnml_status mnml_keymap 'mnml_cwd 2 0' mnml_git) 
   MNML_RPROMPT=()
   export ZSH="$HOME/.oh-my-zsh"
@@ -156,7 +155,7 @@ function _mac_gpg () {
 }
 
 function _is_mac () {
-  [[ "$OSTYPE" == "darwin22.0" || "$OSTYPE" == "darwin21.0" ]]
+  [[ "$OSTYPE" == "darwin22.0" || "$OSTYPE" == "darwin23.0" ]]
 }
 
 function _is_raspi () {
@@ -164,12 +163,11 @@ function _is_raspi () {
 }
 
 function _remove_duplicates_from_path {
-  PATH=$(echo $(sed 's/:/\n/g' <<< $PATH | sort | uniq) | sed -e 's/\s/':'/g')
+  PATH=$(echo $(gsed 's/:/\n/g' <<< $PATH | sort | uniq) | gsed -e 's/\s/':'/g')
 } 
 
 # start
 _theme
-_set_alias
 _env_vars
 _set_path
 _ssh_agent
@@ -177,11 +175,13 @@ kubeoff
 
 if _is_mac ; then
   echo "Hi :wave: I'm a mac computer. I'm inferior"
+  alias copy=pbcopy
   _mac_gpg
 else
   echo "Hi :wave: I'm a linux computer. I'm superior"
   _linux_gpg
   _remove_duplicates_from_path
+  alias copy='copyq copy -'
   #_set_keyboard_input_repetition
 fi
 
@@ -190,3 +190,6 @@ if _is_raspi ; then
   export LANG=en_US.UTF-8
   export LC_ALL=en_US.UTF-8
 fi
+
+_set_alias
+
