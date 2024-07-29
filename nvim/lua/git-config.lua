@@ -1,34 +1,34 @@
 require('gitsigns').setup {
     signs = {
         add = {
-            hl = 'GitSignsAdd',
+            --hl = 'GitSignsAdd',
             text = '▐',
-            numhl = 'GitSignsAddNr',
-            linehl = 'GitSignsAddLn'
+            --numhl = 'GitSignsAddNr',
+            --linehl = 'GitSignsAddLn'
         },
         change = {
-            hl = 'GitSignsChange',
+            --hl = 'GitSignsChange',
             text = '▐',
-            numhl = 'GitSignsChangeNr',
-            linehl = 'GitSignsChangeLn'
+            --numhl = 'GitSignsChangeNr',
+            --linehl = 'GitSignsChangeLn'
         },
         delete = {
-            hl = 'GitSignsDelete',
+            --hl = 'GitSignsDelete',
             text = '▐',
-            numhl = 'GitSignsDeleteNr',
-            linehl = 'GitSignsDeleteLn'
+            --numhl = 'GitSignsDeleteNr',
+            --linehl = 'GitSignsDeleteLn'
         },
         topdelete = {
-            hl = 'GitSignsDelete',
+            --hl = 'GitSignsDelete',
             text = '‾',
-            numhl = 'GitSignsDeleteNr',
-            linehl = 'GitSignsDeleteLn'
+            --numhl = 'GitSignsDeleteNr',
+            --linehl = 'GitSignsDeleteLn'
         },
         changedelete = {
-            hl = 'GitSignsChange',
+            --hl = 'GitSignsChange',
             text = '~',
-            numhl = 'GitSignsChangeNr',
-            linehl = 'GitSignsChangeLn'
+            --numhl = 'GitSignsChangeNr',
+            --linehl = 'GitSignsChangeLn'
         }
     },
     signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
@@ -44,7 +44,7 @@ require('gitsigns').setup {
         delay = 750,
         ignore_whitespace = false
     },
-    current_line_blame_formatter_opts = {relative_time = false},
+    --current_line_blame_formatter_opts = {relative_time = false},
     sign_priority = 6,
     update_debounce = 100,
     status_formatter = nil, -- Use default
@@ -57,5 +57,5 @@ require('gitsigns').setup {
         row = 0,
         col = 1
     },
-    yadm = {enable = false}
+    --yadm = {enable = false}
 }
