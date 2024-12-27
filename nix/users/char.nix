@@ -24,6 +24,11 @@
       };
 
       home.file = {
+        hyprland = {
+          recursive = false;
+          target = "./.config/hypr";
+          source = /home/char/projects/personal/code/dot-files/hypr
+        };
         tmux = {
           recursive = false;
           target = "./.tmux.conf";
