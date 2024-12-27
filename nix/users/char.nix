@@ -6,7 +6,7 @@
 
   environment.variables = { };
 
-  #home-manager.backupFileExtension = "backup";
+  home-manager.backupFileExtension = "backup";
 
   home-manager.users.char =
     { pkgs,config, ... }:
@@ -15,7 +15,7 @@
       programs.home-manager.enable = true;
       home.username = "char";
       home.homeDirectory = "/home/char";
-
+      
       home.sessionVariables = {
         MY_FOLDER = "/home/char";
         CODE_PATH = "/home/char/projects/personal/code/";
@@ -23,7 +23,7 @@
         EDITOR = "nvim";
       };
 
-      home.file = {
+     home.file = {
         hyprland = {
           recursive = true;
           target = "./.config/hypr/";
