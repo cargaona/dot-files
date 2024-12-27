@@ -81,6 +81,8 @@ local shell = {
   },
 }
 
+lspconfig.nil_ls.setup({})
+
 lspconfig.jsonls.setup({ capabilities = capabilities })
 
 lspconfig.lua_ls.setup {

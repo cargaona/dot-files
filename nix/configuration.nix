@@ -7,7 +7,9 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+    <home-manager/nixos>
     ./sys/fonts.nix
+    ./users/char.nix
     /etc/nixos/hardware-configuration.nix
     ];
 
@@ -77,8 +79,6 @@
   nixpkgs.config.allowUnfree = true; # stuff like spotify or steam
 
   environment.systemPackages = with pkgs; [
-	alacritty	
-	autojump
 	btop
 	curl
 	docker
@@ -97,7 +97,6 @@
 	python3
 	ripgrep
 	rofi
-    slack
 	sudo
 	tmux
 	waybar
@@ -105,6 +104,11 @@
 	zsh-history-substring-search
 	zsh-powerlevel10k
 	zsh-syntax-highlighting
+    alacritty	
+    alacritty-theme
+    autojump
+    cliphist
+    dunst
     gcc
     go
     gopls
@@ -112,9 +116,18 @@
     newsboat
     nil # nix lsp
     obs-studio
+    pamixer
+    pavucontrol
+    scrcpy 
+    slack
+    slurp
     steam
+    tree-sitter
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    wl-clipboard
+    wofi
+    zbar
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

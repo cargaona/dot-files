@@ -112,6 +112,7 @@ inoremap jk <ESC>
 nnoremap jq :q!<CR>
 nnoremap jwq :wq!<CR>
 nnoremap jw :w!<CR>
+ca w!! w !sudo tee "%"
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
 cnoreabbrev Qall! qall!

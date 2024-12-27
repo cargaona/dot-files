@@ -1,15 +1,15 @@
 { pkgs, ... }:
-let
-  unstable = import <nixos-unstable> {
-    config = {
-      allowUnfree = true;
-    };
-  };
-in
+#let
+  #unstable = import <nixos-unstable> {
+    #config = {
+      #allowUnfree = true;
+    #};
+  #};
+#in
 {
   # Fonts
   fonts.packages = [
-    unstable.nerd-fonts.jetbrains-mono
+    pkgs.jetbrains-mono
   ];
 
   # Select internationalisation properties.

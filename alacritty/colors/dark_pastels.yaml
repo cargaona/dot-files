@@ -1,6 +1,6 @@
 
 # Colors (Konsole's Dark Pastels)
-colors:
+colors=
   # Default colors
   primary:
     background: '0x2C2C2C'
