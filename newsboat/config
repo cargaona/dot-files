@@ -1,0 +1,36 @@
+## Theme
+include ./solarized-dark-theme
+
+## Load
+reload-threads 2
+auto-reload yes
+reload-time 20
+
+## Order
+feed-sort-order lastupdated
+#show-read-feeds no
+##run-on-startup select-tag
+
+## Hide articles matching
+ignore-article "*" "title =~ \"Sponsor\""
+ignore-article "*" "title =~ \"Advertisement\""
+
+#feedlist-format "%?T?║%4i %n %8u (%T) %t &╠══%t?"
+#selecttag-format "  %2i (%n/%u) %T"
+#selecttag-format "%?T? %2i %?n? %8u %T "
+selecttag-format "%4i %3n %-16T"
+## Podcast
+podcast-auto-enqueue yes
+download-path "~/Downloads/podcasts/"
+max-downloads 10
+player vlc
+text-width 72
+confirm-mark-feed-read false
+
+run-on-startup select-tag
+macro r set browser "rtv" ; open-in-browser ; set browser firefox
+macro v set browser "i3 exec mpv" ; open-in-browser ; set browser firefox
+#bind-key h show-read-feeds no
+#bind-key u show-read-feeds yes
+browser firefox
+

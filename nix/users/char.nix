@@ -24,6 +24,11 @@
       };
 
      home.file = {
+        newsboat = {
+          recursive = true;
+          target = "./.newsboat";
+          source = /home/char/projects/personal/code/dot-files/newsboat;
+        };
         hyprland = {
           recursive = true;
           target = "./.config/hypr/";

@@ -9,6 +9,8 @@
     [ # Include the results of the hardware scan.
     <home-manager/nixos>
     ./sys/fonts.nix
+    ./sys/graphics.nix
+    #./sys/gtk.nix
     ./users/char.nix
     /etc/nixos/hardware-configuration.nix
     ];
@@ -23,7 +25,7 @@
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  time.timeZone = "Americas/BuenosAires";
+  time.timeZone = "America/Argentina/Buenos_Aires";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -69,14 +71,8 @@
 		  tree
 	  ];
   };
-
   security.sudo.enable = true; 
-
   users.defaultUserShell = pkgs.zsh; 
-
-  # programs.firefox.enable = true;
-  programs.hyprland.enable = true; 
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
@@ -92,12 +88,15 @@
     docker
     dunst
     firefox
+    feh
     gcc
     git
+    grim
     gnupg
     go
     gopls
     htop
+    hyprpaper
     input-leap
     iw
     jetbrains-mono
@@ -109,6 +108,7 @@
     newsboat
     nil # nix lsp
     obs-studio
+    obsidian
     oh-my-zsh
     pamixer
     pass
@@ -122,13 +122,18 @@
     slurp
     steam
     sudo
+    swappy
+    telegram-desktop
+    terraform
     tmux
     tree-sitter
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     waybar
+    wdisplays
     wget
     wl-clipboard
     wofi
+    magic-wormhole
     zbar
     zsh-completions
     zsh-history-substring-search
