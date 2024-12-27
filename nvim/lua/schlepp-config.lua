@@ -1,3 +1,1 @@
-vim.g['Schlepp#allowSquishingLines'] = 1
-vim.g['Schlepp#allowSquishingBlock'] = 1
-vim.g['Schlepp#trimWS'] = 0
+/nix/store/8176lrfq5bfrlbrcq7wmv3jqrir68yaj-home-manager-files/.config/nvim/lua/schlepp-config.lua

@@ -6,6 +6,8 @@
 
   environment.variables = { };
 
+  home-manager.backupFileExtension = "backup";
+
   home-manager.users.char =
     { pkgs,config, ... }:
     {
@@ -26,6 +28,26 @@
           recursive = false;
           target = "./.tmux.conf";
           source = /home/char/projects/personal/code/dot-files/tmux/.tmux.conf;
+        };
+        alacritty = {
+          recursive = true;
+          target = ".config/alacritty/";
+          source = /home/char/projects/personal/code/dot-files/alacritty;
+        };
+        nvim = {
+          recursive = true;
+          target = ".config/nvim/";
+          source = /home/char/projects/personal/code/dot-files/nvim; 
+        };
+        rofi = {
+          recursive = false;
+          target = ".config/rofi/config.rasi";
+          source = /home/char/projects/personal/code/dot-files/rofi/config.rasi;
+        };
+        rofi-theme = {
+          recursive = false;
+          target = ".local/share/rofi/themes/nord.rasi";
+          source = /home/char/projects/personal/code/dot-files/rofi/nord.rasi;
         };
       };
 

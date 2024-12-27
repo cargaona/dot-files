@@ -1,9 +1,1 @@
-{
-    "diagnostics.globals": [
-        "vim",
-        "lfs"
-    ],
-    "workspace.library": [
-        "${3rd}/lfs/library"
-    ]
-}
+/nix/store/8176lrfq5bfrlbrcq7wmv3jqrir68yaj-home-manager-files/.config/nvim/lua/.luarc.json
