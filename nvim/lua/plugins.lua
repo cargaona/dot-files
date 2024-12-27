@@ -64,4 +64,5 @@ return require("packer").startup(function()
   -- Misc
   --use("ekickx/clipboard-image.nvim")
   use("scrooloose/nerdcommenter")
+  use("lambdalisue/suda.vim")
 end)
