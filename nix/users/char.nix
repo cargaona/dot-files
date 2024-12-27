@@ -62,6 +62,11 @@
           target = ".local/share/rofi/themes/nord.rasi";
           source = /home/char/projects/personal/code/dot-files/rofi/nord.rasi;
         };
+        waybar = {
+          recursive = true;
+          target = ".config/waybar";
+          source = /home/char/projects/personal/code/dot-files/waybar; 
+        };
       };
 
       home.stateVersion = "24.11";
