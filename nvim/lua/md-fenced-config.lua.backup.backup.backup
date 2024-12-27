@@ -1,6 +1,1 @@
--- Markdown code highlight
-vim.g['markdown_fenced_languages'] = {
-    'julia', 'css', 'python', 'javascript', 'js=javascript', 'json=javascript',
-    'ruby', 'sass', 'html', 'go','typescript'
-}
-
+/nix/store/n2h9ay2vavdn95khy6svngh5vdydkcv7-home-manager-files/.config/nvim/lua/md-fenced-config.lua.backup.backup.backup

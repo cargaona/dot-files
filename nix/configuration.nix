@@ -87,6 +87,7 @@
 	gnupg
 	htop
 	input-leap
+    killall
 	kitty
 	kubectl
 	kubectx

@@ -6,7 +6,7 @@
 
   environment.variables = { };
 
-  home-manager.backupFileExtension = "backup";
+  #home-manager.backupFileExtension = "backup";
 
   home-manager.users.char =
     { pkgs,config, ... }:
