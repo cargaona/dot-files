@@ -1,1 +1,1 @@
-/nix/store/n2h9ay2vavdn95khy6svngh5vdydkcv7-home-manager-files/.config/nvim/lua/go/ts/textobjects.lua
+/nix/store/rnfcmzsvbz2mpymq9w2rm91d8sy1fh5p-home-manager-files/.config/nvim/lua/go/ts/textobjects.lua
