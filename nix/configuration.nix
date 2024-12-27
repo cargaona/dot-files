@@ -49,6 +49,10 @@
   # Enable sound.
   # hardware.pulseaudio.enable = true;
   # OR
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot= true;
+  services.blueman.enable = true;
+
   services.pipewire = {
      enable = true;
      pulse.enable = true;
