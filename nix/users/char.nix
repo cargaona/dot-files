@@ -29,6 +29,14 @@
           target = "./.config/hypr/";
           source = /home/char/projects/personal/code/dot-files/hypr; 
         };
+        custom-zsh = {
+          # zsh installation takes the custom .zshrc from this symlink and
+          # sources it. at the same time, this file sources the zsh theme. No
+          # need to do an extra symlink. 
+          recursive = false;
+          target = ".zshrc";
+          source = /home/char/projects/personal/code/dot-files/zsh/.zshrc; 
+        };
         tmux = {
           recursive = false;
           target = "./.tmux.conf";

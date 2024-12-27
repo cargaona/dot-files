@@ -83,57 +83,57 @@
   nixpkgs.config.allowUnfree = true; # stuff like spotify or steam
 
   environment.systemPackages = with pkgs; [
-	btop
-	curl
-	docker
-	firefox
-	git
-	gnupg
-	htop
-	input-leap
-    	killall
-	kitty
-	kubectl
-	kubectx
-	neovim
-	oh-my-zsh
-	pass
-	iw
-	podman
-	python3
-	ripgrep
-	rofi
-	sudo
-	tmux
-	waybar
-	zsh-completions
-	zsh-history-substring-search
-	zsh-powerlevel10k
-	zsh-syntax-highlighting
     alacritty	
     alacritty-theme
     autojump
+    btop
     cliphist
+    curl
+    docker
     dunst
+    firefox
     gcc
+    git
+    gnupg
     go
     gopls
+    htop
+    input-leap
+    iw
     jetbrains-mono
+    killall
+    kitty
+    kubectl
+    kubectx
+    neovim
     newsboat
     nil # nix lsp
     obs-studio
+    oh-my-zsh
     pamixer
+    pass
     pavucontrol
+    podman
+    python3
+    ripgrep
+    rofi
     scrcpy 
     slack
     slurp
     steam
+    sudo
+    tmux
     tree-sitter
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    waybar
     wget
     wl-clipboard
     wofi
     zbar
+    zsh-completions
+    zsh-history-substring-search
+    zsh-powerlevel10k
+    zsh-syntax-highlighting
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

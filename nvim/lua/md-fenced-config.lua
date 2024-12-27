@@ -1,1 +1,6 @@
-/nix/store/rnfcmzsvbz2mpymq9w2rm91d8sy1fh5p-home-manager-files/.config/nvim/lua/md-fenced-config.lua
+-- Markdown code highlight
+vim.g['markdown_fenced_languages'] = {
+    'julia', 'css', 'python', 'javascript', 'js=javascript', 'json=javascript',
+    'ruby', 'sass', 'html', 'go','typescript'
+}
+
