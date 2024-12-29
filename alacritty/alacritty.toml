@@ -1,6 +1,5 @@
 #import = ["/home/char/.config/alacritty/colors/dark_pastels.yaml"]
 #tabspaces = 4
-
 [cursor]
 blink_interval = 500
 thickness = 0.15
@@ -16,15 +15,10 @@ TERM = "xterm-256color"
 
 [font]
 #draw_bold_text_with_bright_colors = true
-size = 11
+size = 10
 
 [font.normal]
-family = "JetBrains Mono"
-style = "Medium"
-
-#[font.normal.offset]
-#x = 0
-#y = -3
+family = "JetBrainsMono Nerd Font"
 
 [[keyboard.bindings]]
 chars = "\u001Bj"

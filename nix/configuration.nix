@@ -85,6 +85,7 @@
     btop
     cliphist
     curl
+    discord
     docker
     dunst
     firefox
@@ -123,17 +124,20 @@
     steam
     sudo
     swappy
+    spotify
     telegram-desktop
     terraform
     tmux
     tree-sitter
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vlc
     waybar
     wdisplays
     wget
     wl-clipboard
     wofi
     magic-wormhole
+    yazi
     zbar
     zsh-completions
     zsh-history-substring-search
@@ -192,6 +196,5 @@
  #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }
 
