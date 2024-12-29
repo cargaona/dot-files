@@ -61,7 +61,7 @@
    };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
+  services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.char = {
@@ -79,23 +79,25 @@
   nixpkgs.config.allowUnfree = true; # stuff like spotify or steam
 
   environment.systemPackages = with pkgs; [
+    #terraform
     alacritty	
     alacritty-theme
     autojump
+    brightnessctl
     btop
     cliphist
     curl
     discord
     docker
     dunst
-    firefox
     feh
+    firefox
     gcc
     git
-    grim
     gnupg
     go
     gopls
+    grim
     htop
     hyprpaper
     input-leap
@@ -105,6 +107,7 @@
     kitty
     kubectl
     kubectx
+    magic-wormhole
     neovim
     newsboat
     nil # nix lsp
@@ -115,18 +118,19 @@
     pass
     pavucontrol
     podman
+    powertop
     python3
     ripgrep
     rofi
     scrcpy 
     slack
     slurp
+    spotify
     steam
     sudo
     swappy
-    spotify
+    syncthing
     telegram-desktop
-    terraform
     tmux
     tree-sitter
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -136,7 +140,6 @@
     wget
     wl-clipboard
     wofi
-    magic-wormhole
     yazi
     zbar
     zsh-completions
