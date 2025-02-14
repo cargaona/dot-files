@@ -15,10 +15,21 @@
     home.username = "char";
     home.homeDirectory = "/home/char";
 
+    programs.password-store = {
+      enable = true;
+      package = pkgs.pass-wayland.withExtensions (exts:
+          with exts; [
+          pass-otp
+          pass-import
+          pass-audit
+          ]);
+      settings.PASSWORD_STORE_DIR = "/home/char/.password-store";
+    };
+
     home.sessionVariables = {
       MY_FOLDER = "/home/char";
       CODE_PATH = "/home/char/projects/personal/code/";
-      PASSWORD_STORE_DIR = "$MY_FOLDER/.pass";
+      #PASSWORD_STORE_DIR = "$MY_FOLDER/.pass";
       EDITOR = "nvim";
     };
 
@@ -75,7 +86,7 @@
 
     dconf = {
       enable = true;
-      settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+     settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
     };
     home.stateVersion = "24.11";
   };

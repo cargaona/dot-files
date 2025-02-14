@@ -56,7 +56,7 @@
    };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
+  services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.char = {
@@ -80,9 +80,13 @@
     alacritty	
     alacritty-theme
     autojump
+    awscli
+    brightnessctl
     btop
     cliphist
     curl
+    deluge
+    dig
     discord
     docker
     dunst
@@ -114,9 +118,9 @@
     obsidian
     oh-my-zsh
     pamixer
-    pass
     pavucontrol
     podman
+    powertop
     python3
     ripgrep
     rofi
@@ -132,6 +136,7 @@
     terraform
     tmux
     tree-sitter
+    unzip
     vim 
     vlc
     waybar
@@ -146,6 +151,14 @@
     zsh-powerlevel10k
     zsh-syntax-highlighting
   ];
+
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
