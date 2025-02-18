@@ -10,7 +10,7 @@ function! s:build_go_files()
   endif
 endfunction
 
-"let g:go_debug=['shell-commands', 'debugger-commands']   
+let g:go_debug=['shell-commands', 'debugger-commands']   
 "let g:go_code_completion_enabled = 1
 let g:go_gopls_enabled = 1
 let g:go_def_mode = 'gopls'

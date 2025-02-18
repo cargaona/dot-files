@@ -25,7 +25,7 @@ create_cmd('GoMockGen', require('go.mockgen').run, {
 })
 
 -- Neovim configuration for Go development using vim-go
-vim.g.go_debug = { 'shell-commands', 'debugger-commands' }
+--vim.g.go_debug = { 'shell-commands', 'debugger-commands' }
 vim.g.go_gopls_enabled = 1
 vim.g.go_def_mode = 'gopls'
 vim.g.go_auto_type_info = 1
@@ -33,7 +33,8 @@ vim.g.go_info_mode = 'gopls'
 vim.g.go_list_type = "quickfix"
 vim.g.go_referrers_mode = 'gopls'
 vim.g.go_gopls_options = { '-remote=auto' }
-vim.g.go_debug_log_output = 'debugger'
+--vim.g.go_debug_log_output = 'debugger'
+vim.g.go_debug_log_output = ''
 
 vim.g.go_fmt_command = "goimports"
 vim.g.go_fmt_fail_silently = 1
@@ -55,9 +56,7 @@ vim.g.go_highlight_function_parameters = 1
 vim.g.go_highlight_array_whitespace_error = 1
 vim.g.go_highlight_trailing_whitespace_error = 0
 
--- Debug mappings
--- Uncomment and adjust as needed
---[[
+
 vim.g.go_debug_mappings = {
     ['(go-debug-continue)']   = { key = 'c' },
     ['(go-debug-print)']      = { key = 'p' },
@@ -66,4 +65,4 @@ vim.g.go_debug_mappings = {
     ['(go-debug-step)']       = { key = 's' },
     ['(go-debug-stop)']       = { key = 'e' },
 }
---]]
+
