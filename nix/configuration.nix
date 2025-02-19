@@ -119,6 +119,7 @@
     oh-my-zsh
     pamixer
     pavucontrol
+    copyq
     podman
     powertop
     python3
