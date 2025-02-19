@@ -1,4 +1,4 @@
-#import = ["/home/char/.config/alacritty/colors/dark_pastels.yaml"]
+general.import = ["/home/char/.alacritty-colorscheme/themes/dark_pastels.toml"]
 #tabspaces = 4
 [cursor]
 blink_interval = 500

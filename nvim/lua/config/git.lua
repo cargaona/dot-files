@@ -59,3 +59,4 @@ require('gitsigns').setup {
     },
     --yadm = {enable = false}
 }
+--require("octo").setup()

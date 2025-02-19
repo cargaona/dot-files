@@ -123,9 +123,10 @@ lspconfig.rust_analyzer.setup({
 })
 
 -- Python
-lspconfig.anakin_language_server.setup({ capabilities = capabilities, handlers = handlers })
+--lspconfig.anakin_language_server.setup({ capabilities = capabilities, handlers = handlers })
+lspconfig.pyright.setup({})
 
--- Go 
+-- Go
 lspconfig.gopls.setup({ capabilities = capabilities, cmd = { 'gopls', '--remote=auto' } })
 
 -- C
@@ -141,13 +142,9 @@ lspconfig.gopls.setup({ capabilities = capabilities, cmd = { 'gopls', '--remote=
 lspconfig.clangd.setup({
   --capabilities = capabilities,
 })
-
 lspconfig.ruby_lsp.setup {}
-
 --- vlang
 lspconfig.vls.setup {}
-
--- Terraform
 lspconfig.tflint.setup({
   flags = { debounce_text_changes = 150 },
 })
@@ -161,7 +158,7 @@ vim.cmd([[autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=jso
 lspconfig.terraformls.setup({
   --capabilities = capabilities,
   --on_attach = function(client)
-    --client.server_capabilities.document_formatting = true
+  --client.server_capabilities.document_formatting = true
   --end,
   --cmd = { "terraform-ls", "serve" },
   ----cmd = { "terraform-lsp"},
@@ -207,4 +204,3 @@ local languages = {
   sh = { shell },
   zsh = { shell },
 }
-
