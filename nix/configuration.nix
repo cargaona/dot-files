@@ -1,197 +1,37 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 { config, lib, pkgs, ... }:
+
 {
   imports =
-    [ # Include the results of the hardware scan.
-    <home-manager/nixos>
-    ./sys/fonts.nix
-    ./sys/graphics.nix
-    #./sys/gtk.nix
-    ./users/char.nix
-    /etc/nixos/hardware-configuration.nix
+    [ # Include home-manager configuration and other modular settings
+      <home-manager/nixos>
+      #./sys/gtk.nix 
+      ./packages.nix
+      ./services/audio.nix
+      ./services/docker.nix
+      ./services/ssh.nix
+      ./sys/fonts.nix
+      ./sys/graphics.nix
+      ./users/char.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
+  # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "sff"; # Define your hostname.
-  # Pick only one of the below networking options.
-  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  # Networking Configuration
+  networking.hostName = "sff";  # Define your hostname
+  networking.networkmanager.enable = true;
 
-  # Set your time zone.
+  # Time Zone Configuration
   time.timeZone = "America/Argentina/Buenos_Aires";
 
-  # Select internationalisation properties.
+  # Internationalization
   i18n.defaultLocale = "en_US.UTF-8";
-   #console = {
-     #font = "Lat2-Terminus16";
-     #keyMap = "us";
-     #useXkbConfig = true; # use xkb.options in tty.
-   #};
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
-
-  # Enable sound.
-  # hardware.pulseaudio.enable = true;
-  # OR
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot= true;
-  services.blueman.enable = true;
-
-  services.pipewire = {
-     enable = true;
-     pulse.enable = true;
-   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-
-  # shared libraries to run dinamically linked programs. 
-  programs.nix-ld.enable = true; 
-  #programs.nix-ld.libraries = with pkgs; []
-  nixpkgs.config.allowUnfree = true; # stuff like spotify or steam
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    alacritty	
-    alacritty-theme
-    autojump
-    awscli
-    brightnessctl
-    btop
-    cliphist
-    curl
-    deluge
-    dig
-    discord
-    docker
-    dunst
-    electron
-    feh
-    firefox
-    gcc
-    git
-    gnupg
-    go
-    gopls
-    grim
-    htop
-    hyprpaper
-    input-leap
-    iw
-    jetbrains-mono
-    jq 
-    killall
-    kitty
-    kubectl
-    kubectx
-    magic-wormhole
-    neovim
-    newsboat
-    nil # nix lsp
-    nodejs_23
-    obs-studio
-    obsidian
-    oh-my-zsh
-    pamixer
-    pavucontrol
-    copyq
-    podman
-    powertop
-    python3
-    ripgrep
-    rofi
-    scrcpy 
-    slack
-    slurp
-    spotify
-    steam
-    sudo
-    swappy
-    syncthing
-    telegram-desktop
-    terraform
-    tmux
-    tree-sitter
-    unzip
-    vim 
-    vlc
-    waybar
-    wdisplays
-    wget
-    wl-clipboard
-    wofi
-    yazi
-    zbar
-    zsh-completions
-    zsh-history-substring-search
-    zsh-powerlevel10k
-    zsh-syntax-highlighting
-  ];
-
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-  };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  #};
-
-   programs.gnupg.agent = {
-     enable = true;
-     enableSSHSupport = true;
-   };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
-
-  # This option defines the first version of NixOS you have installed on this particular machine,
-  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  #
-  # Most users should NEVER change this value after the initial install, for any reason,
-  # even if you've upgraded your system to a new NixOS release.
-  #
-  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
-  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
-  # to actually do that.
-  #
-  # This value being lower than the current NixOS release does NOT mean your system is
-  # out of date, out of support, or vulnerable.
-  #
-  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
-  # and migrated your data accordingly.
- #
-  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
+  # System State Version
   system.stateVersion = "24.11"; # Did you read the comment?
+
+  # Allow Unfree Packages (like Spotify, Steam)
+  nixpkgs.config.allowUnfree = true;
 }
