@@ -1,9 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 { config, lib, pkgs, ... }:
-
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -59,23 +57,14 @@
   services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.char = {
-	  isNormalUser = true;
-	  extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-	  packages = with pkgs; [
-		  tree
-	  ];
-  };
-  security.sudo.enable = true; 
-  users.defaultUserShell = pkgs.zsh; 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
 
   # shared libraries to run dinamically linked programs. 
   programs.nix-ld.enable = true; 
   #programs.nix-ld.libraries = with pkgs; []
   nixpkgs.config.allowUnfree = true; # stuff like spotify or steam
 
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
   environment.systemPackages = with pkgs; [
     alacritty	
     alacritty-theme
@@ -164,14 +153,7 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  programs.zsh = {
-	enable = true;
-	ohMyZsh = {
-		enable = true;
-		custom = "/home/char/.zshrc";
-		plugins = ["git" "autojump" "vi-mode" "kube-ps1"];
-	};
-  };
+  #};
 
    programs.gnupg.agent = {
      enable = true;

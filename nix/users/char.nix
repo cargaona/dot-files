@@ -1,93 +1,131 @@
-{ ... }:
+{ pkgs, ... }:
+
+let
+  # Common paths
+  homeDir = "/home/char";
+  projectDir = "/home/char/projects/personal/code";
+in
+
 {
-  users.users.char.isNormalUser = true;
-  home-manager.useGlobalPkgs = true;
+  # --- User Definitions ---
+  users.users.char = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user
+    packages = with pkgs; [
+      tree
+    ];
+  };
+
+  # Default user shell (Zsh)
+  users.defaultUserShell = pkgs.zsh;
+
+  # --- Security Settings ---
+  security.sudo.enable = true;
+
+  # --- Services ---
   services.dbus.enable = true;
 
-  environment.variables = { };
-
+  # --- Home Manager Configurations ---
+  home-manager.useGlobalPkgs = true;
   home-manager.backupFileExtension = "backup";
-  home-manager.users.char =
-  { pkgs,config, ... }:
-  {
-# Enable/Disable deafult system programs
-    programs.home-manager.enable = true;
-    home.username = "char";
-    home.homeDirectory = "/home/char";
 
+  home-manager.users.char = { pkgs, config, ... }: {
+    # Enable Home Manager for user
+    programs.home-manager.enable = true;
+
+    # Home Manager Specific Settings
+    home.username = "char";
+    home.homeDirectory = homeDir;
+
+    # --- Password Store ---
     programs.password-store = {
       enable = true;
-      package = pkgs.pass-wayland.withExtensions (exts:
-          with exts; [
-          pass-otp
-          pass-import
-          pass-audit
-          ]);
-      settings.PASSWORD_STORE_DIR = "/home/char/.password-store";
+      package = pkgs.pass-wayland.withExtensions (exts: with exts; [
+        pass-otp
+        pass-import
+        pass-audit
+      ]);
+      settings.PASSWORD_STORE_DIR = "${homeDir}/.password-store";
     };
 
+    # --- Session Environment Variables ---
     home.sessionVariables = {
-      MY_FOLDER = "/home/char";
-      CODE_PATH = "/home/char/projects/personal/code/";
-      #PASSWORD_STORE_DIR = "$MY_FOLDER/.pass";
+      MY_FOLDER = homeDir;
+      CODE_PATH = "${homeDir}/projects/personal/code/";
       EDITOR = "nvim";
     };
 
+    # --- File Syncing ---
     home.file = {
       newsboat = {
         recursive = true;
         target = "./.newsboat";
-        source = /home/char/projects/personal/code/dot-files/newsboat;
+        source = "${projectDir}/dot-files/newsboat";
       };
       hyprland = {
         recursive = true;
         target = "./.config/hypr/";
-        source = /home/char/projects/personal/code/dot-files/hypr; 
+        source = "${projectDir}/dot-files/hypr";
       };
       custom-zsh = {
-# zsh installation takes the custom .zshrc from this symlink and
-# sources it. at the same time, this file sources the zsh theme. No
-# need to do an extra symlink. 
         recursive = false;
         target = ".zshrc";
-        source = /home/char/projects/personal/code/dot-files/zsh/.zshrc; 
+        source = "${projectDir}/dot-files/zsh/.zshrc";
       };
       tmux = {
         recursive = false;
         target = "./.tmux.conf";
-        source = /home/char/projects/personal/code/dot-files/tmux/.tmux.conf;
+        source = "${projectDir}/dot-files/tmux/.tmux.conf";
       };
       alacritty = {
         recursive = true;
         target = ".config/alacritty/";
-        source = /home/char/projects/personal/code/dot-files/alacritty;
+        source = "${projectDir}/dot-files/alacritty";
       };
       nvim = {
         recursive = true;
         target = ".config/nvim/";
-        source = /home/char/projects/personal/code/dot-files/nvim; 
+        source = "${projectDir}/dot-files/nvim";
       };
       rofi = {
         recursive = false;
         target = ".config/rofi/config.rasi";
-        source = /home/char/projects/personal/code/dot-files/rofi/config.rasi;
+        source = "${projectDir}/dot-files/rofi/config.rasi";
       };
       rofi-theme = {
         recursive = false;
         target = ".local/share/rofi/themes/nord.rasi";
-        source = /home/char/projects/personal/code/dot-files/rofi/nord.rasi;
+        source = "${projectDir}/dot-files/rofi/nord.rasi";
       };
       waybar = {
         recursive = true;
         target = ".config/waybar";
-        source = /home/char/projects/personal/code/dot-files/waybar; 
+        source = "${projectDir}/dot-files/waybar";
       };
     };
 
+    # --- Dconf Settings ---
     dconf = {
       enable = true;
-     settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+      settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
     };
+
+    # --- Home Manager Version ---
     home.stateVersion = "24.11";
+  };
+
+  # --- Shell Configurations ---
+  programs.zsh = {
+    enable = true;
+    ohMyZsh = {
+      enable = true;
+      custom = "${homeDir}/.zshrc";
+      plugins = [
+        "git"
+        "autojump"
+        "vi-mode"
+        "kube-ps1"
+      ];
+    };
   };
 }

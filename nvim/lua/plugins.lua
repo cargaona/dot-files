@@ -1,11 +1,4 @@
 return {
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      local lspconfig = require("lspconfig")
-      lspconfig.terraformls.setup({})
-end, 
-}, 
   -- Git and GitHub plugins
   { 'tpope/vim-fugitive' },  -- Git integration
   { 'knsh14/vim-github-link' },  -- GitHub link generation
