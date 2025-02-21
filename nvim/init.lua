@@ -2,20 +2,21 @@
 vim.g.mapleader = "j"
 
 require("config.lazy")
-require("config.go")
+require("config.obsidian")
 require("config.git")
-require("config.lsp")
-require("config.schlepp")
+require("config.go")
 require("config.lightline")
+require("config.lsp")
+require("config.mappings")
 require("config.md-fenced")
 require("config.nvim-tree")
+require("config.schlepp")
+require("config.settings")
 require("config.telescope")
 require("config.bufferline")
-require("config.completion")
 require("config.autocommands")
 require("config.commands")
-require("config.mappings")
-require("config.settings")
+require("config.completion")
 
 -- Color Scheme
 vim.cmd 'colorscheme material'
