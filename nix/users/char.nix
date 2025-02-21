@@ -22,6 +22,11 @@ in
   # --- Security Settings ---
   security.sudo.enable = true;
 
+  programs.gnupg.agent = {
+     enable = true;
+     enableSSHSupport = true;
+  };
+
   # --- Services ---
   services.dbus.enable = true;
 
