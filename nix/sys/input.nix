@@ -3,7 +3,7 @@
   services.libinput = {
     enable = true;
     touchpad.disableWhileTyping = true;
-  }
+  };
 
   services.keyd = {
     enable = true;
