@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }: {
   environment.systemPackages = with pkgs; [
   alacritty
+  usbutils
   alacritty-theme
   autojump
   awscli
@@ -49,6 +50,7 @@
   pavucontrol
   podman
   powertop
+  #upower
   python3
   ripgrep
   rofi-wayland

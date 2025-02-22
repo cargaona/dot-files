@@ -9,14 +9,15 @@
       ./services/audio.nix
       ./services/docker.nix
       ./services/ssh.nix
+      ./services/power.nix
       ./sys/fonts.nix
       ./sys/graphics.nix
+      ./sys/keyboard.nix
       ./users/char.nix
       /etc/nixos/hardware-configuration.nix
     ];
 
   nix.settings.experimental-features = ["nix-command"];
-
   # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
