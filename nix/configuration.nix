@@ -12,7 +12,7 @@
       ./services/power.nix
       ./sys/fonts.nix
       ./sys/graphics.nix
-      ./sys/keyboard.nix
+      ./sys/input.nix
       ./users/char.nix
       /etc/nixos/hardware-configuration.nix
     ];
