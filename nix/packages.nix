@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   environment.systemPackages = with pkgs; [
   alacritty
   alacritty-theme
@@ -11,8 +11,10 @@
   curl
   deluge
   discord
+  phinger-cursors
   docker
   dunst
+  bc
   electron
   fd
   feh
@@ -51,7 +53,7 @@
   python3
   ripgrep
   rofi-wayland
-  scrcpy
+  scrcpy   
   slack
   slurp
   spotify

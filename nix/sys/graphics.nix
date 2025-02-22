@@ -16,7 +16,7 @@ in
     unstable.nwg-look
     #unstable.hyprland
     unstable.hyprgui
-    unstable.hyprcursor
+    #unstable.hyprcursor
     unstable.hyprlock
     unstable.xcur2png
     unstable.hyprland-protocols

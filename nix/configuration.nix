@@ -15,6 +15,8 @@
       /etc/nixos/hardware-configuration.nix
     ];
 
+  nix.settings.experimental-features = ["nix-command"];
+
   # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
