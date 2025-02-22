@@ -40,11 +40,20 @@ return {
   { 'kyazdani42/nvim-tree.lua',       dependencies = { 'kyazdani42/nvim-web-devicons' } }, -- File tree explorer
 
   -- Miscellaneous
-  { 'epwalsh/obsidian.nvim' },
-  cfg = function()
-    local obsidian = require("config.obsidian")
-    obsidian.setup({})
-  end,
+   'epwalsh/obsidian.nvim' ,
+  config = function()
+      require('obsidian').setup({
+        dir = '~/obsidian/',  -- Replace with the actual path to your vault
+        --notes_subdir = 'notes',  -- Optional: customize this if needed
+        --daily_notes = {
+          --folder = 'daily_notes',  -- Folder where daily notes will be stored
+          --date_format = "%Y-%m-%d",  -- Date format for daily notes
+        --},
+        --mappings = {
+          --["gf"] = "Open link under cursor",  -- You can customize key mappings here
+        --},
+      })
+    end,
   { 'scrooloose/nerdcommenter' },                                                                                                     -- Easy commenting of code
-  { 'nvim-telescope/telescope.nvim', version = '0.1.4', dependencies = { 'nvim-lua/plenary.nvim' } },                                 -- Fuzzy finder for files, buffers, etc.
+  { 'nvim-telescope/telescope.nvim', version = '0.1.4', dependencies = { 'nvim-lua/plenary.nvim' } }                                 -- Fuzzy finder for files, buffers, etc.
 }

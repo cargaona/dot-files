@@ -2,7 +2,7 @@
 vim.g.mapleader = "j"
 
 require("config.lazy")
-require("config.obsidian")
+--require("config.obsidian")
 require("config.git")
 require("config.go")
 require("config.lightline")

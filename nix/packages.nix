@@ -12,8 +12,12 @@
   deluge
   discord
   docker
+  swayidle
   dunst
   electron
+  lua
+  luarocks
+  fd
   feh
   firefox
   gcc
