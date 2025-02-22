@@ -50,7 +50,7 @@
   powertop
   python3
   ripgrep
-  rofi
+  rofi-wayland
   scrcpy
   slack
   slurp
