@@ -21,16 +21,14 @@ window#waybar {
   border-radius: 10px;
 }
 
-
 tooltip {
   background: #171717;
   color: #A1BDCE;
   font-size: 13px;
   border-radius: 7px;
   border: 2px solid #101a24;
-
-
 }
+
 #workspaces{
   background: rgba(23, 23, 23, 0.0);
   color: #888789;
@@ -43,7 +41,6 @@ tooltip {
   padding-top: 1px;
 }
 
-
 #workspaces button {
   background: rgba(23, 23, 23, 0.0);
   color: #A1BDCE;
@@ -55,12 +52,7 @@ tooltip {
   padding-right: 4px;
   /*   animation: ws_normal 20s ease-in-out 1; */
 }
-
-
-
 #workspaces button.active {
-
-
   /* background-image: url("/home/anik/Documents/bar1.png");*/
   color: #A1BDCE;   
   transition: all 0.3s ease;
@@ -121,21 +113,19 @@ tooltip {
   min-height: 10px
 }
 
-
 #custom-spacer{
   opacity: 0.0;
 }
+
 #custom-smallspacer{
   opacity: 0.0;
 }
-
 
 #custom-mouse{
   font-size: 14px;
   margin-bottom: 6px;
   background:  #161320;
 }
-
 
 #custom-power{
   font-size: 15px;
@@ -156,8 +146,8 @@ tooltip {
   padding-right: 2px;
 
 }
-#bluetooth,
-#custom-cliphist{
+
+#bluetooth, #custom-cliphist{
   color: #E6E7E7;
   background:  #161320;
   opacity: 1;
@@ -166,6 +156,7 @@ tooltip {
   padding-right: 4px;
 
 }
+
 #battery{
   font-weight: normal;
   font-size: 22px;
@@ -185,8 +176,8 @@ tooltip {
   margin: 4px 0px 4px 0px;
   padding-left: 4px;
   padding-right: 4px;
-
 }
+
 #clock{
   color: #A1BDCE;
   font-size: 15px;
@@ -200,6 +191,7 @@ tooltip {
   border: none;
 
 }
+
 #pulseaudio{
   font-weight: normal;
   font-size: 18px;
@@ -327,14 +319,11 @@ tooltip {
 
 #battery.charging, #battery.plugged {
   color: #E8EDF0;
-
 }
-
 
 #battery.critical:not(.charging) {
   color: red;
 }
-
 
 #taskbar {
   padding: 1px;
@@ -376,9 +365,7 @@ tooltip {
   padding-left: 3px;
 }
 
-
 /* Style for launchers */
-
 #custom-expand {
   min-width: 25px;
   color: #A1BDCE;

@@ -9,6 +9,7 @@
       ./services/audio.nix
       ./services/docker.nix
       ./services/ssh.nix
+      ./services/power.nix
       ./sys/fonts.nix
       ./sys/graphics.nix
       ./users/char.nix

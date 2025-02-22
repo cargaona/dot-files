@@ -50,6 +50,7 @@
   pavucontrol
   podman
   powertop
+  #upower
   python3
   ripgrep
   rofi-wayland
