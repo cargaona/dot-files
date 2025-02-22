@@ -12,14 +12,12 @@
   deluge
   discord
   docker
-  swayidle
   dunst
   electron
-  lua
-  luarocks
   fd
   feh
   firefox
+  fzf
   gcc
   git
   gnupg
@@ -36,6 +34,8 @@
   kitty
   kubectl
   kubectx
+  lua
+  luarocks
   magic-wormhole
   neovim
   newsboat
@@ -58,6 +58,7 @@
   steam
   sudo
   swappy
+  swayidle
   syncthing
   telegram-desktop
   terraform

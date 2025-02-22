@@ -30,6 +30,10 @@ in
     unstable.wlroots
   ];
 
+  #systemd.user.services.hyprpaper = {
+    #enable = true; 
+  #};
+
   environment.variables = {
     NIXOS_OZONE_WL = "1";
     GDK_BACKEND = "wayland,x11";
