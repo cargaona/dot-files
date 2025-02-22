@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }: {
   environment.systemPackages = with pkgs; [
   alacritty
+  usbutils
   alacritty-theme
   autojump
   awscli
