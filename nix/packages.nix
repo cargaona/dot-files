@@ -7,7 +7,6 @@
   brightnessctl
   btop
   cliphist
-  copyq
   curl
   deluge
   discord

@@ -38,10 +38,6 @@ in
     # Enable Home Manager for user
     programs.home-manager.enable = true;
 
-    # Home Manager Specific Settings
-    home.username = "char";
-    home.homeDirectory = homeDir;
-
     # --- Password Store ---
     programs.password-store = {
       enable = true;
@@ -53,6 +49,12 @@ in
       settings.PASSWORD_STORE_DIR = "${homeDir}/.password-store";
     };
 
+    # Home Manager Specific Settings
+    home.username = "char";
+    home.homeDirectory = homeDir;
+    home.sessionPath = [
+      "/home/char/projects/personal/code/dot-files/scripts/"
+    ];
     # --- Session Environment Variables ---
     home.sessionVariables = {
       MY_FOLDER = homeDir;
@@ -72,6 +74,11 @@ in
         target = "./.config/hypr/";
         source = "${projectDir}/dot-files/hypr";
       };
+      #scripts = {
+        #recursive = true; 
+        #target = "/bin/"; 
+        #source = "${projectDir}/dot-files/scripts";
+      #};
       custom-zsh = {
         recursive = false;
         target = ".zshrc";
