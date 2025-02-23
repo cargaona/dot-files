@@ -1,9 +1,21 @@
 { pkgs,  ... }:
 {
+  #https://github.com/NixOS/nixos-hardware/blob/master/apple/macbook-pro/14-1/default.nix
   services.libinput = {
     enable = true;
     touchpad.disableWhileTyping = true;
-  };
+  }; 
+  environment.etc."libinput/local-overrides.quirks".text = ''
+    [MacBook(Pro) SPI Touchpads]
+    MatchName=*Apple SPI Touchpad*
+    ModelAppleTouchpad=1
+    AttrTouchSizeRange=200:150
+    AttrPalmSizeThreshold=1100
+
+    [MacBook(Pro) SPI Keyboards]
+    MatchName=*Apple SPI Keyboard*
+    AttrKeyboardIntegration=internal
+  '';
 
   services.keyd = {
     enable = true;
