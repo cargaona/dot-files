@@ -11,7 +11,4 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
-
-  # Enable touchpad support
-  services.libinput.enable = true;
 }
