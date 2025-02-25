@@ -4,6 +4,7 @@
   usbutils
   alacritty-theme
   autojump
+  dig
   awscli
   brightnessctl
   btop
