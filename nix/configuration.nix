@@ -32,6 +32,7 @@
   # Networking Configuration
   networking.hostName = "sff";  # Define your hostname
   networking.networkmanager.enable = true;
+  networking.firewall.allowedTCPPorts = [7070 8096 8080 4443 8112];
 
   # Time Zone Configuration
   time.timeZone = "America/Argentina/Buenos_Aires";
