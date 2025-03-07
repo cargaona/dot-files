@@ -11,6 +11,7 @@
     ModelAppleTouchpad=1
     AttrTouchSizeRange=200:150
     AttrPalmSizeThreshold=1300
+    #AttrTappingEnabled=1
     [MacBook(Pro) SPI Keyboards]
     MatchName=*Apple SPI Keyboard*
     AttrKeyboardIntegration=internal

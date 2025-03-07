@@ -12,6 +12,7 @@
   curl
   deluge
   discord
+  dig
   phinger-cursors
   docker
   dunst
