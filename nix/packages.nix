@@ -1,21 +1,20 @@
 { pkgs, inputs, ... }: {
   environment.systemPackages = with pkgs; [
+  #upower
   alacritty
-  usbutils
   alacritty-theme
   autojump
-  dig
   awscli
+  bc
   brightnessctl
   btop
   cliphist
   curl
   deluge
+  dig
   discord
-  phinger-cursors
   docker
   dunst
-  bc
   electron
   fd
   feh
@@ -36,6 +35,7 @@
   killall
   kitty
   kubectl
+  kubectl-neat
   kubectx
   lua
   luarocks
@@ -49,9 +49,9 @@
   oh-my-zsh
   pamixer
   pavucontrol
+  phinger-cursors
   podman
   powertop
-  #upower
   python3
   ripgrep
   rofi-wayland
@@ -66,9 +66,12 @@
   syncthing
   telegram-desktop
   terraform
+  terraform-ls
+  tflint
   tmux
   tree-sitter
   unzip
+  usbutils
   vim
   vlc
   waybar
@@ -76,6 +79,7 @@
   wget
   wl-clipboard
   wofi
+  yarn
   yazi
   zbar
   zsh-completions
