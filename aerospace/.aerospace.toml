@@ -1,0 +1,120 @@
+# Start AeroSpace at login
+start-at-login = true
+
+# Disable normalizations for an i3-like experience
+enable-normalization-flatten-containers = false
+enable-normalization-opposite-orientation-for-nested-containers = false
+
+# Mouse follows focus when changing monitors
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+[gaps]
+inner.horizontal = 5
+inner.vertical = 5
+outer.left = 0
+outer.bottom = 0
+outer.top = 0
+outer.right = 0
+
+# ──────────────────────────────────────────────────────────
+# 🌟 MAIN MODE - Window & Workspace Management
+# ──────────────────────────────────────────────────────────
+[mode.main.binding]
+
+# Terminal (Hyprland: kitty/alacritty -> macOS: Terminal/iTerm2)
+alt-enter = '''exec-and-forget osascript -e '
+tell application "alacritty"
+    create window with default profile
+    activate
+end tell'
+'''
+
+alt-shift-c = 'reload-config'
+
+# Focus movement (matches Hyprland's `movefocus`)
+alt-h = 'focus --boundaries-action wrap-around-the-workspace left'
+alt-j = 'focus --boundaries-action wrap-around-the-workspace down'
+alt-k = 'focus --boundaries-action wrap-around-the-workspace up'
+alt-l = 'focus --boundaries-action wrap-around-the-workspace right'
+
+# Move windows
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l= 'move right'
+
+# Split Layouts (mimicking `hyprctl dispatch split`)
+#alt-h = 'split horizontal'
+#alt-v = 'split vertical'
+
+# Fullscreen mode
+alt-f = 'fullscreen'
+
+# Layout switching (Mimicking Hyprland's layouts)
+alt-s = 'layout v_accordion'   # Like "stacking"
+alt-w = 'layout h_accordion'   # Like "tabbed"
+alt-e = 'layout tiles horizontal vertical' # Like "toggle split"
+
+# ssloating mode toggle
+alt-shift-space = 'layout floating tiling'
+
+# Workspaces (Mapped from Hyprland)
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+alt-0 = 'workspace 10'
+
+# Move focused window to workspace
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-9 = 'move-node-to-workspace 9'
+alt-shift-0 = 'move-node-to-workspace 10'
+
+# Resize mode (like `resizeactive`)
+alt-r = 'mode resize'
+
+alt-shift-minus = 'resize smart -50'
+alt-shift-equal = 'resize smart +50'
+
+alt-shift-semicolon = 'mode service'
+
+# ──────────────────────────────────────────────────────────
+# ✨ RESIZE MODE - Window Resizing
+# ──────────────────────────────────────────────────────────
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+enter = 'mode main'
+esc = 'mode main'
+
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+
+# ──────────────────────────────────────────────────────────
+# 🎯 Extras: Application Launcher & Status Bar
+# ──────────────────────────────────────────────────────────
+
+# Use `skhd` for a more Hyprland-like experience
+#exec-and-forget skhd --reload
+
+# App Launcher (mimics `rofi` or `wofi`)
+#alt-d = '''exec-and-forget open -a "Raycast"''' 
+
+# Set up a status bar (Übersicht as Waybar alternative)
+#exec-and-forget open -a "Übersicht"
+
+
