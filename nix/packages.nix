@@ -14,6 +14,7 @@
   dig
   discord
   docker
+  lua-language-server
   dunst
   electron
   fd
@@ -22,6 +23,7 @@
   fzf
   gcc
   git
+  glib
   gnupg
   go
   gopls
@@ -40,6 +42,7 @@
   lua
   luarocks
   magic-wormhole
+  mongodb-compass
   neovim
   newsboat
   nil # nix lsp
@@ -68,6 +71,7 @@
   terraform
   terraform-ls
   tflint
+  tldr
   tmux
   tree-sitter
   unzip

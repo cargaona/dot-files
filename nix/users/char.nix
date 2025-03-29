@@ -108,8 +108,13 @@ in
       };
       rofi-theme = {
         recursive = false;
-        target = ".local/share/rofi/themes/nord.rasi";
-        source = "${projectDir}/dot-files/rofi/nord.rasi";
+        target = ".local/share/rofi/themes/";
+        source = "${projectDir}/dot-files/rofi/";
+      };
+      cursor = {
+        recursive = false;
+        target = "/home/char/.local/share/icons/rose-pine-hyprcursor/";
+        source = "${projectDir}/dot-files/rose-pine-hyprcursor/";
       };
       waybar = {
         recursive = true;
