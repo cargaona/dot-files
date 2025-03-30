@@ -35,12 +35,10 @@ if pass show $password | grep -q 'aws_access_key_id'; then
     pass_cmd='aws console'
 fi
 
-copyq disable
 if [[ $typeit -eq 0 ]]; then
 	pass $pass_cmd "$password" -c 2>/dev/null
 else
   pswd=$(pass $pass_cmd "$password" | { IFS= read -r pass; printf %s "$pass"; })
   writePassword ${pswd}
 fi
-copyq enable 
 
