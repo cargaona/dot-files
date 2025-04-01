@@ -41,8 +41,8 @@ set('n', '<C-c>', "<cmd> %y+ <CR>", { desc = "Copy whole file" })
 set('n', '<leader>trn', "<cmd> set rnu! <CR>", { desc = "Toggle relative line number" })
 
 -- buffers
-set("n", "<right>", "<cmd> bnext <CR>", { desc = "Next buffer" })
-set("n", "<left>", "<cmd> bprevious <CR>", { desc = "Previous buffer" })
+set("n", "<leader>bn", "<cmd> bnext <CR>", { desc = "Next buffer" })
+set("n", "<leader>bp>", "<cmd> bprevious <CR>", { desc = "Previous buffer" })
 set("n", "<leader>bd", "<cmd> bd <CR>", { desc = "Close buffer" })
 set("n", "<leader>bD", "<cmd> bd! <CR>", { desc = "Close buffer with unsaved changes" })
 

@@ -1,7 +1,6 @@
-vim.keymap.set({ "n" }, "<leader>gjj", ":CopilotChatToggle<CR>", {desc = "Toggle Copilot Chat"})
+vim.keymap.set({ "n" }, "<leader>cc", ":CopilotChatToggle<CR>", { desc = "Toggle Copilot Chat" })
 return {
   {
-
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     lazy = false,
@@ -51,25 +50,10 @@ return {
         copilot_node_command = 'node', -- Node.js version must be > 18.x
         server_opts_overrides = {},
       })
-      vim.keymap.set("n", "<leader>gjt", "<cmd>Copilot toggle<CR>", { desc = "Toggle Copilot" })
+      vim.keymap.set("n", "<leader>ct", "<cmd>Copilot toggle<CR>", { desc = "Toggle Copilot" })
     end,
 
   },
-  -- {
-  --   "zbirenbaum/copilot-cmp",
-  --   dependencies = {
-  --     { "zbirenbaum/copilot.lua" }
-  --   },
-  --   config = function()
-  --     require("copilot").setup({
-  --       suggestion = { enabled = false },
-  --       panel = { enabled = false },
-  --     })
-  --     require("copilot_cmp").setup({
-  --       fix_pairs = false,
-  --     })
-  --   end,
-  -- },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "main",

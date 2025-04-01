@@ -1,5 +1,6 @@
 return {
   {
+    -- TODO: make it work with C-]
     'numToStr/Comment.nvim',
     keys = {
       { "gcc", mode = "n",          desc = "Comment toggle current line" },

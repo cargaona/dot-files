@@ -1,7 +1,8 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     #upower
     alacritty
+    uv
     alacritty-theme
     autojump
     awscli
@@ -47,7 +48,7 @@
     mongodb-compass
     neovim
     newsboat
-    nixfmt
+    nixfmt-rfc-style
     nil # nix lsp
     nodejs_23
     obs-studio
@@ -59,6 +60,7 @@
     podman
     powertop
     python3
+    python312Packages.pip
     ripgrep
     rofi-wayland
     scrcpy

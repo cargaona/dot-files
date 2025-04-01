@@ -14,13 +14,10 @@ return {
   dependencies = {
     -- Required.
     "nvim-lua/plenary.nvim",
-
     -- autocompletion
     "hrsh7th/nvim-cmp",
-
     -- picker
     "nvim-telescope/telescope.nvim",
-    -- see below for full list of optional dependencies 👇
   },
   keys = {
     {
