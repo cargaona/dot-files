@@ -1,8 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     #upower
     alacritty
-    uv
     alacritty-theme
     autojump
     awscli
@@ -14,9 +14,7 @@
     deluge
     dig
     discord
-    phinger-cursors
     docker
-    lua-language-server
     dunst
     electron
     fd
@@ -26,8 +24,8 @@
     gcc
     git
     glib
-    gnupg
     gnumake
+    gnupg
     go
     gopls
     grim
@@ -43,19 +41,21 @@
     kubectl-neat
     kubectx
     lua
+    lua-language-server
     luarocks
     magic-wormhole
     mongodb-compass
     neovim
     newsboat
-    nixfmt-rfc-style
     nil # nix lsp
+    nixfmt-rfc-style
     nodejs_23
     obs-studio
     obsidian
     oh-my-zsh
     pamixer
     pavucontrol
+    phinger-cursors
     phinger-cursors
     podman
     powertop
@@ -81,10 +81,12 @@
     tree-sitter
     unzip
     usbutils
+    uv
     vim
     vlc
     waybar
     wdisplays
+    webcord
     wget
     wl-clipboard
     wofi

@@ -47,5 +47,6 @@
   nixpkgs.config.allowUnfree = true;
 
   #https://askubuntu.com/questions/1434722/macbook-takes-20-seconds-to-wake-up
+  # only for macbook
   boot.kernelParams = [ "mem_sleep_default=s2idle" ];
 }
