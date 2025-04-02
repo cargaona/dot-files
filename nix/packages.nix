@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     #upower
     alacritty
+    libinput
     alacritty-theme
     autojump
     awscli
