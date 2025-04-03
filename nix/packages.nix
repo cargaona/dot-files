@@ -82,11 +82,11 @@
     unzip
     usbutils
     uv
+    vesktop
     vim
     vlc
     waybar
     wdisplays
-    webcord
     wget
     wl-clipboard
     wofi
