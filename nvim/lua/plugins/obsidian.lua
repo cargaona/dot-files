@@ -22,6 +22,11 @@ return {
   keys = {
     {
       "<leader>fn",
+      "<cmd>ObsidianQuickSwitch<CR>",
+      desc = "Find notes"
+    },
+    {
+      "<leader>fgn",
       "<cmd>ObsidianSearch<CR>",
       desc = "Find notes"
     },

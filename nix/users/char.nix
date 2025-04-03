@@ -5,52 +5,11 @@
 
 let
   # Common paths
-  # hyprlandSocket = builtins.getEnv "HYPRLAND_INSTANCE_SIGNATURE";
   homeDir = "/home/char";
   projectDir = "/home/char/projects/personal/code";
-  # resumeScript = pkgs.writeShellScriptBin "resume-script" ''
-  #   #!${pkgs.bash}/bin/bash
-  #   export PATH=${
-  #     lib.makeBinPath [
-  #       pkgs.hyprland
-  #       pkgs.procps
-  #       pkgs.swayidle
-  #       pkgs.coreutils
-  #     ]
-  #   }
-
 in
-# echo $HYPRLAND_INSTANCE_SIGNATURE
-# which killall
-# which hyprctl
-# hyprctl dispatch dpms on
-# killall swayidle
-# swayidle -w \
-#   timeout 10 'hyprlock' \
-#   timeout 15 'hyprctl dispatch dpms off && sleep 1 && systemctl suspend' \
-#   before-sleep 'hyprlock' &
-# ''
-# ;
 
 {
-  # Systemd service to handle resume
-  # systemd.user.services."swayidle-resume" = {
-  #   # Unit = {
-  #   enable = true;
-  #   description = "Reset swayidle after suspend";
-  #   after = [ "suspend.target" ];
-  #   # };
-  #   serviceConfig = {
-  #     Type = "oneshot";
-  #     ExecStart = "${resumeScript}/bin/resume-script";
-  #     Environment = [
-  #       "HYPRLAND_INSTANCE_SIGNATURE=${hyprlandSocket}"
-  #     ];
-  #   };
-  #   # Install = {
-  #   wantedBy = [ "sleep.target" ];
-  #   # };
-  # };
   # --- User Definitions ---
   users.users.char = {
     openssh.authorizedKeys.keys = [
@@ -72,6 +31,11 @@ in
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+  };
+
+  programs.git.config = {
+    user.name = "nq";
+    user.email = "nq@nq.io";
   };
 
   # --- Services ---

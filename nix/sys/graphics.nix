@@ -20,7 +20,7 @@ in
     unstable.swww
     unstable.nwg-look
     #unstable.hyprland
-    unstable.hyprgui
+    #unstable.hyprgui
     #unstable.hyprcursor
     unstable.hyprlock
     unstable.hypridle
