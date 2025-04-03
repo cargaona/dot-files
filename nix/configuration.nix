@@ -1,23 +1,26 @@
-{ config, lib, pkgs, ... }:
+{
+  ...
+}:
 
 {
-  imports =
-    [ # Include home-manager configuration and other modular settings
-      <home-manager/nixos>
-      #./sys/gtk.nix 
-      ./packages.nix
-      ./services/audio.nix
-      ./services/docker.nix
-      ./services/ssh.nix
-      ./services/power.nix
-      ./sys/fonts.nix
-      ./sys/graphics.nix
-      ./sys/input.nix
-      ./users/char.nix
-      /etc/nixos/hardware-configuration.nix
-    ];
+  imports = [
+    # Include home-manager configuration and other modular settings
+    <home-manager/nixos>
+    #./sys/gtk.nix
+    ./packages.nix
+    ./services/audio.nix
+    ./services/docker.nix
+    ./services/ssh.nix
+    ./services/power.nix
+    ./services/sync.nix
+    ./sys/fonts.nix
+    ./sys/graphics.nix
+    ./sys/input.nix
+    ./users/char.nix
+    /etc/nixos/hardware-configuration.nix
+  ];
 
-  nix.settings.experimental-features = ["nix-command"];
+  nix.settings.experimental-features = [ "nix-command" ];
   # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -30,9 +33,15 @@
   '';
 
   # Networking Configuration
-  networking.hostName = "sff";  # Define your hostname
+  networking.hostName = "sff"; # Define your hostname
   networking.networkmanager.enable = true;
-  networking.firewall.allowedTCPPorts = [7070 8096 8080 4443 8112];
+  networking.firewall.allowedTCPPorts = [
+    7070
+    8096
+    8080
+    4443
+    8112
+  ];
 
   # Time Zone Configuration
   time.timeZone = "America/Argentina/Buenos_Aires";

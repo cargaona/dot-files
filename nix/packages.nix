@@ -3,11 +3,11 @@
   environment.systemPackages = with pkgs; [
     #upower
     alacritty
-    libinput
     alacritty-theme
     autojump
     awscli
     bc
+    yaml-language-server
     brightnessctl
     btop
     cliphist
@@ -41,6 +41,7 @@
     kubectl
     kubectl-neat
     kubectx
+    libinput
     lua
     lua-language-server
     luarocks
@@ -60,6 +61,7 @@
     phinger-cursors
     podman
     powertop
+    pyright
     python3
     python312Packages.pip
     ripgrep
