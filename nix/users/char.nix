@@ -31,7 +31,14 @@ in
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+    # pinentryPackage = "pinentry-gtk2"; 
   };
+
+  services.udev.packages = [ pkgs.yubikey-personalization ];
+
+  programs.ssh.extraConfig = ''
+    ForwardAgent yes
+  '';
 
   programs.git.config = {
     user.name = "nq";
