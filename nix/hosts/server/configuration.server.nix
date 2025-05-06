@@ -6,13 +6,14 @@
   imports = [
     # Include home-manager configuration and other modular settings
     <home-manager/nixos>
-    #./sys/gtk.nix
     ./packages.nix
     ./services/audio.nix
     ./services/docker.nix
     ./services/ssh.nix
     ./services/power.nix
     ./services/sync.nix
+    ./services/wireguard.nix
+    ./services/server.nix
     ./sys/fonts.nix
     ./sys/graphics.nix
     ./sys/input.nix
@@ -20,27 +21,23 @@
     /etc/nixos/hardware-configuration.nix
   ];
 
-  nix.settings.experimental-features = [ "nix-command" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes"];
   # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # avoid pci devices to wake up computer from suspend
-  # https://nixos.wiki/wiki/Power_Management
-  # https://wiki.archlinux.org/title/Power_management/Wakeup_triggers#Gigabyte_motherboards
-  services.udev.extraRules = ''
-    ACTION=="add" SUBSYSTEM=="pci" ATTR{vendor}=="0x1022" ATTR{device}=="0x1483" ATTR{power/wakeup}="disabled"
-  '';
-
   # Networking Configuration
-  networking.hostName = "sff"; # Define your hostname
+  networking.hostName = "elaine"; # Define your hostname
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [
-    7070
-    8096
-    8080
+    11434 ## ollama
+    4040 ## openwebui
     4443
+    7070
+    8080
+    8096
     8112
+    9998 ## tika
   ];
 
   # Time Zone Configuration
@@ -54,8 +51,4 @@
 
   # Allow Unfree Packages (like Spotify, Steam)
   nixpkgs.config.allowUnfree = true;
-
-  #https://askubuntu.com/questions/1434722/macbook-takes-20-seconds-to-wake-up
-  # only for macbook
-  boot.kernelParams = [ "mem_sleep_default=s2idle" ];
 }

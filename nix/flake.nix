@@ -12,6 +12,9 @@
             ./hosts/desktop/hardware-configuration.nix
           ];
         };
+        "server" = nixpkgs.lib.nixosSystem {
+          modules = [ /etc/nixos/hosts/server/configuration.server.nix ];
+        };
         "macbook" = nixpkgs.lib.nixosSystem {
           modules = [ ./configuration.notebook.nix ];
         };
