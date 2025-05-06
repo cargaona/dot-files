@@ -6,21 +6,22 @@
   imports = [
     # Include home-manager configuration and other modular settings
     <home-manager/nixos>
-    #./sys/gtk.nix
-    ./packages.nix
-    ./services/audio.nix
-    ./services/docker.nix
-    ./services/ssh.nix
-    ./services/power.nix
-    ./services/sync.nix
-    ./sys/fonts.nix
-    ./sys/graphics.nix
-    ./sys/input.nix
-    ./users/char.nix
+    ../../packages.nix
+    ../../services/audio.nix
+    ../../services/docker.nix
+    ../../services/ssh.nix
+    ../../services/power.nix
+    ../../services/sync.nix
+    ../../sys/fonts.nix
+    ../../sys/nvidia.nix
+    ../../sys/hyprland.nix
+    ../../sys/input.nix
+    ../../users/char.nix
+    # ../../services/wireguard.nix
     /etc/nixos/hardware-configuration.nix
   ];
 
-  nix.settings.experimental-features = [ "nix-command" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -35,13 +36,6 @@
   # Networking Configuration
   networking.hostName = "sff"; # Define your hostname
   networking.networkmanager.enable = true;
-  networking.firewall.allowedTCPPorts = [
-    7070
-    8096
-    8080
-    4443
-    8112
-  ];
 
   # Time Zone Configuration
   time.timeZone = "America/Argentina/Buenos_Aires";
@@ -54,8 +48,4 @@
 
   # Allow Unfree Packages (like Spotify, Steam)
   nixpkgs.config.allowUnfree = true;
-
-  #https://askubuntu.com/questions/1434722/macbook-takes-20-seconds-to-wake-up
-  # only for macbook
-  boot.kernelParams = [ "mem_sleep_default=s2idle" ];
 }

@@ -33,7 +33,7 @@
   '';
 
   # Networking Configuration
-  networking.hostName = "sff"; # Define your hostname
+  networking.hostName = "elaine:"; # Define your hostname
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [
     7070

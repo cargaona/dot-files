@@ -20,20 +20,13 @@
     /etc/nixos/hardware-configuration.nix
   ];
 
-  nix.settings.experimental-features = [ "nix-command" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes"];
   # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # avoid pci devices to wake up computer from suspend
-  # https://nixos.wiki/wiki/Power_Management
-  # https://wiki.archlinux.org/title/Power_management/Wakeup_triggers#Gigabyte_motherboards
-  services.udev.extraRules = ''
-    ACTION=="add" SUBSYSTEM=="pci" ATTR{vendor}=="0x1022" ATTR{device}=="0x1483" ATTR{power/wakeup}="disabled"
-  '';
-
   # Networking Configuration
-  networking.hostName = "sff"; # Define your hostname
+  networking.hostName = "mbp"; # Define your hostname
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [
     7070
