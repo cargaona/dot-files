@@ -7,7 +7,6 @@
     autojump
     awscli
     bc
-    yaml-language-server
     brightnessctl
     btop
     cliphist
@@ -51,6 +50,7 @@
     newsboat
     nil # nix lsp
     nixfmt-rfc-style
+    nmap
     nodejs_23
     obs-studio
     obsidian
@@ -93,6 +93,7 @@
     wget
     wl-clipboard
     wofi
+    yaml-language-server
     yarn
     yazi
     zbar
