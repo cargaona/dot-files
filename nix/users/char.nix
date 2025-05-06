@@ -22,6 +22,7 @@ in
     ];
   };
 
+  
   # Default user shell (Zsh)
   users.defaultUserShell = pkgs.zsh;
 
@@ -38,6 +39,7 @@ in
 
   programs.ssh.extraConfig = ''
     ForwardAgent yes
+    PermitRootLogin yes
   '';
 
   programs.git.config = {
