@@ -6,6 +6,7 @@
   imports = [
     # Include home-manager configuration and other modular settings
     <home-manager/nixos>
+    #./sys/gtk.nix
     ./packages.nix
     ./services/audio.nix
     ./services/docker.nix
@@ -15,13 +16,11 @@
     ./sys/fonts.nix
     ./sys/graphics.nix
     ./sys/input.nix
-    ./services/server.nix
-    ./services/wireguard.nix
     ./users/char.nix
     /etc/nixos/hardware-configuration.nix
   ];
 
-  nix.settings.experimental-features = [ "nix-command flakes" ];
+  nix.settings.experimental-features = [ "nix-command" ];
   # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -42,13 +41,7 @@
     8080
     4443
     8112
-    11434 ## ollama
-    4040 ## openwebui
-    9998 ## tika
   ];
-  networking.firewall = {
-    allowedUDPPorts = [ 51820 ];
-  };
 
   # Time Zone Configuration
   time.timeZone = "America/Argentina/Buenos_Aires";
