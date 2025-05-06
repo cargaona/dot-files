@@ -6,6 +6,7 @@
     alacritty-theme
     autojump
     awscli
+    nmap
     bc
     yaml-language-server
     brightnessctl
@@ -60,6 +61,7 @@
     phinger-cursors
     phinger-cursors
     podman
+    podman-compose
     powertop
     pyright
     python3

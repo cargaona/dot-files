@@ -34,7 +34,7 @@ in
     # pinentryPackage = "pinentry-gtk2"; 
   };
 
-  services.udev.packages = [ pkgs.yubikey-personalization ];
+  # services.udev.packages = [ pkgs.yubikey-personalization ];
 
   programs.ssh.extraConfig = ''
     ForwardAgent yes
