@@ -8,8 +8,10 @@
     awscli
     nmap
     bc
+    tcpdump
     brightnessctl
     btop
+    yq-go
     cliphist
     curl
     deluge
@@ -73,6 +75,7 @@
     slurp
     spotify
     steam
+    stremio
     sudo
     swappy
     swayidle
@@ -91,6 +94,7 @@
     vim
     vlc
     waybar
+    wireguard-tools
     wdisplays
     wget
     wl-clipboard

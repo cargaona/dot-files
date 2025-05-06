@@ -12,11 +12,11 @@
     ./services/ssh.nix
     ./services/power.nix
     ./services/sync.nix
-    ./services/wireguard.nix
-    ./services/server.nix
     ./sys/fonts.nix
     ./sys/graphics.nix
     ./sys/input.nix
+    ./services/server.nix
+    ./services/wireguard.nix
     ./users/char.nix
     /etc/nixos/hardware-configuration.nix
   ];
@@ -27,18 +27,21 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Networking Configuration
-  networking.hostName = "elaine"; # Define your hostname
+  networking.hostName = "mbp"; # Define your hostname
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [
+    7070
+    8096
+    8080
+    4443
+    8112
     11434 ## ollama
     4040 ## openwebui
-    4443
-    7070
-    8080
-    8096
-    8112
     9998 ## tika
   ];
+  networking.firewall = {
+    allowedUDPPorts = [ 51820 ];
+  };
 
   # Time Zone Configuration
   time.timeZone = "America/Argentina/Buenos_Aires";
@@ -51,4 +54,8 @@
 
   # Allow Unfree Packages (like Spotify, Steam)
   nixpkgs.config.allowUnfree = true;
+
+  #https://askubuntu.com/questions/1434722/macbook-takes-20-seconds-to-wake-up
+  # only for macbook
+  boot.kernelParams = [ "mem_sleep_default=s2idle" ];
 }
