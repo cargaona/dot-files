@@ -39,7 +39,6 @@
     jetbrains-mono
     jq
     killall
-    kitty
     kubectl
     kubectl-neat
     kubectx

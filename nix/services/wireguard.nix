@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   networking.nat.enable = true;
@@ -21,12 +21,12 @@
       ips = [ "10.8.0.1/32" ];
 
       # NAT configuration to route traffic to your home LAN
-      # postSetup = ''
-      #   ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
-      # '';
-      # postShutdown = ''
-      #   ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
-      # '';
+      postSetup = ''
+        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
+      '';
+      postShutdown = ''
+        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
+      '';
 
       # Define your clients (peers)
       peers = [
@@ -47,9 +47,9 @@
   };
 
   # Enable IP forwarding (to route traffic between VPN and LAN)
-  networking.firewall.extraCommands = ''
-    iptables -A FORWARD -i wg0 -o eth0 -j ACCEPT
-    iptables -A FORWARD -i eth0 -o wg0 -m state --state RELATED,ESTABLISHED -j ACCEPT
-  '';
+  # networking.firewall.extraCommands = ''
+  #   iptables -A FORWARD -i wg0 -o eth0 -j ACCEPT
+  #   iptables -A FORWARD -i eth0 -o wg0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+  # '';
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 }

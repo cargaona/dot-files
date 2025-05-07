@@ -1,12 +1,1 @@
-return {
-  {
-    'numToStr/Comment.nvim',
-    keys = {
-      { "<C-]>", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>",                   mode = "n", desc = "Toggle comment (linewise)" },
-      { "<C-]>", "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>gv", mode = "v", desc = "Toggle comment (linewise visual)" },
-    },
-    config = function(_, opts)
-      require("Comment").setup(opts)
-    end,
-  },
-}
+/nix/store/wq44b08zjnp1mc6jc2ki0r80pqv5b1s8-home-manager-files/.config/nvim/lua/plugins/comment.lua
