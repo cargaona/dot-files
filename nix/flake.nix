@@ -12,7 +12,9 @@
           ];
         };
         "server" = nixpkgs.lib.nixosSystem {
-          modules = [ /etc/nixos/hosts/server/configuration.nix ];
+          modules = [
+            /etc/nixos/hosts/server/configuration.nix
+          ];
         };
       };
     };

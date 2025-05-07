@@ -13,7 +13,7 @@
     ../../services/server.nix
     ../../services/ssh.nix
     ../../services/sync.nix
-    ../../services/wireguard.nix
+    # ../../services/wireguard.nix
     ../../sys/fonts.nix
     ../../sys/nvidia.nix
     ../../sys/input.nix

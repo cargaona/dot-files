@@ -1,8 +1,1 @@
-vim.keymap.set("n", "<leader>ss", "<cmd>SessionSave<CR>", { desc = "Save Session" })
-return {
-  {
-    "olimorris/persisted.nvim",
-    lazy = true, -- make sure the plugin is always loaded at startup
-    config = true
-  }
-}
+/nix/store/wq44b08zjnp1mc6jc2ki0r80pqv5b1s8-home-manager-files/.config/nvim/lua/plugins/persisted.lua
