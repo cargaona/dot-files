@@ -39,7 +39,6 @@ in
 
   programs.ssh.extraConfig = ''
     ForwardAgent yes
-    PermitRootLogin yes
   '';
 
   programs.git.config = {
