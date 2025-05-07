@@ -15,7 +15,7 @@ LANG = "en_US.UTF-8"
 
 [font]
 # draw_bold_text_with_bright_colors = true
-size = 11
+size = 10.5
 
 [font.normal]
 style= "Bold"
