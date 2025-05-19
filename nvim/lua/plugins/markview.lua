@@ -1,1 +1,32 @@
-/nix/store/wq44b08zjnp1mc6jc2ki0r80pqv5b1s8-home-manager-files/.config/nvim/lua/plugins/markview.lua
+return {
+  "OXY2DEV/markview.nvim",
+  lazy = false, -- Recommended
+  -- ft = "markdown" -- If you decide to lazy-load anyway
+
+  dependencies = {
+    -- You will not need this if you installed the
+    -- parsers manually
+    -- Or if the parsers are in your $RUNTIMEPATH
+    "nvim-treesitter/nvim-treesitter",
+
+    "nvim-tree/nvim-web-devicons"
+  },
+  config = function()
+    require("markview").setup({
+      preview = {
+        modes = { "n", "no", "c" }, -- Change these modes to what you need
+
+        -- hybrid_modes = { "n", "i" }, -- Uses this feature on normal mode
+        --
+        -- This is nice to have
+        callbacks = {
+          on_enable = function(_, win)
+            vim.wo[win].conceallevel = 2;
+            vim.wo[win].concealcursor = "nc";
+          end
+        }
+      },
+
+    })
+  end
+}

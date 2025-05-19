@@ -1,1 +1,15 @@
-/nix/store/wq44b08zjnp1mc6jc2ki0r80pqv5b1s8-home-manager-files/.config/nvim/lua/plugins/lualine.lua
+return {
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    event = "VeryLazy",
+    opts = {
+      options = {
+        -- icons_enabled = true,
+        theme = 'auto',
+        -- component_separators = '|',
+        -- section_separators = { left = '', right = '' },
+      },
+    },
+  },
+}

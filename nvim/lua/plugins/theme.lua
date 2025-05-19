@@ -1,1 +1,12 @@
-/nix/store/wq44b08zjnp1mc6jc2ki0r80pqv5b1s8-home-manager-files/.config/nvim/lua/plugins/theme.lua
+return {
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      require('tokyonight').setup({})
+      vim.cmd [[colorscheme tokyonight-storm]]
+    end
+  }
+}

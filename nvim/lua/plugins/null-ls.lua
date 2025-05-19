@@ -1,1 +1,14 @@
-/nix/store/wq44b08zjnp1mc6jc2ki0r80pqv5b1s8-home-manager-files/.config/nvim/lua/plugins/null-ls.lua
+return {
+  {
+    "nvimtools/none-ls.nvim",
+    event = "VeryLazy",
+    opts = function()
+      local null_ls = require "null-ls"
+      return {
+        sources = {
+          null_ls.builtins.formatting.goimports,
+        },
+      }
+    end,
+  },
+}

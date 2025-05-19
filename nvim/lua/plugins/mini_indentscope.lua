@@ -1,1 +1,10 @@
-/nix/store/wq44b08zjnp1mc6jc2ki0r80pqv5b1s8-home-manager-files/.config/nvim/lua/plugins/mini_indentscope.lua
+return {
+  {
+    'echasnovski/mini.indentscope',
+    lazy = false,
+    version = false,
+    config = function()
+      require('mini.indentscope').setup()
+    end
+  },
+}

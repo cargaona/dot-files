@@ -1,1 +1,15 @@
-/nix/store/wq44b08zjnp1mc6jc2ki0r80pqv5b1s8-home-manager-files/.config/nvim/lua/plugins/treesitter.lua
+return {
+	{
+		"nvim-treesitter/nvim-treesitter",
+		event = { "BufReadPost", "BufNewFile" },
+		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+		-- build = ":TSUpdate",
+    dependencies = "windwp/nvim-ts-autotag",
+		opts = function()
+			return require("plugins.configs.treesitter")
+		end,
+		config = function(_, opts)
+			require("nvim-treesitter.configs").setup(opts)
+		end,
+	},
+}
