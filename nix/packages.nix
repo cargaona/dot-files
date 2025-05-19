@@ -6,18 +6,19 @@
     alacritty-theme
     autojump
     awscli
-    nmap
+    bash-language-server
     bc
-    tcpdump
     brightnessctl
     btop
-    yq-go
+    ccls
     cliphist
+    # css-languageserver
     curl
     deluge
     dig
     discord
     docker
+    # docker-langserver
     dunst
     electron
     fd
@@ -30,6 +31,7 @@
     gnumake
     gnupg
     go
+    gopls
     gopls
     grim
     htop
@@ -50,6 +52,7 @@
     mongodb-compass
     neovim
     newsboat
+    nil
     nil # nix lsp
     nixfmt-rfc-style
     nmap
@@ -59,7 +62,6 @@
     oh-my-zsh
     pamixer
     pavucontrol
-    phinger-cursors
     phinger-cursors
     podman
     podman-compose
@@ -73,12 +75,14 @@
     slack
     slurp
     spotify
+    # sql-language-server
     steam
     stremio
     sudo
     swappy
     swayidle
     syncthing
+    tcpdump
     telegram-desktop
     terraform
     terraform-ls
@@ -86,6 +90,7 @@
     tldr
     tmux
     tree-sitter
+    typescript-language-server
     unzip
     usbutils
     uv
@@ -93,14 +98,15 @@
     vim
     vlc
     waybar
-    wireguard-tools
     wdisplays
     wget
+    wireguard-tools
     wl-clipboard
     wofi
     yaml-language-server
     yarn
     yazi
+    yq-go
     zbar
     zsh-completions
     zsh-history-substring-search

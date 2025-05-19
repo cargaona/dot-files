@@ -120,7 +120,7 @@ in
         };
         nvim = {
           recursive = true;
-          target = ".config/nvim/";
+          target = ".config/nvim";
           source = "${projectDir}/dot-files/nvim";
         };
         rofi = {
