@@ -46,7 +46,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # System State Version
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 
   # Allow Unfree Packages (like Spotify, Steam)
   nixpkgs.config.allowUnfree = true;

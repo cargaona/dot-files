@@ -22,6 +22,22 @@ in
     ];
   };
 
+  programs.firefox = {
+    enable = true;
+    # profiles.default = {
+    #   extensions = [
+    #     # Los IDs deben coincidir con los de Mozilla Add-ons
+    #     "awesome-rss@inbasic"
+    #     "jid1-KKzOGWgsW3Ao4Q@jetpack"        # Dark Reader
+    #     "LingLook@cary"                      # LingLook
+    #     "jid1-MnnxcxisBPnSXQ@jetpack"        # Privacy Badger
+    #     "treestyletab@piro.sakura.ne.jp"     # Tree Style Tab
+    #     "uBlock0@raymondhill.net"            # uBlock Origin
+    #     "{8c7ddf13-1b3e-4e6f-8f49-7a63f742dcac}" # Unhook
+    #     "{c9c31f17-e556-45bc-9f9f-97c58c7b1f3f}" # YouTube Anti Translate
+    #   ];
+    # };
+  };
   
   # Default user shell (Zsh)
   users.defaultUserShell = pkgs.zsh;
@@ -152,7 +168,7 @@ in
       };
 
       # --- Home Manager Version ---
-      home.stateVersion = "24.11";
+      home.stateVersion = "25.05";
     };
 
   # --- Shell Configurations ---

@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+BOOKMARKS_FILE="${HOME}/.local/share/rofi-bookmarks.txt"
+[ -f "$BOOKMARKS_FILE" ] || touch "$BOOKMARKS_FILE"
+
+main_menu() {
+    echo -e "Open Bookmark\nAdd Bookmark\nDelete Bookmark\nRename Bookmark" | rofi -dmenu -p "Bookmarks"
+}
+
+select_bookmark() {
+    cut -d'|' -f1 "$BOOKMARKS_FILE" | rofi -dmenu -p "$1"
+}
+
+get_url_by_name() {
+    grep -F "$1 |" "$BOOKMARKS_FILE" | cut -d'|' -f2- | xargs
+}
+
+add_bookmark() {
+    local name url
+    name=$(rofi -dmenu -p "Enter name")
+    [ -z "$name" ] && exit
+    url=$(rofi -dmenu -p "Enter URL")
+    [ -z "$url" ] && exit
+    echo "$name | $url" >> "$BOOKMARKS_FILE"
+}
+
+delete_bookmark() {
+    local name
+    name=$(select_bookmark "Delete")
+    [ -z "$name" ] && exit
+    grep -v "^$name |" "$BOOKMARKS_FILE" > "${BOOKMARKS_FILE}.tmp"
+    mv "${BOOKMARKS_FILE}.tmp" "$BOOKMARKS_FILE"
+}
+
+rename_bookmark() {
+    local old_name new_name url
+    old_name=$(select_bookmark "Rename")
+    [ -z "$old_name" ] && exit
+    new_name=$(rofi -dmenu -p "New name for '$old_name'")
+    [ -z "$new_name" ] && exit
+    url=$(get_url_by_name "$old_name")
+    grep -v "^$old_name |" "$BOOKMARKS_FILE" > "${BOOKMARKS_FILE}.tmp"
+    echo "$new_name | $url" >> "${BOOKMARKS_FILE}.tmp"
+    mv "${BOOKMARKS_FILE}.tmp" "$BOOKMARKS_FILE"
+}
+
+open_bookmark() {
+    local name url
+    name=$(select_bookmark "Open")
+    [ -z "$name" ] && exit
+    url=$(get_url_by_name "$name")
+    xdg-open "$url" & disown
+}
+
+choice=$(main_menu)
+
+case "$choice" in
+    "Open Bookmark") open_bookmark ;;
+    "Add Bookmark") add_bookmark ;;
+    "Delete Bookmark") delete_bookmark ;;
+    "Rename Bookmark") rename_bookmark ;;
+    *) exit ;;
+esac

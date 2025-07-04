@@ -1,29 +1,36 @@
 { pkgs, ... }:
 {
+  programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
+    # css-languageserver
+    # docker-langserver
+    # nodejs_23
+    # sql-language-server
     #upower
     alacritty
     alacritty-theme
+    # audacious
     autojump
     awscli
+    claude-code
     bash-language-server
+    ffmpeg
     bc
     brightnessctl
     btop
     ccls
     cliphist
-    # css-languageserver
     curl
+    davinci-resolve
     deluge
     dig
     discord
     docker
-    # docker-langserver
     dunst
     electron
     fd
     feh
-    firefox
+    # firefox
     fzf
     gcc
     git
@@ -36,7 +43,6 @@
     grim
     htop
     hyprpaper
-    input-leap
     iw
     jetbrains-mono
     jq
@@ -49,6 +55,7 @@
     lua-language-server
     luarocks
     magic-wormhole
+    moc
     mongodb-compass
     neovim
     newsboat
@@ -56,7 +63,7 @@
     nil # nix lsp
     nixfmt-rfc-style
     nmap
-    nodejs_23
+    nodejs_latest
     obs-studio
     obsidian
     oh-my-zsh
@@ -70,13 +77,12 @@
     python3
     python312Packages.pip
     ripgrep
+    rockbox-utility
     rofi-wayland
     scrcpy
     slack
     slurp
     spotify
-    # sql-language-server
-    steam
     stremio
     sudo
     swappy

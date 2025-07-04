@@ -53,16 +53,16 @@ return {
         keymaps = {
           horizontal_motions = false,
         },
-        integrations = {
-          -- Integration with https://github.com/lewis6991/gitsigns.nvim
-          gitsigns = {
-            enabled = true,
-            keymaps = {
-              next = ']g',
-              prev = '[g',
-            },
-          },
-        },
+        -- integrations = {
+        --   -- Integration with https://github.com/lewis6991/gitsigns.nvim
+        --   gitsigns = {
+        --     enabled = true,
+        --     keymaps = {
+        --       next = ']g',
+        --       prev = '[g',
+        --     },
+        --   },
+        -- },
       })
 
       local function eyeliner_jump(key)

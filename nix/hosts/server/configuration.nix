@@ -25,6 +25,8 @@
     "nix-command"
     "flakes"
   ];
+  programs.lxqt-policykit.enable = true;
+  programs.polkit-kde-agent.enable = true;
   # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -50,7 +52,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # System State Version
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 
   # Allow Unfree Packages (like Spotify, Steam)
   nixpkgs.config.allowUnfree = true;

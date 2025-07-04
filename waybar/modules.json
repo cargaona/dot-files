@@ -87,6 +87,7 @@
         "bat": "BAT2"
     },
     "clock": {
+        "timezone": "America/Argentina/Buenos_Aires",
         "format": "{:%H:%M | %e %B} ",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
