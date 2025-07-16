@@ -34,3 +34,9 @@ macro v set browser "i3 exec mpv" ; open-in-browser ; set browser firefox
 #bind-key u show-read-feeds yes
 browser firefox
 
+urls-source "miniflux"
+miniflux-url "http://localhost:1234/"       # or http://localhost:8080 if local
+miniflux-login "admin"
+miniflux-password "123456"
+# miniflux-password "7fe3a8ef02ce7a5e5da9c4aefbdc57753fc86b688845a46310e1ca5b4ce68078"
+

@@ -3,12 +3,6 @@
   ...
 }:
 
-let
-  # Common paths
-  homeDir = "/home/char";
-  projectDir = "/home/char/projects/personal/code";
-in
-
 {
   # --- User Definitions ---
   users.users.char = {
@@ -22,23 +16,9 @@ in
     ];
   };
 
-  programs.firefox = {
-    enable = true;
-    # profiles.default = {
-    #   extensions = [
-    #     # Los IDs deben coincidir con los de Mozilla Add-ons
-    #     "awesome-rss@inbasic"
-    #     "jid1-KKzOGWgsW3Ao4Q@jetpack"        # Dark Reader
-    #     "LingLook@cary"                      # LingLook
-    #     "jid1-MnnxcxisBPnSXQ@jetpack"        # Privacy Badger
-    #     "treestyletab@piro.sakura.ne.jp"     # Tree Style Tab
-    #     "uBlock0@raymondhill.net"            # uBlock Origin
-    #     "{8c7ddf13-1b3e-4e6f-8f49-7a63f742dcac}" # Unhook
-    #     "{c9c31f17-e556-45bc-9f9f-97c58c7b1f3f}" # YouTube Anti Translate
-    #   ];
-    # };
-  };
-  
+  # Firefox configuration moved to packages/common.nix for cross-platform compatibility
+  # User-specific Firefox profiles and extensions can be configured here if needed
+
   # Default user shell (Zsh)
   users.defaultUserShell = pkgs.zsh;
 
@@ -48,7 +28,7 @@ in
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-    # pinentryPackage = "pinentry-gtk2"; 
+    # pinentryPackage = "pinentry-gtk2";
   };
 
   # services.udev.packages = [ pkgs.yubikey-personalization ];
@@ -64,125 +44,4 @@ in
 
   # --- Services ---
   services.dbus.enable = true;
-
-  # --- Home Manager Configurations ---
-  home-manager.useGlobalPkgs = true;
-  home-manager.backupFileExtension = "backup";
-
-  home-manager.users.char =
-    { pkgs, config, ... }:
-    {
-      # Enable Home Manager for user
-      programs.home-manager.enable = true;
-
-      # --- Password Store ---
-      programs.password-store = {
-        enable = true;
-        package = pkgs.pass-wayland.withExtensions (
-          exts: with exts; [
-            pass-otp
-            pass-import
-            pass-audit
-          ]
-        );
-        settings.PASSWORD_STORE_DIR = "${homeDir}/.password-store";
-      };
-
-      # Home Manager Specific Settings
-      home.username = "char";
-      home.homeDirectory = homeDir;
-      home.sessionPath = [
-        "/home/char/.cache/npm/global/bin/"
-        "/home/char/projects/personal/code/dot-files/scripts/"
-      ];
-      # --- Session Environment Variables ---
-      home.sessionVariables = {
-        MY_FOLDER = homeDir;
-        CODE_PATH = "${homeDir}/projects/personal/code/";
-        EDITOR = "nvim";
-      };
-
-      # --- File Syncing ---
-      home.file = {
-        newsboat = {
-          recursive = true;
-          target = "./.newsboat";
-          source = "${projectDir}/dot-files/newsboat";
-        };
-        hyprland = {
-          recursive = true;
-          target = "./.config/hypr/";
-          source = "${projectDir}/dot-files/hypr";
-        };
-        #scripts = {
-        #recursive = true;
-        #target = "/bin/";
-        #source = "${projectDir}/dot-files/scripts";
-        #};
-        custom-zsh = {
-          recursive = false;
-          target = ".zshrc";
-          source = "${projectDir}/dot-files/zsh/.zshrc";
-        };
-        tmux = {
-          recursive = false;
-          target = "./.tmux.conf";
-          source = "${projectDir}/dot-files/tmux/.tmux.conf";
-        };
-        alacritty = {
-          recursive = true;
-          target = ".config/alacritty/";
-          source = "${projectDir}/dot-files/alacritty";
-        };
-        nvim = {
-          recursive = true;
-          target = ".config/nvim";
-          source = "${projectDir}/dot-files/nvim";
-        };
-        rofi = {
-          recursive = false;
-          target = ".config/rofi/config.rasi";
-          source = "${projectDir}/dot-files/rofi/config.rasi";
-        };
-        rofi-theme = {
-          recursive = false;
-          target = ".local/share/rofi/themes/";
-          source = "${projectDir}/dot-files/rofi/";
-        };
-        cursor = {
-          recursive = false;
-          target = "/home/char/.local/share/icons/rose-pine-hyprcursor/";
-          source = "${projectDir}/dot-files/rose-pine-hyprcursor/";
-        };
-        waybar = {
-          recursive = true;
-          target = ".config/waybar";
-          source = "${projectDir}/dot-files/waybar";
-        };
-      };
-
-      # --- Dconf Settings ---
-      dconf = {
-        enable = true;
-        settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
-      };
-
-      # --- Home Manager Version ---
-      home.stateVersion = "25.05";
-    };
-
-  # --- Shell Configurations ---
-  programs.zsh = {
-    enable = true;
-    ohMyZsh = {
-      enable = true;
-      custom = "${homeDir}/.zshrc";
-      plugins = [
-        "git"
-        "autojump"
-        "vi-mode"
-        "kube-ps1"
-      ];
-    };
-  };
 }

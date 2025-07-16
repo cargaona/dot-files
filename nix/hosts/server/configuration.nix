@@ -6,17 +6,16 @@
   imports = [
     # Include home-manager configuration and other modular settings
     <home-manager/nixos>
-    ../../packages.nix
-    ../../services/audio.nix
-    ../../services/docker.nix
-    ../../services/power.nix
-    ../../services/server.nix
-    ../../services/ssh.nix
-    ../../services/sync.nix
-    # ../../services/wireguard.nix
-    ../../sys/fonts.nix
-    ../../sys/nvidia.nix
-    ../../sys/input.nix
+    ../../packages/common.nix
+    ../../modules/hardware/audio.nix
+    ../../modules/virtualization/docker.nix
+    ../../modules/hardware/power.nix
+    ../../modules/virtualization/server.nix
+    ../../modules/network/ssh.nix
+    ../../modules/network/sync.nix
+    ../../modules/desktop/fonts.nix
+    ../../modules/hardware/nvidia.nix
+    ../../modules/desktop/input.nix
     ../../users/char.nix
     /etc/nixos/hardware-configuration.nix
   ];
@@ -25,8 +24,8 @@
     "nix-command"
     "flakes"
   ];
-  programs.lxqt-policykit.enable = true;
-  programs.polkit-kde-agent.enable = true;
+  # programs.lxqt-policykit.enable = true;  # Not available in NixOS 25.05
+  # programs.polkit-kde-agent.enable = true;
   # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

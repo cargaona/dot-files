@@ -5,20 +5,22 @@
 {
   imports = [
     # Include home-manager configuration and other modular settings
-    <home-manager/nixos>
-    ../../packages.nix
-    ../../services/audio.nix
-    ../../services/docker.nix
-    ../../services/ssh.nix
-    ../../services/power.nix
-    ../../services/sync.nix
-    ../../sys/fonts.nix
-    ../../sys/nvidia.nix
-    ../../sys/hyprland.nix
-    ../../sys/input.nix
+    # <home-manager/nixos>
+    ../../packages/common.nix
+    ../../modules/hardware/audio.nix
+    ../../modules/virtualization/docker.nix
+    ../../modules/network/ssh.nix
+    ../../modules/hardware/power.nix
+    ../../modules/network/sync.nix
+    ../../modules/desktop/fonts.nix
+    ../../modules/hardware/nvidia.nix
+    ../../modules/desktop/hyprland.nix
+    ../../modules/desktop/input.nix
     ../../users/char.nix
     /etc/nixos/hardware-configuration.nix
   ];
+
+  home-manager.users.char = import ../../home/home.nix;
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -38,6 +40,10 @@
   # Networking Configuration
   networking.hostName = "sff"; # Define your hostname
   networking.networkmanager.enable = true;
+  networking.firewall.allowedTCPPorts = [
+    8112
+    1234
+  ];
 
   # Time Zone Configuration
   time.timeZone = "America/Argentina/Buenos_Aires";

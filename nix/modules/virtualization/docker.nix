@@ -1,5 +1,6 @@
 { ... }:
 {
+  # TODO: Replace Docker with Podman after migrating server containers
   virtualisation = {
     oci-containers.backend = "docker";
     docker = {

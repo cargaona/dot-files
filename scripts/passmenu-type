@@ -1,2 +1,2 @@
-#!/bin/bash
-passmenu --type
+#!bash
+~/projects/personal/code/dot-files/scripts/passmenu --type

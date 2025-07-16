@@ -14,7 +14,7 @@ return {
   config = function()
     require("markview").setup({
       preview = {
-        modes = { "n", "no", "c" }, -- Change these modes to what you need
+        modes = { "n", "no", "c" },  -- Change these modes to what you need
 
         -- hybrid_modes = { "n", "i" }, -- Uses this feature on normal mode
         --

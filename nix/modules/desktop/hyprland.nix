@@ -16,6 +16,9 @@ in
   environment.systemPackages = [
     unstable.wayland-scanner
     # inputs.swww.packages.${pkgs.system}.swww
+
+    ## TODO, move this package to other place. 
+    # unstable.obs-studio-plugins.distroav
     unstable.swww
     unstable.nwg-look
     #unstable.hyprland
@@ -38,6 +41,8 @@ in
   # systemd.user.services.hyprpaper = {
   #   enable = true;
   # };
+
+  environment.localBinInPath = true;
 
   environment.variables = {
     NIXOS_OZONE_WL = "1";

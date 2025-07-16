@@ -1,22 +1,3 @@
- #TODO: is this still needed?
-#function _ssh_agent () {
-  ## Starts the ssh-agent and set the envvar for tmux
-  #[ ! -f ~/.ssh.agent ] && ssh-agent -s >~/.ssh.agent
-  #eval `cat ~/.ssh.agent` >/dev/null
-  #if ! kill -0 $SSH_AGENT_PID 2>/dev/null; then
-    #ssh-agent -s >~/.ssh.agent
-    #eval `cat ~/.ssh.agent` >/dev/null
-  #fi
-#}
-# bindkey -M menuselect '^[[Z' reverse-menu-complete
-
-# TODO: is this still needed?
-#if [[ "${terminfo[kcuu1]}" != "" ]]; then
-    #autoload -U up-line-or-beginning-search
-    #zle -N up-line-or-beginning-search
-    #bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
-#fi
-
 _change_folder() {
     # if no argument is provided, search from ~ else use argument
     [[ -z $1 ]] && DIR=~ || DIR=$1
@@ -51,6 +32,7 @@ function _set_alias () {
 
   alias vim=nvim
   alias vf='vim $(fzf)'
+  alias claude='/home/char/.claude/local/claude'
 
   alias tl="tmux list-sessions"
   alias ta="tmux attach-session -t"
@@ -122,20 +104,20 @@ function _env_vars () {
   export RTV_BROWSER=firefox
 }
 
-#function _set_path () {
+function _set_path() {
   #export PATH=$HOME/.local/bin:$PATH
   #export PATH=$CODE_PATH/dot-files/scripts/:$PATH
   ##export GOROOT=/usr/bin/go
   #export PATH=/home/char/.local/share/gem/ruby/3.0.0/bin:$PATH 
   #export GOPATH=$CODE_PATH/go
-  #export PATH=$GOPATH/bin:$PATH
-#}
+  export PATH=$CODE_PATH/dot-files/scripts/:$PATH
+}
 
-#function _linux_gpg () {
-  #export GPG_TTY="$(tty)"
-  #export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
-  #gpg-connect-agent updatestartuptty /bye > /dev/null
-#}
+function _linux_gpg () {
+  export GPG_TTY="$(tty)"
+  export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+  gpg-connect-agent updatestartuptty /bye > /dev/null
+}
 
 #function _start_raspi () {
   #if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]] ; then
@@ -143,13 +125,13 @@ function _env_vars () {
   #fi
 #} 
 
-#function _mac_gpg () {
-  #PATH=$PATH:/opt/homebrew/bin/
-  #PATH=$PATH:/usr/local/MacGPG2/bin/
-  #export GPG_TTY="$(tty)"
-  #export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-  #gpgconf --launch gpg-agent
-#}
+function _mac_gpg () {
+  PATH=$PATH:/opt/homebrew/bin/
+  PATH=$PATH:/usr/local/MacGPG2/bin/
+  export GPG_TTY="$(tty)"
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  gpgconf --launch gpg-agent
+}
 
 function _is_mac () {
   [[ "$OSTYPE" == "darwin22.0" || "$OSTYPE" == "darwin23.0" ]]
@@ -159,14 +141,10 @@ function _is_raspi () {
   [[ $(hostname) = "raspi" ]]
 }
 
-#function _remove_duplicates_from_path {
-  #PATH=$(echo $(sed 's/:/\n/g' <<< $PATH | sort | uniq) | sed -e 's/\s/':'/g')
-#} 
-
 # start
 _theme
 _env_vars
-#_set_path
+_set_path
 #_ssh_agent
 kubeoff
 
@@ -189,10 +167,3 @@ if _is_raspi ; then
 fi
 
 _set_alias
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/cgaona/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/cgaona/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/cgaona/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/cgaona/google-cloud-sdk/completion.zsh.inc'; fi

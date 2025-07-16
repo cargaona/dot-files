@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!bash
 shopt -s nullglob globstar
 
 function writePassword {
