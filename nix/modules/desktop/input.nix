@@ -6,6 +6,20 @@
     touchpad.disableWhileTyping = true;
     touchpad.tappingDragLock = false;
   };
+
+  # Specific configuration for MX Ergo trackball
+  services.xserver.inputClassSections = [
+    ''
+      Identifier "MX Ergo Trackball"
+      MatchProduct "Logitech MX Ergo Multi-Device Trackball"
+      MatchIsPointer "on"
+      Driver "libinput"
+      Option "AccelProfile" "adaptive"
+      Option "AccelSpeed" "0.5"
+      Option "NaturalScrolling" "false"
+      Option "ScrollMethod" "button"
+    ''
+  ];
   environment.etc."libinput/local-overrides.quirks".text = ''
     [MacBook(Pro) SPI Touchpads]
     MatchName=*Apple SPI Touchpad*

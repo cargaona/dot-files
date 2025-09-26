@@ -22,7 +22,7 @@ window#waybar {
     border-radius: 15px;
 }
 .modules-left {
-    padding: 0;
+    padding: 0 10px;
 }
 .modules-center {
     padding: 0 10px;

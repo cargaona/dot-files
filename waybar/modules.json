@@ -91,6 +91,39 @@
         "format": "{:%H:%M | %e %B} ",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
+    },
+    "custom/mocp": {
+        "exec": "/home/char/projects/personal/code/dot-files/scripts/mocp_script.sh",
+        "format": "{}",
+        "return-type": "json",
+        "on-click": "mocp -G",
+        "on-click-right": "mocp -f",
+        "on-click-middle": "mocp -r",
+        "on-scroll-up": "mocp -v +10",
+        "on-scroll-down": "mocp -v -10",
+        "max-length": 60,
+        "escape": true,
+        "tooltip": true,
+        "interval": "once"
     }
 
+}
+
+    "custom/nix": {
+        "exec": "/home/char/.config/waybar/nix_updates.sh",
+        "format": "{}",
+        "return-type": "json",
+        "interval": 3600,
+        "tooltip": true,
+        "on-click": "kitty --hold nix flake update"
+    }
+
+    "custom/nix": {
+        "exec": "/home/char/.config/waybar/nix_updates.sh",
+        "format": "{}",
+        "return-type": "json",
+        "interval": 3600,
+        "tooltip": true,
+        "on-click": "kitty --hold nix flake update"
+    }
 }

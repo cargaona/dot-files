@@ -1,11 +1,20 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  dmx,
+  unstable, 
+  mpris-inhibit,
+  ...
+}:
 let
   # Detect platform
   isDarwin = pkgs.stdenv.isDarwin;
   isLinux = pkgs.stdenv.isLinux;
-  
+
   # Shared packages (work on both platforms)
   sharedPackages = with pkgs; [
+    dmx.packages.${pkgs.system}.default
+    unstable.opencode
     alacritty
     alacritty-theme
     autojump
@@ -14,8 +23,10 @@ let
     bc
     beets
     btop
+    calibre
     ccls
     claude-code
+    clementine
     curl
     fd
     feh
@@ -34,10 +45,12 @@ let
     kubectl
     kubectl-neat
     kubectx
+    lsof
     lua
     lua-language-server
     luarocks
     magic-wormhole
+    nautilus
     ncdu
     neovim
     newsboat
@@ -45,6 +58,7 @@ let
     nixfmt-rfc-style
     nmap
     nodejs_latest
+    ntfs3g
     obs-studio
     obsidian
     oh-my-zsh
@@ -55,6 +69,7 @@ let
     scrcpy
     slack
     spotify
+    streamrip
     stremio
     sudo
     syncthing
@@ -73,6 +88,7 @@ let
     uv
     vesktop
     vim
+    virtualenv
     vlc
     wget
     yaml-language-server
@@ -85,57 +101,62 @@ let
     zsh-powerlevel10k
     zsh-syntax-highlighting
   ];
-  
+
   # Linux-specific packages
-  linuxPackages = with pkgs; lib.optionals isLinux [
-    brightnessctl
-    cliphist
-    davinci-resolve
-    deluge
-    dig
-    discord
-    docker  # TODO: Remove after server migration to Podman
-    dunst
-    electron
-    grim
-    hyprpaper
-    iw
-    jetbrains-mono
-    libinput
-    moc
-    mongodb-compass
-    pamixer
-    pavucontrol
-    phinger-cursors
-    podman
-    podman-compose
-    powertop
-    pyright
-    rofi-wayland
-    slurp
-    soulseekqt
-    swappy
-    swayidle
-    waybar
-    wdisplays
-    wf-recorder
-    wl-clipboard
-    wofi
-    zenity 
-  ];
-  
-  # macOS-specific packages  
-  darwinPackages = with pkgs; lib.optionals isDarwin [
-    # Add macOS-specific packages here
-    # We'll add these as needed
-  ];
+  linuxPackages =
+    with pkgs;
+    lib.optionals isLinux [
+      mpris-inhibit.packages.${pkgs.system}.default
+      brightnessctl
+      cliphist
+      davinci-resolve
+      deluge
+      dig
+      discord
+      docker # TODO: Remove after server migration to Podman
+      dunst
+      electron
+      grim
+      hyprpaper
+      iw
+      jetbrains-mono
+      libinput
+      moc
+      mongodb-compass
+      pamixer
+      pavucontrol
+      phinger-cursors
+      podman
+      podman-compose
+      powertop
+      pyright
+      rofi-wayland
+      slurp
+      soulseekqt
+      swappy
+      swayidle
+      waybar
+      wdisplays
+      wf-recorder
+      wl-clipboard
+      wofi
+      zenity
+    ];
+
+  # macOS-specific packages
+  darwinPackages =
+    with pkgs;
+    lib.optionals isDarwin [
+      # Add macOS-specific packages here
+      # We'll add these as needed
+    ];
 in
 {
   environment.systemPackages = sharedPackages ++ linuxPackages ++ darwinPackages;
-  
+
   # Shared program configurations
   programs.steam.enable = isLinux;
-  programs.firefox.enable = true;  # Cross-platform: works on Linux and macOS
+  programs.firefox.enable = true; # Cross-platform: works on Linux and macOS
   programs.zsh = {
     enable = true;
     enableCompletion = true;

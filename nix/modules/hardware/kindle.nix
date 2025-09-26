@@ -46,7 +46,7 @@ in
 
     # Systemd automount service for better integration
     systemd.automounts = [{
-      name = "kindle";
+      name = "home-char-kindle.automount";
       where = cfg.mountPoint;
       automountConfig = {
         TimeoutIdleSec = "30s";  # Unmount after 30s of inactivity
@@ -55,7 +55,7 @@ in
 
     # Systemd mount unit
     systemd.mounts = [{
-      name = "kindle";
+      name = "home-char-kindle.mount";
       what = "/dev/disk/by-uuid/${cfg.uuid}";
       where = cfg.mountPoint;
       type = "vfat";

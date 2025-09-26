@@ -7,14 +7,15 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "custom/nix",
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "idle_inhibitor",
+        "privacy"
     ],
     "modules-center": [
         "hyprland/window"
     ],
     "modules-right": [
-        "idle_inhibitor",
+        "custom/mocp",
         "pulseaudio",
         "network",
         "cpu",

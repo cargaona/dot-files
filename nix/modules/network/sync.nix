@@ -11,7 +11,7 @@
     settings = {
       devices = {
         "mbp" = {
-          id = "DEVICE-ID-GOES-HERE";
+          id = "DL5OTVT-CL7TM6G-4DZ3OH7-BSWARFK-ZN5POZG-ZOQSYAG-HEW5ERH-2ZQFEQG";
         };
         "sff" = {
           id = "DEVICE-ID-GOES-HERE";

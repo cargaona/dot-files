@@ -3,7 +3,7 @@ let
   # Detect platform
   isDarwin = pkgs.stdenv.isDarwin;
   isLinux = pkgs.stdenv.isLinux;
-  
+
   # Platform-specific paths
   homeDir = if isDarwin then "/Users/char" else "/home/char";
   projectDir = "${homeDir}/projects/personal/code";
@@ -13,7 +13,7 @@ in
 
   home.username = "char";
   home.homeDirectory = homeDir;
-  
+
   # Suppress version mismatch warning
   home.enableNixpkgsReleaseCheck = false;
 
@@ -22,6 +22,10 @@ in
     CODE_PATH = "${homeDir}/projects/personal/code/";
     EDITOR = "nvim";
   };
+
+  home.sessionPath = [
+    "/home/char/projects/personal/code/dot-files/scripts"
+  ];
 
   # Password store (Linux only for now, uses wayland extensions)
   programs.password-store = lib.mkIf isLinux {
@@ -37,72 +41,75 @@ in
   };
 
   # Shared dotfiles (work on both platforms)
-  home.file = {
-    scripts = {
-      recursive = true;
-      target = "./local/bin/";
-      source = "${projectDir}/dot-files/scripts";
+  home.file =
+    {
+      scripts = {
+        recursive = true;
+        target = "./local/bin/";
+        source = "${projectDir}/dot-files/scripts";
+      };
+      newsboat = {
+        recursive = true;
+        target = "./.newsboat";
+        source = "${projectDir}/dot-files/newsboat";
+      };
+      custom-zsh = {
+        recursive = false;
+        target = ".zshrc";
+        source = "${projectDir}/dot-files/zsh/.zshrc";
+      };
+      tmux = {
+        recursive = false;
+        target = "./.tmux.conf";
+        source = "${projectDir}/dot-files/tmux/.tmux.conf";
+      };
+      alacritty = {
+        recursive = true;
+        target = ".config/alacritty/";
+        source = "${projectDir}/dot-files/alacritty";
+      };
+      nvim = {
+        recursive = true;
+        target = ".config/nvim";
+        source = "${projectDir}/dot-files/nvim";
+      };
+    }
+    // lib.optionalAttrs isLinux {
+      # Linux-specific dotfiles
+      hyprland = {
+        recursive = true;
+        target = "./.config/hypr/";
+        source = "${projectDir}/dot-files/hypr";
+      };
+      rofi = {
+        recursive = false;
+        target = ".config/rofi/config.rasi";
+        source = "${projectDir}/dot-files/rofi/config.rasi";
+      };
+      rofi-theme = {
+        recursive = false;
+        target = ".local/share/rofi/themes/";
+        source = "${projectDir}/dot-files/rofi/";
+      };
+      cursor = {
+        recursive = false;
+        target = "${homeDir}/.local/share/icons/rose-pine-hyprcursor/";
+        source = "${projectDir}/dot-files/rose-pine-hyprcursor/";
+      };
+      waybar = {
+        recursive = true;
+        target = ".config/waybar";
+        source = "${projectDir}/dot-files/waybar";
+      };
+    }
+    // lib.optionalAttrs isDarwin {
+      # macOS-specific dotfiles
+      aerospace = {
+        recursive = true;
+        target = ".config/aerospace/";
+        source = "${projectDir}/dot-files/aerospace";
+      };
     };
-    newsboat = {
-      recursive = true;
-      target = "./.newsboat";
-      source = "${projectDir}/dot-files/newsboat";
-    };
-    custom-zsh = {
-      recursive = false;
-      target = ".zshrc";
-      source = "${projectDir}/dot-files/zsh/.zshrc";
-    };
-    tmux = {
-      recursive = false;
-      target = "./.tmux.conf";
-      source = "${projectDir}/dot-files/tmux/.tmux.conf";
-    };
-    alacritty = {
-      recursive = true;
-      target = ".config/alacritty/";
-      source = "${projectDir}/dot-files/alacritty";
-    };
-    nvim = {
-      recursive = true;
-      target = ".config/nvim";
-      source = "${projectDir}/dot-files/nvim";
-    };
-  } // lib.optionalAttrs isLinux {
-    # Linux-specific dotfiles
-    hyprland = {
-      recursive = true;
-      target = "./.config/hypr/";
-      source = "${projectDir}/dot-files/hypr";
-    };
-    rofi = {
-      recursive = false;
-      target = ".config/rofi/config.rasi";
-      source = "${projectDir}/dot-files/rofi/config.rasi";
-    };
-    rofi-theme = {
-      recursive = false;
-      target = ".local/share/rofi/themes/";
-      source = "${projectDir}/dot-files/rofi/";
-    };
-    cursor = {
-      recursive = false;
-      target = "${homeDir}/.local/share/icons/rose-pine-hyprcursor/";
-      source = "${projectDir}/dot-files/rose-pine-hyprcursor/";
-    };
-    waybar = {
-      recursive = true;
-      target = ".config/waybar";
-      source = "${projectDir}/dot-files/waybar";
-    };
-  } // lib.optionalAttrs isDarwin {
-    # macOS-specific dotfiles
-    aerospace = {
-      recursive = true;
-      target = ".config/aerospace/";
-      source = "${projectDir}/dot-files/aerospace";
-    };
-  };
 
   # Linux-specific dconf settings
   dconf = lib.mkIf isLinux {
@@ -112,3 +119,4 @@ in
 
   home.stateVersion = "25.05";
 }
+
