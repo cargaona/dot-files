@@ -2,7 +2,7 @@
   pkgs,
   lib,
   dmx,
-  unstable, 
+  unstable,
   mpris-inhibit,
   ...
 }:
@@ -24,6 +24,7 @@ let
     beets
     btop
     calibre
+    cargo
     ccls
     claude-code
     clementine
@@ -64,6 +65,12 @@ let
     oh-my-zsh
     python3
     python312Packages.pip
+    # python312.withPackages
+    # (
+    #   ps: with ps; [
+    #     llm
+    #   ]
+    # )
     ripgrep
     rockbox-utility
     scrcpy

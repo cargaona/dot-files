@@ -1,4 +1,5 @@
 {
+  config,
   ...
 }:
 
@@ -62,6 +63,10 @@
 
   # Internationalization
   i18n.defaultLocale = "en_US.UTF-8";
+
+  environment.extraInit = ''
+    export PATH=$PATH:/home/char/projects/personal/code/dot-files/scripts/;
+  '';
 
   # System State Version
   system.stateVersion = "25.05"; # Did you read the comment?
