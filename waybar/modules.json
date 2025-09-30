@@ -105,25 +105,12 @@
         "escape": true,
         "tooltip": true,
         "interval": "once"
-    }
-
-}
-
-    "custom/nix": {
-        "exec": "/home/char/.config/waybar/nix_updates.sh",
-        "format": "{}",
-        "return-type": "json",
-        "interval": 3600,
-        "tooltip": true,
-        "on-click": "kitty --hold nix flake update"
-    }
-
-    "custom/nix": {
-        "exec": "/home/char/.config/waybar/nix_updates.sh",
-        "format": "{}",
-        "return-type": "json",
-        "interval": 3600,
-        "tooltip": true,
-        "on-click": "kitty --hold nix flake update"
-    }
+    },
+    "custom/pomodoro": {
+	    "format": "{}",
+	    "return-type": "json",
+	    "exec": "waybar-module-pomodoro",
+	    "on-click": "waybar-module-pomodoro toggle",
+	    "on-click-right": "waybar-module-pomodoro reset",
+    },
 }
