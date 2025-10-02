@@ -9,6 +9,7 @@
     # <home-manager/nixos>
     ../../packages/common.nix
     ../../modules/desktop/fonts.nix
+    ../../modules/desktop/cosmic.nix
     ../../modules/desktop/hyprland.nix
     ../../modules/desktop/input.nix
     ../../modules/hardware/audio.nix

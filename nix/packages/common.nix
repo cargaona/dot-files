@@ -135,6 +135,7 @@ let
       phinger-cursors
       podman
       podman-compose
+      pomodoro-gtk
       powertop
       pyright
       rofi-wayland
