@@ -123,6 +123,7 @@ let
       docker # TODO: Remove after server migration to Podman
       dunst
       electron
+      firefox
       grim
       hyprpaper
       iw
@@ -164,7 +165,7 @@ in
 
   # Shared program configurations
   programs.steam.enable = isLinux;
-  programs.firefox.enable = true; # Cross-platform: works on Linux and macOS
+  # programs.firefox.enable = true; # Cross-platform: works on Linux and macOS
   programs.zsh = {
     enable = true;
     enableCompletion = true;
