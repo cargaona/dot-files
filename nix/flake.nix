@@ -1,5 +1,6 @@
 {
   inputs = {
+    # 1. add the urls of the flakes you want to use
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -7,8 +8,10 @@
     home-manager.url = "github:nix-community/home-manager";
     dmx.url = "github:cargaona/dmx";
     mpris-inhibit.url = "github:/Bwc9876/wayland-mpris-idle-inhibit";
+    isolation.url = "path:/home/char/projects/personal/code/isolation";
   };
   outputs =
+    # 2. define the variables you want to use in the flake, usually the name of the input already defined previously.
     {
       nixpkgs,
       nixpkgs-unstable,
@@ -17,6 +20,7 @@
       home-manager,
       dmx,
       mpris-inhibit,
+      isolation,
       ...
     }:
     {
@@ -27,7 +31,14 @@
             home-manager.nixosModules.home-manager
           ];
           specialArgs = {
-            inherit home-manager dmx mpris-inhibit;
+            # 3. pass the variables to the system configuration
+            # 4. reference the modules inside the configuration.nix files, not here!  
+            inherit
+              home-manager
+              dmx
+              mpris-inhibit
+              isolation
+              ;
             unstable = import nixpkgs-unstable {
               system = "x86_64-linux";
               config.allowUnfree = true;

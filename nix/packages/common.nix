@@ -4,6 +4,7 @@
   dmx,
   unstable,
   mpris-inhibit,
+  isolation,
   ...
 }:
 let
@@ -13,8 +14,6 @@ let
 
   # Shared packages (work on both platforms)
   sharedPackages = with pkgs; [
-    dmx.packages.${pkgs.system}.default
-    unstable.opencode
     alacritty
     alacritty-theme
     autojump
@@ -29,6 +28,7 @@ let
     claude-code
     clementine
     curl
+    dmx.packages.${pkgs.system}.default
     fd
     feh
     ffmpeg
@@ -41,6 +41,7 @@ let
     go
     gopls
     htop
+    isolation.packages.${pkgs.system}.default
     jq
     killall
     kubectl
@@ -65,6 +66,7 @@ let
     oh-my-zsh
     python3
     python312Packages.pip
+    unstable.opencode
     # python312.withPackages
     # (
     #   ps: with ps; [
@@ -154,7 +156,7 @@ let
 
   # macOS-specific packages
   darwinPackages =
-    with pkgs;
+    # with pkgs;
     lib.optionals isDarwin [
       # Add macOS-specific packages here
       # We'll add these as needed
