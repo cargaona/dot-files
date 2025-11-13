@@ -36,7 +36,7 @@
   # Hardware-specific configurations
   hardware.kindle = {
     enable = true;
-    uuid = "9FC0-AE2B";  # Kindle UUID detected from lsblk
+    uuid = "9FC0-AE2B"; # Kindle UUID detected from lsblk
     mountPoint = "/home/char/kindle";
     user = "char";
     group = "users";
@@ -58,7 +58,15 @@
     8080
     7070 # yarr development from vpn
     8443
+    24800 # deskflow
   ];
+  networking.firewall.allowedUDPPorts = [
+    2666 # add this for sensor fusion
+    1244
+    1245
+    24800 # deskflow
+  ];
+
   # Time Zone Configuration
   time.timeZone = "America/Argentina/Buenos_Aires";
 

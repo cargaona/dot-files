@@ -35,6 +35,16 @@ return {
     end,
   },
   {
+    "mfussenegger/nvim-dap-python",
+    event = "VeryLazy",
+    ft = "python",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function()
+      require("dap-python").setup("python")
+    end,
+  },
+
+  {
     "mfussenegger/nvim-dap",
     event = "VeryLazy",
     config = function(_, opts)

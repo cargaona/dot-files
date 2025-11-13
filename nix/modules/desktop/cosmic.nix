@@ -25,6 +25,7 @@ in
     unstable.xcur2png
     # unstable.wev
     # hyprdim
+    unstable.xdg-desktop-portal
     unstable.xdg-desktop-portal-gtk
     unstable.xdg-desktop-portal-hyprland
     unstable.wlroots

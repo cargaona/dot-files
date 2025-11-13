@@ -21,6 +21,7 @@ let
     bash-language-server
     bc
     beets
+    brave
     btop
     calibre
     cargo
@@ -99,6 +100,7 @@ let
     vim
     virtualenv
     vlc
+    wireshark
     wget
     yaml-language-server
     yarn
