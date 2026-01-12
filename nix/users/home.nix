@@ -39,11 +39,11 @@ in
       target = "./.newsboat";
       source = "${projectDir}/dot-files/newsboat";
     };
-    hyprland = {
-      recursive = true;
-      target = "./.config/hypr/";
-      source = "${projectDir}/dot-files/hypr";
-    };
+    # hyprland = {
+    #   recursive = true;
+    #   target = "./.config/hypr/";
+    #   source = "${projectDir}/dot-files/hypr";
+    # };
     custom-zsh = {
       recursive = false;
       target = ".zshrc";
@@ -74,16 +74,11 @@ in
       target = ".local/share/rofi/themes/";
       source = "${projectDir}/dot-files/rofi/";
     };
-    cursor = {
-      recursive = false;
-      target = "/home/char/.local/share/icons/rose-pine-hyprcursor/";
-      source = "${projectDir}/dot-files/rose-pine-hyprcursor/";
-    };
-    waybar = {
-      recursive = true;
-      target = ".config/waybar";
-      source = "${projectDir}/dot-files/waybar";
-    };
+    # waybar = {
+    #   recursive = true;
+    #   target = ".config/waybar";
+    #   source = "${projectDir}/dot-files/waybar";
+    # };
   };
 
   dconf = {

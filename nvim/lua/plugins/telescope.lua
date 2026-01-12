@@ -14,16 +14,18 @@ return {
       wk.add({
         { "<leader>/",   builtin.current_buffer_fuzzy_find,             desc = "Find in current buffer" },
         { "<leader>fb",  builtin.buffers,                               desc = "Find Buffer" },
-        { "<leader>fc",  builtin.git_commits,                           desc = "Find Git commits" },
         { "<leader>ff",  builtin.find_files,                            desc = "Find File" },
         { "<leader>fk",  "<cmd> Telescope keymaps <CR>",                desc = "Find keymaps" },
         { "<leader>fj",  "<cmd> Telescope frecency workspace=CWD <CR>", desc = "Find Frecency" },
-        { "<leader>fg",  builtin.git_files,                             desc = "Find Git tracked files" },
         { "<leader>fh",  builtin.help_tags,                             desc = "Find Help" },
         { "<leader>fo",  builtin.oldfiles,                              desc = "Find previous files" },
         { "<leader>fs",  "<cmd> Telescope persisted <CR>",              desc = "Find sessions" },
         { "<leader>fgg", builtin.live_grep,                             desc = "Find with Grep" },
-        { "<leader>gt",  builtin.git_status,                            desc = "Git status" },
+
+        { "<leader>gs",  builtin.git_status,                            desc = "Git status" },
+        { "<leader>gl",  builtin.git_commits,                           desc = "Find Git commits" },
+        { "<leader>gf",  builtin.git_files,                             desc = "Find Git tracked files" },
+        { "<leader>gco", builtin.git_branches,                          desc = "Find Git branches" },
         {
           "<leader>fd",
           function()

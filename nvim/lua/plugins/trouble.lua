@@ -7,59 +7,59 @@ return {
     cmd = "Trouble",
     keys = {
       {
-        "<leader>vx",
-        "<cmd>Trouble diagnostics toggle<cr>",
+        "<leader>tdv",
+        "<cmd>Trouble diagnostics toggle win.position=right<cr>",
         desc = "Diagnostics (Trouble)",
       },
       {
-        "<leader>vX",
+        "<leader>tdb",
         "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
         desc = "Buffer Diagnostics (Trouble)",
       },
       {
-        "<leader>cs",
+        "<leader>tsy",
         "<cmd>Trouble symbols toggle focus=false<cr>",
         desc = "Symbols (Trouble)",
       },
 
       {
-        "<leader>cl",
+        "<leader>tlv",
         "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
         desc = "LSP Sidebar",
       },
       {
-        "<leader>vva",
+        "<leader>tl",
         "<cmd>Trouble lsp toggle<cr>",
         desc = "LSP Definitions / references / ... (Trouble)",
       },
       {
-        "<leader>vj",
+        "<leader>tli",
         "<cmd>Trouble toggle lsp_incoming_calls<cr>",
         desc = "LSP Incoming Calls",
       },
       {
-        "<leader>vo",
+        "<leader>tlo",
         "<cmd>Trouble toggle lsp_outgoing_calls<cr>",
         desc = "LSP Outgoing Calls",
       },
       {
-        "<leader>vi",
+        "<leader>tlimp",
         "<cmd>Trouble toggle lsp_implementations<cr>",
         desc = "LSP Implementation",
       },
       {
-        "<leader>vr",
+        "<leader>tlref",
         "<cmd>Trouble toggle lsp_references<cr>",
         desc = "LSP References",
       },
 
       {
-        "<leader>vL",
+        "<leader>tlloc",
         "<cmd>Trouble loclist toggle<cr>",
         desc = "Location List (Trouble)",
       },
       {
-        "<leader>vQ",
+        "<leader>tlq",
         "<cmd>Trouble qflist toggle<cr>",
         desc = "Quickfix List (Trouble)",
       },

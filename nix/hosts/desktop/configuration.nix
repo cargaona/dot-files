@@ -19,6 +19,7 @@
     ../../modules/network/ssh.nix
     ../../modules/network/sync.nix
     ../../modules/virtualization/docker.nix
+    ../../modules/llm/ollama.nix
     ../../users/char.nix
     /etc/nixos/hardware-configuration.nix
   ];

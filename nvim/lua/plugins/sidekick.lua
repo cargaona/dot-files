@@ -6,6 +6,10 @@ return {
       mux = {
         backend = "tmux",
         enabled = true,
+        split = {
+          vertical = true,
+          size = 0.4,
+        }
       },
     },
   },
@@ -70,8 +74,8 @@ return {
     -- Example of a keybinding to open Claude directly
     {
       "<leader>ac",
-      function() require("sidekick.cli").toggle({ name = "claude", focus = true }) end,
-      desc = "Sidekick Toggle Claude",
+      function() require("sidekick.cli").toggle({ name = "opencode", focus = true }) end,
+      desc = "Sidekick Toggle OpenCode",
     },
   },
 }

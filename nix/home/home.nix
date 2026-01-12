@@ -84,11 +84,11 @@ in
   }
   // lib.optionalAttrs isLinux {
     # Linux-specific dotfiles
-    hyprland = {
-      recursive = true;
-      target = "./.config/hypr/";
-      source = "${projectDir}/dot-files/hypr";
-    };
+    # hyprland = {
+    #   recursive = true;
+    #   target = "./.config/hypr/";
+    #   source = "${projectDir}/dot-files/hypr";
+    # };
     rofi = {
       recursive = false;
       target = ".config/rofi/config.rasi";
@@ -99,16 +99,11 @@ in
       target = ".local/share/rofi/themes/";
       source = "${projectDir}/dot-files/rofi/";
     };
-    cursor = {
-      recursive = false;
-      target = "${homeDir}/.local/share/icons/rose-pine-hyprcursor/";
-      source = "${projectDir}/dot-files/rose-pine-hyprcursor/";
-    };
-    waybar = {
-      recursive = true;
-      target = ".config/waybar";
-      source = "${projectDir}/dot-files/waybar";
-    };
+    # waybar = {
+    #   recursive = true;
+    #   target = ".config/waybar";
+    #   source = "${projectDir}/dot-files/waybar";
+    # };
   }
   // lib.optionalAttrs isDarwin {
     # macOS-specific dotfiles

@@ -21,6 +21,7 @@ let
     bash-language-server
     bc
     beets
+    black # Python code formatter
     brave
     btop
     calibre

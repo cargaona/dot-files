@@ -78,7 +78,7 @@ return {
         require("todo-comments").jump_prev()
       end, { desc = "Previous todo comment" })
 
-      vim.keymap.set("n", "<leader>vt", "<cmd> Trouble todo <CR>", { desc = "todo list" })
+      vim.keymap.set("n", "<leader>ttl", "<cmd> Trouble todo <CR>", { desc = "TODO list buffer" })
       -- You can also specify a list of valid jump keywords
       -- vim.keymap.set("n", "]t", function()
       --   require("todo-comments").jump_next({ keywords = { "ERROR", "WARNING" } })

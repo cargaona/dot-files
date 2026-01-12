@@ -11,11 +11,10 @@ return {
       require("gopher").setup()
       local wk = require("which-key")
       wk.add({
-        { "<leader>ga",  group = "Add" },
-        { "<leader>gai", "<cmd>GoIfErr<CR>",       desc = "Add if != err statement" },
-        { "<leader>gs",  group = "Struct Tags" },
-        { "<leader>gsj", "<cmd>GoTagAdd json<CR>", desc = "Add json struct tags" },
-        { "<leader>gsy", "<cmd>GoTagAdd yaml<CR>", desc = "Add yaml struct tags" },
+        { "<leader>ger", "<cmd>GoIfErr<CR>",       desc = "Add if != err statement" },
+        { "<leader>gt",  group = "Struct Tags" },
+        { "<leader>gtj", "<cmd>GoTagAdd json<CR>", desc = "Add json struct tags" },
+        { "<leader>gty", "<cmd>GoTagAdd yaml<CR>", desc = "Add yaml struct tags" },
       })
     end,
     build = function()
