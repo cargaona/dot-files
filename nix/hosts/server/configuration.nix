@@ -6,16 +6,18 @@
   imports = [
     # Include home-manager configuration and other modular settings
     <home-manager/nixos>
-    ../../packages/common.nix
+    ../../modules/desktop/fonts.nix
+    ../../modules/desktop/input.nix
     ../../modules/hardware/audio.nix
-    ../../modules/virtualization/docker.nix
+    ../../modules/hardware/nvidia.nix
     ../../modules/hardware/power.nix
-    ../../modules/virtualization/server.nix
+    ../../modules/kubernetes/k3s.nix
+    ../../modules/immich/immich.nix
     ../../modules/network/ssh.nix
     ../../modules/network/sync.nix
-    ../../modules/desktop/fonts.nix
-    ../../modules/hardware/nvidia.nix
-    ../../modules/desktop/input.nix
+    ../../modules/virtualization/docker.nix
+    ../../modules/virtualization/server.nix
+    ../../packages/common.nix
     ../../users/char.nix
     /etc/nixos/hardware-configuration.nix
   ];
@@ -35,11 +37,14 @@
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [
     11434 # # ollama
+    2283 # immich 
     4040 # # openwebui
     4443
+    6767 #bazarr
     7070
     8080
     8096
+    8888
     8112
     9998 # # tika
   ];

@@ -8,7 +8,7 @@
     home-manager.url = "github:nix-community/home-manager";
     dmx.url = "github:cargaona/dmx";
     mpris-inhibit.url = "github:/Bwc9876/wayland-mpris-idle-inhibit";
-    isolation.url = "path:/home/char/projects/personal/code/isolation";
+    # isolation.url = "path:/home/char/projects/personal/code/isolation";
   };
   outputs =
     # 2. define the variables you want to use in the flake, usually the name of the input already defined previously.
@@ -20,7 +20,7 @@
       home-manager,
       dmx,
       mpris-inhibit,
-      isolation,
+      # isolation,
       ...
     }:
     {
@@ -37,7 +37,7 @@
               home-manager
               dmx
               mpris-inhibit
-              isolation
+              # isolation
               ;
             unstable = import nixpkgs-unstable {
               system = "x86_64-linux";
