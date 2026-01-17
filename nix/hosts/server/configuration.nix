@@ -15,6 +15,7 @@
     ../../modules/immich/immich.nix
     ../../modules/network/ssh.nix
     ../../modules/network/sync.nix
+    ../../modules/llm/ollama.nix
     ../../modules/virtualization/docker.nix
     ../../modules/virtualization/server.nix
     ../../packages/common.nix

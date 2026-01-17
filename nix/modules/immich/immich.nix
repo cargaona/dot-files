@@ -1,43 +1,82 @@
-{ pkgs, ... }:
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+
+{
+  # 1. STOP THE HANGING: Disable global CUDA to avoid OOM during rebuild.
+  # This ensures Nix uses pre-compiled CPU binaries from the cache.
+  nixpkgs.config.cudaSupport = false;
+  nixpkgs.config.allowUnfree = true;
+
+  # 2. CREATE A WRITABLE HOME: Fixes the "/var/empty" error in your logs.
+  users.users.immich = {
+    isSystemUser = true;
+    group = "immich";
+    home = "/var/lib/immich";
+    createHome = true;
+  };
+  users.groups.immich = { };
+
+  # 3. CORE IMMICH SERVICE
   services.immich = {
     enable = true;
-    openFirewall = true;
     host = "0.0.0.0";
+    port = 2283;
     mediaLocation = "/mnt/seagate/immich";
-    # Pass the device nodes you just listed to the service
-    accelerationDevices = [
-      "/dev/nvidia0"
-      "/dev/nvidiactl"
-      "/dev/nvidia-uvm"
-    ];
+    openFirewall = true;
+
+    # In NixOS, you don't use 'acceleration = "none"'.
+    # You just leave accelerationDevices empty or null.
+    accelerationDevices = null;
   };
-  nixpkgs.config.cudaSupport = true;
-  nixpkgs.config.allowUnfree = true;
-  # 2. Tell the ML service where to put its cache and models
+
+  # 4. MACHINE LEARNING ENVIRONMENT: Fixes the Matplotlib/HuggingFace errors.
   services.immich.machine-learning.environment = {
-    # Fixes the Matplotlib error you see in the logs
     MPLCONFIGDIR = "/var/lib/immich/.config/matplotlib";
-    # Fixes the model download error
     HF_HOME = "/var/lib/immich/.cache/huggingface";
-    # Extra cache path for newer versions
     PPL_CACHE_HOME = "/var/lib/immich/.cache/ppl";
   };
 
-  # 3. Ensure the service can actually write to its home
+  # 5. SYSTEMD OVERRIDES: Grant the AI service permission to use its home.
   systemd.services.immich-machine-learning.serviceConfig = {
     WorkingDirectory = "/var/lib/immich";
-    ReadWritePaths = [
+    # 'lib.mkForce' ensures these paths override the default sandboxing.
+    ReadWritePaths = lib.mkForce [
       "/var/lib/immich"
+      "/mnt/seagate/immich"
       "/tmp"
     ];
+    # This prevents the service from defaulting back to /var/empty.
+    PrivateDevices = false;
   };
-  # systemd.services.immich-machine-learning.serviceConfig = {
-  #   PrivateDevices = pkgs.lib.mkForce false;
-  #   DeviceAllow = [
-  #     "/dev/nvidia0"
-  #     "/dev/nvidiactl"
-  #     "/dev/nvidia-uvm"
-  #   ];
-  # };
+  # 1. Ensure the directory exists on the Seagate first
+  systemd.tmpfiles.rules = [
+    "d /mnt/seagate/immich/thumbs 0750 immich immich -"
+  ];
+
+  # 2. Bind the NVMe folder to the Immich thumbs directory
+  systemd.mounts = [
+    {
+      description = "Bind Mount Immich Thumbs to NVMe";
+      what = "/mnt/nvme/immich-thumbs";
+      where = "/mnt/seagate/immich/thumbs";
+      type = "none";
+      options = "bind";
+      wantedBy = [
+        "immich-server.service"
+        "immich-microservices.service"
+      ];
+      before = [
+        "immich-server.service"
+        "immich-microservices.service"
+      ];
+    }
+  ];
+
+  # 3. Add NVMe to allowed paths for Systemd
+  systemd.services.immich-server.serviceConfig.ReadWritePaths = [ "/mnt/nvme/immich-thumbs" ];
+  systemd.services.immich-microservices.serviceConfig.ReadWritePaths = [ "/mnt/nvme/immich-thumbs" ];
 }
