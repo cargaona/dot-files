@@ -48,6 +48,8 @@ let
       ccls
       claude-code
       cliphist
+      cni-plugin-flannel
+      cni-plugins
       curl
       deluge
       dig
@@ -107,6 +109,7 @@ let
       ripgrep
       rockbox-utility
       rofi-wayland
+      runc
       scrcpy
       slack
       slurp
@@ -155,7 +158,20 @@ let
 in
 {
   environment.systemPackages = commonPackages ++ desktopPackages;
+  systemd.tmpfiles.rules = [
+    "d /opt/cni/bin 0755 root root -"
 
+    # 2. Link the CONTENTS of the plugins folder into it (note the /*)
+    "L+ /opt/cni/bin/loopback - - - - ${pkgs.cni-plugins}/bin/loopback"
+    "L+ /opt/cni/bin/bridge   - - - - ${pkgs.cni-plugins}/bin/bridge"
+    "L+ /opt/cni/bin/flannel  - - - - ${pkgs.cni-plugin-flannel}/bin/flannel"
+
+    # Optional: Just link everything from cni-plugins to be safe
+    "L+ /opt/cni/bin/bandwidth  - - - - ${pkgs.cni-plugins}/bin/bandwidth"
+    "L+ /opt/cni/bin/portmap  - - - - ${pkgs.cni-plugins}/bin/portmap"
+    "L+ /opt/cni/bin/host-local - - - - ${pkgs.cni-plugins}/bin/host-local"
+    "L+ /usr/bin/nvidia-container-runtime - - - - ${pkgs.nvidia-container-toolkit}/bin/nvidia-container-runtime"
+  ];
   # Shared program configurations
   programs.steam.enable = isLinux;
   # programs.firefox.enable = true; # Cross-platform: works on Linux and macOS
