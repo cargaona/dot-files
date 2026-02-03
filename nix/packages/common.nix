@@ -1,172 +1,160 @@
 {
   pkgs,
   lib,
-  dmx,
   unstable,
-  mpris-inhibit,
-  isolation,
+  config,
+  # mpris-inhibit,
+  # isolation,
   ...
 }:
 let
   # Detect platform
-  isDarwin = pkgs.stdenv.isDarwin;
+  isSFF = config.networking.hostName == "sff";
   isLinux = pkgs.stdenv.isLinux;
 
-  # Shared packages (work on both platforms)
-  sharedPackages = with pkgs; [
-    alacritty
-    alacritty-theme
-    autojump
-    awscli
-    bash-language-server
-    bc
-    beets
-    black # Python code formatter
-    brave
-    btop
-    calibre
-    cargo
-    ccls
-    claude-code
-    clementine
-    curl
-    dmx.packages.${pkgs.system}.default
-    fd
-    feh
-    ffmpeg
-    fzf
-    gcc
-    git
-    glib
-    gnumake
-    gnupg
-    go
-    gopls
-    htop
-    isolation.packages.${pkgs.system}.default
-    jq
-    killall
-    kubectl
-    kubectl-neat
-    kubectx
-    lsof
-    lua
-    lua-language-server
-    luarocks
-    magic-wormhole
-    nautilus
-    ncdu
-    neovim
-    newsboat
-    nil
-    nixfmt-rfc-style
-    nmap
-    nodejs_latest
-    ntfs3g
-    obs-studio
-    obsidian
-    oh-my-zsh
-    python3
-    python312Packages.pip
-    unstable.opencode
-    # python312.withPackages
-    # (
-    #   ps: with ps; [
-    #     llm
-    #   ]
-    # )
-    ripgrep
-    rockbox-utility
-    scrcpy
-    slack
-    spotify
-    streamrip
-    stremio
-    sudo
-    syncthing
-    tcpdump
-    telegram-desktop
-    terraform
-    terraform-ls
-    tflint
-    tldr
-    tmux
-    tree
-    tree-sitter
-    typescript-language-server
-    unzip
-    usbutils
-    uv
-    vesktop
-    vim
-    virtualenv
-    vlc
-    wireshark
-    wget
-    yaml-language-server
-    yarn
-    yazi
-    yq-go
-    zbar
-    zsh-completions
-    zsh-history-substring-search
-    zsh-powerlevel10k
-    zsh-syntax-highlighting
-  ];
-
   # Linux-specific packages
-  linuxPackages =
+  desktopPackages =
+    with pkgs;
+    lib.optionals isSFF [
+      davinci-resolve
+      mongodb-compass
+      clementine
+      stremio
+      beets
+      vesktop
+      obs-studio
+      obsidian
+      pomodoro-gtk
+    ];
+
+  commonPackages =
     with pkgs;
     lib.optionals isLinux [
-      mpris-inhibit.packages.${pkgs.system}.default
+      # isolation.packages.${pkgs.system}.default
+      # mpris-inhibit.packages.${pkgs.system}.default
+      # dmx.packages.${pkgs.system}.default
+      alacritty
+      alacritty-theme
+      autojump
+      awscli
+      bash-language-server
+      bc
+      black # Python code formatter
+      brave
       brightnessctl
+      btop
+      calibre
+      cargo
+      ccls
+      claude-code
       cliphist
-      davinci-resolve
+      curl
       deluge
       dig
       discord
       docker # TODO: Remove after server migration to Podman
       dunst
       electron
+      fd
+      feh
+      ffmpeg
       firefox
+      fzf
+      gcc
+      git
+      glib
+      gnumake
+      gnupg
+      go
+      gopls
       grim
-      hyprpaper
+      htop
       iw
       jetbrains-mono
+      jq
+      k9s
+      killall
+      kubectl
+      kubectl-neat
+      kubectx
+      kubernetes-helm
       libinput
+      lsof
+      lua
+      lua-language-server
+      luarocks
+      magic-wormhole
       moc
-      mongodb-compass
+      nautilus
+      ncdu
+      neovim
+      newsboat
+      nil
+      nixfmt-rfc-style
+      nmap
+      nodejs_latest
+      ntfs3g
+      oh-my-zsh
       pamixer
       pavucontrol
       phinger-cursors
       podman
       podman-compose
-      pomodoro-gtk
       powertop
       pyright
+      python3
+      python312Packages.pip
+      ripgrep
+      rockbox-utility
       rofi-wayland
+      scrcpy
+      slack
       slurp
       soulseekqt
+      spotify
+      streamrip
+      sudo
       swappy
       swayidle
+      syncthing
+      tcpdump
+      telegram-desktop
+      terraform
+      terraform-ls
+      tflint
+      tldr
+      tmux
+      tree
+      tree-sitter
+      typescript-language-server
+      unstable.opencode
+      unzip
+      usbutils
+      uv
+      vim
+      virtualenv
+      vlc
       waybar
       wdisplays
       wf-recorder
+      wget
+      wireshark
       wl-clipboard
       wofi
+      yaml-language-server
+      yarn
+      yazi
+      yq-go
+      zbar
       zenity
-    ];
-
-  # macOS-specific packages
-  darwinPackages =
-    # with pkgs;
-    lib.optionals isDarwin [
-      # Add macOS-specific packages here
-      # We'll add these as needed
+      zsh-completions
+      zsh-history-substring-search
+      zsh-powerlevel10k
+      zsh-syntax-highlighting
     ];
 in
 {
-  environment.systemPackages = sharedPackages ++ linuxPackages ++ darwinPackages;
+  environment.systemPackages = commonPackages ++ desktopPackages;
 
   # Shared program configurations
   programs.steam.enable = isLinux;
@@ -176,7 +164,7 @@ in
     enableCompletion = true;
     ohMyZsh = {
       enable = true;
-      custom = if isDarwin then "/Users/char/.zshrc" else "/home/char/.zshrc";
+      custom = if isSFF then "/Users/char/.zshrc" else "/home/char/.zshrc";
       plugins = [
         "git"
         "autojump"
