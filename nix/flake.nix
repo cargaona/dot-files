@@ -1,11 +1,11 @@
 {
   inputs = {
     # 1. add the urls of the flakes you want to use
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     darwin.url = "github:LnL7/nix-darwin";
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     dmx.url = "github:cargaona/dmx";
     mpris-inhibit.url = "github:/Bwc9876/wayland-mpris-idle-inhibit";
     # isolation.url = "path:/home/char/projects/personal/code/isolation";
@@ -32,7 +32,7 @@
           ];
           specialArgs = {
             # 3. pass the variables to the system configuration
-            # 4. reference the modules inside the configuration.nix files, not here!  
+            # 4. reference the modules inside the configuration.nix files, not here!
             inherit
               home-manager
               dmx

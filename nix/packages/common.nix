@@ -17,7 +17,6 @@ let
     with pkgs;
     lib.optionals isSFF [
       davinci-resolve
-      mongodb-compass
       clementine
       stremio
       beets
@@ -34,6 +33,7 @@ let
       # mpris-inhibit.packages.${pkgs.system}.default
       # dmx.packages.${pkgs.system}.default
       alacritty
+      android-studio
       alacritty-theme
       autojump
       awscli
@@ -106,17 +106,16 @@ let
       python312Packages.pip
       ripgrep
       rockbox-utility
-      rofi-wayland
+      rofi
       scrcpy
       slack
       slurp
-      soulseekqt
       spotify
       streamrip
       sudo
       swappy
       swayidle
-      syncthing
+      # syncthing
       tcpdump
       telegram-desktop
       terraform

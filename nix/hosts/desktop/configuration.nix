@@ -17,7 +17,7 @@
     ../../modules/hardware/nvidia.nix
     ../../modules/hardware/power.nix
     ../../modules/network/ssh.nix
-    ../../modules/network/sync.nix
+    # ../../modules/network/sync.nix
     ../../modules/virtualization/docker.nix
     ../../modules/llm/ollama.nix
     ../../users/char.nix
@@ -84,4 +84,9 @@
 
   # Allow Unfree Packages (like Spotify, Steam)
   nixpkgs.config.allowUnfree = true;
+
+  # Allow insecure packages (Qt5 WebEngine for telegram-desktop/rockbox-utility)
+  nixpkgs.config.permittedInsecurePackages = [
+    "qtwebengine-5.15.19"
+  ];
 }
