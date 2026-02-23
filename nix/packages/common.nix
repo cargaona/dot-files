@@ -3,6 +3,7 @@
   lib,
   unstable,
   config,
+  quickshell,
   # mpris-inhibit,
   # isolation,
   ...
@@ -109,7 +110,7 @@ let
       podman-compose
       powertop
       pyright
-      quickshell
+      quickshell.packages.${pkgs.system}.quickshell
       python3
       python312Packages.pip
       ripgrep

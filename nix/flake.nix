@@ -7,6 +7,7 @@
     darwin.url = "github:LnL7/nix-darwin";
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     hyprland.url = "github:hyprwm/Hyprland";
+    quickshell.url = "github:quickshell-mirror/quickshell";
     dmx.url = "github:cargaona/dmx";
     mpris-inhibit.url = "github:/Bwc9876/wayland-mpris-idle-inhibit";
     # isolation.url = "path:/home/char/projects/personal/code/isolation";
@@ -20,6 +21,7 @@
       darwin,
       home-manager,
       hyprland,
+      quickshell,
       dmx,
       mpris-inhibit,
       # isolation,
@@ -39,6 +41,7 @@
             inherit
               home-manager
               hyprland
+              quickshell
               dmx
               mpris-inhibit
               # isolation
