@@ -90,7 +90,7 @@
       "${pkgs.qt6Packages.qt5compat}/lib/qt-6/qml"
       "${pkgs.qt6Packages.qtpositioning}/lib/qt-6/qml"
       "${pkgs.kdePackages.syntax-highlighting}/lib/qt-6/qml"
-      "${pkgs.kdePackages.kirigami}/lib/qt-6/qml"
+      "${pkgs.kdePackages.kirigami.passthru.unwrapped}/lib/qt-6/qml"
     ];
   };
 
