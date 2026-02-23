@@ -14,7 +14,6 @@
       # Wayland
       wayland-scanner
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
       xwayland
 
       # Hyprland tools
@@ -101,7 +100,7 @@
 
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
+      # xdg-desktop-portal-hyprland is provided by hyprland.nixosModules.default
     ];
   };
 
