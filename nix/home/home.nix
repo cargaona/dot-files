@@ -84,11 +84,11 @@ in
   }
   // lib.optionalAttrs isLinux {
     # Linux-specific dotfiles
-    # hyprland = {
-    #   recursive = true;
-    #   target = "./.config/hypr/";
-    #   source = "${projectDir}/dot-files/hypr";
-    # };
+    hyprland = {
+      recursive = true;
+      target = ".config/hypr";
+      source = "${projectDir}/dot-files/dots-hyprland/dots/.config/hypr";
+    };
     rofi = {
       recursive = false;
       target = ".config/rofi/config.rasi";

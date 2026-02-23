@@ -2,41 +2,42 @@
   lib,
   pkgs,
   config,
+  unstable,
   ...
 }:
-let
-  unstable = import <nixos-unstable> {
-    config = {
-      allowUnfree = true;
-    };
-  };
-in
 {
   # Enable Graphics (Hyprland needs to be enable at a systems level)
-  environment.systemPackages = [
-    unstable.wayland-scanner
-    # inputs.swww.packages.${pkgs.system}.swww
+  environment.systemPackages =
+    with pkgs;
+    [
+      # Wayland
+      wayland-scanner
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+      xwayland
 
-    ## TODO, move this package to other place. 
-    # unstable.obs-studio-plugins.distroav
-    unstable.swww
-    unstable.nwg-look
-    #unstable.hyprland
-    #unstable.hyprgui
-    #unstable.hyprcursor
-    unstable.hyprlock
-    unstable.hypridle
-    unstable.xcur2png
-    unstable.hyprland-protocols
-    unstable.wev
-    unstable.hyprland-workspaces
-    # hyprdim
-    unstable.xdg-desktop-portal-gtk
-    unstable.xdg-desktop-portal-hyprland
-    unstable.xwayland
-    unstable.aquamarine
-    unstable.wlroots
-  ];
+      # Hyprland tools
+      hyprland-protocols
+      hyprpaper
+      hyprlock
+      hypridle
+      hyprpicker
+      swww
+      nwg-look
+      xcur2png
+      wev
+      hyprland-workspaces
+
+      # Launchers & utilities
+      fuzzel
+      playerctl
+      tesseract
+      bc
+      jq
+    ]
+    ++ (with unstable; [
+      # Unstable packages for newer features
+    ]);
 
   # systemd.user.services.hyprpaper = {
   #   enable = true;
@@ -87,15 +88,15 @@ in
   };
 
   xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
+    enable = lib.mkDefault true;
+    xdgOpenUsePortal = lib.mkDefault true;
     config = {
-      common.default = [ "gtk" ];
+      common.default = lib.mkDefault [ "gtk" ];
     };
 
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-wlr
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
     ];
   };
 

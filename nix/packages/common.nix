@@ -59,6 +59,7 @@ let
       feh
       ffmpeg
       firefox
+      fuzzel
       fzf
       gcc
       git
@@ -68,6 +69,7 @@ let
       go
       gopls
       grim
+      hyprpicker
       htop
       iw
       jetbrains-mono
@@ -98,6 +100,7 @@ let
       pamixer
       pavucontrol
       phinger-cursors
+      playerctl
       podman
       podman-compose
       powertop
@@ -117,6 +120,7 @@ let
       swayidle
       # syncthing
       tcpdump
+      tesseract
       telegram-desktop
       terraform
       terraform-ls

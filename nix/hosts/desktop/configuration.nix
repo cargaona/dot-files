@@ -17,6 +17,7 @@
     ../../modules/hardware/nvidia.nix
     ../../modules/hardware/power.nix
     ../../modules/network/ssh.nix
+    ../../modules/dev/android.nix
     # ../../modules/network/sync.nix
     ../../modules/virtualization/docker.nix
     ../../modules/llm/ollama.nix
