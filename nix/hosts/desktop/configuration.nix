@@ -1,5 +1,6 @@
 {
   # config,
+  caelestia-shell,
   ...
 }:
 
@@ -25,7 +26,19 @@
     /etc/nixos/hardware-configuration.nix
   ];
 
-  home-manager.users.char = import ../../home/home.nix;
+  home-manager.users.char =
+    {
+      pkgs,
+      lib,
+      caelestia-shell,
+      ...
+    }:
+    {
+      imports = [
+        caelestia-shell.homeManagerModules.default
+        ../../home/home.nix
+      ];
+    };
 
   nix.settings.experimental-features = [
     "nix-command"

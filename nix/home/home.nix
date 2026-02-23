@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  caelestia-shell,
   ...
 }:
 let
@@ -128,34 +127,7 @@ in
   # Caelestia shell configuration (Linux only)
   programs.caelestia = lib.mkIf isLinux {
     enable = true;
-    package = caelestia-shell.packages.${pkgs.system}.default;
-    settings = {
-      # Shell appearance
-      shell = {
-        scale = 1.0;
-        corner-radius = 10;
-        background-blur = 30;
-        primary-color = "#89b4fa";
-        secondary-color = "#313244";
-      };
-
-      # Launcher settings
-      launcher = {
-        width = 800;
-        height = 600;
-        blur = true;
-      };
-
-      # Time and date format
-      time = {
-        format = "HH:mm";
-      };
-
-      # System integration
-      system = {
-        hyprland-ipc = true;
-      };
-    };
+    systemd.enable = true;
   };
 
   home.stateVersion = "25.05";
