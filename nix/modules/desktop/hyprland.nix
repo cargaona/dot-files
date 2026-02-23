@@ -35,6 +35,7 @@
       tesseract
       bc
       jq
+      qt6Packages.qt5compat
     ]
     ++ (with unstable; [
       # Unstable packages for newer features
