@@ -125,10 +125,19 @@ in
   };
 
   # Caelestia shell configuration (Linux only)
-  programs.caelestia = lib.mkIf isLinux {
-    enable = true;
-    systemd.enable = true;
-  };
+  programs.caelestia = lib.mkIf isLinux (
+    let
+      caelestiaSettings = import ./caelestia-config.nix;
+    in
+    {
+      enable = true;
+      systemd.enable = true;
+      settings = caelestiaSettings;
+    }
+  );
+
+  # Force overwrite caelestia shell.json to resolve conflicts
+  xdg.configFile."caelestia/shell.json".force = lib.mkIf isLinux true;
 
   home.stateVersion = "25.05";
 }
