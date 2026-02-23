@@ -51,10 +51,6 @@
               config.allowUnfree = true;
             };
           };
-          # Pass caelestia-shell to home-manager modules
-          home-manager.extraSpecialArgs = {
-            inherit caelestia-shell;
-          };
         };
         "server" = nixpkgs.lib.nixosSystem {
           modules = [

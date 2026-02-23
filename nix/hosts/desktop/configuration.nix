@@ -26,6 +26,10 @@
     /etc/nixos/hardware-configuration.nix
   ];
 
+  home-manager.extraSpecialArgs = {
+    inherit caelestia-shell;
+  };
+
   home-manager.users.char =
     {
       pkgs,
