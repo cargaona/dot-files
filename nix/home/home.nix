@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  caelestia-shell,
+  ...
+}:
 let
   # Detect platform
   isDarwin = pkgs.stdenv.isDarwin;
@@ -84,10 +89,10 @@ in
   }
   // lib.optionalAttrs isLinux {
     # Linux-specific dotfiles
-    hyprland = {
+    hypr = {
       recursive = true;
       target = ".config/hypr";
-      source = "${projectDir}/dot-files/dots-hyprland/dots/.config/hypr";
+      source = "${projectDir}/dot-files/hypr";
     };
     rofi = {
       recursive = false;
@@ -98,11 +103,6 @@ in
       recursive = false;
       target = ".local/share/rofi/themes/";
       source = "${projectDir}/dot-files/rofi/";
-    };
-    quickshell = {
-      recursive = true;
-      target = ".config/quickshell";
-      source = "${projectDir}/dot-files/dots-hyprland/dots/.config/quickshell";
     };
     # waybar = {
     #   recursive = true;
@@ -123,6 +123,39 @@ in
   dconf = lib.mkIf isLinux {
     enable = true;
     settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+  };
+
+  # Caelestia shell configuration (Linux only)
+  programs.caelestia = lib.mkIf isLinux {
+    enable = true;
+    package = caelestia-shell.packages.${pkgs.system}.default;
+    settings = {
+      # Shell appearance
+      shell = {
+        scale = 1.0;
+        corner-radius = 10;
+        background-blur = 30;
+        primary-color = "#89b4fa";
+        secondary-color = "#313244";
+      };
+
+      # Launcher settings
+      launcher = {
+        width = 800;
+        height = 600;
+        blur = true;
+      };
+
+      # Time and date format
+      time = {
+        format = "HH:mm";
+      };
+
+      # System integration
+      system = {
+        hyprland-ipc = true;
+      };
+    };
   };
 
   home.stateVersion = "25.05";

@@ -35,10 +35,6 @@
       tesseract
       bc
       jq
-      qt6Packages.qt5compat
-      qt6Packages.qtpositioning
-      kdePackages.syntax-highlighting
-      kdePackages.kirigami
     ]
     ++ (with unstable; [
       # Unstable packages for newer features
@@ -86,12 +82,6 @@
     XDG_CONFIG_HOME = "\${HOME}/.config";
     XDG_BIN_HOME = "\${HOME}/.local/bin";
     XDG_DATA_HOME = "\${HOME}/.local/share";
-    NIXPKGS_QT6_QML_IMPORT_PATH = lib.concatStringsSep ":" [
-      "${pkgs.qt6Packages.qt5compat}/lib/qt-6/qml"
-      "${pkgs.qt6Packages.qtpositioning}/lib/qt-6/qml"
-      "${pkgs.kdePackages.syntax-highlighting}/lib/qt-6/qml"
-      "${pkgs.kdePackages.kirigami.passthru.unwrapped}/lib/qt-6/qml"
-    ];
   };
 
   programs.hyprland = {
