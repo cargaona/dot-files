@@ -6,6 +6,7 @@
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     darwin.url = "github:LnL7/nix-darwin";
     home-manager.url = "github:nix-community/home-manager/release-25.11";
+    hyprland.url = "github:hyprwm/Hyprland";
     dmx.url = "github:cargaona/dmx";
     mpris-inhibit.url = "github:/Bwc9876/wayland-mpris-idle-inhibit";
     # isolation.url = "path:/home/char/projects/personal/code/isolation";
@@ -18,6 +19,7 @@
       # nixpkgs-darwin,
       darwin,
       home-manager,
+      hyprland,
       dmx,
       mpris-inhibit,
       # isolation,
@@ -29,12 +31,14 @@
           modules = [
             ./hosts/desktop/configuration.nix
             home-manager.nixosModules.home-manager
+            hyprland.nixosModules.default
           ];
           specialArgs = {
             # 3. pass the variables to the system configuration
             # 4. reference the modules inside the configuration.nix files, not here!
             inherit
               home-manager
+              hyprland
               dmx
               mpris-inhibit
               # isolation

@@ -3,6 +3,7 @@
   pkgs,
   config,
   unstable,
+  hyprland,
   ...
 }:
 {
@@ -86,6 +87,7 @@
 
   programs.hyprland = {
     enable = true;
+    package = hyprland.packages.${pkgs.system}.hyprland;
     withUWSM = true;
     xwayland.enable = true;
   };
