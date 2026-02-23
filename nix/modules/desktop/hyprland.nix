@@ -36,6 +36,7 @@
       bc
       jq
       qt6Packages.qt5compat
+      qt6Packages.qtpositioning
     ]
     ++ (with unstable; [
       # Unstable packages for newer features
@@ -83,7 +84,7 @@
     XDG_CONFIG_HOME = "\${HOME}/.config";
     XDG_BIN_HOME = "\${HOME}/.local/bin";
     XDG_DATA_HOME = "\${HOME}/.local/share";
-    NIXPKGS_QT6_QML_IMPORT_PATH = "${pkgs.qt6Packages.qt5compat}/lib/qt-6/qml";
+    NIXPKGS_QT6_QML_IMPORT_PATH = "${pkgs.qt6Packages.qt5compat}/lib/qt-6/qml:${pkgs.qt6Packages.qtpositioning}/lib/qt-6/qml";
   };
 
   programs.hyprland = {
