@@ -27,6 +27,7 @@
       xcur2png
       wev
       hyprland-workspaces
+      bibata-cursors
 
       # Launchers & utilities
       fuzzel
@@ -69,6 +70,8 @@
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     # WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
     CLUTTER_BACKEND = "wayland";
+    XCURSOR_THEME = "Bibata-Modern-Classic";
+    XCURSOR_SIZE = "24";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";

@@ -70,7 +70,9 @@ let
       gopls
       grim
       hyprpicker
+      hyprshot
       htop
+      imagemagick
       iw
       jetbrains-mono
       jq
@@ -81,6 +83,7 @@ let
       kubectx
       kubernetes-helm
       libinput
+      libnotify
       lsof
       lua
       lua-language-server
@@ -143,6 +146,7 @@ let
       wget
       wireshark
       wl-clipboard
+      wlogout
       wofi
       yaml-language-server
       yarn

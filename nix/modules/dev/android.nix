@@ -1,6 +1,10 @@
 { pkgs, ... }:
 {
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [
+    "kvm-amd"
+    "libvirtd"
+  ];
   programs.adb.enable = true;
-  services.udev.packages = [ pkgs.android-udev-rules ];
+  virtualisation.libvirtd.enable = true;
+  # services.udev.packages = [ pkgs.android-udev-rules ];
 }
