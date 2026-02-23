@@ -86,6 +86,7 @@ let
       libnotify
       lsof
       lua
+      matugen
       lua-language-server
       luarocks
       magic-wormhole
@@ -108,6 +109,7 @@ let
       podman-compose
       powertop
       pyright
+      quickshell
       python3
       python312Packages.pip
       ripgrep

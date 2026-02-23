@@ -99,6 +99,11 @@ in
       target = ".local/share/rofi/themes/";
       source = "${projectDir}/dot-files/rofi/";
     };
+    quickshell = {
+      recursive = true;
+      target = ".config/quickshell";
+      source = "${projectDir}/dot-files/dots-hyprland/dots/.config/quickshell";
+    };
     # waybar = {
     #   recursive = true;
     #   target = ".config/waybar";
