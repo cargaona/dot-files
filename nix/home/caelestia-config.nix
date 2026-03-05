@@ -1,3 +1,4 @@
+{ homeDir }:
 {
   appearance = {
     rounding = {
@@ -573,7 +574,7 @@
   };
 
   paths = {
-    wallpaperDir = "/home/char/docs/images/";
+    wallpaperDir = "${homeDir}/docs/images/";
     sessionGif = "root:/assets/kurukuru.gif";
     mediaGif = "root:/assets/bongocat.gif";
   };

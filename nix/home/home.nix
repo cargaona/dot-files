@@ -28,7 +28,7 @@ in
   };
 
   home.sessionPath = [
-    "/home/char/projects/personal/code/dot-files/scripts"
+    "${projectDir}/dot-files/scripts"
   ];
 
   # Password store (Linux only for now, uses wayland extensions)
@@ -132,7 +132,7 @@ in
   # Caelestia shell configuration (Linux only)
   programs.caelestia = lib.mkIf isLinux (
     let
-      caelestiaSettings = import ./caelestia-config.nix;
+      caelestiaSettings = import ./caelestia-config.nix { inherit homeDir; };
     in
     {
       enable = true;

@@ -23,7 +23,7 @@ function _set_alias () {
   alias grip="history | grep"
   alias hiz="history | cut -c 8- | uniq | fzf | wl-copy"
   alias cf='_change_folder'
-  alias aiterm='/home/char/projects/personal/code/dot-files/scripts/aiterm'
+  alias aiterm='$CODE_PATH/dot-files/scripts/aiterm'
   #alias copy='xclip -sel clip'
   #alias bat="batcat"
 
@@ -69,8 +69,8 @@ function _set_alias () {
 }
 
 function _theme () {
-  #ZSH_THEME="/home/char/projects/personal/code/dot-files/zsh/minimal-char.zsh-theme"
-  source "/home/char/projects/personal/code/dot-files/zsh/minimal-char.zsh-theme"
+  #ZSH_THEME="$HOME/projects/personal/code/dot-files/zsh/minimal-char.zsh-theme"
+  source "$HOME/projects/personal/code/dot-files/zsh/minimal-char.zsh-theme"
   DISABLE_UNTRACKED_FILES_DIRTY="true"
   MNML_PROMPT=(mnml_ssh mnml_pyenv kube_ps1 mnml_status mnml_keymap 'mnml_cwd 2 0' mnml_git) 
   MNML_RPROMPT=()
