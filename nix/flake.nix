@@ -65,6 +65,23 @@
             };
           };
         };
+        "kramer" = nixpkgs.lib.nixosSystem {
+          modules = [
+            ./hosts/kramer/configuration.nix
+            home-manager.nixosModules.home-manager
+            # Uncomment when ready to enable Hyprland:
+            # hyprland.nixosModules.default
+          ];
+          specialArgs = {
+            inherit home-manager dmx;
+            # Uncomment when ready to enable Hyprland/Caelestia:
+            # inherit hyprland caelestia-shell mpris-inhibit;
+            unstable = import nixpkgs-unstable {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+          };
+        };
       };
 
       darwinConfigurations = {
