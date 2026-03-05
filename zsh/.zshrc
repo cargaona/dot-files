@@ -32,11 +32,12 @@ function _set_alias () {
 
   alias vim=nvim
   alias vf='vim $(fzf)'
-  alias claude='/home/char/.claude/local/claude'
+  # alias claude='/home/char/.claude/local/claude'
 
   alias tl="tmux list-sessions"
   alias ta="tmux attach-session -t"
   alias t="ta || tmux"
+  alias tu="tmuxinator"
 
   alias g=git 
   alias ga='git add .'

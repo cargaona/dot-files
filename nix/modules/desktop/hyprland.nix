@@ -40,9 +40,9 @@
       # Unstable packages for newer features
     ]);
 
-  # systemd.user.services.hyprpaper = {
-  #   enable = true;
-  # };
+  systemd.user.services.hyprpaper = {
+    enable = true;
+  };
 
   environment.localBinInPath = true;
 
@@ -86,7 +86,7 @@
 
   programs.hyprland = {
     enable = true;
-    package = hyprland.packages.${pkgs.system}.hyprland;
+    package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     withUWSM = true;
     xwayland.enable = true;
   };

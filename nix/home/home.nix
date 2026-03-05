@@ -75,6 +75,11 @@ in
       target = "./.tmux.conf";
       source = "${projectDir}/dot-files/tmux/.tmux.conf";
     };
+    tmuxinator = {
+      recursive = true;
+      target = ".config/tmuxinator";
+      source = "${projectDir}/dot-files/tmuxinator";
+    };
     alacritty = {
       recursive = true;
       target = ".config/alacritty/";
@@ -133,11 +138,14 @@ in
       enable = true;
       systemd.enable = true;
       settings = caelestiaSettings;
+      cli = {
+        enable = true; # Also add caelestia-cli to path
+      };
     }
   );
 
   # Force overwrite caelestia shell.json to resolve conflicts
   xdg.configFile."caelestia/shell.json".force = lib.mkIf isLinux true;
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 }

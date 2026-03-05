@@ -37,10 +37,10 @@
   general = {
     logo = "";
     apps = {
-      terminal = [ "foot" ];
+      terminal = [ "alacritty" ];
       audio = [ "pavucontrol" ];
       playback = [ "mpv" ];
-      explorer = [ "thunar" ];
+      explorer = [ "nautilus" ];
     };
     idle = {
       lockBeforeSleep = true;
@@ -92,7 +92,7 @@
 
   background = {
     enabled = true;
-    wallpaperEnabled = true;
+    wallpaperEnabled = false;
     desktopClock = {
       enabled = false;
       scale = 1;
@@ -210,7 +210,7 @@
         id = "power";
       }
     ];
-    excludedScreens = [ ];
+    excludedScreens = [ "DP-1" ];
   };
 
   border = {
@@ -573,7 +573,7 @@
   };
 
   paths = {
-    wallpaperDir = "/home/char/Pictures/Wallpapers";
+    wallpaperDir = "/home/char/docs/images/";
     sessionGif = "root:/assets/kurukuru.gif";
     mediaGif = "root:/assets/bongocat.gif";
   };

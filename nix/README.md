@@ -79,7 +79,7 @@ nix/
 ## Installation
 
 ### Prerequisites
-- NixOS 25.05 or compatible system
+- NixOS 25.11 or compatible system
 - Nix with flakes enabled
 - Git for cloning the repository
 

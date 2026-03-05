@@ -1,8 +1,14 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  unstable,
+  ...
+}:
 {
   # nixpkgs.config.allowUnfree = true;
   services.ollama = {
     enable = true;
+    package = unstable.ollama; # v0.17.4+ needed for `ollama launch`
     acceleration = "cuda"; # Use "cuda" for NVIDIA or "rocm" for AMD
     host = "0.0.0.0";
     port = 11434;
