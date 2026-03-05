@@ -5,7 +5,7 @@
 {
   imports = [
     # Include home-manager configuration and other modular settings
-    <home-manager/nixos>
+    # <home-manager/nixos>
     ../../modules/desktop/fonts.nix
     ../../modules/desktop/input.nix
     ../../modules/hardware/audio.nix
@@ -14,7 +14,6 @@
     ../../modules/kubernetes/k3s.nix
     ../../modules/immich/immich.nix
     ../../modules/network/ssh.nix
-    ../../modules/network/sync.nix
     # ../../modules/llm/ollama.nix
     ../../modules/virtualization/docker.nix
     ../../modules/virtualization/server.nix
@@ -23,6 +22,21 @@
     /etc/nixos/hardware-configuration.nix
   ];
 
+  home-manager.users.char =
+    {
+      pkgs,
+      lib,
+      ...
+    }:
+    {
+      imports = [
+        ../../home/home.nix
+      ];
+    };
+
+  nix.gc.automatic = true;
+  nix.gc.dates = "weekly";
+  nix.gc.options = "--delete-older-than 7d";
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -31,6 +45,7 @@
   # programs.polkit-kde-agent.enable = true;
   # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Networking Configuration
@@ -38,16 +53,23 @@
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [
     11434 # # ollama
-    2283 # immich 
+    2283 # immich
     4040 # # openwebui
     4443
-    6767 #bazarr
+    6767 # bazarr
     7070
     8080
     8096
     8888
     8112
     9998 # # tika
+  ];
+
+  networking.firewall.allowedUDPPorts = [
+    1244
+    1245
+    1246
+    1247
   ];
 
   # Time Zone Configuration
@@ -57,7 +79,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # System State Version
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 
   # Allow Unfree Packages (like Spotify, Steam)
   nixpkgs.config.allowUnfree = true;

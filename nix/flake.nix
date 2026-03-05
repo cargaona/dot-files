@@ -55,9 +55,10 @@
         "server" = nixpkgs.lib.nixosSystem {
           modules = [
             ./hosts/server/configuration.nix
+            home-manager.nixosModules.home-manager
           ];
           specialArgs = {
-            inherit dmx;
+            inherit home-manager dmx;
             unstable = import nixpkgs-unstable {
               system = "x86_64-linux";
               config.allowUnfree = true;

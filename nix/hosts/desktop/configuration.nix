@@ -19,6 +19,7 @@
     ../../modules/hardware/power.nix
     ../../modules/network/ssh.nix
     ../../modules/dev/android.nix
+    # ../../modules/dev/nrf.nix
     # ../../modules/network/sync.nix
     ../../modules/virtualization/docker.nix
     ../../modules/llm/ollama.nix
@@ -44,12 +45,16 @@
       ];
     };
 
+  nix.gc.automatic = true;
+  nix.gc.dates = "weekly";
+  nix.gc.options = "--delete-older-than 7d";
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
   # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Hardware-specific configurations
@@ -98,7 +103,7 @@
   '';
 
   # System State Version
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 
   # Allow Unfree Packages (like Spotify, Steam)
   nixpkgs.config.allowUnfree = true;

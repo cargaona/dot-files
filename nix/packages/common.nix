@@ -24,14 +24,15 @@ let
       obs-studio
       obsidian
       pomodoro-gtk
+      (pkgs.llama-cpp.override { cudaSupport = true; })
     ];
 
   commonPackages =
     with pkgs;
     lib.optionals isLinux [
-      # isolation.packages.${pkgs.system}.default
-      # mpris-inhibit.packages.${pkgs.system}.default
-      # dmx.packages.${pkgs.system}.default
+      # isolation.packages.${pkgs.stdenv.hostPlatform.system}.default
+      # mpris-inhibit.packages.${pkgs.stdenv.hostPlatform.system}.default
+      # dmx.packages.${pkgs.stdenv.hostPlatform.system}.default
       alacritty
       android-studio
       alacritty-theme
@@ -53,7 +54,7 @@ let
       dig
       discord
       docker # TODO: Remove after server migration to Podman
-      dunst
+
       electron
       fd
       feh
@@ -68,6 +69,7 @@ let
       gnupg
       go
       gopls
+      gpu-screen-recorder
       grim
       hyprpicker
       hyprshot
@@ -131,6 +133,7 @@ let
       tflint
       tldr
       tmux
+      tmuxinator
       tree
       tree-sitter
       typescript-language-server
@@ -172,7 +175,7 @@ in
     enableCompletion = true;
     ohMyZsh = {
       enable = true;
-      custom = if isSFF then "/Users/char/.zshrc" else "/home/char/.zshrc";
+      custom = if isSFF then "/home/char/.zshrc" else "/Users/char/.zshrc";
       plugins = [
         "git"
         "autojump"
