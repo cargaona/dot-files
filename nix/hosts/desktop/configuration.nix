@@ -8,6 +8,7 @@
   imports = [
     # Include home-manager configuration and other modular settings
     # <home-manager/nixos>
+    ../../modules/system/host-options.nix
     ../../packages/common.nix
     ../../modules/desktop/fonts.nix
     ../../modules/desktop/cosmic.nix
@@ -26,6 +27,18 @@
     ../../users/char.nix
     /etc/nixos/hardware-configuration.nix
   ];
+
+  # Host-specific configuration
+  host.isDesktop = true;
+
+  # LLM configuration
+  services.llm.ollama = {
+    enable = true;
+    acceleration = "cuda";
+    host = "0.0.0.0";
+    port = 11434;
+    gpuOverhead = "1000000000"; # Reserve ~1GB for other services
+  };
 
   home-manager.extraSpecialArgs = {
     inherit caelestia-shell;

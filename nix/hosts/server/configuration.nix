@@ -6,6 +6,7 @@
   imports = [
     # Include home-manager configuration and other modular settings
     # <home-manager/nixos>
+    ../../modules/system/host-options.nix
     ../../modules/desktop/fonts.nix
     ../../modules/desktop/input.nix
     ../../modules/hardware/audio.nix
@@ -21,6 +22,9 @@
     ../../users/char.nix
     /etc/nixos/hardware-configuration.nix
   ];
+
+  # Host-specific configuration
+  host.isDesktop = false;
 
   home-manager.users.char =
     {
