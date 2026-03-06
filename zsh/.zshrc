@@ -49,6 +49,8 @@ function _set_alias () {
   #alias gcd="gcm $(date --rfc-3339=date)"
   alias cdr='cd $(git rev-parse --show-toplevel)'
 
+  alias hypr='uwsm start Hyprland'
+
   alias bt=bluetoothctl
   alias btoff="bluetoothctl power off"
   alias bton="bluetoothctl power on"

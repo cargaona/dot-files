@@ -6,7 +6,6 @@
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     darwin.url = "github:LnL7/nix-darwin";
     home-manager.url = "github:nix-community/home-manager/release-25.11";
-    hyprland.url = "github:hyprwm/Hyprland";
     caelestia-shell.url = "github:caelestia-dots/shell";
     dmx.url = "github:cargaona/dmx";
     mpris-inhibit.url = "github:/Bwc9876/wayland-mpris-idle-inhibit";
@@ -17,48 +16,29 @@
     {
       nixpkgs,
       nixpkgs-unstable,
-      # nixpkgs-darwin,
       darwin,
       home-manager,
-      hyprland,
       caelestia-shell,
       dmx,
       mpris-inhibit,
-      # isolation,
       ...
     }:
     {
       nixosConfigurations = {
-        "desktop" = nixpkgs.lib.nixosSystem {
+        "constanza" = nixpkgs.lib.nixosSystem {
           modules = [
-            ./hosts/desktop/configuration.nix
+            ./hosts/constanza/configuration.nix
             home-manager.nixosModules.home-manager
-            hyprland.nixosModules.default
           ];
           specialArgs = {
             # 3. pass the variables to the system configuration
             # 4. reference the modules inside the configuration.nix files, not here!
             inherit
               home-manager
-              hyprland
               caelestia-shell
               dmx
               mpris-inhibit
-              # isolation
               ;
-            unstable = import nixpkgs-unstable {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
-            };
-          };
-        };
-        "server" = nixpkgs.lib.nixosSystem {
-          modules = [
-            ./hosts/server/configuration.nix
-            home-manager.nixosModules.home-manager
-          ];
-          specialArgs = {
-            inherit home-manager dmx;
             unstable = import nixpkgs-unstable {
               system = "x86_64-linux";
               config.allowUnfree = true;
@@ -69,30 +49,27 @@
           modules = [
             ./hosts/kramer/configuration.nix
             home-manager.nixosModules.home-manager
-            # Uncomment when ready to enable Hyprland:
-            # hyprland.nixosModules.default
           ];
           specialArgs = {
             inherit home-manager dmx;
-            # Uncomment when ready to enable Hyprland/Caelestia:
-            # inherit hyprland caelestia-shell mpris-inhibit;
             unstable = import nixpkgs-unstable {
               system = "x86_64-linux";
               config.allowUnfree = true;
             };
           };
         };
-      };
-
-      darwinConfigurations = {
-        "macbook" = darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
+        "elaine" = nixpkgs.lib.nixosSystem {
           modules = [
-            ./hosts/macbook/configuration.nix
-            home-manager.darwinModules.home-manager
+            ./hosts/elaine/configuration.nix
+            home-manager.nixosModules.home-manager
           ];
           specialArgs = {
-            inherit home-manager;
+            inherit home-manager dmx;
+            inherit caelestia-shell mpris-inhibit;
+            unstable = import nixpkgs-unstable {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
           };
         };
       };

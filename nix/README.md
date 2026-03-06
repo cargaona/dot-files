@@ -5,7 +5,7 @@ A comprehensive NixOS configuration repository for managing multiple hosts with 
 ## Overview
 
 This repository contains a sophisticated NixOS configuration that manages:
-- **Multiple hosts** (desktop, server, macbook) with specialized configurations
+- **Multiple hosts** (constanza, elaine, kramer) with specialized configurations
 - **Modular services** for audio, docker, networking, and power management
 - **Cross-platform dotfiles** using Home Manager
 - **Wayland desktop environment** with Hyprland window manager
@@ -18,10 +18,9 @@ nix/
 ├── flake.nix              # Main flake configuration
 ├── flake.lock             # Dependency lock file
 ├── hosts/                 # Host-specific configurations
-│   ├── desktop/
-│   ├── server/
-│   ├── macbook/
-│   └── notebook/
+│   ├── constanza/         # Primary desktop (DeepCool CH170)
+│   ├── elaine/            # Secondary desktop (Dan A4 SFX)
+│   └── kramer/            # Home server (NR200)
 ├── modules/               # Reusable NixOS modules by domain
 │   ├── desktop/          # Desktop environment & UI
 │   │   ├── hyprland.nix
@@ -52,9 +51,9 @@ nix/
 ## Features
 
 ### Multi-Host Support
-- **Desktop**: Full desktop environment with Hyprland, NVIDIA support
-- **Server**: Minimal server configuration
-- **macOS**: Darwin-compatible configuration with Aerospace
+- **constanza**: Primary desktop (DeepCool CH170) — Hyprland, NVIDIA, Ollama, Caelestia shell
+- **elaine**: Secondary desktop (Dan A4 SFX) — Hyprland, NVIDIA, Caelestia shell
+- **kramer**: Home server (NR200) — k3s, Immich, Docker
 
 ### Modern Development Environment
 - **Languages**: Python, Go, JavaScript/TypeScript, Lua, Nix
@@ -98,14 +97,14 @@ echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
 
 3. **Build and switch to configuration**:
 ```bash
-# For desktop
-sudo nixos-rebuild switch --flake .#desktop
+# For constanza (primary desktop)
+sudo nixos-rebuild switch --flake .#constanza
 
-# For server
-sudo nixos-rebuild switch --flake .#server
+# For elaine (secondary desktop)
+sudo nixos-rebuild switch --flake .#elaine
 
-# For macOS
-darwin-rebuild switch --flake .#macbook
+# For kramer (server)
+sudo nixos-rebuild switch --flake .#kramer
 ```
 
 ### Manual Installation Steps
@@ -194,10 +193,10 @@ Modify host files in `hosts/<hostname>/configuration.nix`:
 nix flake check
 
 # Show derivation
-nix show-derivation .#nixosConfigurations.desktop.config.system.build.toplevel
+  nix show-derivation .#nixosConfigurations.constanza.config.system.build.toplevel
 
 # Debug build process
-nixos-rebuild switch --flake .#desktop --show-trace
+  nixos-rebuild switch --flake .#constanza --show-trace
 ```
 
 ## Advanced Configuration

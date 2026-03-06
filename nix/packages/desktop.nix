@@ -20,7 +20,7 @@ in
       firefox
 
       # Media & Entertainment
-      calibre
+      # calibre
       deluge
       spotify
       streamrip
@@ -61,7 +61,7 @@ in
       obsidian
       pomodoro-gtk
       rockbox-utility
-      stremio
+      #stremio
       vesktop
     ];
 

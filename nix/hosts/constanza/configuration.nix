@@ -21,6 +21,9 @@
     ../../modules/network/ssh.nix
     ../../modules/dev/android.nix
     # ../../modules/dev/nrf.nix
+    # Firefox bookmark/history/extension sync via rsync over SSH (hub: kramer)
+    # Pushes profile every 15min, pulls every 1h. See modules/network/sync.nix for details.
+    # To enable: uncomment the line below and rebuild both desktops + kramer.
     # ../../modules/network/sync.nix
     ../../modules/virtualization/docker.nix
     ../../modules/llm/ollama.nix
@@ -87,7 +90,7 @@
   '';
 
   # Networking Configuration
-  networking.hostName = "sff"; # Define your hostname
+  networking.hostName = "constanza"; # Define your hostname
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [
     8112

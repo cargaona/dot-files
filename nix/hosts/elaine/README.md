@@ -1,15 +1,16 @@
-# Kramer Host Configuration
+# Elaine Host Configuration
 
 Minimal NixOS desktop configuration for initial installation and SSH access.
+This machine is a Dan A4 SFX — small, sleek, and beautiful. Just like Elaine.
 
 ## Initial Setup
 
 ```bash
-# On the kramer machine after NixOS installation:
-sudo nixos-rebuild switch --flake github:cargaona/dot-files#kramer
+# On the elaine machine after NixOS installation:
+sudo nixos-rebuild switch --flake github:cargaona/dot-files#elaine
 
 # Or from local clone:
-sudo nixos-rebuild switch --flake /path/to/dot-files/nix#kramer
+sudo nixos-rebuild switch --flake /path/to/dot-files/nix#elaine
 ```
 
 ## Activating Additional Services
@@ -76,14 +77,18 @@ The configuration is minimal by default. Uncomment modules in `configuration.nix
 **Android Development:**
 - Uncomment `../../modules/dev/android.nix`
 
+**Firefox Sync:**
+- Uncomment `../../modules/network/sync.nix`
+- See module header for full setup instructions (requires kramer server to be deployed first)
+
 ## After Changes
 
 ```bash
 # Rebuild the system
-sudo nixos-rebuild switch --flake .#kramer
+sudo nixos-rebuild switch --flake .#elaine
 
 # Or remotely via SSH:
-nixos-rebuild switch --flake .#kramer --target-host char@kramer --use-remote-sudo
+nixos-rebuild switch --flake .#elaine --target-host char@elaine --use-remote-sudo
 ```
 
 ## Current State

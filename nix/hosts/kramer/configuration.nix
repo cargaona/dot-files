@@ -4,44 +4,28 @@
 
 {
   imports = [
-    # Minimal configuration for initial boot and SSH access
+    # Include home-manager configuration and other modular settings
+    # <home-manager/nixos>
     ../../modules/system/host-options.nix
-    ../../packages/common.nix
+    ../../modules/desktop/fonts.nix
+    ../../modules/desktop/input.nix
+    ../../modules/hardware/audio.nix
+    ../../modules/hardware/nvidia.nix
+    ../../modules/hardware/power.nix
+    ../../modules/kubernetes/k3s.nix
+    ../../modules/immich/immich.nix
     ../../modules/network/ssh.nix
+    # ../../modules/llm/ollama.nix
+    ../../modules/virtualization/docker.nix
+    ../../modules/virtualization/server.nix
+    ../../packages/common.nix
     ../../users/char.nix
     /etc/nixos/hardware-configuration.nix
-
-    # Desktop environment modules - uncomment when ready
-    # ../../modules/desktop/fonts.nix
-    # ../../modules/desktop/cosmic.nix
-    # ../../modules/desktop/hyprland.nix
-    # ../../modules/desktop/input.nix
-
-    # Hardware modules - uncomment when ready
-    # ../../modules/hardware/audio.nix
-    # ../../modules/hardware/nvidia.nix
-    # ../../modules/hardware/power.nix
-    # ../../modules/hardware/kindle.nix
-
-    # Service modules - uncomment when ready
-    # ../../modules/llm/ollama.nix
-    # ../../modules/virtualization/docker.nix
-    # ../../modules/dev/android.nix
   ];
 
   # Host-specific configuration
-  host.isDesktop = true;
+  host.isDesktop = false;
 
-  # LLM configuration - uncomment when ready
-  # services.llm.ollama = {
-  #   enable = true;
-  #   acceleration = "cuda";
-  #   host = "0.0.0.0";
-  #   port = 11434;
-  #   gpuOverhead = "1000000000";
-  # };
-
-  # Minimal home-manager configuration
   home-manager.users.char =
     {
       pkgs,
@@ -54,7 +38,6 @@
       ];
     };
 
-  # Nix configuration
   nix.gc.automatic = true;
   nix.gc.dates = "weekly";
   nix.gc.options = "--delete-older-than 7d";
@@ -62,20 +45,45 @@
     "nix-command"
     "flakes"
   ];
-
+  # programs.lxqt-policykit.enable = true;  # Not available in NixOS 25.05
+  # programs.polkit-kde-agent.enable = true;
   # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Networking Configuration
-  networking.hostName = "kramer";
+  networking.hostName = "kramer"; # Define your hostname
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [
-    # Add ports as needed
+    11434 # # ollama
+    2283 # immich
+    4040 # # openwebui
+    4443
+    6767 # bazarr
+    7070
+    8080
+    8096
+    8888
+    8112
+    9998 # # tika
   ];
+
   networking.firewall.allowedUDPPorts = [
-    # Add ports as needed
+    1244
+    1245
+    1246
+    1247
+  ];
+
+  # Firefox sync hub storage directories.
+  # kramer acts as the central hub for Firefox profile sync between constanza and elaine.
+  # Desktops push to /backup/firefox/<hostname>/ and pull from each other's dirs.
+  # See modules/network/sync.nix for the full setup and how to enable it on desktops.
+  systemd.tmpfiles.rules = [
+    "d /backup/firefox            0755 char users -"
+    "d /backup/firefox/constanza  0755 char users -"
+    "d /backup/firefox/elaine     0755 char users -"
   ];
 
   # Time Zone Configuration
@@ -85,8 +93,8 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # System State Version
-  system.stateVersion = "25.11";
+  system.stateVersion = "25.11"; # Did you read the comment?
 
-  # Allow Unfree Packages
+  # Allow Unfree Packages (like Spotify, Steam)
   nixpkgs.config.allowUnfree = true;
 }

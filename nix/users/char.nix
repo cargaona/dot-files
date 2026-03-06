@@ -22,6 +22,7 @@
   # Firefox configuration moved to packages/common.nix for cross-platform compatibility
   # User-specific Firefox profiles and extensions can be configured here if needed
 
+  programs.zsh.enable = true;
   # Default user shell (Zsh)
   users.defaultUserShell = pkgs.zsh;
 
@@ -35,15 +36,6 @@
   };
 
   services.udev.packages = [ pkgs.yubikey-personalization ];
-
-  programs.ssh.extraConfig = ''
-    ForwardAgent yes
-  '';
-
-  programs.git.config = {
-    user.name = "nq";
-    user.email = "nq@nq.io";
-  };
 
   # --- Services ---
   services.dbus.enable = true;

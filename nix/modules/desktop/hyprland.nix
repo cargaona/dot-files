@@ -3,7 +3,6 @@
   pkgs,
   config,
   unstable,
-  hyprland,
   ...
 }:
 {
@@ -86,7 +85,7 @@
 
   programs.hyprland = {
     enable = true;
-    package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    package = unstable.hyprland;
     withUWSM = true;
     xwayland.enable = true;
   };
@@ -100,7 +99,7 @@
 
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      # xdg-desktop-portal-hyprland is provided by hyprland.nixosModules.default
+      # xdg-desktop-portal-hyprland is provided by programs.hyprland (nixpkgs module)
     ];
   };
 
