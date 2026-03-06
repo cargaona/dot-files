@@ -153,6 +153,17 @@ in
     force = true;
   };
 
+  programs.gpg = {
+    enable = true;
+    mutableTrust = true;
+    publicKeys = [
+      {
+        source = ../gpg-key/charlie-gpg-public.asc;
+        trust = 5;
+      }
+    ];
+  };
+
   programs.git = {
     enable = true;
     settings = {
