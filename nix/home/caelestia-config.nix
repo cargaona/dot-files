@@ -555,8 +555,8 @@
 
   services = {
     weatherLocation = "";
-    useFahrenheit = true;
-    useFahrenheitPerformance = true;
+    useFahrenheit = false;
+    useFahrenheitPerformance = false;
     useTwelveHourClock = true;
     gpuType = "";
     visualiserBars = 45;

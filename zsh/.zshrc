@@ -152,11 +152,9 @@ _set_path
 kubeoff
 
 if _is_mac ; then
-  echo "Hi :wave: I'm a mac computer. I'm inferior"
   alias copy=pbcopy
   _mac_gpg
 else
-  echo "Hi :wave: I'm a linux computer. I'm superior"
   #_linux_gpg
   #_remove_duplicates_from_path
   alias copy='copyq copy -'
