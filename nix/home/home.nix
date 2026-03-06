@@ -227,5 +227,127 @@ in
     force = true;
   };
 
+  # Brave PWA-style desktop entries
+  xdg.desktopEntries = lib.mkIf isLinux {
+    gemini = {
+      name = "Gemini";
+      genericName = "AI Assistant";
+      exec = "brave --app=https://gemini.google.com";
+      terminal = false;
+      icon = "brave";
+      type = "Application";
+      categories = [
+        "Network"
+        "WebBrowser"
+      ];
+    };
+    chatgpt = {
+      name = "ChatGPT";
+      genericName = "AI Assistant";
+      exec = "brave --app=https://chat.openai.com";
+      terminal = false;
+      icon = "brave";
+      type = "Application";
+      categories = [
+        "Network"
+        "WebBrowser"
+      ];
+    };
+    feed = {
+      name = "Feed";
+      genericName = "RSS Reader";
+      exec = "brave --app=https://feed.charlei.lat";
+      terminal = false;
+      icon = "brave";
+      type = "Application";
+      categories = [
+        "Network"
+        "News"
+      ];
+    };
+    homeassistant = {
+      name = "Home Assistant";
+      genericName = "Smart Home";
+      exec = "brave --app=https://ha.charlei.lat";
+      terminal = false;
+      icon = "brave";
+      type = "Application";
+      categories = [
+        "Network"
+        "Utility"
+      ];
+    };
+    whatsapp = {
+      name = "WhatsApp";
+      genericName = "Messaging";
+      exec = "brave --app=https://web.whatsapp.com";
+      terminal = false;
+      icon = "brave";
+      type = "Application";
+      categories = [
+        "Network"
+        "InstantMessaging"
+      ];
+    };
+    notebooklm = {
+      name = "NotebookLM";
+      genericName = "AI Notes";
+      exec = "brave --app=https://notebooklm.google.com";
+      terminal = false;
+      icon = "brave";
+      type = "Application";
+      categories = [
+        "Network"
+        "Office"
+      ];
+    };
+    grok = {
+      name = "Grok";
+      genericName = "AI Assistant";
+      exec = "brave --app=https://x.com/i/grok";
+      terminal = false;
+      icon = "brave";
+      type = "Application";
+      categories = [
+        "Network"
+        "WebBrowser"
+      ];
+    };
+    gmail = {
+      name = "Gmail";
+      genericName = "Email";
+      exec = "brave --app=https://mail.google.com";
+      terminal = false;
+      icon = "brave";
+      type = "Application";
+      categories = [
+        "Network"
+        "Email"
+      ];
+    };
+    notion-calendar = {
+      name = "Notion Calendar";
+      genericName = "Calendar";
+      exec = "brave --app=https://calendar.notion.com";
+      terminal = false;
+      icon = "brave";
+      type = "Application";
+      categories = [
+        "Network"
+        "Office"
+        "Calendar"
+      ];
+    };
+  };
+
+  # Brave browser preferences - disable password manager
+  xdg.configFile."BraveSoftware/Brave-Browser/NativeMessagingHosts/.keep".text = lib.mkIf isLinux "";
+  xdg.configFile."brave-flags.conf" = lib.mkIf isLinux {
+    text = ''
+      --password-store=basic
+      --disable-features=PasswordManager
+    '';
+  };
+
   home.stateVersion = "25.11";
 }
