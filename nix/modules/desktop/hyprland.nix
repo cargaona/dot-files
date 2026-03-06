@@ -21,7 +21,6 @@
       hyprlock
       hypridle
       hyprpicker
-      swww
       nwg-look
       xcur2png
       wev
@@ -38,10 +37,6 @@
     ++ (with unstable; [
       # Unstable packages for newer features
     ]);
-
-  systemd.user.services.hyprpaper = {
-    enable = true;
-  };
 
   environment.localBinInPath = true;
 

@@ -310,7 +310,7 @@
         ];
         dangerous = false;
         description = "Change the current wallpaper";
-        enabled = true;
+        enabled = false;
         icon = "image";
         name = "Wallpaper";
       }
@@ -344,7 +344,7 @@
         ];
         dangerous = false;
         description = "Switch to a random wallpaper";
-        enabled = true;
+        enabled = false;
         icon = "casino";
         name = "Random";
       }
@@ -574,7 +574,6 @@
   };
 
   paths = {
-    wallpaperDir = "${homeDir}/docs/images/";
     sessionGif = "root:/assets/kurukuru.gif";
     mediaGif = "root:/assets/bongocat.gif";
   };

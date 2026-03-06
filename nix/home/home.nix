@@ -185,5 +185,47 @@ in
     matchBlocks."*".forwardAgent = true;
   };
 
+  # OpenCode configuration
+  xdg.configFile."opencode/opencode.jsonc" = {
+    text = builtins.toJSON {
+      "$schema" = "https://opencode.ai/config.json";
+      plugin = [
+        "opencode-anthropic-auth@latest"
+      ];
+      provider = {
+        ollama = {
+          npm = "@ai-sdk/openai-compatible";
+          name = "Ollama (local)";
+          options = {
+            baseURL = "http://localhost:11434/v1";
+          };
+          models = {
+            "qwen2.5-coder:7b" = {
+              name = "qwen2.5";
+              options = {
+                toolCallStreaming = false;
+                structuredOutputs = false;
+              };
+            };
+            "qwen3:8b" = {
+              name = "qwen3";
+            };
+            "deepseek-r1:7b" = {
+              name = "deepseek-r1";
+            };
+            "llama3.2:3b" = {
+              name = "llama3.2";
+            };
+            "qwen3-coder:30b" = {
+              name = "qwen3-coder";
+            };
+          };
+        };
+      };
+    };
+    # Force overwrite to ensure Nix manages this file
+    force = true;
+  };
+
   home.stateVersion = "25.11";
 }
