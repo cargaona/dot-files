@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Cycle through available Hyprland layouts with auto-detection
-# Supports: master, dwindle, and scroller (if plugin is installed)
+# Supports: master, dwindle, scrolling (built-in), and scroller (if plugin is installed)
 
 # Get current layout (handle case when Hyprland isn't running)
 current_layout=$(hyprctl getoption general:layout -j 2>/dev/null | jq -r '.str' 2>/dev/null || echo "master")
@@ -13,9 +13,9 @@ fi
 
 # Define available layouts based on what's installed
 if [[ "$scroller_available" == true ]]; then
-    layouts=("master" "dwindle" "scroller")
+    layouts=("master" "dwindle" "scrolling" "scroller")
 else
-    layouts=("master" "dwindle")
+    layouts=("master" "dwindle" "scrolling")
 fi
 
 # Find current layout index
@@ -44,4 +44,4 @@ if command -v notify-send >/dev/null 2>&1; then
     notify-send "Layout switched" "Now using: $next_layout" -t 2000 -u low
 fi
 
-echo "Layout switched from $current_layout to $next_layout"
+echo "Layout switched from ${current_layout:-unknown} to $next_layout"
