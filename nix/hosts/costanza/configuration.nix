@@ -1,6 +1,7 @@
 {
   # config,
   caelestia-shell,
+  ambxst,
   ...
 }:
 
@@ -27,6 +28,7 @@
     # ../../modules/network/sync.nix
     ../../modules/virtualization/docker.nix
     ../../modules/llm/ollama.nix
+    ambxst.nixosModules.default
     ../../users/char.nix
     /etc/nixos/hardware-configuration.nix
   ];
@@ -90,7 +92,7 @@
   '';
 
   # Networking Configuration
-  networking.hostName = "constanza"; # Define your hostname
+  networking.hostName = "costanza"; # Define your hostname
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [
     8112

@@ -77,12 +77,12 @@
   ];
 
   # Firefox sync hub storage directories.
-  # kramer acts as the central hub for Firefox profile sync between constanza and elaine.
+  # kramer acts as the central hub for Firefox profile sync between costanza and elaine.
   # Desktops push to /backup/firefox/<hostname>/ and pull from each other's dirs.
   # See modules/network/sync.nix for the full setup and how to enable it on desktops.
   systemd.tmpfiles.rules = [
     "d /backup/firefox            0755 char users -"
-    "d /backup/firefox/constanza  0755 char users -"
+    "d /backup/firefox/costanza  0755 char users -"
     "d /backup/firefox/elaine     0755 char users -"
   ];
 

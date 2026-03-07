@@ -338,6 +338,18 @@ in
         "Calendar"
       ];
     };
+    photos = {
+      name = "Photos";
+      genericName = "Photo Gallery";
+      exec = "brave --app=https://photos.charlei.lat";
+      terminal = false;
+      icon = "brave";
+      type = "Application";
+      categories = [
+        "Network"
+        "Graphics"
+      ];
+    };
   };
 
   # Brave browser preferences - disable password manager

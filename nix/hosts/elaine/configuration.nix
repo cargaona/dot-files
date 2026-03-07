@@ -1,5 +1,6 @@
 {
   caelestia-shell,
+  ambxst,
   ...
 }:
 
@@ -32,6 +33,7 @@
     # ../../modules/network/sync.nix
     ../../modules/virtualization/docker.nix
     # ../../modules/dev/android.nix
+    ambxst.nixosModules.default
   ];
 
   # Host-specific configuration

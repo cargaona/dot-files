@@ -27,7 +27,6 @@ in
       vlc
 
       # Communication
-      discord
       slack
       telegram-desktop
 

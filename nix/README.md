@@ -5,7 +5,7 @@ A comprehensive NixOS configuration repository for managing multiple hosts with 
 ## Overview
 
 This repository contains a sophisticated NixOS configuration that manages:
-- **Multiple hosts** (constanza, elaine, kramer) with specialized configurations
+- **Multiple hosts** (costanza, elaine, kramer) with specialized configurations
 - **Modular services** for audio, docker, networking, and power management
 - **Cross-platform dotfiles** using Home Manager
 - **Wayland desktop environment** with Hyprland window manager
@@ -18,7 +18,7 @@ nix/
 ├── flake.nix              # Main flake configuration
 ├── flake.lock             # Dependency lock file
 ├── hosts/                 # Host-specific configurations
-│   ├── constanza/         # Primary desktop (DeepCool CH170)
+│   ├── costanza/         # Primary desktop (DeepCool CH170)
 │   ├── elaine/            # Secondary desktop (Dan A4 SFX)
 │   └── kramer/            # Home server (NR200)
 ├── modules/               # Reusable NixOS modules by domain
@@ -51,7 +51,7 @@ nix/
 ## Features
 
 ### Multi-Host Support
-- **constanza**: Primary desktop (DeepCool CH170) — Hyprland, NVIDIA, Ollama, Caelestia shell
+- **costanza**: Primary desktop (DeepCool CH170) — Hyprland, NVIDIA, Ollama, Caelestia shell
 - **elaine**: Secondary desktop (Dan A4 SFX) — Hyprland, NVIDIA, Caelestia shell
 - **kramer**: Home server (NR200) — k3s, Immich, Docker
 
@@ -97,8 +97,8 @@ echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
 
 3. **Build and switch to configuration**:
 ```bash
-# For constanza (primary desktop)
-sudo nixos-rebuild switch --flake .#constanza
+# For costanza (primary desktop)
+sudo nixos-rebuild switch --flake .#costanza
 
 # For elaine (secondary desktop)
 sudo nixos-rebuild switch --flake .#elaine
@@ -193,10 +193,10 @@ Modify host files in `hosts/<hostname>/configuration.nix`:
 nix flake check
 
 # Show derivation
-  nix show-derivation .#nixosConfigurations.constanza.config.system.build.toplevel
+  nix show-derivation .#nixosConfigurations.costanza.config.system.build.toplevel
 
 # Debug build process
-  nixos-rebuild switch --flake .#constanza --show-trace
+  nixos-rebuild switch --flake .#costanza --show-trace
 ```
 
 ## Advanced Configuration

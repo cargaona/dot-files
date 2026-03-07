@@ -7,6 +7,7 @@
     darwin.url = "github:LnL7/nix-darwin";
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     caelestia-shell.url = "github:caelestia-dots/shell";
+    ambxst.url = "github:Axenide/Ambxst";
     dmx.url = "github:cargaona/dmx";
     mpris-inhibit.url = "github:/Bwc9876/wayland-mpris-idle-inhibit";
     # isolation.url = "path:/home/char/projects/personal/code/isolation";
@@ -19,15 +20,16 @@
       darwin,
       home-manager,
       caelestia-shell,
+      ambxst,
       dmx,
       mpris-inhibit,
       ...
     }:
     {
       nixosConfigurations = {
-        "constanza" = nixpkgs.lib.nixosSystem {
+        "costanza" = nixpkgs.lib.nixosSystem {
           modules = [
-            ./hosts/constanza/configuration.nix
+            ./hosts/costanza/configuration.nix
             home-manager.nixosModules.home-manager
           ];
           specialArgs = {
@@ -36,6 +38,7 @@
             inherit
               home-manager
               caelestia-shell
+              ambxst
               dmx
               mpris-inhibit
               ;
@@ -65,7 +68,7 @@
           ];
           specialArgs = {
             inherit home-manager dmx;
-            inherit caelestia-shell mpris-inhibit;
+            inherit caelestia-shell ambxst mpris-inhibit;
             unstable = import nixpkgs-unstable {
               system = "x86_64-linux";
               config.allowUnfree = true;

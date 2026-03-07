@@ -20,9 +20,9 @@
 #   extension-data/        (extension storage, e.g. uBlock filter lists)
 #
 # HOW TO ENABLE:
-#   1. Deploy kramer first — systemd.tmpfiles creates /backup/firefox/{constanza,elaine}/
+#   1. Deploy kramer first — systemd.tmpfiles creates /backup/firefox/{costanza,elaine}/
 #   2. Uncomment the sync.nix import in:
-#        hosts/constanza/configuration.nix
+#        hosts/costanza/configuration.nix
 #        hosts/elaine/configuration.nix
 #   3. Rebuild both desktops: sudo nixos-rebuild switch
 #   4. (First time) Copy your existing places.sqlite into one desktop's Firefox
