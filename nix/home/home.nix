@@ -7,6 +7,34 @@ let
   # Platform-specific paths
   homeDir = if isDarwin then "/Users/char" else "/home/char";
   projectDir = "${homeDir}/projects/personal/code";
+
+  # Define the drop2beets package
+  drop2beets = pkgs.python3Packages.buildPythonPackage rec {
+    pname = "drop2beets";
+    version = "2.1.0";
+    pyproject = true;
+    src = pkgs.python3Packages.fetchPypi {
+      inherit pname version;
+      sha256 = "sha256-PK0U4doAHlvwHBDyf8M76CsMQov6X5Eim/U0jv16oV0=";
+    };
+    build-system = with pkgs.python3Packages; [
+      poetry-core
+    ];
+    doCheck = false;
+    propagatedBuildInputs = with pkgs.python3Packages; [
+      watchdog
+    ];
+  };
+
+  # Wrap beets so it includes the plugin
+  beetsWithPlugins = pkgs.beets.override {
+    pluginOverrides = {
+      drop2beets = {
+        enable = true;
+        propagatedBuildInputs = [ drop2beets ];
+      };
+    };
+  };
 in
 {
   programs.home-manager.enable = true;
@@ -27,6 +55,52 @@ in
     "/home/char/projects/personal/code/dot-files/scripts"
   ];
 
+  programs.beets = {
+    enable = true;
+    package = beetsWithPlugins;
+    settings = {
+      directory = "/mnt/seagate/music/";
+      move = true;
+      delete = true;
+      asciify_path = true;
+
+      plugins = [
+        "missing"
+        "web"
+        "fetchart"
+        "embedart"
+        "duplicates"
+        "musicbrainz"
+        "drop2beets"
+      ];
+
+      paths = {
+        "albumtype:ep" = "$albumartist/$album [EP] ($original_year)/$track - $title";
+        "albumtype:single" = "$albumartist/$album [Single] ($original_year)/$track - $title";
+        default = "$albumartist/$album ($original_year)/$track - $title";
+      };
+
+      drop2beets = {
+        debounce_window = 60;
+        dropbox_paths = {
+          default = "/mnt/nvme/tlmsc/staging/";
+        };
+      };
+
+      fetchart = {
+        quality = 65;
+        sources = "coverart itunes amazon fanarttv";
+        store_source = true;
+        auto = true;
+        maxwidth = 300;
+      };
+
+      embedart = {
+        auto = true;
+        maxwidth = 300;
+      };
+    };
+  };
   # Password store (Linux only for now, uses wayland extensions)
   programs.password-store = lib.mkIf isLinux {
     enable = true;
@@ -104,14 +178,7 @@ in
     #   target = ".config/waybar";
     #   source = "${projectDir}/dot-files/waybar";
     # };
-  }
-  // lib.optionalAttrs isDarwin {
-    # macOS-specific dotfiles
-    aerospace = {
-      recursive = true;
-      target = ".config/aerospace/";
-      source = "${projectDir}/dot-files/aerospace";
-    };
+    # }
   };
 
   # Linux-specific dconf settings

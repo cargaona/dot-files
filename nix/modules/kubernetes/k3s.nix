@@ -28,8 +28,56 @@
     "--tls-san=192.168.88.253"
     "--write-kubeconfig-mode 644"
     "--container-runtime-endpoint unix:///run/containerd/containerd.sock"
+    "--disable servicelb"
   ];
   systemd.services.k3s.after = [ "containerd.service" ];
+
+  services.k3s.autoDeployCharts.metallb = {
+    name = "metallb";
+    repo = "https://metallb.github.io/metallb";
+    version = "0.15.3";
+    hash = "sha256-J9t2HFrSUl/RMMkv4vLUUA+IcOQC/v48nLjTTYpxpww=";
+    targetNamespace = "metallb-system";
+    createNamespace = true;
+
+    extraDeploy = [
+      {
+        apiVersion = "metallb.io/v1beta1";
+        kind = "IPAddressPool";
+        metadata = {
+          name = "k3s-pool";
+          namespace = "metallb-system";
+        };
+        spec = {
+          addresses = [ "192.168.200.100-192.168.200.101" ];
+        };
+      }
+      {
+        apiVersion = "metallb.io/v1beta1";
+        kind = "BGPAdvertisement";
+        metadata = {
+          name = "k3s-bgp-advertisment";
+          namespace = "metallb-system";
+        };
+        spec = {
+          ipAddressPools = [ "k3s-pool" ];
+        };
+      }
+      {
+        apiVersion = "metallb.io/v1beta1";
+        kind = "BGPPeer";
+        metadata = {
+          name = "k3s-bgp-peer";
+          namespace = "metallb-system";
+        };
+        spec = {
+          peerAddress = "192.168.88.1";
+          peerASN = 64513;
+          myASN = 64514;
+        };
+      }
+    ];
+  };
 
   environment.variables = {
     KUBECONFIG = "/etc/rancher/k3s/k3s.yaml";

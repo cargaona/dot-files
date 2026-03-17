@@ -60,6 +60,7 @@
     7070 # yarr development from vpn
     8443
     24800 # deskflow
+    11434
   ];
   networking.firewall.allowedUDPPorts = [
     2666 # add this for sensor fusion

@@ -20,7 +20,6 @@ let
       mongodb-compass
       clementine
       stremio
-      beets
       vesktop
       obs-studio
       obsidian
@@ -39,6 +38,7 @@ let
       awscli
       bash-language-server
       bc
+      # beets
       black # Python code formatter
       brave
       brightnessctl
@@ -106,6 +106,7 @@ let
       pyright
       python3
       python312Packages.pip
+      # python312Packages.drop2beets
       ripgrep
       rockbox-utility
       rofi-wayland

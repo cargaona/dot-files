@@ -23,6 +23,8 @@
     /etc/nixos/hardware-configuration.nix
   ];
 
+  home-manager.users.char = import ../../home/home.nix;
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -38,10 +40,10 @@
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [
     11434 # # ollama
-    2283 # immich 
+    2283 # immich
     4040 # # openwebui
     4443
-    6767 #bazarr
+    6767 # bazarr
     7070
     8080
     8096

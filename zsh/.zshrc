@@ -21,7 +21,7 @@ function _set_alias () {
   alias cd..="cd .."
   alias .z="source ~/.zshrc"
   alias grip="history | grep"
-  alias hiz="history | cut -c 8- | uniq | fzf | copy"
+  alias hiz="history | cut -c 8- | uniq | fzf | wl-copy"
   alias cf='_change_folder'
   alias aiterm='/home/char/projects/personal/code/dot-files/scripts/aiterm'
   #alias copy='xclip -sel clip'
