@@ -2,6 +2,7 @@
   "nodes": {
     "ambxst": {
       "inputs": {
+<<<<<<< Updated upstream
         "axctl": "axctl",
         "nixpkgs": "nixpkgs",
         "quickshell": "quickshell"
@@ -113,16 +114,28 @@
         "owner": "ipetkov",
         "repo": "crane",
         "rev": "db590d9286ed5ce22017541e36132eab4e8b3045",
+=======
+        "nixpkgs": "nixpkgs",
+        "quickshell": "quickshell"
+      },
+      "locked": {
+        "lastModified": 1771072201,
+        "narHash": "sha256-SONu9NiNr0gaLC6rMt3x5x1L6DwSUuGJesizS7Ej2eo=",
+        "owner": "Axenide",
+        "repo": "Ambxst",
+        "rev": "59edec9a0430eb2f679697f4a817a1f44ffcfb8b",
+>>>>>>> Stashed changes
         "type": "github"
       },
       "original": {
-        "owner": "ipetkov",
-        "repo": "crane",
+        "owner": "Axenide",
+        "repo": "Ambxst",
         "type": "github"
       }
     },
-    "darwin": {
+    "caelestia-cli": {
       "inputs": {
+<<<<<<< Updated upstream
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
@@ -131,18 +144,74 @@
         "owner": "LnL7",
         "repo": "nix-darwin",
         "rev": "da529ac9e46f25ed5616fd634079a5f3c579135f",
+=======
+        "caelestia-shell": [
+          "caelestia-shell"
+        ],
+        "nixpkgs": [
+          "caelestia-shell",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1771987897,
+        "narHash": "sha256-5pNQFGxG3fxS9pGnNBJjT76veotKIKq2XpAVFGAhCdI=",
+        "owner": "caelestia-dots",
+        "repo": "cli",
+        "rev": "b0d68f0a1c48fa138d6fde94dcbecea801a86a01",
+>>>>>>> Stashed changes
         "type": "github"
       },
       "original": {
-        "owner": "LnL7",
-        "repo": "nix-darwin",
+        "owner": "caelestia-dots",
+        "repo": "cli",
+        "type": "github"
+      }
+    },
+    "caelestia-shell": {
+      "inputs": {
+        "caelestia-cli": "caelestia-cli",
+        "nixpkgs": "nixpkgs_2",
+        "quickshell": "quickshell_2"
+      },
+      "locked": {
+        "lastModified": 1772330657,
+        "narHash": "sha256-cWblprYsDUeAWA57xAqxIjNxXvDI/rqYn6TFp2OPi/k=",
+        "owner": "caelestia-dots",
+        "repo": "shell",
+        "rev": "278fd4a4ed1bfb42c3fe197ff38b587539c012aa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "caelestia-dots",
+        "repo": "shell",
+        "type": "github"
+      }
+    },
+    "crane": {
+      "locked": {
+        "lastModified": 1772560058,
+        "narHash": "sha256-NuVKdMBJldwUXgghYpzIWJdfeB7ccsu1CC7B+NfSoZ8=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "db590d9286ed5ce22017541e36132eab4e8b3045",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
         "type": "github"
       }
     },
     "dmx": {
       "inputs": {
+<<<<<<< Updated upstream
         "flake-utils": "flake-utils_2",
         "nixpkgs": "nixpkgs_4"
+=======
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs_3"
+>>>>>>> Stashed changes
       },
       "locked": {
         "lastModified": 1753386467,
@@ -235,6 +304,7 @@
     },
     "home-manager": {
       "inputs": {
+<<<<<<< Updated upstream
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
@@ -265,10 +335,21 @@
         "owner": "nix-community",
         "repo": "home-manager",
         "rev": "cd6e96d56ed4b2a779ac73a1227e0bb1519b3509",
+=======
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1772633058,
+        "narHash": "sha256-SO7JapRy2HPhgmqiLbfnW1kMx5rakPMKZ9z3wtRLQjI=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "080657a04188aca25f8a6c70a0fb2ea7e37f1865",
+>>>>>>> Stashed changes
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
+        "ref": "release-25.11",
         "repo": "home-manager",
         "type": "github"
       }
@@ -277,7 +358,11 @@
       "inputs": {
         "crane": "crane",
         "flakelight": "flakelight",
+<<<<<<< Updated upstream
         "nixpkgs": "nixpkgs_6"
+=======
+        "nixpkgs": "nixpkgs_5"
+>>>>>>> Stashed changes
       },
       "locked": {
         "lastModified": 1772734035,
@@ -334,6 +419,7 @@
     },
     "nixpkgs": {
       "locked": {
+<<<<<<< Updated upstream
         "lastModified": 1773646010,
         "narHash": "sha256-iYrs97hS7p5u4lQzuNWzuALGIOdkPXvjz7bviiBjUu8=",
         "owner": "NixOS",
@@ -399,19 +485,63 @@
       "locked": {
         "lastModified": 1765934234,
         "narHash": "sha256-pJjWUzNnjbIAMIc5gRFUuKCDQ9S1cuh3b2hKgA7Mc4A=",
+=======
+        "lastModified": 1766902085,
+        "narHash": "sha256-coBu0ONtFzlwwVBzmjacUQwj3G+lybcZ1oeNSQkgC0M=",
+>>>>>>> Stashed changes
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "af84f9d270d404c17699522fab95bbf928a2d92f",
+        "rev": "c0b0e0fddf73fd517c3471e546c0df87a42d53f4",
         "type": "github"
       },
       "original": {
+<<<<<<< Updated upstream
         "owner": "NixOS",
         "ref": "nixpkgs-unstable",
+=======
+        "id": "nixpkgs",
+        "ref": "nixos-unstable",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1772624091,
+        "narHash": "sha256-QKyJ0QGWBn6r0invrMAK8dmJoBYWoOWy7lN+UHzW1jc=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "80bdc1e5ce51f56b19791b52b2901187931f5353",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+>>>>>>> Stashed changes
         "repo": "nixpkgs",
         "type": "github"
       }
     },
+<<<<<<< Updated upstream
     "nixpkgs_4": {
+=======
+    "nixpkgs_2": {
+>>>>>>> Stashed changes
+      "locked": {
+        "lastModified": 1772198003,
+        "narHash": "sha256-I45esRSssFtJ8p/gLHUZ1OUaaTaVLluNkABkk6arQwE=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "dd9b079222d43e1943b6ebd802f04fd959dc8e61",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1735563628,
         "narHash": "sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8=",
@@ -427,6 +557,7 @@
         "type": "github"
       }
     },
+<<<<<<< Updated upstream
     "nixpkgs_5": {
       "locked": {
         "lastModified": 1773964973,
@@ -503,10 +634,59 @@
       "original": {
         "owner": "nixos",
         "ref": "nixos-25.11",
+=======
+    "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1772465433,
+        "narHash": "sha256-ywy9troNEfpgh0Ee+zaV1UTgU8kYBVKtvPSxh6clYGU=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c581273b8d5bdf1c6ce7e0a54da9841e6a763913",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-25.11",
         "repo": "nixpkgs",
         "type": "github"
       }
     },
+    "nixpkgs_5": {
+      "locked": {
+        "lastModified": 1772624091,
+        "narHash": "sha256-QKyJ0QGWBn6r0invrMAK8dmJoBYWoOWy7lN+UHzW1jc=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "80bdc1e5ce51f56b19791b52b2901187931f5353",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+>>>>>>> Stashed changes
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+<<<<<<< Updated upstream
+=======
+    "nixpkgs_6": {
+      "locked": {
+        "lastModified": 1772598333,
+        "narHash": "sha256-YaHht/C35INEX3DeJQNWjNaTcPjYmBwwjFJ2jdtr+5U=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "fabb8c9deee281e50b1065002c9828f2cf7b2239",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-25.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+>>>>>>> Stashed changes
     "quickshell": {
       "inputs": {
         "nixpkgs": [
@@ -515,11 +695,19 @@
         ]
       },
       "locked": {
+<<<<<<< Updated upstream
         "lastModified": 1773648506,
         "narHash": "sha256-uVdqQIOzmMcHy1bUyF5NdZ3T5f1/5OVSNx3nIoXV6Os=",
         "ref": "refs/heads/master",
         "rev": "6705e2da778d216e81dbdc3764a3f50e89bfd87d",
         "revCount": 761,
+=======
+        "lastModified": 1766725085,
+        "narHash": "sha256-O2aMFdDUYJazFrlwL7aSIHbUSEm3ADVZjmf41uBJfHs=",
+        "ref": "refs/heads/master",
+        "rev": "41828c4180fb921df7992a5405f5ff05d2ac2fff",
+        "revCount": 715,
+>>>>>>> Stashed changes
         "type": "git",
         "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
       },
@@ -536,11 +724,19 @@
         ]
       },
       "locked": {
+<<<<<<< Updated upstream
         "lastModified": 1772925576,
         "narHash": "sha256-mMoiXABDtkSJxCYDrkhJ/TrrJf5M46oUfIlJvv2gkZ0=",
         "ref": "refs/heads/master",
         "rev": "15a84097653593dd15fad59a56befc2b7bdc270d",
         "revCount": 750,
+=======
+        "lastModified": 1771926182,
+        "narHash": "sha256-QbXuSLhiSxOq6ydBL3+KGe1aiYWBW+e3J6qjJZaRMq0=",
+        "ref": "refs/heads/master",
+        "rev": "cddb4f061bab495f4473ca5f2c571b6c710efef7",
+        "revCount": 744,
+>>>>>>> Stashed changes
         "type": "git",
         "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
       },
@@ -553,6 +749,7 @@
       "inputs": {
         "ambxst": "ambxst",
         "caelestia-shell": "caelestia-shell",
+<<<<<<< Updated upstream
         "claude-desktop": "claude-desktop",
         "darwin": "darwin",
         "dmx": "dmx",
@@ -561,6 +758,12 @@
         "nix-openclaw": "nix-openclaw",
         "nixpkgs": "nixpkgs_9",
         "nixpkgs-darwin": "nixpkgs-darwin",
+=======
+        "dmx": "dmx",
+        "home-manager": "home-manager",
+        "mpris-inhibit": "mpris-inhibit",
+        "nixpkgs": "nixpkgs_6",
+>>>>>>> Stashed changes
         "nixpkgs-unstable": "nixpkgs-unstable"
       }
     },

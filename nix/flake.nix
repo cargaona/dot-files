@@ -3,8 +3,11 @@
     # 1. add the urls of the flakes you want to use
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+<<<<<<< Updated upstream
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     darwin.url = "github:LnL7/nix-darwin";
+=======
+>>>>>>> Stashed changes
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     caelestia-shell.url = "github:caelestia-dots/shell";
     ambxst.url = "github:Axenide/Ambxst";
@@ -20,14 +23,20 @@
     {
       nixpkgs,
       nixpkgs-unstable,
+<<<<<<< Updated upstream
       darwin,
+=======
+>>>>>>> Stashed changes
       home-manager,
       caelestia-shell,
       ambxst,
       dmx,
       mpris-inhibit,
+<<<<<<< Updated upstream
       nix-openclaw,
       claude-desktop,
+=======
+>>>>>>> Stashed changes
       ...
     }:
     {
@@ -46,7 +55,10 @@
               ambxst
               dmx
               mpris-inhibit
+<<<<<<< Updated upstream
               claude-desktop
+=======
+>>>>>>> Stashed changes
               ;
             unstable = import nixpkgs-unstable {
               system = "x86_64-linux";
@@ -74,6 +86,7 @@
           ];
           specialArgs = {
             inherit home-manager dmx;
+<<<<<<< Updated upstream
             inherit
               caelestia-shell
               ambxst
@@ -94,6 +107,9 @@
           ];
           specialArgs = {
             inherit home-manager nix-openclaw;
+=======
+            inherit caelestia-shell ambxst mpris-inhibit;
+>>>>>>> Stashed changes
             unstable = import nixpkgs-unstable {
               system = "x86_64-linux";
               config.allowUnfree = true;

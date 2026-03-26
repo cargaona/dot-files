@@ -11,6 +11,7 @@
     # <home-manager/nixos>
     ../../modules/system/host-options.nix
     ../../packages/common.nix
+    ../../packages/llm.nix
     ../../modules/desktop/fonts.nix
     ../../modules/desktop/cosmic.nix
     ../../modules/desktop/hyprland.nix
@@ -47,6 +48,7 @@
 
   home-manager.extraSpecialArgs = {
     inherit caelestia-shell;
+    isDesktop = true;
   };
 
   home-manager.users.char =

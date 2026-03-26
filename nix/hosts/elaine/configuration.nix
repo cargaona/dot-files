@@ -9,6 +9,7 @@
     # Minimal configuration for initial boot and SSH access
     ../../modules/system/host-options.nix
     ../../packages/common.nix
+    ../../packages/llm.nix
     ../../modules/network/ssh.nix
     ../../users/char.nix
     /etc/nixos/hardware-configuration.nix
@@ -50,6 +51,7 @@
 
   home-manager.extraSpecialArgs = {
     inherit caelestia-shell;
+    isDesktop = true;
   };
 
   home-manager.users.char =

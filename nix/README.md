@@ -6,7 +6,10 @@ A comprehensive NixOS configuration repository for managing multiple hosts with 
 
 This repository contains a sophisticated NixOS configuration that manages:
 - **Multiple hosts** (costanza, elaine, kramer) with specialized configurations
+<<<<<<< Updated upstream
 - **OpenClaw VM** - Isolated AI assistant in a dedicated NixOS VM
+=======
+>>>>>>> Stashed changes
 - **Modular services** for audio, docker, networking, and power management
 - **Cross-platform dotfiles** using Home Manager
 - **Wayland desktop environment** with Hyprland window manager
@@ -21,8 +24,12 @@ nix/
 ├── hosts/                 # Host-specific configurations
 │   ├── costanza/         # Primary desktop (DeepCool CH170)
 │   ├── elaine/            # Secondary desktop (Dan A4 SFX)
+<<<<<<< Updated upstream
 │   ├── kramer/            # Home server (NR200)
 │   └── openclaw-vm/       # OpenClaw AI assistant VM
+=======
+│   └── kramer/            # Home server (NR200)
+>>>>>>> Stashed changes
 ├── modules/               # Reusable NixOS modules by domain
 │   ├── desktop/          # Desktop environment & UI
 │   │   ├── hyprland.nix

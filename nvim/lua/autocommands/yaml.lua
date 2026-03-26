@@ -1,1 +1,1 @@
-/nix/store/wq44b08zjnp1mc6jc2ki0r80pqv5b1s8-home-manager-files/.config/nvim/lua/autocommands/yaml.lua
+/nix/store/h48q9fi2vrlhj9anvvzh18fcymnnq1s4-home-manager-files/.config/nvim/lua/autocommands/yaml.lua

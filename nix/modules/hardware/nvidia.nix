@@ -1,8 +1,12 @@
 {
   config,
+  pkgs,
   ...
 }:
 {
+  # Pin kernel to 6.12 LTS to avoid NVIDIA driver build failures on kernel updates
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
+
   # Nvidia
   hardware.nvidia.open = true; # Recommended for Ampere (RTX 30) and newer since driver 515+
   hardware.nvidia.nvidiaSettings = true;
