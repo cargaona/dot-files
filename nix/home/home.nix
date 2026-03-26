@@ -9,34 +9,6 @@ let
   projectDir = "${homeDir}/projects/personal/code";
   isLinux = pkgs.stdenv.isLinux;
 
-  # Define the drop2beets package
-  drop2beets = pkgs.python3Packages.buildPythonPackage rec {
-    pname = "drop2beets";
-    version = "2.1.0";
-    pyproject = true;
-    src = pkgs.python3Packages.fetchPypi {
-      inherit pname version;
-      sha256 = "sha256-PK0U4doAHlvwHBDyf8M76CsMQov6X5Eim/U0jv16oV0=";
-    };
-    build-system = with pkgs.python3Packages; [
-      poetry-core
-    ];
-    doCheck = false;
-    propagatedBuildInputs = with pkgs.python3Packages; [
-      watchdog
-    ];
-  };
-
-  # Wrap beets so it includes the drop2beets plugin
-  # In nixpkgs 25.11, pluginOverrides moved to python3Packages.beets
-  beetsWithPlugins = pkgs.python3Packages.beets.override {
-    pluginOverrides = {
-      drop2beets = {
-        enable = true;
-        propagatedBuildInputs = [ drop2beets ];
-      };
-    };
-  };
 in
 {
   # Caelestia shell configuration (desktop Linux only)
@@ -88,9 +60,9 @@ in
     "${projectDir}/dot-files/scripts"
   ];
 
-  programs.beets = {
+  programs.beets = lib.mkIf (!isDesktop) {
     enable = true;
-    package = beetsWithPlugins;
+    package = pkgs.python3Packages.beets;
     settings = {
       directory = "/mnt/seagate/music/";
       library = "/mnt/seagate/music/library.db";
@@ -105,20 +77,12 @@ in
         "embedart"
         "duplicates"
         "musicbrainz"
-        "drop2beets"
       ];
 
       paths = {
         "albumtype:ep" = "$albumartist/$album [EP] ($original_year)/$track - $title";
         "albumtype:single" = "$albumartist/$album [Single] ($original_year)/$track - $title";
         default = "$albumartist/$album ($original_year)/$track - $title";
-      };
-
-      drop2beets = {
-        debounce_window = 60;
-        dropbox_paths = {
-          default = "/mnt/nvme/tlmsc/staging/";
-        };
       };
 
       fetchart = {
@@ -483,16 +447,6 @@ in
         "Office"
       ];
     };
-  };
-
-  # Brave browser preferences - disable password manager
-  xdg.configFile."BraveSoftware/Brave-Browser/NativeMessagingHosts/.keep".text = lib.mkIf isLinux "";
-  xdg.configFile."brave-flags.conf" = lib.mkIf isLinux {
-    text = ''
-      --password-store=basic
-      --disable-features=PasswordManager
-      --enable-features=OverlayScrollbar
-    '';
   };
 
   home.stateVersion = "25.11";
