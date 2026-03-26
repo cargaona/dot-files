@@ -10,6 +10,9 @@
     ambxst.url = "github:Axenide/Ambxst";
     dmx.url = "github:cargaona/dmx";
     mpris-inhibit.url = "github:/Bwc9876/wayland-mpris-idle-inhibit";
+    nix-openclaw.url = "github:openclaw/nix-openclaw";
+    claude-desktop.url = "github:k3d3/claude-desktop-linux-flake";
+    claude-desktop.inputs.nixpkgs.follows = "nixpkgs";
     # isolation.url = "path:/home/char/projects/personal/code/isolation";
   };
   outputs =
@@ -23,6 +26,8 @@
       ambxst,
       dmx,
       mpris-inhibit,
+      nix-openclaw,
+      claude-desktop,
       ...
     }:
     {
@@ -41,6 +46,7 @@
               ambxst
               dmx
               mpris-inhibit
+              claude-desktop
               ;
             unstable = import nixpkgs-unstable {
               system = "x86_64-linux";
@@ -68,7 +74,26 @@
           ];
           specialArgs = {
             inherit home-manager dmx;
-            inherit caelestia-shell ambxst mpris-inhibit;
+            inherit
+              caelestia-shell
+              ambxst
+              mpris-inhibit
+              claude-desktop
+              ;
+            unstable = import nixpkgs-unstable {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+          };
+        };
+        "openclaw-vm" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/openclaw-vm/configuration.nix
+            home-manager.nixosModules.home-manager
+          ];
+          specialArgs = {
+            inherit home-manager nix-openclaw;
             unstable = import nixpkgs-unstable {
               system = "x86_64-linux";
               config.allowUnfree = true;
