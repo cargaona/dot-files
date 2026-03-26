@@ -25,6 +25,10 @@
   # Host-specific configuration
   host.isDesktop = false;
 
+  home-manager.extraSpecialArgs = {
+    isDesktop = false;
+  };
+
   home-manager.users.char =
     {
       pkgs,

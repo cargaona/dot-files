@@ -17,9 +17,5 @@
 
       # GPU & Media
       gpu-screen-recorder
-<<<<<<< Updated upstream
-      (pkgs.llama-cpp.override { cudaSupport = true; })
-=======
->>>>>>> Stashed changes
     ];
 }

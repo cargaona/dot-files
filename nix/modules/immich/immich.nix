@@ -67,16 +67,13 @@
       options = "bind";
       wantedBy = [
         "immich-server.service"
-        "immich-microservices.service"
       ];
       before = [
         "immich-server.service"
-        "immich-microservices.service"
       ];
     }
   ];
 
   # 3. Add NVMe to allowed paths for Systemd
   systemd.services.immich-server.serviceConfig.ReadWritePaths = [ "/mnt/nvme/immich-thumbs" ];
-  systemd.services.immich-microservices.serviceConfig.ReadWritePaths = [ "/mnt/nvme/immich-thumbs" ];
 }

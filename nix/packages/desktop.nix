@@ -7,7 +7,7 @@
 let
   isDesktop = config.host.isDesktop or false;
 in
-
+{
   environment.systemPackages =
     with pkgs;
     lib.optionals pkgs.stdenv.isLinux [

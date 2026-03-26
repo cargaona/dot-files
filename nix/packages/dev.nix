@@ -35,11 +35,6 @@
       yarn
 
       # Development tools
-<<<<<<< Updated upstream
-      android-studio
-=======
-      # android-studio
->>>>>>> Stashed changes
       claude-code
       tflint # Terraform linter
       tree-sitter
