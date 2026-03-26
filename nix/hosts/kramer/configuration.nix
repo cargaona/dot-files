@@ -5,7 +5,8 @@
 {
   imports = [
     # Include home-manager configuration and other modular settings
-    <home-manager/nixos>
+    # <home-manager/nixos>
+    ../../modules/system/host-options.nix
     ../../modules/desktop/fonts.nix
     ../../modules/desktop/input.nix
     ../../modules/hardware/audio.nix
@@ -14,8 +15,6 @@
     ../../modules/kubernetes/k3s.nix
     ../../modules/immich/immich.nix
     ../../modules/network/ssh.nix
-    ../../modules/network/sync.nix
-    ../../modules/samba/samba.nix
     # ../../modules/llm/ollama.nix
     ../../modules/virtualization/docker.nix
     ../../packages/common.nix
@@ -23,8 +22,24 @@
     /etc/nixos/hardware-configuration.nix
   ];
 
-  home-manager.users.char = import ../../home/home.nix;
+  # Host-specific configuration
+  host.isDesktop = false;
 
+  home-manager.users.char =
+    {
+      pkgs,
+      lib,
+      ...
+    }:
+    {
+      imports = [
+        ../../home/home.nix
+      ];
+    };
+
+  nix.gc.automatic = true;
+  nix.gc.dates = "weekly";
+  nix.gc.options = "--delete-older-than 7d";
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -33,10 +48,11 @@
   # programs.polkit-kde-agent.enable = true;
   # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Networking Configuration
-  networking.hostName = "elaine"; # Define your hostname
+  networking.hostName = "kramer"; # Define your hostname
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [
     11434 # # ollama
@@ -52,6 +68,23 @@
     9998 # # tika
   ];
 
+  networking.firewall.allowedUDPPorts = [
+    1244
+    1245
+    1246
+    1247
+  ];
+
+  # Firefox sync hub storage directories.
+  # kramer acts as the central hub for Firefox profile sync between costanza and elaine.
+  # Desktops push to /backup/firefox/<hostname>/ and pull from each other's dirs.
+  # See modules/network/sync.nix for the full setup and how to enable it on desktops.
+  systemd.tmpfiles.rules = [
+    "d /backup/firefox            0755 char users -"
+    "d /backup/firefox/costanza  0755 char users -"
+    "d /backup/firefox/elaine     0755 char users -"
+  ];
+
   # Time Zone Configuration
   time.timeZone = "America/Argentina/Buenos_Aires";
 
@@ -59,7 +92,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # System State Version
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 
   # Allow Unfree Packages (like Spotify, Steam)
   nixpkgs.config.allowUnfree = true;

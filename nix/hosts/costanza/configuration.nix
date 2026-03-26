@@ -1,5 +1,7 @@
 {
   # config,
+  caelestia-shell,
+  ambxst,
   ...
 }:
 
@@ -7,6 +9,7 @@
   imports = [
     # Include home-manager configuration and other modular settings
     # <home-manager/nixos>
+    ../../modules/system/host-options.nix
     ../../packages/common.nix
     ../../modules/desktop/fonts.nix
     ../../modules/desktop/cosmic.nix
@@ -17,21 +20,59 @@
     ../../modules/hardware/nvidia.nix
     ../../modules/hardware/power.nix
     ../../modules/network/ssh.nix
-    ../../modules/network/sync.nix
+    ../../modules/dev/android.nix
+    # ../../modules/dev/nrf.nix
+    # Firefox bookmark/history/extension sync via rsync over SSH (hub: kramer)
+    # Pushes profile every 15min, pulls every 1h. See modules/network/sync.nix for details.
+    # To enable: uncomment the line below and rebuild both desktops + kramer.
+    # ../../modules/network/sync.nix
     ../../modules/virtualization/docker.nix
     ../../modules/llm/ollama.nix
+    ambxst.nixosModules.default
     ../../users/char.nix
     /etc/nixos/hardware-configuration.nix
   ];
 
-  home-manager.users.char = import ../../home/home.nix;
+  # Host-specific configuration
+  host.isDesktop = true;
 
+  # LLM configuration
+  services.llm.ollama = {
+    enable = true;
+    acceleration = "cuda";
+    host = "0.0.0.0";
+    port = 11434;
+    gpuOverhead = "1000000000"; # Reserve ~1GB for other services
+  };
+
+  home-manager.extraSpecialArgs = {
+    inherit caelestia-shell;
+  };
+
+  home-manager.users.char =
+    {
+      pkgs,
+      lib,
+      caelestia-shell,
+      ...
+    }:
+    {
+      imports = [
+        caelestia-shell.homeManagerModules.default
+        ../../home/home.nix
+      ];
+    };
+
+  nix.gc.automatic = true;
+  nix.gc.dates = "weekly";
+  nix.gc.options = "--delete-older-than 7d";
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
   # Bootloader Configuration
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Hardware-specific configurations
@@ -51,7 +92,7 @@
   '';
 
   # Networking Configuration
-  networking.hostName = "sff"; # Define your hostname
+  networking.hostName = "costanza"; # Define your hostname
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [
     8112
@@ -80,8 +121,13 @@
   '';
 
   # System State Version
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 
   # Allow Unfree Packages (like Spotify, Steam)
   nixpkgs.config.allowUnfree = true;
+
+  # Allow insecure packages (Qt5 WebEngine for telegram-desktop/rockbox-utility)
+  nixpkgs.config.permittedInsecurePackages = [
+    "qtwebengine-5.15.19"
+  ];
 }

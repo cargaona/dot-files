@@ -23,7 +23,7 @@ function _set_alias () {
   alias grip="history | grep"
   alias hiz="history | cut -c 8- | uniq | fzf | wl-copy"
   alias cf='_change_folder'
-  alias aiterm='/home/char/projects/personal/code/dot-files/scripts/aiterm'
+  alias aiterm='$CODE_PATH/dot-files/scripts/aiterm'
   #alias copy='xclip -sel clip'
   #alias bat="batcat"
 
@@ -32,11 +32,12 @@ function _set_alias () {
 
   alias vim=nvim
   alias vf='vim $(fzf)'
-  alias claude='/home/char/.claude/local/claude'
+  # alias claude='/home/char/.claude/local/claude'
 
   alias tl="tmux list-sessions"
   alias ta="tmux attach-session -t"
   alias t="ta || tmux"
+  alias tu="tmuxinator"
 
   alias g=git 
   alias ga='git add .'
@@ -47,6 +48,8 @@ function _set_alias () {
   alias gca="git commit --amend"
   #alias gcd="gcm $(date --rfc-3339=date)"
   alias cdr='cd $(git rev-parse --show-toplevel)'
+
+  alias hypr='uwsm start Hyprland'
 
   alias bt=bluetoothctl
   alias btoff="bluetoothctl power off"
@@ -68,8 +71,8 @@ function _set_alias () {
 }
 
 function _theme () {
-  #ZSH_THEME="/home/char/projects/personal/code/dot-files/zsh/minimal-char.zsh-theme"
-  source "/home/char/projects/personal/code/dot-files/zsh/minimal-char.zsh-theme"
+  #ZSH_THEME="$HOME/projects/personal/code/dot-files/zsh/minimal-char.zsh-theme"
+  source "$HOME/projects/personal/code/dot-files/zsh/minimal-char.zsh-theme"
   DISABLE_UNTRACKED_FILES_DIRTY="true"
   MNML_PROMPT=(mnml_ssh mnml_pyenv kube_ps1 mnml_status mnml_keymap 'mnml_cwd 2 0' mnml_git) 
   MNML_RPROMPT=()
@@ -149,11 +152,9 @@ _set_path
 kubeoff
 
 if _is_mac ; then
-  echo "Hi :wave: I'm a mac computer. I'm inferior"
   alias copy=pbcopy
   _mac_gpg
 else
-  echo "Hi :wave: I'm a linux computer. I'm superior"
   #_linux_gpg
   #_remove_duplicates_from_path
   alias copy='copyq copy -'

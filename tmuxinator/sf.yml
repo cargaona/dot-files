@@ -1,0 +1,19 @@
+name: sff
+root: ~/projects/cloudie/gamechanger/SensorFusion/
+
+# https://web.archive.org/web/20220308205829/https://man.openbsd.org/OpenBSD-current/man1/tmux.1#even-horizontal
+windows:
+  - code:
+      layout: tiled
+      panes:
+        - nix-shell --command "opencode"
+        - nix-shell --command "nvim"
+        - nix-shell
+
+  - execute:
+      layout: tiled
+      panes:
+        - nix-shell
+        - nix-shell
+        - nix-shell
+        - nix-shell

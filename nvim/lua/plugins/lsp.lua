@@ -54,8 +54,6 @@ return {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
-      local lspconfig = require("lspconfig")
-
       -- TSServer setup
       local function organize_imports()
         local params = {
@@ -65,7 +63,7 @@ return {
         vim.lsp.buf.execute_command(params)
       end
 
-      lspconfig.ts_ls.setup {
+      vim.lsp.config('ts_ls', {
         capabilities = capabilities,
         handlers = handlers,
         init_options = {
@@ -79,29 +77,29 @@ return {
             description = "Organize imports",
           },
         },
-      }
+      })
+      vim.lsp.enable('ts_ls')
 
       -- Pyright setup
-      lspconfig.pyright.setup {
+      vim.lsp.config('pyright', {
         capabilities = capabilities,
         handlers = handlers,
-        filetypes = { "python" },
-      }
+      })
+      vim.lsp.enable('pyright')
 
       -- BashLS setup
-      lspconfig.bashls.setup {
+      vim.lsp.config('bashls', {
         capabilities = capabilities,
         handlers = handlers,
-        filetypes = { "shell", "bash", "zsh", "sh" },
-      }
+      })
+      vim.lsp.enable('bashls')
 
       -- Gopls setup
-      lspconfig.gopls.setup {
+      vim.lsp.config('gopls', {
         capabilities = capabilities,
         handlers = handlers,
-        filetypes = { "go", "gomod", "gowork", "gotmpl" },
         cmd = { "gopls" },
-        root_dir = require("lspconfig/util").root_pattern("go.work", "go.mod", ".git"),
+        root_markers = { "go.work", "go.mod", ".git" },
         settings = {
           gopls = {
             completeUnimported = true,
@@ -111,30 +109,29 @@ return {
             },
           },
         },
-      }
+      })
+      vim.lsp.enable('gopls')
 
       -- DockerLS setup
-      lspconfig.dockerls.setup {
+      vim.lsp.config('dockerls', {
         capabilities = capabilities,
         handlers = handlers,
         cmd = { "docker-langserver", "--stdio" },
-        filetypes = { "dockerfile" },
-        root_dir = require("lspconfig/util").root_pattern "Dockerfile",
-        single_file_support = true,
-      }
+        root_markers = { "Dockerfile" },
+      })
+      vim.lsp.enable('dockerls')
 
       -- Docker Compose Language Service setup
-      lspconfig.docker_compose_language_service.setup {
+      vim.lsp.config('docker_compose_language_service', {
         capabilities = capabilities,
         handlers = handlers,
         cmd = { "docker-compose-langserver", "--stdio" },
-        filetypes = { "yaml.docker-compose", "docker-compose.yaml", "docker-compose.yml" },
-        root_dir = require("lspconfig/util").root_pattern("docker-compose.yaml", "docker-compose.yml", "compose.yaml", "compose.yml"),
-        single_file_support = true,
-      }
+        root_markers = { "docker-compose.yaml", "docker-compose.yml", "compose.yaml", "compose.yml" },
+      })
+      vim.lsp.enable('docker_compose_language_service')
 
       -- yaml
-      lspconfig.yamlls.setup {
+      vim.lsp.config('yamlls', {
         capabilities = capabilities,
         handlers = handlers,
         settings = {
@@ -156,41 +153,38 @@ return {
             },
           },
         }
-      }
+      })
+      vim.lsp.enable('yamlls')
 
       -- Terraform setup
-      lspconfig.tflint.setup{
+      vim.lsp.config('tflint', {
         flags = { debounce_text_changes = 150 },
-      }
+      })
+      vim.lsp.enable('tflint')
 
-      lspconfig.terraformls.setup{
+      vim.lsp.config('terraformls', {
         capabilities = capabilities,
         handlers = handlers,
-        on_attach = function(client)
-          client.server_capabilities.document_formatting = true
-        end,
         cmd = { "terraform-ls", "serve" },
-        filetypes = { "tf", "terraform", "tfvars" },
-      }
+      })
+      vim.lsp.enable('terraformls')
 
       -- SQL Language Server setup
-      lspconfig.sqlls.setup {
+      vim.lsp.config('sqlls', {
         capabilities = capabilities,
         handlers = handlers,
-        filetypes = { "sql", "pgsql", "mysql" },
-        root_dir = function(_)
-          return vim.loop.cwd()
-        end,
-      }
+      })
+      vim.lsp.enable('sqlls')
 
       -- CSS Language Server setup
-      lspconfig.cssls.setup {
+      vim.lsp.config('cssls', {
         capabilities = capabilities,
         handlers = handlers,
-      }
+      })
+      vim.lsp.enable('cssls')
 
       -- CCLS setup
-      lspconfig.ccls.setup {
+      vim.lsp.config('ccls', {
         capabilities = capabilities,
         handlers = handlers,
         init_options = {
@@ -202,10 +196,11 @@ return {
             excludeArgs = { "-frounding-math" },
           },
         },
-      }
+      })
+      vim.lsp.enable('ccls')
 
       -- nix
-      lspconfig.nil_ls.setup {
+      vim.lsp.config('nil_ls', {
         capabilities = capabilities,
         handlers = handlers,
         settings = {
@@ -216,11 +211,11 @@ return {
             },
           },
         },
-      }
-
+      })
+      vim.lsp.enable('nil_ls')
 
       -- lua
-      lspconfig.lua_ls.setup({
+      vim.lsp.config('lua_ls', {
         capabilities = capabilities,
         handlers = handlers,
         settings = {
@@ -232,6 +227,7 @@ return {
           },
         },
       })
+      vim.lsp.enable('lua_ls')
     end,
   },
 }

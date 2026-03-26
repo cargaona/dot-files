@@ -1,13 +1,18 @@
 {
   inputs = {
     # 1. add the urls of the flakes you want to use
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     darwin.url = "github:LnL7/nix-darwin";
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
+    caelestia-shell.url = "github:caelestia-dots/shell";
+    ambxst.url = "github:Axenide/Ambxst";
     dmx.url = "github:cargaona/dmx";
     mpris-inhibit.url = "github:/Bwc9876/wayland-mpris-idle-inhibit";
+    nix-openclaw.url = "github:openclaw/nix-openclaw";
+    claude-desktop.url = "github:k3d3/claude-desktop-linux-flake";
+    claude-desktop.inputs.nixpkgs.follows = "nixpkgs";
     # isolation.url = "path:/home/char/projects/personal/code/isolation";
   };
   outputs =
@@ -15,29 +20,33 @@
     {
       nixpkgs,
       nixpkgs-unstable,
-      # nixpkgs-darwin,
       darwin,
       home-manager,
+      caelestia-shell,
+      ambxst,
       dmx,
       mpris-inhibit,
-      # isolation,
+      nix-openclaw,
+      claude-desktop,
       ...
     }:
     {
       nixosConfigurations = {
-        "desktop" = nixpkgs.lib.nixosSystem {
+        "costanza" = nixpkgs.lib.nixosSystem {
           modules = [
-            ./hosts/desktop/configuration.nix
+            ./hosts/costanza/configuration.nix
             home-manager.nixosModules.home-manager
           ];
           specialArgs = {
             # 3. pass the variables to the system configuration
-            # 4. reference the modules inside the configuration.nix files, not here!  
+            # 4. reference the modules inside the configuration.nix files, not here!
             inherit
               home-manager
+              caelestia-shell
+              ambxst
               dmx
               mpris-inhibit
-              # isolation
+              claude-desktop
               ;
             unstable = import nixpkgs-unstable {
               system = "x86_64-linux";
@@ -45,29 +54,50 @@
             };
           };
         };
-        "server" = nixpkgs.lib.nixosSystem {
+        "kramer" = nixpkgs.lib.nixosSystem {
           modules = [
-            ./hosts/server/configuration.nix
+            ./hosts/kramer/configuration.nix
+            home-manager.nixosModules.home-manager
           ];
           specialArgs = {
-            inherit dmx;
+            inherit home-manager dmx;
             unstable = import nixpkgs-unstable {
               system = "x86_64-linux";
               config.allowUnfree = true;
             };
           };
         };
-      };
-
-      darwinConfigurations = {
-        "macbook" = darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
+        "elaine" = nixpkgs.lib.nixosSystem {
           modules = [
-            ./hosts/macbook/configuration.nix
-            home-manager.darwinModules.home-manager
+            ./hosts/elaine/configuration.nix
+            home-manager.nixosModules.home-manager
           ];
           specialArgs = {
-            inherit home-manager;
+            inherit home-manager dmx;
+            inherit
+              caelestia-shell
+              ambxst
+              mpris-inhibit
+              claude-desktop
+              ;
+            unstable = import nixpkgs-unstable {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+          };
+        };
+        "openclaw-vm" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/openclaw-vm/configuration.nix
+            home-manager.nixosModules.home-manager
+          ];
+          specialArgs = {
+            inherit home-manager nix-openclaw;
+            unstable = import nixpkgs-unstable {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
           };
         };
       };
