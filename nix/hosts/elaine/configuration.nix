@@ -50,6 +50,7 @@
 
   home-manager.extraSpecialArgs = {
     inherit caelestia-shell;
+    isDesktop = true;
   };
 
   home-manager.users.char =
