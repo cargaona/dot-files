@@ -190,7 +190,7 @@ in
     text = builtins.toJSON {
       "$schema" = "https://opencode.ai/config.json";
       plugin = [
-        "opencode-anthropic-auth@latest"
+        "opencode-claude-auth"
       ];
       provider = {
         ollama = {
@@ -234,7 +234,7 @@ in
       genericName = "AI Assistant";
       exec = "brave --app=https://gemini.google.com";
       terminal = false;
-      icon = "brave";
+      icon = "google";
       type = "Application";
       categories = [
         "Network"
@@ -246,7 +246,7 @@ in
       genericName = "AI Assistant";
       exec = "brave --app=https://chat.openai.com";
       terminal = false;
-      icon = "brave";
+      icon = "chatgpt";
       type = "Application";
       categories = [
         "Network"
@@ -258,7 +258,7 @@ in
       genericName = "RSS Reader";
       exec = "brave --app=https://feed.charlei.lat";
       terminal = false;
-      icon = "brave";
+      icon = "internet-news-reader";
       type = "Application";
       categories = [
         "Network"
@@ -270,7 +270,7 @@ in
       genericName = "Smart Home";
       exec = "brave --app=https://ha.charlei.lat";
       terminal = false;
-      icon = "brave";
+      icon = "home-assistant";
       type = "Application";
       categories = [
         "Network"
@@ -282,7 +282,7 @@ in
       genericName = "Messaging";
       exec = "brave --app=https://web.whatsapp.com";
       terminal = false;
-      icon = "brave";
+      icon = "whatsapp";
       type = "Application";
       categories = [
         "Network"
@@ -294,7 +294,7 @@ in
       genericName = "AI Notes";
       exec = "brave --app=https://notebooklm.google.com";
       terminal = false;
-      icon = "brave";
+      icon = "notebook";
       type = "Application";
       categories = [
         "Network"
@@ -306,7 +306,7 @@ in
       genericName = "AI Assistant";
       exec = "brave --app=https://x.com/i/grok";
       terminal = false;
-      icon = "brave";
+      icon = "twitter";
       type = "Application";
       categories = [
         "Network"
@@ -318,7 +318,7 @@ in
       genericName = "Email";
       exec = "brave --app=https://mail.google.com";
       terminal = false;
-      icon = "brave";
+      icon = "gmail";
       type = "Application";
       categories = [
         "Network"
@@ -330,7 +330,7 @@ in
       genericName = "Calendar";
       exec = "brave --app=https://calendar.notion.com";
       terminal = false;
-      icon = "brave";
+      icon = "calendar";
       type = "Application";
       categories = [
         "Network"
@@ -343,11 +343,74 @@ in
       genericName = "Photo Gallery";
       exec = "brave --app=https://photos.charlei.lat";
       terminal = false;
-      icon = "brave";
+      icon = "multimedia-photo-manager";
       type = "Application";
       categories = [
         "Network"
         "Graphics"
+      ];
+    };
+    feishin = {
+      name = "Feishin";
+      genericName = "Music Streaming";
+      exec = "brave --app=https://feishin.charlei.lat";
+      terminal = false;
+      icon = "multimedia-audio-player";
+      type = "Application";
+      categories = [
+        "Audio"
+        "Music"
+        "Network"
+      ];
+    };
+    emby = {
+      name = "Emby";
+      genericName = "Media Server";
+      exec = "brave --app=https://emby.charlei.xyz";
+      terminal = false;
+      icon = "emby";
+      type = "Application";
+      categories = [
+        "Audio"
+        "Video"
+        "Network"
+      ];
+    };
+    notion = {
+      name = "Notion";
+      genericName = "Productivity";
+      exec = "brave --app=https://notion.so";
+      terminal = false;
+      icon = "notion";
+      type = "Application";
+      categories = [
+        "Network"
+        "Office"
+      ];
+    };
+    harvest = {
+      name = "Harvest";
+      genericName = "Time Tracking";
+      exec = "brave --app=https://waytoodigital.harvestapp.com/time";
+      terminal = false;
+      icon = "harvest";
+      type = "Application";
+      categories = [
+        "Network"
+        "Office"
+      ];
+    };
+    claude = {
+      name = "Claude";
+      genericName = "AI Assistant";
+      exec = "brave --app=https://claude.ai/new";
+      terminal = false;
+      icon = "claude";
+      type = "Application";
+      categories = [
+        "Network"
+        "Development"
+        "Office"
       ];
     };
   };
@@ -358,6 +421,7 @@ in
     text = ''
       --password-store=basic
       --disable-features=PasswordManager
+      --enable-features=OverlayScrollbar
     '';
   };
 

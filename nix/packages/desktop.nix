@@ -2,10 +2,24 @@
   pkgs,
   lib,
   config,
+  claude-desktop,
   ...
 }:
 let
   isDesktop = config.host.isDesktop or false;
+
+  # Wrap claude-desktop to force X11/Xwayland mode for OAuth popup compatibility
+  claude-desktop-x11 = pkgs.symlinkJoin {
+    name = "claude-desktop-x11";
+    paths = [ claude-desktop.packages.${pkgs.system}.claude-desktop-with-fhs ];
+    buildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/claude-desktop \
+        --unset NIXOS_OZONE_WL \
+        --add-flags "--disable-features=UseOzonePlatform" \
+        --add-flags "--ozone-platform=x11"
+    '';
+  };
 in
 {
   environment.systemPackages =
@@ -54,6 +68,7 @@ in
     ++ lib.optionals isDesktop [
       # Desktop-only GUI applications (heavier apps)
       beets
+      claude-desktop-x11
       clementine
       davinci-resolve
       obs-studio

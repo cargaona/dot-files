@@ -6,6 +6,7 @@ A comprehensive NixOS configuration repository for managing multiple hosts with 
 
 This repository contains a sophisticated NixOS configuration that manages:
 - **Multiple hosts** (costanza, elaine, kramer) with specialized configurations
+- **OpenClaw VM** - Isolated AI assistant in a dedicated NixOS VM
 - **Modular services** for audio, docker, networking, and power management
 - **Cross-platform dotfiles** using Home Manager
 - **Wayland desktop environment** with Hyprland window manager
@@ -20,7 +21,8 @@ nix/
 ├── hosts/                 # Host-specific configurations
 │   ├── costanza/         # Primary desktop (DeepCool CH170)
 │   ├── elaine/            # Secondary desktop (Dan A4 SFX)
-│   └── kramer/            # Home server (NR200)
+│   ├── kramer/            # Home server (NR200)
+│   └── openclaw-vm/       # OpenClaw AI assistant VM
 ├── modules/               # Reusable NixOS modules by domain
 │   ├── desktop/          # Desktop environment & UI
 │   │   ├── hyprland.nix
@@ -218,6 +220,61 @@ Create modular services in `services/` directory with proper imports and options
 - GnuPG agent with SSH support enabled
 - Password store with Wayland extensions
 - Proper firewall configuration per host
+
+## OpenClaw AI Assistant VM
+
+This repository includes a complete NixOS VM configuration for running [OpenClaw](https://github.com/openclaw/openclaw), a personal AI assistant that connects to messaging platforms like Telegram.
+
+### Quick Start
+
+1. **Create secrets** (see `secrets/openclaw/README.md`):
+   ```bash
+   cd secrets/openclaw
+   echo "YOUR_BOT_TOKEN" > telegram-bot-token
+   openssl rand -hex 32 > gateway-token
+   ```
+
+2. **Update configuration** with your Telegram user ID in `hosts/openclaw-vm/home.nix`
+
+3. **Build the VM**:
+   ```bash
+   nix build .#nixosConfigurations.openclaw-vm.config.system.build.vm
+   ```
+
+4. **Run the VM**:
+   ```bash
+   ./result/bin/run-openclaw-vm-vm
+   ```
+
+### Features
+
+- **Isolated environment**: Runs in a dedicated NixOS VM separate from your host system
+- **Declarative configuration**: All setup is managed through Nix
+- **Persistent storage**: VM disk image persists between runs
+- **Port forwarding**: Gateway accessible on port 18789
+- **SSH access**: Manage the VM remotely
+- **Systemd service**: OpenClaw gateway runs automatically on boot
+
+### Documentation
+
+- Full setup guide: `hosts/openclaw-vm/README.md`
+- Secrets management: `secrets/openclaw/README.md`
+- OpenClaw docs: https://docs.openclaw.ai
+- Nix-OpenClaw: https://github.com/openclaw/nix-openclaw
+
+### Architecture
+
+```
+Host Machine
+    ↓
+QEMU VM (NixOS)
+    ↓
+User: openclaw (Home Manager)
+    ↓
+OpenClaw Gateway (systemd service)
+    ↓
+Telegram Bot ←→ Your Telegram Client
+```
 
 ## Contributing
 
