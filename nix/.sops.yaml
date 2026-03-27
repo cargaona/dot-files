@@ -1,0 +1,10 @@
+keys:
+  # Generate on kramer: sudo age-keygen -o /etc/age/keys.txt
+  # Then paste the public key here
+  - &kramer age1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+creation_rules:
+  - path_regex: secrets/beets\.yaml$
+    key_groups:
+      - age:
+          - *kramer

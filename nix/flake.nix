@@ -8,6 +8,8 @@
     ambxst.url = "github:Axenide/Ambxst";
     dmx.url = "github:cargaona/dmx";
     mpris-inhibit.url = "github:/Bwc9876/wayland-mpris-idle-inhibit";
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     nix-openclaw.url = "github:openclaw/nix-openclaw";
     claude-desktop.url = "github:k3d3/claude-desktop-linux-flake";
     claude-desktop.inputs.nixpkgs.follows = "nixpkgs";
@@ -23,6 +25,7 @@
       ambxst,
       dmx,
       mpris-inhibit,
+      sops-nix,
       ...
     }:
     {
@@ -54,7 +57,7 @@
             home-manager.nixosModules.home-manager
           ];
           specialArgs = {
-            inherit home-manager dmx;
+            inherit home-manager dmx sops-nix;
             unstable = import nixpkgs-unstable {
               system = "x86_64-linux";
               config.allowUnfree = true;
@@ -75,6 +78,10 @@
             };
           };
         };
+      };
+
+      packages.x86_64-linux.sandbox = import ./packages/sandbox-vm.nix {
+        pkgs = import nixpkgs { system = "x86_64-linux"; };
       };
     };
 }

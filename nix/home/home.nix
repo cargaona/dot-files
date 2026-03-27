@@ -77,7 +77,31 @@ in
         "embedart"
         "duplicates"
         "musicbrainz"
+        "lastimport"
+        "smartplaylist"
+        "subsonicupdate"
+        "subsonicplaylist"
       ];
+
+      lastimport = {
+        user = "notstolen";
+      };
+
+      smartplaylist = {
+        playlist_dir = "/mnt/seagate/music/playlists";
+        relative_to = "/mnt/seagate/music";
+        forward_slash = false;
+        playlists = [
+          {
+            name = "Most Played.m3u";
+            query = "play_count:5..";
+          }
+          {
+            name = "Recently Added.m3u";
+            query = "added:-1m..";
+          }
+        ];
+      };
 
       paths = {
         "albumtype:ep" = "$albumartist/$album [EP] ($original_year)/$track - $title";
@@ -99,6 +123,7 @@ in
       };
     };
   };
+
   programs.password-store = {
     enable = true;
     package = pkgs.pass-wayland.withExtensions (

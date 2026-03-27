@@ -1,4 +1,5 @@
 {
+  sops-nix,
   ...
 }:
 
@@ -37,7 +38,9 @@
     }:
     {
       imports = [
+        sops-nix.homeManagerModules.sops
         ../../home/home.nix
+        ../../home/beets-secrets.nix
       ];
     };
 
