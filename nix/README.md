@@ -218,6 +218,73 @@ Create modular services in `services/` directory with proper imports and options
 - GnuPG agent with SSH support enabled
 - Password store with Wayland extensions
 - Proper firewall configuration per host
+- Secrets encrypted with sops-nix (see below)
+
+### Secrets Management (sops-nix)
+
+Encrypted secrets are managed with [sops-nix](https://github.com/Mic92/sops-nix) using [age](https://github.com/FiloSottile/age) keys. Secrets are stored encrypted in `secrets/` and decrypted at activation time.
+
+#### Initial Setup (per host)
+
+1. **Generate an age key**:
+   ```bash
+   sudo mkdir -p /etc/age
+   sudo nix shell nixpkgs#age -c age-keygen -o /etc/age/keys.txt
+   ```
+   Note the public key from the output.
+
+2. **Set permissions** so your user can read the key (required for home-manager sops-nix):
+   ```bash
+   sudo chmod 644 /etc/age/keys.txt
+   ```
+
+3. **Update `.sops.yaml`** with the public key — replace or add an anchor for the host:
+   ```yaml
+   keys:
+     - &my-host age1your-public-key-here
+   ```
+
+#### Creating and Editing Secrets
+
+```bash
+# Create or edit an encrypted secret file
+nix shell nixpkgs#sops -c sops secrets/my-secret.yaml
+```
+
+Sops will open your `$EDITOR`. Add your secrets as YAML key-value pairs, save, and quit — sops encrypts automatically.
+
+**Important**: Secret files must be `git add`-ed for nix flakes to see them:
+```bash
+git add secrets/my-secret.yaml
+```
+
+#### Adding New Secret Files
+
+Add a new `creation_rules` entry in `.sops.yaml`:
+
+```yaml
+creation_rules:
+  - path_regex: secrets/my-secret\.yaml$
+    key_groups:
+      - age:
+          - *my-host
+```
+
+#### Consuming Secrets in Nix
+
+See `home/beets-secrets.nix` for an example. The pattern is:
+
+```nix
+{
+  sops = {
+    age.keyFile = "/etc/age/keys.txt";
+    defaultSopsFile = ../secrets/my-secret.yaml;
+    secrets."my_key" = { };
+  };
+}
+```
+
+The decrypted value is available at `config.sops.secrets."my_key".path` or via `config.sops.placeholder."my_key"` in templates.
 
 ## OpenClaw AI Assistant VM
 
