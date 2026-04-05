@@ -1,2 +1,4 @@
 *.backup
 urls
+*.qcow2
+result
