@@ -16,7 +16,9 @@ in
       alacritty-theme
 
       # Web browsers
-      brave
+      (brave.override {
+        commandLineArgs = "--password-store=basic --enable-features=OverlayScrollbar";
+      })
       firefox
 
       # Media & Entertainment

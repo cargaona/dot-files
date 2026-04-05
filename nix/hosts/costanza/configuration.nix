@@ -11,7 +11,6 @@
     # <home-manager/nixos>
     ../../modules/system/host-options.nix
     ../../packages/common.nix
-    ../../packages/llm.nix
     ../../modules/desktop/fonts.nix
     ../../modules/desktop/cosmic.nix
     ../../modules/desktop/hyprland.nix
